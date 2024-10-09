@@ -2,6 +2,9 @@
 flutter config --enable-web
 flutter devices
 flutter build web
+
+flutter build web --base-href /your-repo/
+
 ```
 
 ```
@@ -26,3 +29,4 @@ Source에서 gh-pages 브랜치를 선택합니다.
 저장소에서 배포되는 사이트 주소가 표시됩니다. (예: https://username.github.io/)
 이제 GitHub Pages에서 Flutter 웹 애플리케이션을 확인할 수 있습니다!
 ```
+
