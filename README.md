@@ -1,1 +1,3 @@
-# hcmoon92.github.io
+flutter config --enable-web
+flutter devices
+flutter build web
