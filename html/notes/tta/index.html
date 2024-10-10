@@ -152,9 +152,12 @@
 				controls: true,
 				progress: true,
 				history: true,
-				center: true,
+				//center: true,
 
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ],
+                pdfSeparateFragments: false,
+                pdfMaxPagesPerSlide: 1,
+                pdfPageHeightOffset: 5,
 			});
 
 		</script>
