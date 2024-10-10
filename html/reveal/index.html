@@ -39,55 +39,6 @@
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 
-
-
-  <!-- jQuery (optional, if you are using it) -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-  <!-- Your custom JavaScript -->
-  <script>
-      // Function to load selected Markdown file
-      function loadSelectedMarkdown() {
-        const selectedFile = $('#markdown-selector').val();
-        fetchMarkdown(selectedFile);
-      }
-
-      // Function to fetch and load the markdown file content
-      function fetchMarkdown(file) {
-        $.get(file)
-          .done(function(markdown) {
-            // Ensure the slides container exists before modifying its content
-            const slidesContainer = $('#slides-container');
-            if (slidesContainer.length) {
-              slidesContainer.html(`
-                <section data-markdown>
-                  <textarea data-template>
-                    ${markdown}
-                  </textarea>
-                </section>
-              `);
-
-              // Reinitialize reveal.js to render the new content
-              Reveal.sync();
-            } else {
-              console.error('Slides container not found.');
-            }
-          })
-          .fail(function() {
-            console.error(`Error loading ${file}`);
-          });
-      }
-
-      // Initial load (optional: load the first file by default)
-      loadSelectedMarkdown();
-
-    $(document).ready(function() {
-
-      // Attach event listener to dropdown to load selected markdown on change
-      $('#markdown-selector').on('change', loadSelectedMarkdown);
-    });
-  </script>
-
 <script>
 	// More info about initialization & config:
 	// - https://revealjs.com/initialization/
