@@ -20,7 +20,7 @@
 			<div class="slides">
 
                 <!-- Use external markdown resource, separate slides by three newlines; vertical slides by two newlines -->
-                <section data-markdown="slides/tta-training/chap01.md" data-separator="---" data-separator-vertical="--"></section>
+                <section data-markdown="slides/tta-training/dev-ops-test.md" data-separator="---" data-separator-vertical="--"></section>
 		</div>
 
 		<script src="../../reveal/dist/reveal.js"></script>
@@ -36,7 +36,8 @@
 				progress: true,
 				history: true,
 				//center: true,
-
+                slideNumber: 'c/t',
+                
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ],
                 pdfSeparateFragments: false,
                 //pdfMaxPagesPerSlide: 1,
