@@ -14,6 +14,16 @@
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 	</head>
 	<body>
+
+		<div>
+			<h1>Select a Markdown file:</h1>
+			<select id="markdown-selector" onchange="loadSelectedMarkdown()">
+			  <option value="slides/web-dev/chap01.md">Web Dev - Chapter 1</option>
+			  <option value="slides/web-ops/ops01.md">Web Ops - Operations 1</option>
+			  <option value="slides/web-test/test01.md">Web Test - Test 1</option>
+			</select>
+		  </div>
+
 		<div class="reveal">
 			<div class="slides">
 				<section>Slide 1</section>
@@ -39,5 +49,8 @@
 				background: 'white'
 			});
 		</script>
+
+		<script src="app.js"></script>
+
 	</body>
 </html>
