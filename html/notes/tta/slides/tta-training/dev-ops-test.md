@@ -253,16 +253,25 @@
 ### ✏️ CSS 선택자
 
 - 요소 선택자: 특정 HTML 요소를 선택하여 스타일을 적용. 
-  ```html p { color: blue; }```
+```html
+p { color: blue; }
+```
 - 클래스 선택자: `.className` 형태로 특정 클래스에 속하는 요소를 선택.
-  ```html .header { font-size: 2em; } ```
+```html 
+.header { font-size: 2em; } 
+```
 - ID 선택자: `#idName` 형태로 특정 ID를 가진 요소를 선택 .
-  ```html #main { width: 100%; } ```
+```html 
+#main { width: 100%; } 
+```
 - 속성 선택자: 특정 속성을 가진 요소를 선택 .
-  ```html input[type="text"] { background-color: lightgray; } ```
+```html 
+input[type="text"] { background-color: lightgray; } 
+```
 - 복합 선택자: 여러 선택자를 결합하여 특정 요소를 선택. 
-  ```html div p { margin: 0; }```
-
+```html 
+div p { margin: 0; }
+```
 
 ### ✏️ CSS 속성
 - CSS 속성은 선택된 요소의 스타일을 지정 
