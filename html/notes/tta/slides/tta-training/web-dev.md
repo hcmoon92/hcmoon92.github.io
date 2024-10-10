@@ -735,6 +735,8 @@ fetchData();
   sudo apt-get install git
 ```
 --
+## 🔘 Git 설치 및 설정
+
 ### 🔸 Git 초기 설정
 - Git 설치 후에는 사용자 정보를 설정.
 
@@ -769,6 +771,9 @@ git add 파일명
 
 - 모든 파일을 추가하려면 git add . 명령어를 사용.
 
+--
+## 🔘 Git 기본 명령어
+
 ### 🔸 커밋하기 (git commit)
 - 변경 사항을 로컬 저장소에 기록하려면 git commit 명령어를 사용.
 
@@ -802,6 +807,8 @@ git branch feature-branch
 git checkout feature-branch
 ```
 
+--
+## 🔘 브랜치와 병합 (Branching and Merging)
 ### 🔸 브랜치 확인하기
 - 현재 존재하는 브랜치를 확인하려면 git branch 명령어를 사용. 
 - 현재 작업 중인 브랜치는 * 기호로 표시.
