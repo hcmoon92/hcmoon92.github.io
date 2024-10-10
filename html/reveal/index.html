@@ -46,7 +46,6 @@
 
   <!-- Your custom JavaScript -->
   <script>
-    $(document).ready(function() {
       // Function to load selected Markdown file
       function loadSelectedMarkdown() {
         const selectedFile = $('#markdown-selector').val();
@@ -81,6 +80,8 @@
 
       // Initial load (optional: load the first file by default)
       loadSelectedMarkdown();
+
+    $(document).ready(function() {
 
       // Attach event listener to dropdown to load selected markdown on change
       $('#markdown-selector').on('change', loadSelectedMarkdown);
