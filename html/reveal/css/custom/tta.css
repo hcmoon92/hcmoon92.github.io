@@ -1,15 +1,15 @@
 
 /* Custom styles for text colors */
 .reveal h1 {
-    color: #FF5733; /* Example color for h1 */
+    color: black; /* Example color for h1 */
 }
 .reveal h2 {
-    color: #33FF57; /* Example color for h2 */
+    color: blue; /* Example color for h2 */
 }
 .reveal h3 {
     color: #3357FF; /* Example color for h3 */
 }
 .reveal section {
     font-size: 20px;
-    text-align: center;
+    text-align: left;
 }
