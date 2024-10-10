@@ -729,8 +729,12 @@ fetchData();
 - 각 운영체제에 맞는 설치 파일을 다운로드하여 설치.
 - Windows: Git 공식 웹사이트에서 설치 파일을 다운로드하여 설치.
 - macOS: 터미널에서 brew install git 명령어를 사용하여 설치.
-- Linux: 각 배포판에 맞는 패키지 매니저를 통해 설치. 예: sudo apt-get install git
-
+- Linux: 각 배포판에 맞는 패키지 매니저를 통해 설치. 
+  
+```bash
+  sudo apt-get install git
+```
+--
 ### 🔸 Git 초기 설정
 - Git 설치 후에는 사용자 정보를 설정.
 
