@@ -1,19 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Development Introduction</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/black.css">
-    <style>
-        /* Optional custom styles */
-        .reveal section {
-            font-size: 20px;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/white.css">
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
 </head>
 <body>
+
     <div class="reveal">
         <div class="slides" id="slides">
 
@@ -35,26 +33,26 @@
                 </section>
 
 		</div>
-    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
-    <!-- <script>
-        // Fetch the Markdown file
-        fetch('slides/tta-training/chap01.md')
-            .then(response => response.text())
-            .then(markdown => {
-                // Convert Markdown to HTML
-                const converter = new showdown.Converter();
-                const html = converter.makeHtml(markdown);
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
 
-                // Insert HTML into slides
-                document.getElementById('slides').innerHTML = html;
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+        pdfSeparateFragments: false,
+        pdfMaxPagesPerSlide: 1,
+        pdfPageHeightOffset: 5,
+        background: 'white'
+    });
+</script>
 
-                // Initialize Reveal.js after loading content
-                Reveal.initialize();
-            })
-            .catch(error => console.error('Error loading Markdown file:', error));
-    </script> -->
+
 </body>
 </html>
