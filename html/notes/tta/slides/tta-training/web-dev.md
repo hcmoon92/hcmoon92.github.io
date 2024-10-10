@@ -392,7 +392,7 @@ img { max-width: 100%; height: auto; }
 font-size: calc(16px + 1vw);
 ```
 --
-## 🔘 고급 CSS (Advanced CSS) - 애니메이션과 전환 (Animations and Transitions)
+## 🔘 고급 CSS (Advanced CSS) - 애니메이션과 전환
 ### 🔸 전환 (Transition)
 - 전환은 CSS 속성 값의 변화를 애니메이션으로 부드럽게 처리할 수 있는 기능
 ```html
@@ -409,6 +409,9 @@ transition: all 0.3s ease;
 ```html
 animation: fadeIn 2s;
 ```
+--
+## 🔘 고급 CSS (Advanced CSS) - 애니메이션과 전환
+
 ### 🔸 CSS 전처리기 (CSS Preprocessors)
 - SASS(Syntactically Awesome Stylesheets)는 CSS의 확장 언어로, 중첩 규칙, 변수, 믹스인 등을 지원.
 ```html
