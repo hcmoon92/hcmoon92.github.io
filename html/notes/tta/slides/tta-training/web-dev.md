@@ -499,6 +499,9 @@ if (score >= 90) {
   console.log('C');
 }
 ```
+--
+## 🔘 제어 구조 (조건문과 반복문)
+
 ### 🔸 반복문 (Loops)
 - 반복문은 특정 조건이 참인 동안 코드 블록을 반복 실행.
 - for 문: 정해진 횟수만큼 코드를 반복.
@@ -536,6 +539,9 @@ function greet(name) {
 ```javascript
 console.log(greet('Alice'));
 ```
+--
+## 🔘 함수와 범위 (Functions and Scope)
+
 ### 🔸 매개변수와 인수
 - 매개변수: 함수가 호출될 때 입력받는 변수.
 - 인수: 함수를 호출할 때 실제로 전달되는 값.
@@ -558,7 +564,7 @@ const greet = (name) => `Hello, ${name}!`;
 ### 🔸 함수 범위 (Function Scope)
 - 함수 내에서 선언된 변수는 함수 외부에서 접근 불가. 
 --
-## 🔘 이벤트 처리와 DOM 조작 (Event Handling and DOM Manipulation)
+## 🔘 이벤트 처리와 DOM 조작
 ### 🔸 이벤트(Event)란?
 - 이벤트는 사용자가 웹 페이지와 상호작용할 때 발생하는 동작.
 - 클릭, 키보드 입력, 마우스 이동 등.
@@ -571,6 +577,9 @@ document.getElementById('myButton').addEventListener('click', function() {
   alert('Button clicked!');
 });
 ```
+--
+## 🔘 이벤트 처리와 DOM 조작
+
 ### 🔸 DOM(Document Object Model) 소개
 - DOM은 HTML 문서를 객체로 표현한 구조. 
 - 자바스크립트를 사용하여 DOM 요소를 선택하고 조작.
@@ -622,6 +631,9 @@ const greet = (name) => `Hello, ${name}!`;
 const name = 'Alice';
 const message = `Hello, ${name}! Welcome to the site.`;
 ```
+--
+## 🔘 ES6+ 특징 (화살표 함수, 디스트럭처링 등)
+
 ### 🔸 디스트럭처링(Destructuring)
 - 디스트럭처링은 배열이나 객체의 값을 개별 변수에 쉽게 할당할 수 있는 방법.
 
@@ -664,6 +676,9 @@ fetchData((message) => {
   console.log(message);
 });
 ```
+--
+## 🔘 비동기 자바스크립트 (Asynchronous JavaScript)
+
 ### 🔸 프로미스(Promises)
 - 프로미스는 비동기 작업의 완료 여부를 나타내는 객체. 
 - then, catch 메서드를 사용하여 작업이 성공하거나 실패했을 때의 동작을 정의.
@@ -926,6 +941,9 @@ git checkout -b feature/awesome-feature
 - 고정된 스키마와 구조화된 데이터.
 - 데이터 간의 관계를 명확히 정의하고, JOIN을 통해 데이터를 연결.
 - ACID 속성(Atomicity, Consistency, Isolation, Durability)을 보장.
+--
+## 🔘 SQL vs NoSQL
+
 ### 🔸 NoSQL의 특징
 - 유연한 스키마 또는 스키마 없음.
 - 대규모 데이터 분산 처리에 적합하며, 수평 확장이 용이.
@@ -954,6 +972,8 @@ INSERT INTO users (name, email) VALUES ('John Doe', 'john@example.com');
 ```sql
 SELECT * FROM users WHERE email = 'john@example.com';
 ```
+--
+## 🔘 CRUD 작업
 ### 🔸 Update (수정)
 - 기존 데이터를 수정. SQL에서 UPDATE 문을 사용하여 데이터를 업데이트.
 
@@ -986,6 +1006,8 @@ DELETE FROM users WHERE email = 'john@example.com';
 - Ruby: ActiveRecord
 - ORM 프레임워크들은 각 언어의 특성에 맞게 설계되어 있으며, 데이터베이스와의 상호작용을 더 쉽게 만듬.
 
+--
+## 🔘 ORM 소개
 ### 🔸 ORM 사용 예시 (Sequelize)
 - Sequelize를 사용하여 데이터베이스 모델을 정의하고, 이를 통해 CRUD 작업을 수행.
 
@@ -1009,6 +1031,9 @@ User.create({ name: 'John Doe', email: 'john@example.com' });
 - 무상태성: 서버는 클라이언트의 상태를 저장하지 않음. 각 요청은 독립적 작동.
 - 클라이언트-서버 구조: 클라이언트와 서버는 분리되어 독립적으로 작동.
 - 일관된 인터페이스: 모든 리소스는 동일한 URI 형식과 HTTP 메서드를 사용하여 액세스.
+  
+--
+## 🔘 RESTful API 개요
 ### 🔸 HTTP 메서드와 REST
 - GET: 리소스 조회
 - POST: 리소스 생성
@@ -1048,6 +1073,9 @@ app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });
 ```
+--
+## 🔘 Express.js (Node.js) 소개
+
 ### 🔸 라우팅 설정
 - Express에서는 다양한 HTTP 메서드를 사용하여 라우팅을 설정.
 
@@ -1069,6 +1097,9 @@ app.use((req, res, next) => {
   next();
 });
 ```
+--
+## 🔘 Express.js (Node.js) 소개
+
 ### 🔸 Express와 MongoDB 연동
 - MongoDB는 NoSQL 데이터베이스로, Mongoose 라이브러리를 사용하여 Express.js와 연동.
 
@@ -1114,6 +1145,9 @@ fetch('https://api.example.com/users')
   .then(response => response.json())
   .then(data => console.log(data));
 ```
+--
+## 🔘 프런트엔드와 백엔드 상호 연동
+
 ### 🔸 Axios 사용 예시
 - Axios는 HTTP 요청을 쉽게 보낼 수 있는 JavaScript 라이브러리.
 
@@ -1185,6 +1219,8 @@ res.send({ token });
 ### 🔸 세션 관리
 - 사용자 세션을 안전하게 관리하고, 세션 하이재킹을 방지하기 위해 세션 ID를 주기적으로 변경. 
 - 세션 쿠키에 보안 플래그를 설정.
+--
+## 🔘 보안 모범 사례
 
 ### 🔸 권한 부여
 - 사용자의 역할에 따라 적절한 권한을 부여하고, 중요한 작업을 수행할 때 추가적인 인증 절차 필요. 
