@@ -15,7 +15,27 @@
 </head>
 <body>
     <div class="reveal">
-        <div class="slides" id="slides"></div>
+        <div class="slides" id="slides">
+
+                <!-- Use external markdown resource, separate slides by three newlines; vertical slides by two newlines -->
+                <section data-markdown="slides/tta-training/chap01.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+                <section data-markdown="slides/tta-training/chap01.md" data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+
+                <!-- Slides are separated by three dashes (the default) -->
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Demo 1
+                        Slide 1
+                        ---
+                        ## Demo 1
+                        Slide 2
+                        ---
+                        ## Demo 1
+                        Slide 3
+                    </script>
+                </section>
+
+		</div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.js"></script>
