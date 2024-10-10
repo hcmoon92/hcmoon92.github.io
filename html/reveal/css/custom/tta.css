@@ -3,8 +3,8 @@
 .reveal section {
     font-size: 20px; /* Adjust font size if needed */
     text-align: left; /* Center text alignment */
-    margin: 40px; /* Adjust margins as needed */
-    padding: 20px; /* Add padding if desired */
+    margin: 10px; /* Adjust margins as needed */
+    padding: 10px; /* Add padding if desired */
 }
 
 .reveal h1 {
