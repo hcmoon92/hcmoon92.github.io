@@ -24,12 +24,15 @@
 			</select>
 		  </div>
 
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+		  <div class="reveal">
+			<div class="slides" id="slides-container">
+			  <!-- Markdown content will be loaded here -->
+			  <section>
+				<h2>Welcome to the Presentation!</h2>
+				<p>Select a Markdown file from the dropdown above.</p>
+			  </section>
 			</div>
-		</div>
+		  </div>
 
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
@@ -50,60 +53,60 @@
 			});
 		</script>
 
-		<script>
-			// Ensure the DOM is loaded before running this script
-			document.addEventListener('DOMContentLoaded', function() {
-			
-			// Function to load selected Markdown file
-			function loadSelectedMarkdown() {
-				const selector = document.getElementById('markdown-selector');
-				const selectedFile = selector.value;
-				
-				fetchMarkdown(selectedFile);
-			}
 
-			// Function to fetch and load the markdown file content
-			function fetchMarkdown(file) {
-				fetch(file)
-				.then(response => {
-					if (!response.ok) {
-					throw new Error(`Error loading ${file}`);
-					}
-					return response.text();
-				})
-				.then(markdown => {
-					// Ensure the slides container exists before modifying its content
-					const slidesContainer = document.getElementById('slides-container');
-					if (slidesContainer) {
-					slidesContainer.innerHTML = `
-						<section data-markdown>
-						<textarea data-template>
-							${markdown}
-						</textarea>
-						</section>
-					`;
-					
-					// Reinitialize reveal.js to render the new content
-					Reveal.sync();
-					} else {
-					console.error('Slides container not found.');
-					}
-				})
-				.catch(error => {
-					console.error('Error loading markdown:', error);
-				});
-			}
+  <!-- jQuery (optional, if you are using it) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-			// Initial load (optional: load first file by default)
-			loadSelectedMarkdown();
+  <!-- Your custom JavaScript -->
+  <script>
+    $(document).ready(function() {
+      // Function to load selected Markdown file
+      function loadSelectedMarkdown() {
+        const selectedFile = $('#markdown-selector').val();
+        fetchMarkdown(selectedFile);
+      }
 
-			// Attach event listener to dropdown to load selected markdown on change
-			const selector = document.getElementById('markdown-selector');
-			selector.addEventListener('change', loadSelectedMarkdown);
+      // Function to fetch and load the markdown file content
+      function fetchMarkdown(file) {
+        $.get(file)
+          .done(function(markdown) {
+            // Ensure the slides container exists before modifying its content
+            const slidesContainer = $('#slides-container');
+            if (slidesContainer.length) {
+              slidesContainer.html(`
+                <section data-markdown>
+                  <textarea data-template>
+                    ${markdown}
+                  </textarea>
+                </section>
+              `);
 
-			});
-						
-		</script>
+              // Reinitialize reveal.js to render the new content
+              Reveal.sync();
+            } else {
+              console.error('Slides container not found.');
+            }
+          })
+          .fail(function() {
+            console.error(`Error loading ${file}`);
+          });
+      }
 
-	</body>
+      // Initial load (optional: load the first file by default)
+      loadSelectedMarkdown();
+
+      // Attach event listener to dropdown to load selected markdown on change
+      $('#markdown-selector').on('change', loadSelectedMarkdown);
+    });
+  </script>
+
+  <script>
+    Reveal.initialize({
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+      hash: true,
+      slideNumber: true
+    });
+  </script>
+
+</body>
 </html>
