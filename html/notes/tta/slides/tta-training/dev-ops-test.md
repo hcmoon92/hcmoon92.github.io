@@ -282,57 +282,60 @@ div p { margin: 0; }
 - 속성에 할당되는 값입니다. 
 - 예: color: red;, font-size: 16px;, margin: 10px; 등.
 --
-색상, 폰트, 텍스트 스타일링
-색상 (Colors)
+## 📚 색상, 폰트, 텍스트 스타일링
+### ✏️ 색상 (Colors)
 
-색상 코드: 색상은 hex, rgb, rgba, hsl 등으로 정의할 수 있습니다. 예: #ff5733, rgb(255, 87, 51), rgba(255, 87, 51, 0.8) 등.
-배경색: background-color 속성을 사용하여 요소의 배경색을 설정합니다. 예: background-color: #f0f0f0;
-폰트 (Fonts)
+- 색상 코드: 색상은 hex, rgb, rgba, hsl 등으로 정의 . 예: #ff5733, rgb(255, 87, 51), rgba(255, 87, 51, 0.8) 등.
+- 배경색: background-color 속성을 사용하여 요소의 배경색 설정 . 예: background-color: #f0f0f0;
 
-폰트 패밀리: font-family 속성으로 텍스트에 적용할 글꼴을 지정합니다. 예: font-family: Arial, sans-serif;
-폰트 크기: font-size 속성으로 텍스트의 크기를 지정합니다. 예: font-size: 16px;
-폰트 스타일: font-style 속성으로 이탤릭체를 적용합니다. 예: font-style: italic;
-폰트 두께: font-weight 속성으로 텍스트의 굵기를 설정합니다. 예: font-weight: bold;
-텍스트 스타일링
+### ✏️ 폰트 (Fonts)
 
-텍스트 색상: color 속성으로 텍스트의 색상을 지정합니다. 예: color: #333;
-텍스트 정렬: text-align 속성으로 텍스트의 정렬을 설정합니다. 예: text-align: center;
-텍스트 장식: text-decoration 속성으로 텍스트의 밑줄, 취소선 등을 설정합니다. 예: text-decoration: underline;
-텍스트 변환: text-transform 속성으로 텍스트의 대소문자를 변환합니다. 예: text-transform: uppercase;
+- 폰트 패밀리: font-family 속성으로 텍스트에 적용할 글꼴 지정  예: font-family: Arial, sans-serif;
+- 폰트 크기: font-size 속성으로 텍스트의 크기 지정 예: font-size: 16px;
+- 폰트 스타일: font-style 속성으로 이탤릭체 적용. 예: font-style: italic;
+- 폰트 두께: font-weight 속성으로 텍스트의 굵기 설정. 예: font-weight: bold;
 
---
-박스 모델 (Box Model)
-박스 모델이란?
-CSS 박스 모델은 모든 HTML 요소가 사각형 박스로 표시된다는 개념입니다. 요소는 콘텐츠(Content), 패딩(Padding), 경계선(Border), 마진(Margin)으로 구성됩니다.
+### ✏️ 텍스트 스타일링
 
-콘텐츠(Content)
-요소의 실제 콘텐츠 부분입니다. 예: 텍스트, 이미지 등이 포함됩니다.
-
-패딩(Padding)
-콘텐츠와 경계선 사이의 내부 여백입니다. 예: padding: 10px;
-
-경계선(Border)
-요소의 테두리입니다. 두께, 스타일, 색상을 지정할 수 있습니다. 예: border: 1px solid #ccc;
-
-마진(Margin)
-요소와 주변 요소 사이의 외부 여백입니다. 예: margin: 20px;
+- 텍스트 색상: color 속성으로 텍스트의 색상 지정. 예: color: #333;
+- 텍스트 정렬: text-align 속성으로 텍스트의 정렬 설정. 예: text-align: center;
+- 텍스트 장식: text-decoration 속성으로 텍스트의 밑줄, 취소선 등 설정. 예: text-decoration: underline;
+- 텍스트 변환: text-transform 속성으로 텍스트의 대소문자 변환. 예: text-transform: uppercase;
 
 --
-레이아웃 기법 (Layout techniques)
-플렉스박스(Flexbox) 소개
-플렉스박스는 1차원 레이아웃 모델로, 컨테이너와 자식 요소 간의 공간 배분과 정렬을 쉽게 처리할 수 있습니다.
+## 📚 박스 모델 (Box Model)
+### ✏️ 박스 모델이란?
+- CSS 박스 모델은 모든 HTML 요소가 사각형 박스로 표시
+- 요소는 콘텐츠(Content), 패딩(Padding), 경계선(Border), 마진(Margin)으로 구성
 
-플렉스 컨테이너와 아이템
+### ✏️ 콘텐츠(Content)
+- 요소의 실제 콘텐츠 부분입니다. 예: 텍스트, 이미지 등 포함 
 
+### ✏️ 패딩(Padding)
+- 콘텐츠와 경계선 사이의 내부 여백. 예: padding: 10px;
+
+### ✏️ 경계선(Border)
+- 요소의 테두리입니다. 두께, 스타일, 색상 지정. 예: border: 1px solid #ccc;
+
+### ✏️ 마진(Margin)
+- 요소와 주변 요소 사이의 외부 여백. 예: margin: 20px;
+
+--
+## 📚 레이아웃 기법 (Layout techniques)
+### ✏️ 플렉스박스(Flexbox) 소개
+플렉스박스는 1차원 레이아웃 모델로, 컨테이너와 자식 요소 간의 공간 배분과 정렬 처리.
+
+### ✏️ 플렉스 컨테이너와 아이템
 display: flex;를 사용하여 컨테이너를 플렉스 컨테이너로 설정합니다.
 flex-direction 속성으로 아이템의 정렬 방향을 지정합니다. 예: row, column.
 justify-content: 주 축을 따라 아이템을 정렬합니다. 예: flex-start, center, space-between.
 align-items: 교차 축을 따라 아이템을 정렬합니다. 예: flex-start, center, stretch.
 flex-wrap: 아이템이 컨테이너를 넘을 때 자동으로 줄바꿈을 할 수 있습니다. 예: wrap.
-CSS 그리드(Grid) 소개
-CSS 그리드는 2차원 레이아웃 모델로, 행과 열을 사용하여 복잡한 레이아웃을 쉽게 구현할 수 있습니다.
+### ✏️ CSS 그리드(Grid) 소개
+- CSS 그리드는 2차원 레이아웃 모델
+- 행과 열을 사용하여 복잡한 레이아웃 쉽게 구현
 
-그리드 컨테이너와 아이템
+### ✏️ 그리드 컨테이너와 아이템
 
 display: grid;를 사용하여 그리드 컨테이너를 설정합니다.
 grid-template-columns와 grid-template-rows로 행과 열을 정의합니다. 예: grid-template-columns: repeat(3, 1fr);
