@@ -38,20 +38,7 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
-				pdfSeparateFragments: false,
-				pdfMaxPagesPerSlide: 1,
-				pdfPageHeightOffset: 5,
-				background: 'white'
-			});
-		</script>
+
 
 
   <!-- jQuery (optional, if you are using it) -->
@@ -100,13 +87,20 @@
     });
   </script>
 
-  <script>
-    Reveal.initialize({
-      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
-      hash: true,
-      slideNumber: true
-    });
-  </script>
+<script>
+	// More info about initialization & config:
+	// - https://revealjs.com/initialization/
+	// - https://revealjs.com/config/
+	Reveal.initialize({
+		hash: true,
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+		pdfSeparateFragments: false,
+		pdfMaxPagesPerSlide: 1,
+		pdfPageHeightOffset: 5,
+		background: 'white'
+	});
+</script>
 
 </body>
 </html>
