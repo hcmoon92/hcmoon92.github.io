@@ -1,15 +1,27 @@
 
-/* Custom styles for text colors */
+/* Custom styles for margin and padding */
+.reveal section {
+    font-size: 20px; /* Adjust font size if needed */
+    text-align: left; /* Center text alignment */
+    margin: 40px; /* Adjust margins as needed */
+    padding: 20px; /* Add padding if desired */
+}
+
 .reveal h1 {
     color: black; /* Example color for h1 */
+    margin-bottom: 30px; /* Space below h1 */
 }
 .reveal h2 {
     color: blue; /* Example color for h2 */
+    margin-top: 20px; /* Space above h2 */
+    margin-bottom: 20px; /* Space below h2 */    
 }
 .reveal h3 {
     color: #3357FF; /* Example color for h3 */
+    margin-top: 15px; /* Space above h3 */
+    margin-bottom: 15px; /* Space below h3 */    
 }
-.reveal section {
+/* .reveal section {
     font-size: 20px;
     text-align: left;
-}
+} */
