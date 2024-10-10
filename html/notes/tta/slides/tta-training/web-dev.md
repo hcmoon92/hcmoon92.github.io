@@ -72,6 +72,14 @@
 ### 🔸 웹의 역사와 발전
 ### 🔸 웹 개발에 사용되는 주요 도구
 ## 🔘 Q&A 
+
+
+
+
+
+
+
+
 ---
 # 🔷 HTML - 웹의 구조
 --
@@ -162,8 +170,6 @@
 - 체크박스 (`<input type="checkbox">`): 여러 선택 옵션을 제공
 
 --
-# 🔷 폼 검증과 접근성 (Validation and Accessibility)
---
 ## 🔘 폼 검증 (Validation)
 
 ### 🔸 HTML5 기본 검증
@@ -200,9 +206,7 @@
 - 모든 폼 요소는 키보드로 접근 가능
 - tabindex 속성을 사용하여 키보드 포커스의 순서를 지정 가능
 --
-# 🔷 고급 HTML (Advanced HTML)
---
-## 🔘 시맨틱 HTML (Semantic HTML)
+## 🔘 고급 HTML - 시맨틱 HTML (Semantic HTML)
 ### 🔸 시맨틱 요소란?
 
 - 시맨틱 HTML은 콘텐츠의 의미를 명확히 나타내는 요소들로 구성
@@ -216,7 +220,8 @@
 - `<section>`: 문서의 관련된 내용 그룹을 정의 
 - `<footer>`: 문서나 섹션의 바닥글을 정의 
 - `<aside>`: 본문과 간접적으로 관련된 콘텐츠를 정의 
-
+--
+## 🔘 고급 HTML - 시맨틱 HTML (Semantic HTML)
 ### 🔸 시맨틱 HTML의 중요성
 - 시맨틱 요소는 접근성과 SEO 향상
 - 코드의 가독성과 유지보수성 향상
@@ -234,6 +239,17 @@
 - 
 --
 # 🔷 Q&A 
+
+
+
+
+
+
+
+
+
+
+
 ---
 # 🔷 CSS - 웹의 스타일링
 --
@@ -272,6 +288,8 @@ input[type="text"] { background-color: lightgray; }
 ```html 
 div p { margin: 0; }
 ```
+--
+## 🔘 CSS 선택자, 속성, 값
 
 ### 🔸 CSS 속성
 - CSS 속성은 선택된 요소의 스타일을 지정 
@@ -374,9 +392,7 @@ img { max-width: 100%; height: auto; }
 font-size: calc(16px + 1vw);
 ```
 --
-# 🔷 고급 CSS (Advanced CSS)
---
-## 🔘 애니메이션과 전환 (Animations and Transitions)
+## 🔘 고급 CSS (Advanced CSS) - 애니메이션과 전환 (Animations and Transitions)
 ### 🔸 전환 (Transition)
 - 전환은 CSS 속성 값의 변화를 애니메이션으로 부드럽게 처리할 수 있는 기능
 ```html
