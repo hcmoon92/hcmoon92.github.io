@@ -491,6 +491,8 @@ $primary-color: #333;
 
 
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 # 🔷 자바스크립트 - 웹의 상호작용 
 --
 ## 🔘 자바스크립트 소개
@@ -1242,7 +1244,15 @@ const jwt = require('jsonwebtoken');
 const token = jwt.sign({ id: user._id }, 'secret_key');
 res.send({ token });
 ```
+
+
+
+
+
+
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, white, yellow)" -->
+
 # 🔷 웹 개발 모범 사례 
 --
 ## 🔘 보안 개요
@@ -1379,7 +1389,16 @@ res.send({ token });
 ### 🔸 접근성 도구와 테스트
 - 접근성 도구를 사용하여 웹사이트의 접근성을 검사하고, 필요한 개선 사항을 찾아서 수정. 
 - 웹 접근성 평가 도구를 활용하여 접근성을 높이는 작업을 진행.
+
+
+
+
+
+
+
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, yellow, white)" -->
+
 # 🔷 웹 애플리케이션 배포 및 호스팅
 --
 ## 🔘 호스팅 개요
@@ -1471,6 +1490,15 @@ res.send({ token });
 - 애플리케이션 빌드: 애플리케이션을 빌드하여 배포 가능한 형태로 생성.
 - 배포: 클라우드 플랫폼에 애플리케이션을 업로드하거나 연결하여 배포.
 - 모니터링: 배포 후 애플리케이션의 상태를 모니터링하고, 문제 발생 시 대응.
+
+
+
+
+
+
+
+
+
 ---
 # 🔷  캡스톤 프로젝트
 --
