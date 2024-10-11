@@ -24,6 +24,8 @@ Web development involves creating websites or web applications. We will discuss 
 - 사용자와 상호작용 (실시간, 온라인)
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 ## 🔘 프론트엔드 vs 백엔드
 ### 🔸 프론트엔드 (Front-end)
 - 사용자가 직접 보는 웹사이트의 인터페이스를 개발하는 작업
