@@ -1,4 +1,5 @@
 # 🔷 웹 개발 소개
+<!-- .slide: data-background="linear-gradient(to right, #ff7e5f, #feb47b)" -->
 --
 ## 🔘 웹 개발이란 무엇인가?
 ### 🔸 웹 개발의 정의
