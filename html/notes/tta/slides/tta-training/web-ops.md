@@ -1,5 +1,9 @@
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 # 🔷 웹 사이트와 웹 애플리케이션의 운영
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 운영
 ###  🔸  웹 운영이란?
 - 웹 운영(WebOps) : 웹 인프라를 관리하고 유지
@@ -12,6 +16,8 @@
 - 지속적인 배포와 업데이트.
 - 인프라 및 보안 관리.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 운영
 ###  🔸  웹 운영의 주요 역할
 - 서버, 네트워크 및 애플리케이션 배포 관리.
@@ -23,6 +29,8 @@
 - 문제 발생 시 신속한 대응 및 복구.
 - 지속적인 모니터링을 통해 문제 예방.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 운영
 ###  🔸  WebOps 엔지니어의 책임 (1/2)
 - 모니터링 및 로깅: 사이트 성능 추적 및 문제 감지.
@@ -30,6 +38,8 @@
 - 배포 관리: 업데이트 및 새로운 기능을 실시간으로 배포.
 - 보안 관리: 시스템 보안 유지, 방화벽 설정 및 보안 패치 적용.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 운영
 ###  🔸  웹 인프라 개요
 - 웹 서버: 웹 콘텐츠를 호스팅하고 제공 (예: Apache, Nginx).
@@ -41,6 +51,8 @@
 - 비주얼: 웹 서버, 데이터베이스, 로드 밸런서, 저장소 등의 간단한 다이어그램.
 
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 운영
 ### 🔸 웹 운영의 일반적인 도구들
 - 모니터링 도구: (예: Nagios, Prometheus, Grafana)
@@ -52,6 +64,8 @@
 - 컨테이너 플랫폼: (예: Docker, Kubernetes)
 - 지속적 통합 도구: (예: Jenkins, CircleCI)
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 운영
 
 ### 🔸 웹 운영의 작업 흐름
@@ -65,6 +79,8 @@
 - 실시간으로 문제를 감지 및 해결.
 - 주요 도구: Nagios, Zabbix, New Relic.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 운영
 
 ### 🔸 문제 대응
@@ -80,6 +96,8 @@
 - SSL/TLS, 방화벽 및 보안 패치 적용.
 - 주요 도구: Cloudflare, WAF, Let’s Encrypt.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 운영
 
 ### 🔸 웹 운영의 수명 주기
@@ -91,6 +109,8 @@
 ### 🔸 웹 운영 수명 주기 다이어그램
 - 비주얼: 계획 → 구축 → 배포 → 모니터링 → 개선으로 이어지는 웹 운영 수명 주기 흐름도.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 운영
 
 ### 🔸 협업의 중요성
@@ -104,6 +124,8 @@
 - Grafana: Prometheus와 연동하여 데이터 시각화 및 알림 설정 가능.
 - New Relic: 애플리케이션 및 서버 성능 모니터링에 특화된 클라우드 기반 도구.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 운영
 
 ### 🔸 배포 전략
@@ -119,6 +141,8 @@
 - AI와 머신 러닝을 통한 자동화된 웹 모니터링과 문제 해결.
 - 웹 운영의 미래에서 자동화의 역할 확대.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 운영
 
 ### 🔸 웹 인프라 확장
@@ -138,8 +162,12 @@
 
 
 ---
+<!-- .slide: data-background="linear-gradient(to right, #0072ff, white)" -->
+
 # 🔷 웹 서버와 호스팅 : 필수 요소
 --
+<!-- .slide: data-background="linear-gradient(to right, #0072ff, white)" -->
+
 ## 🔘 웹 서버 호스팅
 
 ### 🔸 웹 서버 소개
@@ -155,6 +183,8 @@
 - 적은 리소스로 높은 처리량을 제공하며, 주로 리버스 프록시와 로드 밸런서로도 사용됨.
 - 비동기 이벤트 기반 아키텍처로 고부하 환경에 적합.
 --
+<!-- .slide: data-background="linear-gradient(to right, #0072ff, white)" -->
+
 ## 🔘 웹 서버 호스팅
 
 ### 🔸 IIS 웹 서버
@@ -167,6 +197,8 @@
 - 보안 (SSL/TLS 지원).
 - 로깅 및 모니터링 기능 제공.
 --
+<!-- .slide: data-background="linear-gradient(to right, #0072ff, white)" -->
+
 ## 🔘 웹 서버 호스팅
 ### 🔸 웹 서버의 동작 원리
 - 클라이언트가 HTTP 요청을 보냄.
@@ -180,6 +212,8 @@
 - 비용이 저렴하나 리소스 제한이 큼.
 - 소규모 웹사이트에 적합.
 --
+<!-- .slide: data-background="linear-gradient(to right, #0072ff, white)" -->
+
 ## 🔘 웹 서버 호스팅
 
 ### 🔸 VPS (가상 사설 서버)
@@ -195,6 +229,8 @@
 - 유연한 확장성 제공.
 - 대규모 서비스나 가변적인 트래픽에 적합.
 --
+<!-- .slide: data-background="linear-gradient(to right, #0072ff, white)" -->
+
 ## 🔘 웹 서버 호스팅
 
 ### 🔸 호스팅 선택 기준
@@ -210,6 +246,8 @@
 - 도메인 등록 업체를 통해 등록.
 - DNS 설정을 통해 도메인과 서버 연결.
 --
+<!-- .slide: data-background="linear-gradient(to right, #0072ff, white)" -->
+
 ## 🔘 웹 서버 호스팅
 
 ### 🔸 DNS의 작동 원리
@@ -224,6 +262,8 @@
 - 로드 밸런싱은 여러 서버에 트래픽을 분산시켜 성능과 가용성을 향상
 - 주로 높은 트래픽을 처리하거나 서버의 장애를 대비하는 데 사용.
 --
+<!-- .slide: data-background="linear-gradient(to right, #0072ff, white)" -->
+
 ## 🔘 웹 서버 호스팅
 
 ### 🔸 로드 밸런서의 종류
@@ -244,6 +284,8 @@
 - 성능 향상: 캐싱 기능을 통해 응답 속도 향상.
 - 로드 밸런싱: 여러 서버로 트래픽 분산 가능.
 --
+<!-- .slide: data-background="linear-gradient(to right, #0072ff, white)" -->
+
 ## 🔘 웹 서버 호스팅
 
 ### 🔸 웹 서버 관리의 중요성
@@ -258,6 +300,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 방화벽 설정: 외부로부터의 불법 접근 차단.
 정기적 보안 업데이트: 최신 보안 패치 적용.
 --
+<!-- .slide: data-background="linear-gradient(to right, #0072ff, white)" -->
+
 ## 🔘 웹 서버 호스팅
 ### 🔸 서버 로그 모니터링
 웹 서버 로그를 통해 서버 상태와 트래픽을 추적할 수 있습니다.
@@ -275,9 +319,13 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 
 
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 # 🔷 모니터링과 로깅 
 - 웹 애플리케이션의 안정성을 위한 필수 요소
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 모니터링
 ### 🔸 모니터링의 중요성
 - 모니터링은 웹 애플리케이션의 성능과 가용성을 유지하는 데 필수
@@ -288,6 +336,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 성능 최적화: 느려지는 구간을 파악하고 성능 개선.
 - 문제 해결: 장애나 오류 발생 시 빠르게 대응.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 모니터링
 ### 🔸 모니터링의 기본 요소
 - 응답 시간: 서버가 요청을 처리하는 시간.
@@ -298,6 +348,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - Prometheus: 시계열 기반 모니터링 시스템.
 - Grafana: 데이터 시각화 및 대시보드 도구.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 모니터링
 ### 🔸 Nagios란?
 - 오픈 소스 모니터링 도구로 서버, 네트워크 장비 등을 모니터링.
@@ -307,6 +359,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - Linux 환경에서 설치 및 설정하는 방법 설명.
 - 주요 설정 파일: nagios.cfg 및 플러그인 구성.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 모니터링
 ### 🔸 Prometheus란?
 - 시계열 데이터베이스를 기반으로 메트릭 수집 및 모니터링.
@@ -316,6 +370,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 기본 설치 과정 및 설정 파일(prometheus.yml) 설정 방법.
 - 메트릭 수집 대상 정의 및 타겟 설정.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 모니터링
 ### 🔸 Grafana란?
 - Prometheus와 같은 모니터링 도구에서 수집한 데이터를 시각화.
@@ -324,6 +380,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - Grafana 설치 방법 및 Prometheus와의 통합 설정.
 - 기본 대시보드 구성 방법.
 -- 
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 로그
 
 ### 🔸 로그란 무엇인가?
@@ -335,6 +393,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 문제가 발생했을 때 로그를 분석해 원인을 파악
 - 보안 이벤트를 추적하는 데도 사용
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 로그
 ### 🔸 로그의 유형
 - 애플리케이션 로그: 애플리케이션에서 발생하는 이벤트 기록.
@@ -345,6 +405,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 웹 서버 로그 설정: Apache나 Nginx에서 로그 파일 설정 방법.
 - 로깅 수준: 정보, 경고, 오류 등의 레벨 설정.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 로그
 ### 🔸 로그 관리 모범 사례
 - 로그 파일의 크기를 제한하고 오래된 로그는 삭제 또는 백업.
@@ -355,6 +417,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 로그가 여러 장소에 분산되어 있을 경우, 문제 분석이 복잡
 - 로그 집계 도구를 사용해 로그를 한 곳에서 분석 가능
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 로그
 ### 🔸 ELK 스택이란?
 - ELK 스택: Elasticsearch, Logstash, Kibana의 약자로, 로그 집계 및 분석을 위한 도구 세트.
@@ -365,6 +429,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 기본적인 ELK 스택 설치 및 설정 과정 설명.
 - Logstash에서 수집할 로그 정의 및 Elasticsearch에 데이터 전송.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 로그
 ### 🔸 Fluentd란?
 - 오픈 소스 데이터 수집 및 처리 도구.
@@ -374,6 +440,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - Fluentd 설치 방법 및 설정 파일(td-agent.conf) 구성.
 - 로그 수집 소스 및 전송 대상을 정의.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 로그
 ### 🔸 로그 분석의 중요성
 - 로그 분석을 통해 성능 문제나 보안 위협을 조기에 발견
@@ -383,6 +451,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - Splunk: 강력한 로그 분석 및 검색 도구.
 - Graylog: 오픈 소스 로그 관리 플랫폼.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 로그
 
 ### 🔸 자동화된 경고 시스템
@@ -396,6 +466,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - Alertmanager: Prometheus와 함께 동작하며, 경고 알림을 관리하는 도구.
 - 알림 규칙을 설정하고, 경고 발생 시 알림을 자동으로 전송.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 로그
 ### 🔸 문제 대응 절차 (Incident Response)
 - 1단계: 문제 인지 (자동 경고 시스템이 트리거됨).
@@ -407,6 +479,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 모든 대응 절차는 기록되어 향후 참고자료로 사용.
 - 팀원 간 원활한 커뮤니케이션이 필수.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 로그
 ### 🔸 자동화된 문제 대응의 이점
 - 인적 오류 감소: 자동화 시스템이 문제 발생 시 즉각 대응.
@@ -417,8 +491,12 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 
 
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 # 🔷 CI/CD부터 인프라 자동화 (개발/배포)
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 CI/CD
 
 ### 🔸 CI/CD 개요
@@ -433,6 +511,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 코드가 자동으로 빌드되고 테스트 실행.
 - 통합 테스트 통과 시 배포 준비.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 CI/CD
 
 ### 🔸 CD의 두 가지 방식
@@ -447,6 +527,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - GitLab CI: GitLab과 통합된 CI/CD 플랫폼.
 - CircleCI: 클라우드 기반 CI/CD 도구.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 CI/CD
 
 ### 🔸 Jenkins란?
@@ -460,6 +542,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - Jenkinsfile을 통해 파이프라인 정의.
 - 빌드, 테스트, 배포 단계 설정 방법.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 CI/CD
 ### 🔸 GitLab CI란?
 - GitLab의 내장된 CI/CD 기능.
@@ -474,6 +558,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - CircleCI 계정 생성 및 프로젝트 연결.
 - config.yml 파일을 사용한 빌드 파이프라인 설정.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 CI/CD
 
 ### 🔸 컨테이너화 개념
@@ -489,6 +575,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - Dockerfile 작성법 설명.
 - 이미지 빌드 및 컨테이너 실행 과정.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 CI/CD
 ### 🔸 Kubernetes란?
 - 컨테이너화된 애플리케이션을 자동으로 배포, 스케일링 및 운영하는 시스템.
@@ -501,6 +589,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - Kubernetes 설치 방법 및 클러스터 구성.
 - 기본적인 kubectl 명령어 소개.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 CI/CD
 
 ### 🔸 배포 전략 개요
@@ -513,6 +603,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 장점: 빠른 롤백 가능, 배포 중 중단 시간 없음.
 - 단점: 두 배의 리소스가 필요.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 CI/CD
 ### 🔸 카나리 배포
 - 카나리 배포: 새 버전을 소수의 사용자에게 먼저 배포하여 문제 여부 확인 후 전체 배포.
@@ -527,6 +619,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 장점: 배포 과정에서 서비스 중단 최소화.
 - 단점: 롤백이 어려울 수 있음.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 CI/CD
 
 ### 🔸 배포 전략 선택 기준
@@ -540,6 +634,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 코드로 작성된 스크립트를 통해 서버 설정, 배포, 운영 등의 작업을 자동화.
 - 대표 도구: Ansible, Terraform.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 CI/CD
 
 ### 🔸 Ansible이란?
@@ -555,6 +651,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - Terraform 설치 및 초기 설정 방법.
 - main.tf 파일을 통해 인프라 구성 예시.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 CI/CD
 
 ### 🔸 인프라 코드 관리 모범 사례
@@ -574,8 +672,12 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 자동화된 배포와 인프라 관리로 안정성과 효율성 향상.
 
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 # 🔷 웹사이트 확장 및 성능 최적화
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 웹사이트 확장
 
 ### 🔸 웹사이트 확장의 필요성
@@ -590,6 +692,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 장점: 간단하고 빠른 적용.
 - 단점: 하드웨어 업그레이드 한계 존재.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 웹사이트 확장
 
 ### 🔸 수평 확장 (Horizontal Scaling)
@@ -602,6 +706,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 트래픽 증가에 따른 적절한 확장 선택이 중요.
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 성능 최적화
 
 ### 🔸 데이터베이스 최적화의 필요성
@@ -611,6 +717,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 인덱스는 데이터를 빠르게 검색할 수 있도록 돕는 구조.
 - 올바른 인덱스 설정을 통해 조회 속도 향상.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 성능 최적화
 ### 🔸 쿼리 최적화
 - 복잡한 SQL 쿼리를 간소화하고, 중복 쿼리를 줄임.
@@ -625,6 +733,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - Redis 설치 방법과 기본 설정 소개.
 - 캐시 데이터 저장 및 불러오는 방법 설명.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 성능 최적화
 
 ### 🔸 Memcached란?
@@ -643,6 +753,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 사용자가 웹사이트에 접속할 때, 가장 가까운 CDN 서버에서 콘텐츠를 제공.
 - 사용자와 서버 간의 지리적 거리를 줄여 로딩 속도 향상.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 성능 최적화
 
 ### 🔸 CDN의 이점
@@ -659,6 +771,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 서버 성능이 높을수록 더 많은 요청을 빠르게 처리할 수 있음.
 - 트래픽 증가에 대비한 성능 최적화 필요.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 성능 최적화
 
 ### 🔸 서버 자원 모니터링
@@ -674,6 +788,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 이미지 크기를 줄이고, 최적화된 포맷(JPEG, WebP) 사용.
 - 캐싱을 통해 이미지 파일의 로딩 속도 개선.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 성능 최적화
 
 ### 🔸 HTTP/2 사용
@@ -689,6 +805,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - Prometheus, Grafana 등 실시간 모니터링 도구를 사용하여 성능 상태 확인.
 - CPU, 메모리, 네트워크 사용량을 시각적으로 분석.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 성능 최적화
 
 ### 🔸 부하 테스트 도구
@@ -707,6 +825,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 클라우드 환경에서 서버를 자동으로 추가하거나 제거하여 트래픽 변화에 대응.
 - 트래픽이 많을 때 서버가 자동으로 늘어나고, 적을 때 줄어듦.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 성능 최적화
 
 ### 🔸 Auto Scaling 설정
@@ -726,9 +846,13 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 최적화와 성능 모니터링을 위한 적절한 도구 선택이 중요.
 
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 # 🔷 백업 및 재해 복구
 - 중요한 데이터 보호와 복구 방법
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 ## 🔘 백업
 ### 🔸 백업의 중요성
 - 데이터 손실은 비즈니스에 큰 타격.
@@ -741,6 +865,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 차등 백업: 마지막 전체 백업 이후 변경된 파일만 백업.
 - 증분 백업: 가장 최근 백업 이후 변경된 파일만 백업.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 ## 🔘 백업
 ### 🔸 자동 백업 설정의 필요성
 - 수동 백업은 잊어버리거나 누락될 수 있음.
@@ -755,6 +881,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 데이터를 안전하게 보호하기 위해 백업 파일을 암호화.
 - 무단 접근을 방지하기 위한 필수 조치.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 ## 🔘 백업
 
 ### 🔸 백업 보관 정책
@@ -767,6 +895,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - AWS S3, Google Cloud Storage, Azure Backup을 통한 클라우드 기반 백업 도구 소개.
 - 클라우드에서 손쉽게 백업을 설정하고 관리 가능.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 ## 🔘 재해 복구
 
 ### 🔸 재해 복구 계획의 필요성
@@ -782,6 +912,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - Acronis, Zerto 등의 복구 도구 소개.
 - 데이터 복구 과정에서의 빠른 대응을 위한 도구 활용.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 ## 🔘 재해 복구
 
 ### 🔸 재해 복구 테스트의 중요성
@@ -798,6 +930,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 백업 파일 검증을 통한 안정성 확인.
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 ## 🔘 문제 해결
 
 ### 🔸 문제 해결 및 디버깅
@@ -813,6 +947,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 발생한 문제를 명확하게 정의하고, 문제 상황을 재현하여 원인 분석.
 - 동일한 상황을 재현하는 것이 디버깅의 핵심.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 ## 🔘 문제 해결
 
 ### 🔸 로그 분석의 중요성
@@ -828,6 +964,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - Chrome DevTools, Firebug 같은 웹 브라우저 디버깅 도구.
 - 자바스크립트, 네트워크 요청 등을 분석하여 문제 해결.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 ## 🔘 문제 해결
 
 ### 🔸 네트워크 문제 해결
@@ -846,6 +984,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 네트워크 문제로 인해 페이지 로딩 속도가 느려진 사례.
 - 네트워크 분석 도구를 사용하여 문제를 해결한 과정.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 ## 🔘 문제 해결
 
 ### 🔸 일반적인 웹 서버 문제 해결
@@ -861,6 +1001,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 웹사이트 로딩 속도가 느린 문제를 해결하는 방법.
 - CDN, 캐싱, 이미지 최적화 등의 해결 방안.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 ## 🔘 문제 해결
 
 ### 🔸 자동화된 문제 해결 도구
@@ -871,8 +1013,12 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 디버깅 도구를 사용한 문제 해결 과정 연습.
 
 ---
+<!-- .slide: data-background="linear-gradient(to right, white, gray)" -->
+
 # 🔷 웹 인프라 운영의 최신 트렌드
 --
+<!-- .slide: data-background="linear-gradient(to right, white, gray)" -->
+
 ## 🔘 최신 트렌드
 
 ### 🔸 클라우드 네이티브 환경의 웹 운영
@@ -891,6 +1037,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 실시간 데이터 처리, 이벤트 기반 애플리케이션, 웹훅 처리.
 - 다양한 비즈니스 모델에 적합.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, gray)" -->
+
 ## 🔘 최신 트렌드
 
 ### 🔸 엣지 컴퓨팅 개념
@@ -909,6 +1057,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 예: AI를 활용한 모니터링, 로그 분석, 성능 튜닝.
 - 시스템의 이상 탐지 및 경고 생성.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, gray)" -->
+
 ## 🔘 최신 트렌드
 
 ### 🔸 웹 운영에서의 자동화
@@ -924,6 +1074,8 @@ SSL/TLS 적용: 웹사이트 보안을 위해 HTTPS 사용.
 - 더 많은 기업이 클라우드와 서버리스 아키텍처로 전환.
 - 웹 운영의 민첩성과 확장성 향상.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, gray)" -->
+
 ## 🔘 최신 트렌드
 
 ### 🔸 보안과 웹 운영
