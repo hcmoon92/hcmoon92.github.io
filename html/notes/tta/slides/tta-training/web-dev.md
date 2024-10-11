@@ -10,9 +10,8 @@ Web development involves creating websites or web applications. We will discuss 
 
 </section>
 
-<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
-
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 ## 🔘 웹 개발이란 무엇인가?
 ### 🔸 웹 개발의 정의
