@@ -23,8 +23,8 @@
                 <!-- <section data-markdown="slides/tta-training/dev-ops-test.md" data-separator="---" data-separator-vertical="--"></section> -->
                 <section data-markdown="slides/tta-training/web-dev.md" data-separator="---" data-separator-vertical="--"></section>
                 <section data-markdown="slides/tta-training/web-ops.md" data-separator="---" data-separator-vertical="--"></section>
-                <section data-markdown="slides/tta-training/web-test.md" data-separator="---" data-separator-vertical="--"></section>
                 <section data-markdown="slides/tta-training/sqa.md" data-separator="---" data-separator-vertical="--"></section>
+                <section data-markdown="slides/tta-training/web-test.md" data-separator="---" data-separator-vertical="--"></section>
                 <!-- <section data-markdown="slides/tta-training/chap01.md" data-separator="---" data-separator-vertical="--"></section> -->
 		</div>
 
@@ -47,33 +47,6 @@
                 pdfSeparateFragments: false,
                 //pdfMaxPagesPerSlide: 1,
                 //pdfPageHeightOffset: 5,
-			});
-
-			// Apply gradient background to every 10th slide
-			Reveal.on('ready', function() {
-				const slides = document.querySelectorAll('.slides section');
-				const gradientBackgrounds = [
-					'linear-gradient(to right, #ff7e5f, #feb47b)',
-					'linear-gradient(to right, #00c6ff, #0072ff)',
-					'linear-gradient(to right, #f2994a, #f2c94c)',
-					'linear-gradient(to right, #fc5c7d, #6a82fb)',
-					'linear-gradient(to right, #8360c3, #2ebf91)',
-					'linear-gradient(to right, #ee9ca7, #ffdde1)',
-					'linear-gradient(to right, #4ca1af, #c4e0e5)',
-					'linear-gradient(to right, #fcb045, #fd1d1d)',
-					'linear-gradient(to right, #ff9966, #ff5e62)'
-				];
-
-				slides.forEach((slide, index) => {
-					// Check if the slide is the 10th slide (index + 1 because index is 0-based)
-					if ((index + 1) % 10 === 0) {
-						const gradient = gradientBackgrounds[(index / 10) % gradientBackgrounds.length];
-						slide.setAttribute('data-background', gradient);
-					}
-				});
-
-				// Reinitialize to apply background changes
-				Reveal.sync();
 			});
 		</script>
 
