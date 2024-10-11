@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts (Optional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Gallery Container -->
+    <div class="gallery-container">
+        <h1>My Image Gallery</h1>
+        <div class="gallery-grid">
+            <img src="images/thumb1.jpg" alt="Image 1" class="gallery-item" data-full="images/image1.jpg">
+            <img src="images/thumb2.jpg" alt="Image 2" class="gallery-item" data-full="images/image2.jpg">
+            <img src="images/thumb3.jpg" alt="Image 3" class="gallery-item" data-full="images/image3.jpg">
+            <img src="images/thumb4.jpg" alt="Image 4" class="gallery-item" data-full="images/image4.jpg">
+            <!-- Add more images as needed -->
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div class="modal" id="modal">
+        <span class="close" id="close">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <div class="caption" id="caption"></div>
+    </div>
+
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
