@@ -11,6 +11,8 @@ Web development involves creating websites or web applications. We will discuss 
 <!-- </section> -->
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 ## 🔘 웹 개발이란 무엇인가?
 ### 🔸 웹 개발의 정의
 - 웹 개발은 웹사이트를 구축하고 유지보수하는 작업을 의미
