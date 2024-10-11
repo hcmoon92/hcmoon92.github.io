@@ -1,6 +1,8 @@
 # 🔷 웹 개발 소개
 <!-- .slide: data-background="linear-gradient(to right, #00c6ff, #0072ff)" -->
 
+Note:
+Web development involves creating websites or web applications. We will discuss front-end, back-end, and full-stack development.
 --
 ## 🔘 웹 개발이란 무엇인가?
 ### 🔸 웹 개발의 정의
