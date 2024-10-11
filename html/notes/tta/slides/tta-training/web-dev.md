@@ -1,14 +1,17 @@
 <!-- Another section with background -->
-<section data-background="image/01-web_development.png">
+<section data-background="images/01-web_development.png">
+
+<!-- .slide: data-background="linear-gradient(to right, blue, pink)" -->
 
 # 🔷 웹 개발 소개
-<!-- .slide: data-background="linear-gradient(to right, blue, pink)" -->
 
 Note:
 Web development involves creating websites or web applications. We will discuss front-end, back-end, and full-stack development.
 </section>
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 ## 🔘 웹 개발이란 무엇인가?
 ### 🔸 웹 개발의 정의
 - 웹 개발은 웹사이트를 구축하고 유지보수하는 작업을 의미
@@ -19,7 +22,6 @@ Web development involves creating websites or web applications. We will discuss 
 - 제품과 서비스를 제공
 - 사용자와 상호작용 (실시간, 온라인)
 
-<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 --
 ## 🔘 프론트엔드 vs 백엔드
