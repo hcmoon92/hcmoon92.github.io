@@ -1,5 +1,5 @@
 <!-- Another section with background -->
-<section data-background="tta-training/images/01-web_development.png">
+<section data-background="slides/tta-training/images/01-web_development.png">
 
 <!-- .slide: data-background="linear-gradient(to right, blue, pink)" -->
 
