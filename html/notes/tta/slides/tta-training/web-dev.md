@@ -676,7 +676,7 @@ const arr2 = [...arr1, 4, 5];
 - 웹 애플리케이션에서 서버와의 통신, 파일 읽기 등의 작업시 중요.
 
 ### 🔸 콜백 함수 (Callback Functions)
-콜백 함수는 다른 함수가 실행을 완료한 후 호출되는 함수.
+- 콜백 함수는 다른 함수가 실행을 완료한 후 호출되는 함수.
 
 ```javascript
 function fetchData(callback) {
@@ -1037,7 +1037,7 @@ User.create({ name: 'John Doe', email: 'john@example.com' });
 --
 ## 🔘 RESTful API 개요
 ### 🔸 RESTful API란?
--RESTful API는 REST(Representational State Transfer) 원칙을 따르는 웹 서비스. 
+- RESTful API는 REST(Representational State Transfer) 원칙을 따르는 웹 서비스. 
 - HTTP 프로토콜을 기반으로 클라이언트와 서버 간의 데이터를 교환하기 위해 사용. 
 - 각 요청은 특정 리소스에 대해 수행되는 작업을 나타내며, 주로 JSON 형식의 데이터를 사용.
 
