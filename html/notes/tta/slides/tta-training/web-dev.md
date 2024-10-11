@@ -1,5 +1,5 @@
 <!-- Another section with background -->
-<section data-background="images/01-web_development.png">
+<section data-background="tta-training/images/01-web_development.png">
 
 <!-- .slide: data-background="linear-gradient(to right, blue, pink)" -->
 
@@ -8,9 +8,9 @@
 Note:
 Web development involves creating websites or web applications. We will discuss front-end, back-end, and full-stack development.
 
-<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
-
 </section>
+
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 --
 
