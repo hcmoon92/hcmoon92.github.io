@@ -603,6 +603,8 @@ const element = document.getElementById('myElement');
 element.textContent = 'Hello, World!';
 element.style.color = 'red';
 ```
+--
+## 🔘 이벤트 처리와 DOM 조작
 ### 🔸 이벤트 위임 (Event Delegation)
 - 이벤트 위임은 부모 요소에 이벤트 리스너를 설정하여, 자식 요소의 이벤트를 처리하는 기법.
 
@@ -711,6 +713,9 @@ promise
     console.log(error);
   });
 ```
+--
+## 🔘 비동기 자바스크립트 (Asynchronous JavaScript)
+
 ### 🔸 async/await
 - async와 await 키워드는 프로미스 기반의 비동기 코드를 더 읽기 쉽게 해줌.
 - await는 프로미스가 해결될 때까지 함수의 실행을 일시 중지.
@@ -1064,7 +1069,7 @@ User.create({ name: 'John Doe', email: 'john@example.com' });
 - Express는 미들웨어를 사용하여 HTTP 요청을 처리하고, 라우팅 및 요청 데이터를 쉽게 관리.
 
 ### 🔸 Express 설치 및 설정
-Express는 NPM(Node Package Manager)을 통해 설치.
+- Express는 NPM(Node Package Manager)을 통해 설치.
 
 ```bash
 npm install express
