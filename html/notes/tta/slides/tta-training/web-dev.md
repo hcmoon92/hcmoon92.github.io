@@ -1,5 +1,5 @@
 # 🔷 웹 개발 소개
-<!-- .slide: data-background="linear-gradient(to right, #00c6ff, #0072ff)" -->
+<!-- .slide: data-background="linear-gradient(to right, blue, pink)" -->
 
 Note:
 Web development involves creating websites or web applications. We will discuss front-end, back-end, and full-stack development.
@@ -87,6 +87,7 @@ Web development involves creating websites or web applications. We will discuss 
 
 ---
 # 🔷 HTML - 웹의 구조
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, pink)" -->
 --
 ## 🔘 HTML 소개
 ### 🔸 HTML의 정의
