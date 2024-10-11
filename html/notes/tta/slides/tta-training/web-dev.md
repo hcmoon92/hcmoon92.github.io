@@ -1,5 +1,6 @@
 # 🔷 웹 개발 소개
-<!-- .slide: data-background="linear-gradient(to right, #ff7e5f, #feb47b)" -->
+<!-- .slide: data-background="linear-gradient(to right, #00c6ff, #0072ff)" -->
+
 --
 ## 🔘 웹 개발이란 무엇인가?
 ### 🔸 웹 개발의 정의
@@ -10,6 +11,7 @@
 - 웹 개발은 기업과 개인이 온라인에서 존재감 표시 가능
 - 제품과 서비스를 제공
 - 사용자와 상호작용 (실시간, 온라인)
+
 --
 ## 🔘 프론트엔드 vs 백엔드
 ### 🔸 프론트엔드 (Front-end)
