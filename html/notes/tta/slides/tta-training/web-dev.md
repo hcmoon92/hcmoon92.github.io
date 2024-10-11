@@ -860,11 +860,11 @@ fetchData();
 
 
 ---
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, white, green)" -->
 
 # 🔷 Git을 이용한 버전 관리
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, white, green)" -->
 
 ## 🔘 Git 소개
 ### 🔸 Git이란 무엇인가?
@@ -879,7 +879,7 @@ fetchData();
 - 빠른 속도: 변경 사항을 빠르게 추적하고 관리.
 - 강력한 브랜치 관리: 독립적인 브랜치를 쉽게 생성하고, 병합 및 관리.
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, white, green)" -->
 
 ## 🔘 Git 설치 및 설정
 ### 🔸 Git 설치하기
@@ -893,7 +893,7 @@ fetchData();
   sudo apt-get install git
 ```
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, white, green)" -->
 
 ## 🔘 Git 설치 및 설정
 
@@ -913,7 +913,7 @@ git config --list
 ```
 
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, white, green)" -->
 
 ## 🔘 Git 기본 명령어
 ### 🔸 Git 초기화 (git init)
@@ -934,7 +934,7 @@ git add 파일명
 - 모든 파일을 추가하려면 git add . 명령어를 사용.
 
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, white, green)" -->
 
 ## 🔘 Git 기본 명령어
 
@@ -956,7 +956,7 @@ git status
 
 - 이 명령어는 추적되지 않은 파일, 스테이징된 파일, 수정된 파일 등을 표시
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, white, green)" -->
 
 ## 🔘 브랜치와 병합 (Branching and Merging)
 ### 🔸 브랜치란?
@@ -974,7 +974,7 @@ git checkout feature-branch
 ```
 
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, white, green)" -->
 
 ## 🔘 브랜치와 병합 (Branching and Merging)
 ### 🔸 브랜치 확인하기
@@ -995,7 +995,7 @@ git merge feature-branch
 - 충돌을 해결하려면 해당 파일을 수동으로 편집하고, 수정된 내용을 커밋.
 
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, white, green)" -->
 
 ## 🔘 Git 워크플로우 (Gitflow 및 기능 브랜치)
 ### 🔸 Git 워크플로우란?
@@ -1019,10 +1019,19 @@ git checkout -b feature/awesome-feature
 ### 🔸 Pull Request (PR) 활용
 - 기능 브랜치를 develop 브랜치에 병합하기 전에 팀원 간 코드 리뷰를 위해 Pull Request를 생성. 
 - PR을 통해 코드의 품질을 높이고, 팀원 간 협업을 원활하게 함.
+
+
+
+
+
+
+
+
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 # 🔷 백엔드 개발 소개
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 서버란 무엇인가?
 ### 🔸 서버의 정의
@@ -1035,7 +1044,7 @@ git checkout -b feature/awesome-feature
 - 서버는 클라이언트가 요청한 데이터를 제공하고, 연산 작업을 수행하는 역할.
 - 사용자가 웹페이지를 요청하면 서버는 해당 페이지의 데이터를 클라이언트에 전달.
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 클라이언트-서버 아키텍처
 ### 🔸 클라이언트-서버 아키텍처란?
@@ -1054,7 +1063,7 @@ git checkout -b feature/awesome-feature
 - 사용자가 브라우저에서 특정 URL을 입력하면, 클라이언트는 서버에 HTTP 요청을 전송.
 - 서버는 해당 요청을 처리하고, HTML, CSS, JavaScript와 같은 응답을 클라이언트에 반환.
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 인기 있는 백엔드 언어 개요
 ### 🔸 Node.js
@@ -1077,7 +1086,7 @@ git checkout -b feature/awesome-feature
 - 간결하고 직관적인 문법.
 - Redmine
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 데이터베이스 소개
 ### 🔸 데이터베이스란?
@@ -1089,7 +1098,7 @@ git checkout -b feature/awesome-feature
 - 백엔드 애플리케이션에서 데이터베이스는 애플리케이션의 상태와 데이터를 영구적으로 저장
 -  필요 시 데이터를 검색하여 클라이언트에 제공.
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 SQL vs NoSQL
 ### 🔸 SQL 데이터베이스
@@ -1107,7 +1116,7 @@ git checkout -b feature/awesome-feature
 - 데이터 간의 관계를 명확히 정의하고, JOIN을 통해 데이터를 연결.
 - ACID 속성(Atomicity, Consistency, Isolation, Durability)을 보장.
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 SQL vs NoSQL
 
@@ -1120,7 +1129,7 @@ git checkout -b feature/awesome-feature
 - NoSQL: 비정형 데이터 또는 대규모 데이터를 처리할 때 적합하며, 유연성이 필요할 때 유리.
 
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 CRUD 작업
 ### 🔸 CRUD란 무엇인가?
@@ -1142,7 +1151,7 @@ INSERT INTO users (name, email) VALUES ('John Doe', 'john@example.com');
 SELECT * FROM users WHERE email = 'john@example.com';
 ```
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 CRUD 작업
 ### 🔸 Update (수정)
@@ -1161,7 +1170,7 @@ DELETE FROM users WHERE email = 'john@example.com';
 - CRUD 작업은 모든 데이터베이스 운영의 기본으로, 이를 통해 데이터의 생성, 수정, 삭제, 조회가 가능.
 - 백엔드 애플리케이션에서 CRUD 기능을 잘 구현하는 것이 매우 중요.
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 ORM 소개
 ### 🔸 ORM이란 무엇인가?
@@ -1180,7 +1189,7 @@ DELETE FROM users WHERE email = 'john@example.com';
 - ORM 프레임워크들은 각 언어의 특성에 맞게 설계되어 있으며, 데이터베이스와의 상호작용을 더 쉽게 만듬.
 
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 ORM 소개
 ### 🔸 ORM 사용 예시 (Sequelize)
@@ -1195,7 +1204,7 @@ const User = sequelize.define('User', {
 User.create({ name: 'John Doe', email: 'john@example.com' });
 ```
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 RESTful API 개요
 ### 🔸 RESTful API란?
@@ -1210,7 +1219,7 @@ User.create({ name: 'John Doe', email: 'john@example.com' });
 - 일관된 인터페이스: 모든 리소스는 동일한 URI 형식과 HTTP 메서드를 사용하여 액세스.
   
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 RESTful API 개요
 ### 🔸 HTTP 메서드와 REST
@@ -1226,7 +1235,7 @@ User.create({ name: 'John Doe', email: 'john@example.com' });
 - 예: GET /users 요청은 모든 사용자 정보를 조회
 - 예: POST /users 요청은 새로운 사용자를 생성.
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 Express.js (Node.js) 소개
 ### 🔸 Express.js란?
@@ -1255,7 +1264,7 @@ app.listen(3000, () => {
 });
 ```
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 Express.js (Node.js) 소개
 
@@ -1281,7 +1290,7 @@ app.use((req, res, next) => {
 });
 ```
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 Express.js (Node.js) 소개
 
@@ -1311,7 +1320,7 @@ app.use((err, req, res, next) => {
 ### 🔸 Express 앱 배포
 - Express 애플리케이션을 실제 서버에 배포하려면 PM2와 같은 프로세스 매니저를 사용하거나, Heroku와 같은 PaaS 플랫폼을 이용.
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 프런트엔드와 백엔드 상호 연동
 ### 🔸 프런트엔드와 백엔드의 역할 분담
@@ -1333,7 +1342,7 @@ fetch('https://api.example.com/users')
   .then(data => console.log(data));
 ```
 --
-<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, green, white)" -->
 
 ## 🔘 프런트엔드와 백엔드 상호 연동
 
@@ -1367,10 +1376,12 @@ res.send({ token });
 
 
 ---
-<!-- .slide: data-background="linear-gradient(to bottom right, white, yellow)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, white, amber)" -->
 
 # 🔷 웹 개발 모범 사례 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, amber)" -->
+
 ## 🔘 보안 개요
 ### 🔸 보안의 중요성
 - 웹 개발에서 보안은 매우 중요. 
@@ -1381,6 +1392,8 @@ res.send({ token });
 - 웹 보안은 데이터의 기밀성, 무결성, 그리고 가용성을 보장하는 것을 목표. 
 - 사용자의 개인정보를 보호하고, 신뢰할 수 있는 웹사이트를 만드는 것이 중요.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, amber)" -->
+
 ## 🔘 일반적인 보안 위협
 ### 🔸 XSS (Cross-Site Scripting)
 - XSS는 악의적인 스크립트가 웹사이트에 삽입되어 사용자 브라우저에서 실행되는 공격. 
@@ -1400,6 +1413,8 @@ res.send({ token });
 - SQL Injection: 파라미터화된 쿼리를 사용하여 데이터베이스 쿼리를 실행.
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, amber)" -->
+
 ## 🔘 보안 모범 사례
 ### 🔸 입력 검증
 - 사용자 입력을 항상 검증하고, 예상하지 못한 데이터가 들어오지 않도록 필터링. 
@@ -1417,6 +1432,8 @@ res.send({ token });
 - 사용자 세션을 안전하게 관리하고, 세션 하이재킹을 방지하기 위해 세션 ID를 주기적으로 변경. 
 - 세션 쿠키에 보안 플래그를 설정.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, amber)" -->
+
 ## 🔘 보안 모범 사례
 
 ### 🔸 권한 부여
@@ -1435,6 +1452,8 @@ res.send({ token });
 - 사용자에게 노출되는 에러 메시지는 최소화하고, 상세한 오류 정보를 외부에 공개 주의. 
 - 에러 메시지에 시스템의 내부 구조가 노출 되지 않도록 주의.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, amber)" -->
+
 ## 🔘 성능 최적화
 ### 🔸 캐싱 전략
 - 웹사이트의 성능을 향상시키기 위해 캐싱을 활용. 
@@ -1452,6 +1471,8 @@ res.send({ token });
 - CDN을 사용하여 전 세계에 분산된 서버에서 콘텐츠를 제공
 - 사용자와 가장 가까운 서버에서 데이터를 전송하여 로드 시간을 축소.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, amber)" -->
+
 ## 🔘 이미지 최적화
 ### 🔸 이미지 포맷
 - 웹에서 사용되는 이미지 포맷에 따라 최적화를 진행.
@@ -1462,6 +1483,8 @@ res.send({ token });
 - 이미지 파일의 크기를 줄여서 페이지 로딩 속도를 개선. 
 - 이미지 압축 도구를 사용하여 품질 손실 없이 파일 크기를 줄이는 것이 중요.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, amber)" -->
+
 ## 🔘 코드의 최소화 및 번들링
 ### 🔸 미니피케이션 (Minification)
 - JavaScript와 CSS 파일에서 불필요한 공백, 주석, 줄바꿈 등을 제거하여 파일 크기 축소. 
@@ -1479,6 +1502,8 @@ res.send({ token });
 - Gzip이나 Brotli와 같은 압축 알고리즘을 사용하여 서버에서 클라이언트로 전송되는 데이터의 크기 축소. 
 - 이를 통해 페이지 로딩 속도를 개선.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, amber)" -->
+
 ## 🔘 SEO 기본
 ### 🔸 SEO란?
 - 검색 엔진 최적화(SEO)는 웹사이트가 검색 엔진 결과 페이지에서 더 높은 순위를 차지하도록 만드는 과정. 
@@ -1491,6 +1516,8 @@ res.send({ token });
 - 모바일 친화성: 모바일 장치에서도 웹사이트가 잘 보이도록 반응형 디자인을 사용.
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, amber)" -->
+
 ## 🔘 접근성 원칙
 ### 🔸 접근성이란?
 - 웹 접근성은 모든 사용자가 웹사이트에 접근하고 사용할 수 있도록 보장. 
@@ -1513,10 +1540,12 @@ res.send({ token });
 
 
 ---
-<!-- .slide: data-background="linear-gradient(to bottom right, yellow, white)" -->
+<!-- .slide: data-background="linear-gradient(to bottom right, amber, white)" -->
 
 # 🔷 웹 애플리케이션 배포 및 호스팅
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, amber, white)" -->
+
 ## 🔘 호스팅 개요
 ### 🔸 호스팅이란?
 - 호스팅은 웹사이트를 인터넷에서 액세스할 수 있도록 서버에 저장.
@@ -1536,6 +1565,8 @@ res.send({ token });
 - 필요한 자원을 유동적으로 할당받을 수 있으며, 높은 확장성과 안정성을 제공.
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, amber, white)" -->
+
 ## 🔘 도메인 이름과 DNS
 ### 🔸 도메인 이름이란?
 - 도메인 이름은 인터넷에서 웹사이트를 식별하는 고유한 주소. 
@@ -1553,6 +1584,8 @@ res.send({ token });
 - MX 레코드: 이메일 서버를 지정.
 - TXT 레코드: 도메인에 대한 다양한 정보를 저장.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, amber, white)" -->
+
 ## 🔘 FTP/SFTP
 ### 🔸 FTP (File Transfer Protocol)
 - FTP는 서버와 클라이언트 간에 파일을 전송하는 프로토콜. 
@@ -1567,6 +1600,8 @@ res.send({ token });
 - FTP 사용법: FTP 클라이언트(예: FileZilla)를 통해 서버에 접속하고, 파일을 업로드하거나 다운로드.
 - SFTP 사용법: SFTP 클라이언트(예: WinSCP)를 사용하여 서버와 안전하게 파일을 전송.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, amber, white)" -->
+
 ## 🔘 CI/CD 파이프라인
 ### 🔸 CI/CD란?
 - CI(지속적 통합)와 CD(지속적 배포)는 소프트웨어 개발의 자동화된 프로세스
@@ -1588,6 +1623,8 @@ res.send({ token });
 - GitHub Actions: GitHub에 통합된 CI/CD 도구로, 코드 리포지토리와 긴밀하게 연동.
 - GitLab CI: GitLab에서 제공하는 CI/CD 도구로, 소스 코드 관리와 자동화를 지원.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, amber, white)" -->
+
 ## 🔘 클라우드 플랫폼에 배포하기
 ### 🔸 Heroku
 
@@ -1616,8 +1653,12 @@ res.send({ token });
 
 
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 # 🔷  캡스톤 프로젝트
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 ## 🔘 프로젝트 개요
 ### 🔸 프로젝트 개요
 
@@ -1632,6 +1673,8 @@ res.send({ token });
 ### 🔸 기대 결과물
 - 최종 결과물: 완성된 웹 애플리케이션과 함께 코드 리포지토리, 배포된 웹사이트 URL, 사용 설명서 및 문서화된 프로젝트 계획이 포함.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 ## 🔘 개발 환경 설정
 ### 🔸 개발 도구 및 환경
 
@@ -1647,6 +1690,8 @@ res.send({ token });
 - 예를 들어, Node.js의 경우 npm start 명령어를 사용.
 - 환경 변수: .env 파일을 사용하여 데이터베이스 연결 문자열, API 키 등의 환경 변수를 설정.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 ## 🔘 프로젝트 마일스톤
 ### 🔸 1단계: 요구 사항 분석 및 설계
 
