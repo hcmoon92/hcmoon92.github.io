@@ -313,6 +313,8 @@ Web development involves creating websites or web applications. We will discuss 
 
 # 🔷 CSS - 웹의 스타일링
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, blue)" -->
+
 ## 🔘 CSS 소개
 ### 🔸 CSS의 정의
 - CSS(Cascading Style Sheets)는 HTML 요소의 스타일을 지정하는 언어
@@ -324,6 +326,8 @@ Web development involves creating websites or web applications. We will discuss 
 - 웹사이트의 디자인과 사용자 경험(UX) 크게 향상
 - 코드의 재사용성과 유지보수성 개선
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, blue)" -->
+
 ## 🔘 CSS 선택자, 속성, 값
 
 ### 🔸 CSS 선택자
@@ -349,6 +353,8 @@ input[type="text"] { background-color: lightgray; }
 div p { margin: 0; }
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, blue)" -->
+
 ## 🔘 CSS 선택자, 속성, 값
 
 ### 🔸 CSS 속성
@@ -360,6 +366,8 @@ div p { margin: 0; }
 - 속성에 할당되는 값. 
 - 예: color: red;, font-size: 16px;, margin: 10px; 등.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, blue)" -->
+
 ## 🔘 색상, 폰트, 텍스트 스타일링
 ### 🔸 색상 (Colors)
 
@@ -381,6 +389,8 @@ div p { margin: 0; }
 - 텍스트 변환: text-transform 속성으로 텍스트의 대소문자 변환. 예: text-transform: uppercase;
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, blue)" -->
+
 ## 🔘 박스 모델 (Box Model)
 ### 🔸 박스 모델이란?
 - CSS 박스 모델은 모든 HTML 요소가 사각형 박스로 표시
@@ -399,6 +409,8 @@ div p { margin: 0; }
 - 요소와 주변 요소 사이의 외부 여백. 예: margin: 20px;
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, blue)" -->
+
 ## 🔘 레이아웃 기법 (Layout techniques)
 ### 🔸 플렉스박스(Flexbox) 소개
 - 플렉스박스는 1차원 레이아웃 모델로, 컨테이너와 자식 요소 간의 공간 배분과 정렬 처리.
@@ -424,6 +436,8 @@ div p { margin: 0; }
 - align-items: 그리드 내 아이템의 수직 정렬을 설정. 예: align-items: stretch;
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, blue)" -->
+
 ## 🔘 반응형 디자인 (Responsive Design)
 ### 🔸 미디어 쿼리(Media Queries)
 - 미디어 쿼리는 다양한 화면 크기와 해상도에 따라 다른 스타일을 적용할 수 있는 CSS 기술.
@@ -441,6 +455,11 @@ div p { margin: 0; }
 ```html
 @media (min-width: 768px) { ... }
 ```
+--
+<!-- .slide: data-background="linear-gradient(to bottom right, white, blue)" -->
+
+## 🔘 반응형 디자인 (Responsive Design)
+
 
 ### 🔸 반응형 이미지와 타이포그래피
 - max-width 속성을 사용하여 이미지가 부모 요소의 너비를 초과하지 않도록 설정
@@ -452,6 +471,8 @@ img { max-width: 100%; height: auto; }
 font-size: calc(16px + 1vw);
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, blue)" -->
+
 ## 🔘 고급 CSS (Advanced CSS) - 애니메이션과 전환
 ### 🔸 전환 (Transition)
 - 전환은 CSS 속성 값의 변화를 애니메이션으로 부드럽게 처리할 수 있는 기능
@@ -470,6 +491,8 @@ transition: all 0.3s ease;
 animation: fadeIn 2s;
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, blue)" -->
+
 ## 🔘 고급 CSS (Advanced CSS) - 애니메이션과 전환
 
 ### 🔸 CSS 전처리기 (CSS Preprocessors)
@@ -495,6 +518,8 @@ $primary-color: #333;
 
 # 🔷 자바스크립트 - 웹의 상호작용 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ## 🔘 자바스크립트 소개
 ### 🔸 자바스크립트란?
 - 자바스크립트(JavaScript)는 웹 페이지에 동적인 기능을 추가하기 위해 사용되는 프로그래밍 언어. 
@@ -506,6 +531,8 @@ $primary-color: #333;
 - 초기에는 간단한 웹 페이지 기능을 위한 스크립트 언어로 시작
 - 현재는 클라이언트 및 서버 측 개발, 모바일 앱 개발 등 다양한 분야에서 사용.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ## 🔘 변수, 데이터 타입, 연산자
 ### 🔸 변수 선언
 - 자바스크립트에서 변수를 선언할 때는 var, let, const 키워드를 사용.
@@ -522,6 +549,8 @@ $primary-color: #333;
 - 작은 따옴표(' ')나 큰 따옴표(" ")로 감싸서 표현.
 - 템플릿 리터럴(`)을 사용하여 문자열 내에 변수를 포함하거나 여러 줄의 문자열을 사용.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ## 🔘 변수, 데이터 타입, 연산자
 ### 🔸 숫자(Number)
 - 자바스크립트는 정수와 부동 소수점 숫자를 모두 number 타입으로 처리.
@@ -531,6 +560,8 @@ $primary-color: #333;
 - 불리언 타입은 true와 false 두 가지 값을 가지며, 논리적 조건 평가에서 사용.
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ## 🔘 변수, 데이터 타입, 연산자
 
 ### 🔸 연산자(Operators)
@@ -540,6 +571,8 @@ $primary-color: #333;
 - 논리 연산자: &&, ||, !
 - 할당 연산자: =, +=, -=, *=, /=
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ## 🔘 제어 구조 (조건문과 반복문)
 ### 🔸 조건문 (Conditional Statements)
 - 조건문은 프로그램이 특정 조건에 따라 다른 동작을 수행.
@@ -568,6 +601,8 @@ if (score >= 90) {
 }
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ## 🔘 제어 구조 (조건문과 반복문)
 
 ### 🔸 반복문 (Loops)
@@ -591,6 +626,8 @@ while (i < 5) {
 - continue: 현재 반복을 건너뛰고 다음 반복으로 넘김.
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ## 🔘 함수와 범위 (Functions and Scope)
 ### 🔸 함수(Function)란?
 - 함수는 특정 작업을 수행하는 코드 블록.
@@ -608,6 +645,8 @@ function greet(name) {
 console.log(greet('Alice'));
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ## 🔘 함수와 범위 (Functions and Scope)
 
 ### 🔸 매개변수와 인수
@@ -632,6 +671,8 @@ const greet = (name) => `Hello, ${name}!`;
 ### 🔸 함수 범위 (Function Scope)
 - 함수 내에서 선언된 변수는 함수 외부에서 접근 불가. 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ## 🔘 이벤트 처리와 DOM 조작
 ### 🔸 이벤트(Event)란?
 - 이벤트는 사용자가 웹 페이지와 상호작용할 때 발생하는 동작.
@@ -646,6 +687,8 @@ document.getElementById('myButton').addEventListener('click', function() {
 });
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ## 🔘 이벤트 처리와 DOM 조작
 
 ### 🔸 DOM(Document Object Model) 소개
@@ -662,6 +705,8 @@ element.textContent = 'Hello, World!';
 element.style.color = 'red';
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ## 🔘 이벤트 처리와 DOM 조작
 ### 🔸 이벤트 위임 (Event Delegation)
 - 이벤트 위임은 부모 요소에 이벤트 리스너를 설정하여, 자식 요소의 이벤트를 처리하는 기법.
@@ -682,6 +727,8 @@ document.getElementById('colorButton').addEventListener('click', function() {
 ```
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ## 🔘 ES6+ 특징 (화살표 함수, 디스트럭처링 등)
 ### 🔸 ES6 소개
 - ECMAScript 6(ES6)은 자바스크립트 언어의 주요 업그레이드로, 다양한 새로운 기능을 도입
@@ -702,6 +749,8 @@ const name = 'Alice';
 const message = `Hello, ${name}! Welcome to the site.`;
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ## 🔘 ES6+ 특징 (화살표 함수, 디스트럭처링 등)
 
 ### 🔸 디스트럭처링(Destructuring)
@@ -728,6 +777,8 @@ const arr2 = [...arr1, 4, 5];
 - 모듈(Modules): ES6 모듈은 import와 export를 사용하여 코드 모듈화를 지원.
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ## 🔘 비동기 자바스크립트 (Asynchronous JavaScript)
 ### 🔸 비동기 프로그래밍이란?
 - 비동기 프로그래밍은 작업이 완료될 때까지 프로그램이 대기하지 않고, 다른 작업을 계속 가능.
@@ -747,6 +798,8 @@ fetchData((message) => {
 });
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ## 🔘 비동기 자바스크립트 (Asynchronous JavaScript)
 
 ### 🔸 프로미스(Promises)
@@ -772,6 +825,8 @@ promise
   });
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ## 🔘 비동기 자바스크립트 (Asynchronous JavaScript)
 
 ### 🔸 async/await
@@ -791,13 +846,26 @@ async function fetchData() {
 
 fetchData();
 ```
+<!-- .slide: data-background="linear-gradient(to bottom right, blue, white)" -->
+
 ### 🔸 비동기 자바스크립트 실습
 
 - 실습: API 호출하여 데이터 받아오기
 - fetch API를 사용하여 외부 API로부터 데이터를 받아와 DOM에 표시.
+
+
+
+
+
+
+
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 # 🔷 Git을 이용한 버전 관리
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 Git 소개
 ### 🔸 Git이란 무엇인가?
 - Git은 소스 코드 버전 관리를 위한 분산형 버전 관리 시스템(DVCS).
@@ -811,6 +879,8 @@ fetchData();
 - 빠른 속도: 변경 사항을 빠르게 추적하고 관리.
 - 강력한 브랜치 관리: 독립적인 브랜치를 쉽게 생성하고, 병합 및 관리.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 Git 설치 및 설정
 ### 🔸 Git 설치하기
 - Git은 Windows, macOS, Linux 등 다양한 운영체제에서 사용. 
@@ -823,6 +893,8 @@ fetchData();
   sudo apt-get install git
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 Git 설치 및 설정
 
 ### 🔸 Git 초기 설정
@@ -841,6 +913,8 @@ git config --list
 ```
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 Git 기본 명령어
 ### 🔸 Git 초기화 (git init)
 - 새로운 Git 저장소를 생성하려면 프로젝트 디렉토리에서 git init 명령어를 사용. 
@@ -860,6 +934,8 @@ git add 파일명
 - 모든 파일을 추가하려면 git add . 명령어를 사용.
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 Git 기본 명령어
 
 ### 🔸 커밋하기 (git commit)
@@ -880,6 +956,8 @@ git status
 
 - 이 명령어는 추적되지 않은 파일, 스테이징된 파일, 수정된 파일 등을 표시
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 브랜치와 병합 (Branching and Merging)
 ### 🔸 브랜치란?
 - 브랜치는 독립된 작업 공간을 제공
@@ -896,6 +974,8 @@ git checkout feature-branch
 ```
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 브랜치와 병합 (Branching and Merging)
 ### 🔸 브랜치 확인하기
 - 현재 존재하는 브랜치를 확인하려면 git branch 명령어를 사용. 
@@ -915,6 +995,8 @@ git merge feature-branch
 - 충돌을 해결하려면 해당 파일을 수동으로 편집하고, 수정된 내용을 커밋.
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 Git 워크플로우 (Gitflow 및 기능 브랜치)
 ### 🔸 Git 워크플로우란?
 - Git 워크플로우는 팀의 코드 관리 방식을 정의하는 규칙. 효율적인 협업을 위해 일관된 워크플로우를 사용하는 것이 중요.
@@ -940,6 +1022,8 @@ git checkout -b feature/awesome-feature
 ---
 # 🔷 백엔드 개발 소개
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 서버란 무엇인가?
 ### 🔸 서버의 정의
 - 서버는 클라이언트 요청을 처리하고, 데이터를 제공하는 컴퓨터 시스템.
@@ -951,6 +1035,8 @@ git checkout -b feature/awesome-feature
 - 서버는 클라이언트가 요청한 데이터를 제공하고, 연산 작업을 수행하는 역할.
 - 사용자가 웹페이지를 요청하면 서버는 해당 페이지의 데이터를 클라이언트에 전달.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 클라이언트-서버 아키텍처
 ### 🔸 클라이언트-서버 아키텍처란?
 - 클라이언트-서버 아키텍처는 네트워크 환경에서 클라이언트와 서버 간의 상호 작용을 구조적으로 설명.
@@ -968,6 +1054,8 @@ git checkout -b feature/awesome-feature
 - 사용자가 브라우저에서 특정 URL을 입력하면, 클라이언트는 서버에 HTTP 요청을 전송.
 - 서버는 해당 요청을 처리하고, HTML, CSS, JavaScript와 같은 응답을 클라이언트에 반환.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 인기 있는 백엔드 언어 개요
 ### 🔸 Node.js
 - Node.js는 서버 측에서 JavaScript를 실행할 수 있게 해주는 런타임 환경. 
@@ -989,6 +1077,8 @@ git checkout -b feature/awesome-feature
 - 간결하고 직관적인 문법.
 - Redmine
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 데이터베이스 소개
 ### 🔸 데이터베이스란?
 - 데이터베이스는 체계적으로 데이터를 저장하고 관리하는 시스템. 
@@ -999,6 +1089,8 @@ git checkout -b feature/awesome-feature
 - 백엔드 애플리케이션에서 데이터베이스는 애플리케이션의 상태와 데이터를 영구적으로 저장
 -  필요 시 데이터를 검색하여 클라이언트에 제공.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 SQL vs NoSQL
 ### 🔸 SQL 데이터베이스
 - SQL(Structured Query Language) 데이터베이스는 관계형 데이터베이스로, 테이블 형식으로 데이터를 저장. 
@@ -1015,6 +1107,8 @@ git checkout -b feature/awesome-feature
 - 데이터 간의 관계를 명확히 정의하고, JOIN을 통해 데이터를 연결.
 - ACID 속성(Atomicity, Consistency, Isolation, Durability)을 보장.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 SQL vs NoSQL
 
 ### 🔸 NoSQL의 특징
@@ -1026,6 +1120,8 @@ git checkout -b feature/awesome-feature
 - NoSQL: 비정형 데이터 또는 대규모 데이터를 처리할 때 적합하며, 유연성이 필요할 때 유리.
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 CRUD 작업
 ### 🔸 CRUD란 무엇인가?
 - CRUD는 데이터베이스의 기본적인 작업을 나타내는 약어
@@ -1046,6 +1142,8 @@ INSERT INTO users (name, email) VALUES ('John Doe', 'john@example.com');
 SELECT * FROM users WHERE email = 'john@example.com';
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 CRUD 작업
 ### 🔸 Update (수정)
 - 기존 데이터를 수정. SQL에서 UPDATE 문을 사용하여 데이터를 업데이트.
@@ -1063,6 +1161,8 @@ DELETE FROM users WHERE email = 'john@example.com';
 - CRUD 작업은 모든 데이터베이스 운영의 기본으로, 이를 통해 데이터의 생성, 수정, 삭제, 조회가 가능.
 - 백엔드 애플리케이션에서 CRUD 기능을 잘 구현하는 것이 매우 중요.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 ORM 소개
 ### 🔸 ORM이란 무엇인가?
 - ORM(Object-Relational Mapping)은 객체 지향 프로그래밍 언어의 객체와 관계형 데이터베이스의 테이블을 자동으로 매핑하는 기술.
@@ -1080,6 +1180,8 @@ DELETE FROM users WHERE email = 'john@example.com';
 - ORM 프레임워크들은 각 언어의 특성에 맞게 설계되어 있으며, 데이터베이스와의 상호작용을 더 쉽게 만듬.
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 ORM 소개
 ### 🔸 ORM 사용 예시 (Sequelize)
 - Sequelize를 사용하여 데이터베이스 모델을 정의하고, 이를 통해 CRUD 작업을 수행.
@@ -1093,6 +1195,8 @@ const User = sequelize.define('User', {
 User.create({ name: 'John Doe', email: 'john@example.com' });
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 RESTful API 개요
 ### 🔸 RESTful API란?
 - RESTful API는 REST(Representational State Transfer) 원칙을 따르는 웹 서비스. 
@@ -1106,6 +1210,8 @@ User.create({ name: 'John Doe', email: 'john@example.com' });
 - 일관된 인터페이스: 모든 리소스는 동일한 URI 형식과 HTTP 메서드를 사용하여 액세스.
   
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 RESTful API 개요
 ### 🔸 HTTP 메서드와 REST
 - GET: 리소스 조회
@@ -1120,6 +1226,8 @@ User.create({ name: 'John Doe', email: 'john@example.com' });
 - 예: GET /users 요청은 모든 사용자 정보를 조회
 - 예: POST /users 요청은 새로운 사용자를 생성.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 Express.js (Node.js) 소개
 ### 🔸 Express.js란?
 - Express.js는 Node.js 환경에서 동작하는 경량화된 웹 프레임워크
@@ -1147,6 +1255,8 @@ app.listen(3000, () => {
 });
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 Express.js (Node.js) 소개
 
 ### 🔸 라우팅 설정
@@ -1171,6 +1281,8 @@ app.use((req, res, next) => {
 });
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 Express.js (Node.js) 소개
 
 ### 🔸 Express와 MongoDB 연동
@@ -1199,6 +1311,8 @@ app.use((err, req, res, next) => {
 ### 🔸 Express 앱 배포
 - Express 애플리케이션을 실제 서버에 배포하려면 PM2와 같은 프로세스 매니저를 사용하거나, Heroku와 같은 PaaS 플랫폼을 이용.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 프런트엔드와 백엔드 상호 연동
 ### 🔸 프런트엔드와 백엔드의 역할 분담
 - 프런트엔드는 사용자 인터페이스와 관련된 모든 것을 처리
@@ -1219,6 +1333,8 @@ fetch('https://api.example.com/users')
   .then(data => console.log(data));
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, brown)" -->
+
 ## 🔘 프런트엔드와 백엔드 상호 연동
 
 ### 🔸 Axios 사용 예시
