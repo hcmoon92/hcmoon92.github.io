@@ -24,6 +24,7 @@ Web development involves creating websites or web applications. We will discuss 
 - 사용자와 상호작용 (실시간, 온라인)
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 ## 🔘 프론트엔드 vs 백엔드
 ### 🔸 프론트엔드 (Front-end)
@@ -36,6 +37,8 @@ Web development involves creating websites or web applications. We will discuss 
 - 서버 측 언어(예: Node.js, Python, PHP)와 데이터베이스(SQL, NoSQL) 사용
 - 사용자 요청 처리, 데이터 관리 및 비즈니스 로직 구현
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 ## 🔘 풀스택 개발
 ### 🔸 풀스택 개발이란?
 - 풀스택 개발자는 프론트엔드와 백엔드 모두를 다룰 수 있는 개발자
@@ -45,6 +48,8 @@ Web development involves creating websites or web applications. We will discuss 
 - 유연성: 프로젝트의 모든 부분을 이해하고 관리 
 - 비용 절감: 다재다능한 개발자가 여러 역할을 수행, 인건비 절감
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 ## 🔘 웹의 역사와 발전
 ### 🔸 웹 1.0
 - 정적인 웹 페이지 중심의 초기 웹 기술
@@ -59,6 +64,8 @@ Web development involves creating websites or web applications. We will discuss 
 - 인공지능과 머신러닝을 통한 맞춤형 콘텐츠 제공
 - 사용자 데이터의 소유권 강화
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 ## 🔘 현재 웹 개발 트렌드
 ### 🔸 진보된 웹 애플리케이션 (PWA)
 - Progressive Web Application
@@ -72,6 +79,8 @@ Web development involves creating websites or web applications. We will discuss 
 - 웹 애플리케이션의 배포, 확장성, 유지보수를 개선
 - AWS, Azure, Google Cloud와 같은 클라우드 플랫폼을 사용
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 ## 🔘 도구와 소프트웨어
 ### 🔸 IDE 및 텍스트 에디터
 - Visual Studio Code: 널리 사용되는 무료 IDE, 다양한 확장 기능 제공
@@ -82,6 +91,8 @@ Web development involves creating websites or web applications. We will discuss 
 - GitHub: 협업과 코드 공유를 위한 플랫폼
 - GitLab: CI/CD 파이프라인과 통합된 Git 리포지토리 관리 도구
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 ## 🔘 Summary
 ### 🔸 웹 개발의 기초
 ### 🔸 웹의 역사와 발전
@@ -96,9 +107,13 @@ Web development involves creating websites or web applications. We will discuss 
 
 
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 # 🔷 HTML - 웹의 구조
-<!-- .slide: data-background="linear-gradient(to bottom right, blue, pink)" -->
+
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 ## 🔘 HTML 소개
 ### 🔸 HTML의 정의
 - HTML(하이퍼텍스트 마크업 언어)은 웹 페이지의 구조를 정의하는 언어
@@ -109,6 +124,8 @@ Web development involves creating websites or web applications. We will discuss 
 - CSS와 JavaScript와 함께 웹 페이지의 스타일링과 동작을 제어
 - HTML은 콘텐츠의 의미와 구조를 정의하는 데 중점
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 ## 🔘 문서 구조 (Document structure)
 ### 🔸 DOCTYPE 선언 (`<!DOCTYPE html>`)
 - HTML 문서가 HTML5 표준을 따름을 선언
@@ -128,6 +145,8 @@ Web development involves creating websites or web applications. We will discuss 
 - 웹 페이지의 실제 콘텐츠를 포함
 - 사용자가 브라우저에서 볼 수 있는 모든 텍스트, 이미지, 링크 등이 위치
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 ## 🔘 주요 태그들
 ### 🔸 문단 태그 (`<p>`)
 - 문단을 정의하는 태그 
@@ -143,6 +162,8 @@ Web development involves creating websites or web applications. We will discuss 
 - `href` 속성을 사용하여 링크할 URL을 지정 
 - 텍스트 링크뿐만 아니라 이미지, 버튼 등에 링크를 적용
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 ## 🔘 주요 태그들
 
 ### 🔸 이미지 태그 (`<img>`)
@@ -159,6 +180,8 @@ Web development involves creating websites or web applications. We will discuss 
 - `<div>`와 달리, 다른 텍스트나 요소와 같은 줄에 위치
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 ## 🔘 폼과 입력 (Forms and Inputs)
 
 ### 🔸 폼 태그 (`<form>`)
@@ -175,6 +198,8 @@ Web development involves creating websites or web applications. We will discuss 
 - 드롭다운 목록을 생성하여 사용자에게 여러 선택지를 제공
 - `<option>` 태그를 사용하여 목록의 각 항목을 정의
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 ## 🔘 폼과 입력 (Forms and Inputs)
 
 ### 🔸 텍스트 영역 (`<textarea>`)
@@ -190,6 +215,8 @@ Web development involves creating websites or web applications. We will discuss 
 - 체크박스 (`<input type="checkbox">`): 여러 선택 옵션을 제공
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 ## 🔘 폼 검증 (Validation)
 
 ### 🔸 HTML5 기본 검증
@@ -209,6 +236,8 @@ Web development involves creating websites or web applications. We will discuss 
 - 클라이언트 측 검증은 사용자 경험을 개선하지만, 서버 측 검증은 필수적
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 ## 🔘 접근성 (Accessibility)
 
 ### 🔸 의미 있는 레이블 사용
@@ -226,6 +255,8 @@ Web development involves creating websites or web applications. We will discuss 
 - 모든 폼 요소는 키보드로 접근 가능
 - tabindex 속성을 사용하여 키보드 포커스의 순서를 지정 가능
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 ## 🔘 고급 HTML - 시맨틱 HTML (Semantic HTML)
 ### 🔸 시맨틱 요소란?
 
@@ -241,6 +272,8 @@ Web development involves creating websites or web applications. We will discuss 
 - `<footer>`: 문서나 섹션의 바닥글을 정의 
 - `<aside>`: 본문과 간접적으로 관련된 콘텐츠를 정의 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 ## 🔘 고급 HTML - 시맨틱 HTML (Semantic HTML)
 ### 🔸 시맨틱 HTML의 중요성
 - 시맨틱 요소는 접근성과 SEO 향상
@@ -254,10 +287,14 @@ Web development involves creating websites or web applications. We will discuss 
 - 오디오 (`<audio>`): 오디오 파일을 재생할 수 있는 요소 
 - 로컬 저장소 (Local Storage): 브라우저에 데이터를 영구적으로 저장할 수 있는 클라이언트 측 저장소 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 ## References
 - w3 school : https://www.w3schools.com/html/default.asp
 - 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 # 🔷 Q&A 
 
 
@@ -271,6 +308,9 @@ Web development involves creating websites or web applications. We will discuss 
 
 
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, white, blue)" -->
+
+
 # 🔷 CSS - 웹의 스타일링
 --
 ## 🔘 CSS 소개
