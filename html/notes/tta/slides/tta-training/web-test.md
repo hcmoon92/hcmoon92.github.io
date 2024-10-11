@@ -1,5 +1,9 @@
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 # 🔷 웹 테스트 소개 및 기초
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 테스트 소개
 ### 🔸 웹 테스트란 무엇인가?
 - 정의: 웹 테스트는 웹 애플리케이션의 기능, 성능, 보안을 확인하기 위한 프로세스.
@@ -9,6 +13,8 @@
 - 비용 절감: 초기 단계에서 오류를 찾아 수정함으로써, 나중에 발생할 수 있는 수리 비용을 절감.
 - 사용자 신뢰: 안정적이고 신뢰할 수 있는 웹 애플리케이션을 통해 사용자에게 긍정적인 경험을 제공.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 테스트 소개
 ### 🔸 웹 테스트의 종류
 - 기능 테스트: 애플리케이션의 기능이 올바르게 작동하는지 확인.
@@ -17,6 +23,8 @@
 - 호환성 테스트: 다양한 브라우저와 기기에서 애플리케이션이 잘 작동하는지 확인.
 - 사용성 테스트: 사용자 경험을 평가하여 사용자 인터페이스의 직관성을 검증.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 테스트 소개
 
 ### 🔸 HTTP 프로토콜 이해
@@ -31,6 +39,8 @@
 - 헤더: 응답에 대한 추가 정보를 포함.
 - 본문: 요청된 데이터가 포함.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 테스트 소개
 
 ### 🔸 웹 애플리케이션 구조
@@ -41,6 +51,8 @@
 - 백엔드: 데이터 처리 및 비즈니스 로직을 처리.
 - 데이터베이스: 데이터를 저장하고 관리.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 테스트 소개
 
 ### 🔸 클라이언트와 서버의 관계
@@ -51,6 +63,8 @@
 - 2단계: 서버가 요청을 처리
 - 3단계: 서버가 응답을 클라이언트에 반환
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 테스트 소개
 
 ### 🔸 웹 테스트의 역할
@@ -66,6 +80,8 @@
 - 테스트 실행: 실제 테스트 수행
 - 결과 분석: 결과 검토 및 보고서 작성
 --
+<!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
+
 ## 🔘 웹 테스트 소개
 
 ### 🔸 테스트 케이스 작성
@@ -83,8 +99,12 @@
 - API 테스트 실습: Postman을 활용한 API 테스트
 
 ---
+<!-- .slide: data-background="linear-gradient(to right, #0072ff, white)" -->
+
 # 🔷 테스트 계획 및 전략
 --
+<!-- .slide: data-background="linear-gradient(to right, #0072ff, white)" -->
+
 ## 🔘 테스트 계획 및 전략
 
 ### 🔸 테스트 계획의 정의
@@ -100,6 +120,8 @@
 - 일정: 각 테스트 활동의 시작 및 종료 날짜
 - 위험 관리: 프로젝트에서 발생할 수 있는 위험 요소와 대처 방안
 --
+<!-- .slide: data-background="linear-gradient(to right, #0072ff, white)" -->
+
 ## 🔘 테스트 계획 및 전략
 
 ### 🔸 테스트 전략의 정의
@@ -116,6 +138,8 @@
 - 우선순위 설정: 테스트할 기능의 중요도에 따라 우선순위 결정
 - 문서화: 모든 요소를 문서화하여 테스트 계획 수립
 --
+<!-- .slide: data-background="linear-gradient(to right, #0072ff, white)" -->
+
 ## 🔘 테스트 계획 및 전략
 
 ### 🔸 리스크 기반 테스트 접근법
@@ -128,6 +152,8 @@
 - 리스크 목록 작성: 프로젝트 관련 모든 리스크를 나열.
 - 리스크 평가: 발생 가능성과 영향을 평가하여 우선순위 설정
 --
+<!-- .slide: data-background="linear-gradient(to right, #0072ff, white)" -->
+
 ## 🔘 테스트 계획 및 전략
 ### 🔸 리스크 평가 방법
 - 발생 가능성: 리스크가 발생할 확률 (낮음, 중간, 높음)
@@ -139,6 +165,8 @@
 - 예시: 웹 애플리케이션에서 로그인 기능과 결제 기능은 높은 리스크가 있으므로 우선적으로 테스트.
 - 결과: 리스크가 높은 기능에서 발생한 문제를 사전에 발견하고 수정.
 --
+<!-- .slide: data-background="linear-gradient(to right, #0072ff, white)" -->
+
 ## 🔘 테스트 계획 및 전략
 
 ### 🔸 테스트 문서화의 중요성
@@ -155,9 +183,16 @@
 - 인력 관리: 필요한 인력 배정 및 일정 조정
 - 도구 관리: 필요한 테스트 도구의 확보 및 설치
 
+
+
+
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 # 🔷 웹 테스트 도구
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 웹 테스트 도구
 ### 🔸 웹 테스트 도구의 중요성
 - 웹 테스트 도구는 웹 애플리케이션의 기능, 성능, 보안을 테스트하기 위한 소프트웨어.
@@ -170,6 +205,8 @@
 - Selenium IDE: 테스트 케이스를 녹화하고 재생할 수 있는 도구.
 - Selenium Grid: 여러 환경에서 테스트를 동시에 실행할 수 있도록 지원.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 웹 테스트 도구
 
 ### 🔸 Selenium의 장점
@@ -187,6 +224,8 @@
 - Chrome: ChromeDriver
 - Firefox: GeckoDriver
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 웹 테스트 도구
 
 ### 🔸 Selenium 환경 설정
@@ -208,6 +247,8 @@ public class Test {
 }
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 웹 테스트 도구
 
 ### 🔸 Selenium 스크립트 설명
@@ -220,6 +261,8 @@ public class Test {
 - sendKeys: 입력 필드에 텍스트 입력
 - getTitle: 현재 페이지의 제목 가져오기
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 웹 테스트 도구
 
 ### 🔸 JUnit 소개
@@ -238,6 +281,8 @@ public class ExampleTest {
 }
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 웹 테스트 도구
 
 ### 🔸 TestNG 소개
@@ -255,6 +300,8 @@ public class ExampleTest {
 }
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 웹 테스트 도구
 
 ### 🔸 TestNG의 장점
@@ -262,6 +309,8 @@ public class ExampleTest {
 - 병렬 실행: 여러 테스트를 동시에 실행 가능
 - XML 파일을 통한 설정: 테스트 실행 및 설정을 XML로 관리
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 웹 테스트 도구
 
 ### 🔸 Postman 소개
@@ -277,6 +326,8 @@ public class ExampleTest {
 - HTTP 메서드 선택: GET, POST 등 선택.
 - 요청 전송: "Send" 버튼 클릭하여 요청 전송.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 웹 테스트 도구
 
 ### 🔸 Postman 응답 확인
@@ -290,6 +341,8 @@ pm.test("응답 상태가 200인지 확인", function () {
 });
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 웹 테스트 도구
 
 ### 🔸 Postman의 환경 변수
@@ -302,6 +355,8 @@ pm.test("응답 상태가 200인지 확인", function () {
 - Selenium: 주로 웹 애플리케이션의 UI 테스트에 사용
 - Postman: API 요청 및 응답 테스트에 특화된 도구
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #e6ffee)" -->
+
 ## 🔘 웹 테스트 도구
 
 ### 🔸 웹 테스트 도구 통합
@@ -322,8 +377,12 @@ pm.test("응답 상태가 200인지 확인", function () {
 - Postman 응답 오류: API 문서와의 불일치 점검
 
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 # 🔷 수동 테스트
 -- 
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 수동 테스트
 
 ### 🔸 수동 테스트의 정의
@@ -338,6 +397,8 @@ pm.test("응답 상태가 200인지 확인", function () {
 - 테스트 환경 설정: 테스트를 위한 환경과 조건을 사전에 준비.
 - 문서화: 테스트 수행 과정과 결과를 문서화하여 공유.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 수동 테스트
 
 ### 🔸 테스트 케이스 작성의 중요성
@@ -349,17 +410,22 @@ pm.test("응답 상태가 200인지 확인", function () {
 - 테스트 단계 명시: 테스트 수행의 각 단계를 구체적으로 기술.
 - 예상 결과 설정: 각 단계에서 기대되는 결과를 명시.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 수동 테스트
 
 ### 🔸 테스트 케이스 예시
-|테스트 케이스 ID|테스트 목적|사전 조건|테스트 단계|예상 결과|
-|---|---|---|---|---|
-|TC-001|로그인 기능 검증|로그인 페이지 접근|1. URL 입력,2. 아이디/비밀번호 입력,3. 로그인 클릭|대시보드 페이지로 이동|
+
+| 테스트 케이스 ID | 테스트 목적         | 사전 조건          | 테스트 단계       | 예상 결과    |
+|:---------------------|:------------------------|:------------------|:-------------------|:-------------------|
+| TC-001           | 로그인 기능 검증      | 로그인 페이지 접근   | 1. URL 입력 <br> 2. 아이디/비밀번호 입력 <br> 3. 로그인 클릭   | 대시보드 페이지로 이동  |
 
 ### 🔸 버그 리포트 작성의 중요성
 - 버그 리포트는 발견된 결함에 대한 정보를 기록한 문서.
 - 개발팀이 결함을 이해하고 수정할 수 있도록 해줌.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 수동 테스트
 
 ### 🔸 버그 리포트의 주요 요소
@@ -371,19 +437,26 @@ pm.test("응답 상태가 200인지 확인", function () {
 - 실제 결과: 발생한 실제 결과
 - 스크린샷/영상: 시각적 증거 제공
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 수동 테스트
 
 ### 🔸 버그 리포트 예시
-|항목|내용|
-|---|---|
-|버그 ID|BUG-001|
+
+|   항목   |    내용   |
+|:-------------|:------------------|
+|버그 ID | BUG-001 |
 |제목|로그인 후 대시보드 페이지 미표시|
 |환경|Chrome 92, Windows 10|
-|재현 단계|1. 로그인 페이지 접근, 2. 로그인 후 대시보드 클릭|
+|재현 단계|1. 로그인 페이지 접근, <br> 2. 로그인 후 대시보드 클릭|
 |예상 결과|대시보드 페이지가 정상적으로 표시됨|
 |실제 결과|대시보드 페이지가 표시되지 않음|
 |스크린샷|(첨부된 스크린샷)|
+
+
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 수동 테스트
 
 ### 🔸 수동 테스트 절차
@@ -392,6 +465,8 @@ pm.test("응답 상태가 200인지 확인", function () {
 - 테스트 실행: 수동으로 테스트를 수행
 - 버그 리포트 작성: 발견된 결함 기록 및 보고
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 수동 테스트
 
 ### 🔸 수동 테스트 도구
@@ -405,6 +480,8 @@ pm.test("응답 상태가 200인지 확인", function () {
 - 시간 소요: 자동화 테스트에 비해 테스트 진행 시간이 길어짐.
 - 인적 오류: 수동 테스트 과정에서 실수가 발생.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #e6ffee, white)" -->
+
 ## 🔘 수동 테스트
 
 ### 🔸 수동 테스트와 자동화 테스트의 차이
@@ -417,9 +494,15 @@ pm.test("응답 상태가 200인지 확인", function () {
 - 수동 테스트는 소프트웨어 품질 보증의 중요한 부분
 - 효과적인 테스트 계획, 케이스 작성, 버그 리포트 작성을 통해 품질 향상
 
+
+
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 # 🔷 자동화 테스트
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 자동화 테스트
 
 ### 🔸 자동화 테스트
@@ -434,6 +517,8 @@ pm.test("응답 상태가 200인지 확인", function () {
 - 테스트 범위 확장: 더 많은 테스트 케이스를 실행할 수 있어 전반적인 테스트 범위를 넓힘.
 - 비용 절감: 장기적으로 테스트 비용을 줄임.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 자동화 테스트
 
 ### 🔸 자동화 테스트의 단점
@@ -449,6 +534,8 @@ pm.test("응답 상태가 200인지 확인", function () {
 - 스크립트 작성: 테스트 케이스를 위한 스크립트를 작성.
 - API 지원: 테스트를 위한 다양한 API를 제공.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 자동화 테스트
 
 ### 🔸 Selenium 설치 및 설정
@@ -474,6 +561,8 @@ public class SimpleTest {
 }
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 자동화 테스트
 
 ### 🔸 Selenium의 스크립트 구조
@@ -485,6 +574,8 @@ public class SimpleTest {
 - CI/CD: Continuous Integration/Continuous Deployment의 약자로, 소프트웨어 개발 및 배포 과정의 자동화.
 - 자동화 테스트 통합: CI/CD 과정에 자동화 테스트를 포함하여 코드 변경 시 자동으로 테스트를 수행.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 자동화 테스트
 
 ### 🔸 CI/CD의 중요성
@@ -498,6 +589,8 @@ public class SimpleTest {
 - CI/CD 도구 설정: Jenkins나 GitLab CI에 테스트 스크립트를 연동.
 - 빌드 후 테스트 실행: 코드 변경 시 자동으로 테스트가 실행되도록 설정.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 자동화 테스트
 
 ### 🔸 CI/CD 파이프라인 흐름
@@ -510,6 +603,8 @@ public class SimpleTest {
 - 언어 지원: 팀에서 사용하는 언어와의 호환성 고려
 - 커뮤니티 및 지원: 사용자 커뮤니티와 문서화된 지원 확인
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, #ffffcc)" -->
+
 ## 🔘 자동화 테스트
 
 ### 🔸 테스트 유지 관리
@@ -520,9 +615,13 @@ public class SimpleTest {
 - Selenium과 CI/CD 통합으로 효율성을 높이고, 신뢰성을 강화.
 
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 # 🔷 성능 테스트
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 ## 🔘 성능 테스트
 
 ### 🔸 성능 테스트란 무엇인가?
@@ -537,6 +636,8 @@ public class SimpleTest {
 - 스파이크 테스트: 짧은 시간 동안 급격한 트래픽 증가를 시뮬레이션.
 - 지속 테스트: 장시간 동안 시스템의 성능을 지속적으로 테스트.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 ## 🔘 성능 테스트
 
 ### 🔸 JMeter 소개
@@ -549,6 +650,8 @@ public class SimpleTest {
 - JMeter 다운로드: Apache JMeter 공식 웹사이트에서 다운로드.
 - 압축 해제: 다운로드한 파일의 압축을 해제하고 bin 폴더로 이동.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 ## 🔘 성능 테스트
 
 ### 🔸 JMeter의 기본 구성 요소
@@ -560,6 +663,8 @@ public class SimpleTest {
 - 테스트 목표 설정: 성능 테스트의 목표를 명확히 정의합니다 (예: 최대 동시 사용자 수).
 - 사용자 시나리오 정의: 실제 사용자의 행동을 기반으로 시나리오를 작성.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 ## 🔘 성능 테스트
 
 ### 🔸 성능 테스트 시나리오 예시
@@ -573,6 +678,8 @@ public class SimpleTest {
 - 테스트 실행: JMeter에서 테스트 플랜을 실행하여 성능 테스트를 수행.
 - 결과 분석: 리스너를 통해 응답 시간, 처리량 등을 분석.
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, #ffffcc, white)" -->
+
 ## 🔘 성능 테스트
 
 ### 🔸 성능 테스트의 모범 사례
@@ -581,8 +688,12 @@ public class SimpleTest {
 
 
 ---
+<!-- .slide: data-background="linear-gradient(to right, white, gray)" -->
+
 # 🔷 보안 테스트
 --
+<!-- .slide: data-background="linear-gradient(to right, white, gray)" -->
+
 ## 🔘 보안 테스트
 
 ### 🔸 보안 테스트란 무엇인가?
@@ -593,6 +704,8 @@ public class SimpleTest {
 - 인가: 인증된 사용자가 어떤 리소스에 접근할 수 있는지를 결정하는 과정.
 - 암호화: 데이터를 안전하게 보호하기 위해 정보를 변환하는 과정.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, gray)" -->
+
 ## 🔘 보안 테스트
 
 ### 🔸 OWASP Top Ten 개요
@@ -610,6 +723,8 @@ public class SimpleTest {
 - A09:2021 - Security Logging and Monitoring Failures
 - A10:2021 - Server-Side Request Forgery (SSRF)
 --
+<!-- .slide: data-background="linear-gradient(to right, white, gray)" -->
+
 ## 🔘 보안 테스트
 
 ### 🔸 보안 테스트 도구 소개
@@ -621,6 +736,8 @@ public class SimpleTest {
 - ZAP 다운로드: OWASP ZAP 공식 웹사이트에서 다운로드.
 - 실행: 다운로드한 파일을 실행하여 ZAP을 시작.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, gray)" -->
+
 ## 🔘 보안 테스트
 
 ### 🔸 Burp Suite의 기본 구성 요소
@@ -637,8 +754,12 @@ public class SimpleTest {
 - 법적 준수: GDPR 등과 같은 법적 요건을 충족하기 위해 필요.
 
 ---
+<!-- .slide: data-background="linear-gradient(to right, white, gray)" -->
+
 # 🔷 웹 테스트 분야의 최신 동향
 --
+<!-- .slide: data-background="linear-gradient(to right, white, gray)" -->
+
 ## 🔘 웹 테스트 분야의 최신 동향
 ### 🔸 웹 테스트 분야의 최신 동향
 - 디지털 트랜스포메이션: 비즈니스와 기술의 변화에 따라 웹 테스트의 중요성이 증가.
@@ -650,6 +771,8 @@ public class SimpleTest {
 - 클라우드 테스트 플랫폼: 다양한 환경에서의 테스트를 지원하는 클라우드 기반 플랫폼의 사용이 증가.
 - 스케일링의 용이성: 클라우드 환경에서의 테스트는 손쉽게 리소스를 조정할 수 있어 성능 테스트에 적합.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, gray)" -->
+
 ## 🔘 웹 테스트 분야의 최신 동향
 
 ### 🔸 DevOps 및 CI/CD의 통합
@@ -662,6 +785,8 @@ public class SimpleTest {
 - 사이버 공격 증가: 웹 애플리케이션에 대한 사이버 공격이 증가하면서 보안 테스트의 필요성 증대.
 - OWASP Top Ten 업데이트: OWASP는 보안 취약점을 정기적으로 업데이트하여 개발자와 보안 전문가에게 최신 정보를 제공.
 --
+<!-- .slide: data-background="linear-gradient(to right, white, gray)" -->
+
 ## 🔘 웹 테스트 분야의 최신 동향
 
 ### 🔸 성능 테스트의 진화
