@@ -57,7 +57,7 @@
     orderButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             const itemName = e.target.parentElement.querySelector('h3').innerText;
-            alert(`You have ordered a ${itemName}`);
+            console.log(`You have ordered a ${itemName}`);
         });
     });
 </script>
