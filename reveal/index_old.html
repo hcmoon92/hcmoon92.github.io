@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/white.css">
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+<body>
+
+<div>
+    <h1>Select a Markdown file:</h1>
+    <select id="markdown-selector" onchange="loadSelectedMarkdown()">
+        <option value="slides/web-dev/chap01.md">Web Dev - Chapter 1</option>
+        <option value="slides/web-ops/chap01.md">Web Ops - Operations 1</option>
+        <option value="slides/web-test/chap01.md">Web Test - Test 1</option>
+    </select>
+</div>
+
+<div class="reveal">
+    <div class="slides" id="slides-container">
+        <!-- Load initial content in an iframe -->
+        <iframe src="welcome.html" style="width: 100%; height: 100%; border: none;"></iframe>
+    </div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+        pdfSeparateFragments: false,
+        pdfMaxPagesPerSlide: 1,
+        pdfPageHeightOffset: 5,
+        background: 'white'
+    });
+</script>
+
+<script src='app.js'></script>
+
+</body>
+</html>

@@ -56,10 +56,13 @@ Social Media Dashboard
 Description: Develop a dashboard to display social media analytics and user interactions.
 Key Skills: HTML, CSS, JavaScript, Chart.js or D3.js, API Integration
 Tutorial Example: Create a Social Media Dashboard with Chart.js
+
+
 Content Management System (CMS)
 Description: Build a system where users can create, read, update, and delete content.
 Key Skills: HTML, CSS, JavaScript, Backend (Node.js, Express), Database (MongoDB)
 Tutorial Example: Build a CMS with MERN Stack
+
 Real-Time Collaborative Editor
 Description: Create an application where multiple users can edit documents simultaneously.
 Key Skills: HTML, CSS, JavaScript, WebSockets, Operational Transformation or CRDTs
@@ -80,18 +83,22 @@ Authentication System with JWT
 Description: Implement user authentication using JSON Web Tokens, including login, registration, and protected routes.
 Key Skills: HTML, CSS, JavaScript, Node.js, Express, MongoDB, JWT
 Tutorial Example: JWT Authentication with Node.js and Express
+
 Blog with CMS and User Roles
 Description: Extend the basic blog to include user roles (admin, editor, reader) and a CMS backend.
 Key Skills: Full-Stack (HTML, CSS, JavaScript, Node.js, Express, MongoDB), Authentication, Authorization
 Tutorial Example: Full-Stack Blog with User Authentication
+
 Online Marketplace
 Description: Create a platform where users can list items for sale, purchase items, and manage their profiles.
 Key Skills: Full-Stack Development, Payment Integration (Stripe), Database Management
 Tutorial Example: Build an Online Marketplace with MERN Stack
+
 Fitness Tracker App
 Description: Develop an app to track workouts, monitor progress, and set fitness goals.
 Key Skills: Full-Stack (React or Angular, Node.js, Express, MongoDB), API Integration, User Authentication
 Tutorial Example: Build a Fitness Tracker App
+
 Online Learning Platform
 Description: Create a platform where users can enroll in courses, track progress, and complete assignments.
 Key Skills: Full-Stack Development, Video Streaming Integration, User Management
