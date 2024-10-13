@@ -1,4 +1,15 @@
-# flutter web
+# flutter (android)
+- Debug
+```bash
+flutter run
+```
+
+- Release
+```bash
+flutter run --release
+```
+
+# flutter (web)
  
 ```bash
 flutter config --enable-web

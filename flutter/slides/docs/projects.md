@@ -1,12 +1,5 @@
 # My Share (Github)
-- Debug
-```
-flutter run
----
-- Release
----
-flutter run --release
-```
+
 --
 # my-share/mybusu
 - com.henry.mybusu
