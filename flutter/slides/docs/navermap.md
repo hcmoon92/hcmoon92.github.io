@@ -20,7 +20,8 @@ allprojects {
 ```
 
 ## pubspec.yaml
-
+- pubspec.yaml
+  
 ```bash
 flutter pub add flutter_naver_map:^1.2.2
 ```
