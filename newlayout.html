@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <style>
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Forecast container */
+        .forecast-container {
+            background: linear-gradient(to bottom, #E0F7FA, #F0F0F0);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .forecast-header {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Forecast grid */
+        .forecast-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 15px;
+        }
+
+        /* Forecast item (time) */
+        .forecast-item {
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Gradient background for time blocks */
+        .time {
+            background: linear-gradient(to bottom, #B0C4DE, #4682B4); /* Light to dark blue */
+        }
+
+        /* Gradient background for temperature (cold to warm) */
+        .temperature {
+            background: linear-gradient(to right, #0000FF, #FF4500); /* Blue to Red */
+        }
+
+        /* Wind and humidity styling */
+        .wind, .humidity {
+            background: #87CEFA; /* Light blue */
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="forecast-container">
+        <div class="forecast-header">
+            Weather Forecast for Today
+        </div>
+
+        <div class="forecast-grid">
+            <!-- Time -->
+            <div class="forecast-item time">18:00</div>
+            <div class="forecast-item time">19:00</div>
+            <div class="forecast-item time">20:00</div>
+            <div class="forecast-item time">21:00</div>
+            <div class="forecast-item time">22:00</div>
+            <div class="forecast-item time">23:00</div>
+            <div class="forecast-item time">00:00</div>
+            <div class="forecast-item time">01:00</div>
+            <div class="forecast-item time">02:00</div>
+            <div class="forecast-item time">03:00</div>
+
+            <!-- Temperature -->
+            <div class="forecast-item temperature">14°C</div>
+            <div class="forecast-item temperature">12°C</div>
+            <div class="forecast-item temperature">11°C</div>
+            <div class="forecast-item temperature">10°C</div>
+            <div class="forecast-item temperature">9°C</div>
+            <div class="forecast-item temperature">8°C</div>
+            <div class="forecast-item temperature">8°C</div>
+            <div class="forecast-item temperature">7°C</div>
+            <div class="forecast-item temperature">7°C</div>
+            <div class="forecast-item temperature">6°C</div>
+
+            <!-- Wind -->
+            <div class="forecast-item wind">1 m/s</div>
+            <div class="forecast-item wind">1 m/s</div>
+            <div class="forecast-item wind">1 m/s</div>
+            <div class="forecast-item wind">1 m/s</div>
+            <div class="forecast-item wind">1 m/s</div>
+            <div class="forecast-item wind">1 m/s</div>
+            <div class="forecast-item wind">1 m/s</div>
+            <div class="forecast-item wind">1 m/s</div>
+            <div class="forecast-item wind">1 m/s</div>
+            <div class="forecast-item wind">1 m/s</div>
+
+            <!-- Humidity -->
+            <div class="forecast-item humidity">60%</div>
+            <div class="forecast-item humidity">70%</div>
+            <div class="forecast-item humidity">70%</div>
+            <div class="forecast-item humidity">75%</div>
+            <div class="forecast-item humidity">75%</div>
+            <div class="forecast-item humidity">80%</div>
+            <div class="forecast-item humidity">85%</div>
+            <div class="forecast-item humidity">85%</div>
+            <div class="forecast-item humidity">85%</div>
+            <div class="forecast-item humidity">88%</div>
+        </div>
+    </div>
+
+</body>
+</html>
