@@ -16,6 +16,12 @@ class User(db.Model):
 with app.app_context():
     db.create_all()
 
+
+# API to home
+@app.route('/')
+def hello_world():
+    return 'Hello World'
+
 # API to create a new user
 @app.route('/users', methods=['POST'])
 def create_user():

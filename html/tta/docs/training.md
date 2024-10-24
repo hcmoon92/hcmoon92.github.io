@@ -112,3 +112,96 @@ Summary:
 - Flask is used for creating the API.
 - SQLite is the database.
 - requests is used to test the API endpoints.
+
+
+---
+
+Step 1: Create the Project Structure
+Assuming you're starting fresh, here's how to structure your project:
+
+```
+flask_app/
+    ├── app.py
+    └── templates/
+        ├── index.html
+        └── success.html
+```
+
+Step 2: Create the Flask Application
+app.py:
+
+```python
+from flask import Flask, render_template, request, redirect, url_for
+
+app = Flask(__name__)
+
+@app.route('/', methods=['GET', 'POST'])
+def home():
+    if request.method == 'POST':
+        # Get the form data
+        name = request.form.get('name')
+        email = request.form.get('email')
+
+        # Redirect to the success page with the user's data
+        return redirect(url_for('success', name=name, email=email))
+
+    return render_template('index.html')
+
+@app.route('/success')
+def success():
+    # Get the name and email from the query parameters
+    name = request.args.get('name')
+    email = request.args.get('email')
+    return render_template('success.html', name=name, email=email)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
+Step 3: Create the HTML Templates
+templates/index.html:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form</title>
+</head>
+<body>
+    <h1>User Information Form</h1>
+    <form method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+```
+
+templates/success.html:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Successful</title>
+</head>
+<body>
+    <h1>Form Submission Successful!</h1>
+    <p>Name: {{ name }}</p>
+    <p>Email: {{ email }}</p>
+    <a href="/">Go back</a>
+</body>
+</html>
+```
+
+Step 4: Run the Application
+
+```bash
+python app.py

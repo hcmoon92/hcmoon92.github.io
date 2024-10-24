@@ -10,6 +10,14 @@ def test_create_user():
     assert data["username"] == "testuser"
     assert data["email"] == "testuser@example.com"
 
+def test_create_user1():
+    payload = {"username": "testuser1", "email": "testuser1@example.com"}
+    response = requests.post(f"{BASE_URL}/users", json=payload)
+    assert response.status_code == 201
+    data = response.json()
+    assert data["username"] == "testuser1"
+    assert data["email"] == "testuser1@example.com"
+
 def test_get_user():
     # Assuming user with ID 1 was created during test_create_user()
     response = requests.get(f"{BASE_URL}/users/1")
@@ -19,5 +27,5 @@ def test_get_user():
     assert data["email"] == "testuser@example.com"
 
 if __name__ == "__main__":
-    test_create_user()
+    test_create_user1()
     test_get_user()
