@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Directory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>Main Directory</h1>
+    <ul id="directory-list"></ul>
+
+    <script>
+        // Define the directory structure
+        const directories = {
+            "01": ["01-portfolio", "02-todo", "03-calculator", "04-gallery"],
+            "10": ["10-restaurant", "11-player-ranking", "12-login-dashboard"],
+            "20": ["20-weather", "21-blog", "22-recipe-finder", "23-movie-finder"],
+            "30": ["30-chat-firebase", "31-ecommerce"],
+            "40": ["40-social-dashboard-chart"]
+        };
+
+        // Function to create directory links
+        function createDirectoryLinks() {
+            const directoryList = document.getElementById('directory-list');
+
+            for (const [key, subdirs] of Object.entries(directories)) {
+                const categoryItem = document.createElement('li');
+                categoryItem.textContent = key;
+                const subList = document.createElement('ul');
+
+                subdirs.forEach(subdir => {
+                    const subdirItem = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = `${key}/${subdir}/index.html`; // Link to each subdirectory's index.html
+                    link.textContent = subdir; // Display subdirectory name
+                    subdirItem.appendChild(link);
+                    subList.appendChild(subdirItem);
+                });
+
+                categoryItem.appendChild(subList);
+                directoryList.appendChild(categoryItem);
+            }
+        }
+
+        // Call the function to create links on page load
+        createDirectoryLinks();
+    </script>
+
+
+    <h1> Slides </h1>
+    <a href="slides/">slides</a>
+
+
+
+</body>
+</html>
+

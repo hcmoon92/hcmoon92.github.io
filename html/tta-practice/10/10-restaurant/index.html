@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant eCommerce App</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-size: 2rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        h2 {
+            color: #333;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .menu-item img {
+            border-radius: 10px;
+            width: 100px;
+        }
+        .menu-item h3 {
+            margin-bottom: 10px;
+        }
+        .menu-item p {
+            color: #555;
+        }
+        .order-btn {
+            background-color: #28a745;
+            border: none;
+            padding: 10px 15px;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .order-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+    
+
+
+    <script>
+        const orderButtons = document.querySelectorAll('.order-btn');
+
+        const cart = [];
+    
+        orderButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const itemName = e.target.parentElement.querySelector('h3').innerText;
+                const itemPrice = e.target.parentElement.querySelector('p').innerText;
+    
+                // Add item to cart
+                cart.push({ name: itemName, price: itemPrice });
+    
+                // Display cart items in console (you can replace this with an actual UI later)
+                console.log(cart);
+            });
+        });
+    </script>
+    
+
+
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Restaurant</h1>
+    </header>
+    <div class="container">
+        <h2>Menu</h2>
+
+
+        <div class="menu-item">
+            <img src="burger.png" alt="Burger">
+            <div>
+                <h3>Burger</h3>
+                <p>$5.99</p>
+            </div>
+            <button class="order-btn">Order</button>
+        </div>
+        
+        <div class="menu-item">
+            <img src="pizza.png" alt="Pizza">
+            <div>
+                <h3>Pizza</h3>
+                <p>$8.99</p>
+            </div>
+            <button class="order-btn">Order</button>
+        </div>
+        
+        <div class="menu-item">
+            <img src="salad.png" alt="Salad">
+            <div>
+                <h3>Salad</h3>
+                <p>$4.99</p>
+            </div>
+            <button class="order-btn">Order</button>
+        </div>
+        
+
+
+    </div>
+</body>
+</html>
