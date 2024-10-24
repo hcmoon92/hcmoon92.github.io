@@ -60,6 +60,8 @@ python app.py
 ```
 This will start the Flask server at http://127.0.0.1:5000.
 
+---
+
 4. Test the API using Python and requests
 Create a separate test file for the API.
 
