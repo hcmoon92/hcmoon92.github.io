@@ -8,7 +8,7 @@ WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 
 # Copy the static Bootstrap Dashboard files from your host machine to the container
-COPY ../bootstrap-dashboard/ .
+COPY ./bootstrap-dashboard/ .
 
 # Expose port 80 to the host machine
 EXPOSE 80

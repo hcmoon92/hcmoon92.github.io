@@ -1,1 +1,0 @@
-docker run -d -p 8080:80 --name bootstrap-dashboard-container bootstrap-dashboard
