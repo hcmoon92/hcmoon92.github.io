@@ -60,7 +60,7 @@ python app.py
 ```
 This will start the Flask server at http://127.0.0.1:5000.
 
----
+--
 
 4. Test the API using Python and requests
 Create a separate test file for the API.
@@ -114,7 +114,7 @@ Summary:
 - requests is used to test the API endpoints.
 
 
----
+--
 
 Step 1: Create the Project Structure
 Assuming you're starting fresh, here's how to structure your project:
@@ -208,7 +208,7 @@ python app.py
 ```
 
 
----
+--
 
 # Bootstrap Dashboard Admin
 ## bootstrap-dashboard / 
@@ -247,7 +247,7 @@ docker run -d -p 8080:80 --name bootstrap-dashboard-container bootstrap-dashboar
 ```
 
 
----
+--
 
 - nginx-dashboard
 ```Dockerfile
@@ -315,7 +315,7 @@ scrape_configs:
     metrics_path: /nginx_status
 ```
 
----
+--
 
 - selenium
 
