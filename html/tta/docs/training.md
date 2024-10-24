@@ -205,3 +205,4 @@ Step 4: Run the Application
 
 ```bash
 python app.py
+```
