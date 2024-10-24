@@ -280,4 +280,111 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
+---
+```bash
+# Step 1: Create Bootstrap Dashboard
+mkdir -p ~/nginx-dashboard
+# Create index.html with Bootstrap content
 
+# Step 2: Set Up Nginx
+cd ~/nginx-dashboard
+# Create Dockerfile and build the image
+docker build -t nginx-dashboard .
+
+
+docker run -d --name nginx-dashboard -p 80:80 nginx-dashboard
+
+# Step 3: Set Up Prometheus
+# Create prometheus.yml with Nginx scrape config
+docker run -d --name prometheus -p 9090:9090 -v ~/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+
+# Step 4: Set Up Grafana
+docker run -d --name=grafana -p 3000:3000 grafana/grafana
+
+```
+
+prometheus.yml
+```yml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'nginx'
+    static_configs:
+      - targets: ['host.docker.internal:80']  # Target Nginx running on the host
+    metrics_path: /nginx_status
+```
+
+---
+
+- selenium
+
+ Create a Lightweight Selenium Standalone with Headless Chromium
+
+Dockerfile for Headless Chromium
+```Dockerfile
+# Use a small base image
+FROM python:3.9-slim
+
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y chromium chromium-driver && \
+    pip install selenium
+
+# Set environment variables for headless Chrome
+ENV CHROME_BIN=/usr/bin/chromium \
+    CHROMEDRIVER_PATH=/usr/bin/chromedriver
+
+# Copy the test script into the container
+COPY test_script.py /app/test_script.py
+WORKDIR /app
+
+# Command to run the Selenium test with headless Chromium
+CMD ["python", "test_script.py"]
+```
+
+Sample test_script.py
+```python
+# test_script.py
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+def test_demoqa():
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")  # Run headless (no GUI)
+    options.add_argument("--disable-gpu")
+    options.add_argument("--no-sandbox")  # Required in Docker
+    options.add_argument("--disable-dev-shm-usage")  # Bypass memory issues
+    driver = webdriver.Chrome(executable_path='/usr/bin/chromedriver', options=options)
+
+    try:
+        driver.get("https://demoqa.com/")
+        time.sleep(2)
+
+        # Example: Click on 'Elements' card
+        elements_section = driver.find_element(By.XPATH, "//div[@class='card'][1]//div[@class='card-body']")
+        elements_section.click()
+
+        # Check URL to ensure navigation succeeded
+        assert "elements" in driver.current_url
+
+    finally:
+        driver.quit()
+
+if __name__ == "__main__":
+    test_demoqa()
+```
+
+Build and Run the Container
+Build the Docker image with the custom Dockerfile:
+
+```bash
+docker build -t selenium-headless-chromium .
+```
+
+Run the container:
+
+```bash
+docker run --rm selenium-headless-chromium
+```
