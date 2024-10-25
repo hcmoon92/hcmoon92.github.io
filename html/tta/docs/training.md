@@ -280,7 +280,8 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
----
+--
+
 ```bash
 # Step 1: Create Bootstrap Dashboard
 mkdir -p ~/nginx-dashboard
@@ -377,6 +378,7 @@ def test_demoqa():
 if __name__ == "__main__":
     test_demoqa()
 ```
+--
 
 Build and Run the Container
 Build the Docker image with the custom Dockerfile:
