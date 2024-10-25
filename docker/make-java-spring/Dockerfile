@@ -1,8 +1,19 @@
-# Stage 1: Build the application with Maven
-FROM maven:3.9.9-eclipse-temurin-17 AS build
+# Use a base image with Maven and JDK
+FROM maven:3.9.4-eclipse-temurin-17 AS builder
 
-# Set a working directory
+# Set the working directory
 WORKDIR /app
+
+# Create Maven directories for the downloaded plugin
+RUN mkdir -p /root/.m2/repository/org/apache/maven/plugins/maven-clean-plugin/3.2.0
+
+# Download the Maven Clean Plugin directly from Maven Central using curl
+RUN curl -o /root/.m2/repository/org/apache/maven/plugins/maven-clean-plugin/3.2.0/maven-clean-plugin-3.2.0.jar \
+    https://repo1.maven.org/maven2/org/apache/maven/plugins/maven-clean-plugin/3.2.0/maven-clean-plugin-3.2.0.jar
+
+# Download the POM file for the plugin
+RUN curl -o /root/.m2/repository/org/apache/maven/plugins/maven-clean-plugin/3.2.0/maven-clean-plugin-3.2.0.pom \
+    https://repo1.maven.org/maven2/org/apache/maven/plugins/maven-clean-plugin/3.2.0/maven-clean-plugin-3.2.0.pom
 
 # Copy the Maven project files
 COPY pom.xml ./
