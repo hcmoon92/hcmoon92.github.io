@@ -343,6 +343,8 @@ WORKDIR /app
 CMD ["python", "test_script.py"]
 ```
 
+--
+
 Sample test_script.py
 ```python
 # test_script.py
