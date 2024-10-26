@@ -3,7 +3,7 @@
 - [Flutter SDK 설치](https://docs.flutter.dev/get-started/install)
 --
 
-[개발환경 구성](https://codelabs.developers.google.com/static/codelabs/flutter-codelab-first/img/d105428cb3aae7d5_856.png?hl=ko)
+![개발환경 구성](https://codelabs.developers.google.com/static/codelabs/flutter-codelab-first/img/d105428cb3aae7d5_856.png?hl=ko)
 - source : https://codelabs.developers.google.com/codelabs/flutter-codelab-first?hl=ko#1
 
 --
