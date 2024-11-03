@@ -1,5 +1,3 @@
-Day 01 | 현대 소프트웨어 환경
-⚠️ NOTE: Click cmd/ctrl + option/alt + T to expand all toggles
 1. Container
 1-1. Docker Play Ground
 https://labs.play-with-docker.com/ 접속. 아래와 같은 화면이 나타남. Start 버튼 클릭
@@ -12,6 +10,10 @@ https://labs.play-with-docker.com/ 접속. 아래와 같은 화면이 나타남.
 클릭 후, 아래와 같이 사용 가능한 container 제공
 
 아래 명령어를 복사, 붙여넣기로 실행. Hello World!를 화면에 보이는게 목표
+
+--
+
+```
 cat <<EOF > ~/index.html
 <!-- index.html -->
 <!DOCTYPE html>
@@ -27,6 +29,7 @@ cat <<EOF > ~/index.html
 </html>
 EOF
 
+```bash
 docker run -d \
 	--name python-server \
 	-p 8080:8000 \
@@ -40,8 +43,14 @@ docker run -d \
 # 	-v $(pwd):/usr/src \  # container에 volume mount
 # 	python:3-alpine \  # 사용할 container image
 # 		sh -c "cd /usr/src && python3 -m http.server 8000"
-​
+```
+
+--​
+
 이후 아래와 같은 log 발생. 이는 container 실행에 필요한 container image를 다운받는 과정
+
+
+```bash
 Unable to find image 'python:3-alpine' locally
 3-alpine: Pulling from library/python
 43c4264eed91: Pull complete 
@@ -51,15 +60,116 @@ ae04b12910c8: Pull complete
 Digest: sha256:c38ead8bcf521573dad837d7ecfdebbc87792202e89953ba8b2b83a9c5a520b6
 Status: Downloaded newer image for python:3-alpine
 708020d997da88bb3d4ea791fb2694fcebd106453117fc3a6101e6c25aa8c3d5
-​
-container는 실행중이며, docker ps -a 명령어로 실행중인 container 확인 가능
 
+```
+
+--
+container는 실행중이며, docker ps -a 명령어로 실행중인 container 확인 가능
+![image]([https://](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2F62bc087c-631e-483f-91de-60d906670ada%2Fimage.png?table=block&id=126b69ae-f4f3-80be-b3de-e2a0503b6e25&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=1250&userId=&cache=v2))
+
+--
 8080 포트로 접근 가능한 container 존재. 아래 이미지를 참고하여 접속
+![](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2F6834de72-9080-4bfc-b556-ccbd5130fec4%2Fimage.png?table=block&id=126b69ae-f4f3-8058-af3e-fc4a31b3203c&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=860&userId=&cache=v2)
 
 
 아래와 같은 화면이 나타남
+![](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2F0e36d08c-e475-4918-a45e-ee32e0f3431a%2Fimage.png?table=block&id=128b69ae-f4f3-80d5-9980-c0ca41dd663a&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=960&userId=&cache=v2)
+
+--
 
 1-2. Commands
+
+Command  Description  Example
+|---|---|---|
+docker pull 이미지 다운로드 docker pull nginx
+docker run 컨테이너 생성 및 실행 docker run -d -p 8080:80 --name my-nginx nginx
+docker ps 실행 중인 컨테이너 목록 확인 docker ps
+docker stop 컨테이너 중지 docker stop my-nginx
+docker start 중지된 컨테이너 다시 시작 docker start my-nginx
+docker rm 중지된 컨테이너 삭제 docker rm my-nginx
+docker rmi 이미지 삭제 docker rmi nginx
+docker logs 컨테이너 생성 로그 조회 docker logs nginx
+
+--
+
+아래는 관련 옵션
+
+Command Option Description Example
+docker run
+-d
+컨테이너를 백그라운드에서 실행 (Detached Mode)
+docker run -d nginx
+-p <hostPort>:<containerPort>
+호스트와 컨테이너의 포트를 바인딩
+docker run -p 8080:80 nginx
+--name <name>
+컨테이너 이름을 지정하여 쉽게 관리할 수 있도록 설정
+docker run --name my-nginx nginx
+-v <hostDir>:<containerDir>
+호스트 디렉토리를 컨테이너에 마운트하여 데이터를 공유
+docker run -v /host/data:/container/data nginx
+-e <ENV_VAR>=<value>
+컨테이너 내에서 사용할 환경 변수를 설정
+docker run -e MYSQL_ROOT_PASSWORD=my-secret-pw mysql
+--rm
+컨테이너 종료 시 자동으로 삭제
+docker run --rm nginx
+docker ps
+-a
+실행 중이지 않은 컨테이너도 포함하여 모든 컨테이너를 표시
+docker ps -a
+-q
+컨테이너 ID만 출력
+docker ps -q
+-s
+각 컨테이너의 스토리지 크기를 함께 표시
+docker ps -s
+--filter <조건>
+조건에 맞는 컨테이너만 출력 (예: 특정 상태 또는 네트워크 조건)
+docker ps --filter "status=exited"
+docker exec
+-it
+상호작용 가능한 터미널을 사용하여 컨테이너 내에서 명령어 실행
+docker exec -it my-container /bin/bash
+-d
+명령어를 백그라운드에서 실행
+docker exec -d my-container touch /tmp/newfile
+docker logs
+-f
+실시간 로그 스트리밍 (컨테이너가 실행 중일 때 유용)
+docker logs -f my-container
+--tail <n>
+마지막 n개의 로그 줄만 출력
+docker logs --tail 100 my-container
+--since <time>
+특정 시간 이후의 로그만 출력 (예: --since "2023-10-21T15:00:00")
+docker logs --since "2023-10-21T15:00:00" my-container
+docker rm
+-f
+실행 중인 컨테이너를 강제로 중지하고 삭제
+docker rm -f my-container
+-v
+컨테이너와 연결된 볼륨을 함께 삭제
+docker rm -v my-container
+docker rmi
+-f
+이미지가 사용 중이더라도 강제로 삭제
+docker rmi -f nginx
+docker volume
+create
+새로운 볼륨을 생성
+docker volume create my-volume
+inspect
+볼륨의 상세 정보 출력
+docker volume inspect my-volume
+ls
+모든 볼륨을 나열
+docker volume ls
+rm
+특정 볼륨을 삭제
+docker volume rm my-volume
+--
+
 1-3. Docker Hub
 https://hub.docker.com/ 접속. 아래와 같은 화면이 나타남
 
@@ -67,21 +177,36 @@ https://hub.docker.com/ 접속. 아래와 같은 화면이 나타남
 
 
 아래 명령어로 nginx container 다운로드. DockerHub에서는 docker pull <ContainerName> 으로 container download 명령어를 표기
+
+```bash
 docker pull nginx
-​
+```
+
+--
+
 아래 명령어를 실행하여, nginx container를 실행
+```bash
 docker run -d \
 	--name my-nginx \
 	-p 8081:80 \
 	-v ~/index.html:/usr/share/nginx/html/index.html:ro \
 	nginx
-​
+```
+
+--
+
 아래화면을 참조하여, 8081 번 port 클릭
 
-이후, 아래와 같은 화면이 나타남
+![](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2F298f3f24-32f1-4be7-963d-66ebb217d31c%2Fimage.png?table=block&id=128b69ae-f4f3-8013-8702-d79c37039d0a&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=1250&userId=&cache=v2)
 
+--
+이후, 아래와 같은 화면이 나타남
+![](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2F276d050f-c3e9-4a2c-b384-cd55046e9725%2Fimage.png?table=block&id=128b69ae-f4f3-8094-85b6-d59b7b399967&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=1150&userId=&cache=v2)
+
+--
 1-4. Run a Container
 아래는 기타 web application 예제들
+```bash
 # Note App
 docker run -d \
 	--name trilium \
@@ -127,11 +252,21 @@ docker run -d \
   -e SONARQUBE_JDBC_URL=jdbc:h2:tcp://localhost/sonar \
   -e SONARQUBE_WEB_JVM_OPTS="-Xmx512m -Xms512m" \
   sonarqube:lts
+
+```
+
+--
 ​
 다운받은 container image는 docker rmi 명령어로 삭제가능. 아래 참고
 
+![](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2Fdcc5a685-1dd1-4626-9f11-7e5e27bc1fab%2Fimage.png?table=block&id=126b69ae-f4f3-8030-8797-fb746402538c&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=1250&userId=&cache=v2)
+
+--
+
 1-5. Build a Container Image
 아래는 container image 생성을 명시하는 Dockerfile 생성 예시
+
+```bash
 mkdir -p ~/nginx
 
 cat <<EOF > ~/nginx/index.html
@@ -162,8 +297,13 @@ EXPOSE 80
 # Start the Nginx server
 CMD ["nginx", "-g", "daemon off;"]
 EOF
-​
+```
+
+--​
+
 아래 명령어를 실행하여, container image 생성 
+
+```bash
 # contaier image build
 docker build -t my-nginx .
 
@@ -171,27 +311,45 @@ docker build -t my-nginx .
 docker images
 >>> REPOSITORY  TAG     IMAGE ID      CREATED        SIZE
     my-nginx    latest  b571596b5471  8 minutes ago  47MB
+
+```
+
+--
 ​
 아래 명령어를 실행하여, 생성한 container image 실행
+
+```bash
 docker run -d \
 	--name my-nginx \
 	-p 8088:80 \
 	my-nginx
 ​
+```
 
+--
 1-6. Isolation
 ip addr 명령어로 host network 조회. 아래 참고
+
+```bash
 $ ip addr
 >>> 1: lo: ...
 2: docker0: ...
 144489: eth0@if144490: ...
 144493: eth1@if144494: ...
-​
+```
+
+--​
+
 아래 명령어로 Isolation을 비교할 Container 실행
+
+```bash
 docker run -u 1001 -d --name isolation busybox sleep 1d
-​
+​```
+
 ip addr 명령어로 network 비교. 아래 참고
 Host에서의 network. 4번 인터페이스 veth8fe9519@if3 가 추가된 것 확인가능. 3번 인터페이스와 페어링 되어 있으며, docker0 과 연결되어 있음
+
+```bash
 # Host
 $ ip addr
 1: lo: ...
@@ -199,8 +357,14 @@ $ ip addr
 4: veth8fe9519@if3: ... master docker0 state UP ...
 144489: eth0@if144490: ...
 144493: eth1@if144494: ...
-​
+
+```
+
+--
+
 Container에서의 network. 3번 인터페이스가 4번과 페어링 되어 있는것 확인가능
+
+```bash
 # Container
 $ docker exec isolation /bin/sh -c "ip addr"
 >>> 1: lo: ...
@@ -209,8 +373,12 @@ $ docker exec isolation /bin/sh -c "ip addr"
     inet 172.17.0.2/16 brd 172.17.255.255 scope global eth0
        valid_lft forever preferred_lft forever
 ​
+```
+
 ps ax 명령어를 이용한 process 비교
 Host에서의 process 목록. root외 1001 user id로 실행시킨 항목을 볼 수 있음
+
+```bash
 # Host
 $ ps ax -o pid,user,args
 >>> PID   USER     COMMAND
@@ -224,15 +392,27 @@ $ ps ax -o pid,user,args
 18118 1001     sleep 1d
 18355 root     ps ax -o pid,user,args
 ​
+```
+
+--
+
 Container에서의 process 목록. 1001 user id로 실행시킨 항목만 나타나며, PID도 host와 다름
+
+```bash
 # Container
 $ docker exec isolation /bin/sh -c "ps ax -o pid,user,args"
 >>> PID   USER     COMMAND
     1 1001     sleep 1d
     7 1001     ps ax -o pid,user,args
-​
+```
+
+--
+
 ls 명령어로 root(/) 파일 시스템 비교. -1 옵션을 주어서 항목에 한줄씩 나열
 Host는 certs, docker.log, opt, run, srv와 같은 추가 디렉토리 존재
+
+
+```bash
 # Host에서 루트 디렉토리 확인
 $ ls -1 /
 >>> bin
@@ -254,8 +434,13 @@ sys
 tmp
 usr
 var
+```
+
+--
 ​
 Container는 기본적인 운영에 필요한 디렉토리만 포함
+
+```bash
 # Container 내부에서 루트 디렉토리 확인
 $ docker exec isolation /bin/sh -c "ls -1 /"
 >>> bin
@@ -270,7 +455,10 @@ sys
 tmp
 usr
 var
-​
+
+```
+
+---
 2. Kubernetes 
 2-1. Kubernetes Play Ground
 https://labs.play-with-k8s.com/ 접속. 아래와 같은 화면이 나타남. Start 버튼 클릭
