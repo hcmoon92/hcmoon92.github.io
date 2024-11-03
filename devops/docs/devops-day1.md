@@ -15,6 +15,7 @@ ADD NEW INSTANCE 버튼을 클릭하여 새 컨테이너 환경을 시작 (참�
 제공된 명령어를 복사하여 붙여넣기하고 실행합니다. "Hello World!"가 화면에 출력
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 ```
 cat <<EOF > ~/index.html
@@ -49,6 +50,7 @@ docker run -d \
 ```
 
 --​
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 - container image downloading
 
@@ -67,18 +69,25 @@ Status: Downloaded newer image for python:3-alpine
 ```
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 - container는 실행중이며, docker ps -a 명령어로 실행중인 container 확인 가능
 ![](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2F62bc087c-631e-483f-91de-60d906670ada%2Fimage.png?table=block&id=126b69ae-f4f3-80be-b3de-e2a0503b6e25&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=1250&userId=&cache=v2)
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 - 8080 포트로 접근 가능한 container 존재. 아래 이미지를 참고하여 접속
 ![](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2F6834de72-9080-4bfc-b556-ccbd5130fec4%2Fimage.png?table=block&id=126b69ae-f4f3-8058-af3e-fc4a31b3203c&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=860&userId=&cache=v2)
 
+--
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 아래와 같은 화면이 나타남
 ![](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2F0e36d08c-e475-4918-a45e-ee32e0f3431a%2Fimage.png?table=block&id=128b69ae-f4f3-80d5-9980-c0ca41dd663a&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=960&userId=&cache=v2)
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 1-2. Commands
 
@@ -94,6 +103,7 @@ docker rmi 이미지 삭제 docker rmi nginx
 docker logs 컨테이너 생성 로그 조회 docker logs nginx
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 아래는 관련 옵션
 
@@ -172,6 +182,7 @@ rm
 특정 볼륨을 삭제
 docker volume rm my-volume
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 1-3. Docker Hub
 https://hub.docker.com/ 접속. 아래와 같은 화면이 나타남
@@ -186,6 +197,7 @@ docker pull nginx
 ```
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 아래 명령어를 실행하여, nginx container를 실행
 ```bash
@@ -197,6 +209,7 @@ docker run -d \
 ```
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 아래화면을 참조하여, 8081 번 port 클릭
 
@@ -207,6 +220,8 @@ docker run -d \
 ![](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2F276d050f-c3e9-4a2c-b384-cd55046e9725%2Fimage.png?table=block&id=128b69ae-f4f3-8094-85b6-d59b7b399967&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=1150&userId=&cache=v2)
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 1-4. Run a Container
 아래는 기타 web application 예제들
 ```bash
@@ -259,12 +274,14 @@ docker run -d \
 ```
 
 --
-​
+​<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 다운받은 container image는 docker rmi 명령어로 삭제가능. 아래 참고
 
 ![](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2Fdcc5a685-1dd1-4626-9f11-7e5e27bc1fab%2Fimage.png?table=block&id=126b69ae-f4f3-8030-8797-fb746402538c&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=1250&userId=&cache=v2)
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 1-5. Build a Container Image
 아래는 container image 생성을 명시하는 Dockerfile 생성 예시
@@ -303,6 +320,7 @@ EOF
 ```
 
 --​
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 아래 명령어를 실행하여, container image 생성 
 
@@ -318,7 +336,8 @@ docker images
 ```
 
 --
-​
+​<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 아래 명령어를 실행하여, 생성한 container image 실행
 
 ```bash
@@ -330,6 +349,8 @@ docker run -d \
 ```
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 1-6. Isolation
 ip addr 명령어로 host network 조회. 아래 참고
 
@@ -342,6 +363,7 @@ $ ip addr
 ```
 
 --​
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 아래 명령어로 Isolation을 비교할 Container 실행
 
@@ -364,6 +386,7 @@ $ ip addr
 ```
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 Container에서의 network. 3번 인터페이스가 4번과 페어링 되어 있는것 확인가능
 
@@ -398,6 +421,7 @@ $ ps ax -o pid,user,args
 ```
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 Container에서의 process 목록. 1001 user id로 실행시킨 항목만 나타나며, PID도 host와 다름
 
@@ -410,6 +434,7 @@ $ docker exec isolation /bin/sh -c "ps ax -o pid,user,args"
 ```
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 ls 명령어로 root(/) 파일 시스템 비교. -1 옵션을 주어서 항목에 한줄씩 나열
 Host는 certs, docker.log, opt, run, srv와 같은 추가 디렉토리 존재
@@ -440,7 +465,8 @@ var
 ```
 
 --
-​
+​<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 Container는 기본적인 운영에 필요한 디렉토리만 포함
 
 ```bash
@@ -462,6 +488,8 @@ var
 ```
 
 ---
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 2. Kubernetes 
 2-1. Kubernetes Play Ground
 https://labs.play-with-k8s.com/ 접속. 아래와 같은 화면이 나타남. Start 버튼 클릭
@@ -469,6 +497,7 @@ https://labs.play-with-k8s.com/ 접속. 아래와 같은 화면이 나타남. St
 ![](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2Fc030a4e1-6579-4309-bbfb-9701461bcf50%2Fimage.png?table=block&id=126b69ae-f4f3-80cc-86b4-ee3163dfe825&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=1060&userId=&cache=v2)
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
 
 4시간 동안 사용할 수 있는 세션 제공. ADD NEW INSTANCE 클릭. 아래 이미지 참고
 
