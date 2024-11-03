@@ -504,6 +504,7 @@ https://labs.play-with-k8s.com/ 접속. 아래와 같은 화면이 나타남. St
 클릭시 아래와 같이 Kubernetes 환경 제공
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
 
 # CentOS Linux release 7.9.2009 (Core) 를 사용하며, 아래 사항들을 사전에 제공
 항목   설명
@@ -515,6 +516,7 @@ containerd 쿠버네티스와 호환되는 OCI(오픈 컨테이너 이니셔티�
 runc 컨테이너의 생성 및 관리를 위한 저수준 CLI 도구, containerd 및 CRI-O와 함께 사용
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
 
 2-2. kubeadm
 Kubernetes 클러스터 초기화 및 설정을 위한 CLI 도구. Kubernetes에서 운영관리
@@ -586,6 +588,7 @@ Control Plane 인증서 키를 출력하지 않도록 설정
 Control Plane 인증서를 클러스터에 업로드하여 다중 Control Plane 노드 설정을 지원
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
 
 # 2-3. Master Node (aka. Control Plane)
 아래 명령어를 실행시켜 master node 초기화
@@ -598,11 +601,14 @@ kubeadm init \
 ​
 ```
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
 
 명령어 실행 후, 아래와 같이 [...] 헤더로 phase가 표기
 ![](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2F13a97839-ab73-42e5-8daa-b91c8cd25e13%2Fimage.png?table=block&id=12db69ae-f4f3-805f-96bf-f61465df108c&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=1250&userId=&cache=v2)
 
 --
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 Static pods는 kubelet이 직접 관리하는 pod로, kube-apiserver를 거치지 않음. 아래 명령어로 확인
 ```bash
 $ ls -1 /etc/kubernetes/manifests/ 
@@ -613,6 +619,7 @@ kube-scheduler.yaml
 ```
 
 --​
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
 
 현재는 master node의 필수 구성요소 네가지만 static pod로 존재
 YAML 파일
@@ -721,6 +728,9 @@ node2   Ready    <none>          33m   v1.27.2
 
 kubectl get nodes -o wide
 ​
+--
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 2-5. kubectl 
 kubectl은 Kubernetes 클러스터를 관리하는 CLI 도구
 Kubernetes Cluster의 API 서버 (kube-apiserver)와 통신하여 사용자 명령을 처리하고 결과를 반환. 통신시, kubeconfig 파일정보 이용
@@ -772,6 +782,9 @@ kube-node-lease   Active   72m
 kube-public       Active   72m
 kube-system       Active   72m
 ​
+--
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 2-6. kube-apiserver
 모든 kubernetes cluster 요청을 처리하고 cluster 상태 정보를 저장하는 RESTful API 서비스
 https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#api-overview 에서 제공하는 API들에 대해 설명
@@ -836,6 +849,9 @@ cat api_v1_resources.json | less
     },
 ...
 ​
+--
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 목록중 configmaps resource를 API 서버에 요청하여 조회
 curl https://$NODE_IP:6443/api/v1/configmaps \
 	--cert /etc/kubernetes/pki/apiserver-kubelet-client.crt \
@@ -875,6 +891,9 @@ users:
     client-key-data: ...
 ...
 ​
+--
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 아래 명령어로 namespace 조회
 curl https://$NODE_IP:6443/api/v1/namespaces \
 	--cert /etc/kubernetes/pki/apiserver-kubelet-client.crt \
@@ -1250,6 +1269,10 @@ storage.k8s.io/v1
 false
 VolumeAttachment
 create, delete, deletecollection, get, list, patch, update, watch
+
+--
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 2-7. k9s
 K9s는 Kubernetes 클러스터 관리와 모니터링을 위한 터미널 기반 UI 도구. https://k9scli.io/ 에서 자세한 정보 확인가능
 아래 명령어 실행하여 설치
@@ -1332,6 +1355,11 @@ Port-Forward
 Refresh
 <ctrl-r>
 현재 리소스의 새로고침
+
+--
+
+<!-- .slide: data-background="linear-gradient(to bottom right, gray, white)" -->
+
 2-8. Artifact Hub & Helm
 Helm은 Kubernetes 애플리케이션의 패키지 관리자로, 앱 정의와 배포 간소화. https://helm.sh/ 에서 자세한 정보 확인가능
 아래 명령어 실행
@@ -1383,6 +1411,8 @@ nginx 설치 후, deployment 조회
 helm install my-nginx bitnami/nginx --version 18.2.4
 
 kubectl get deploy my-nginx -o yaml > nginx-deploy.yaml
+
+```yaml
 >>> apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -1592,3 +1622,5 @@ status:
   readyReplicas: 1
   replicas: 1
   updatedReplicas: 1
+
+```
