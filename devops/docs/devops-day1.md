@@ -1,5 +1,8 @@
-1. Container
-1-1. Docker Play Ground
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
+# Container
+## Docker Play Ground
+
 https://labs.play-with-docker.com/ 접속. 아래와 같은 화면이 나타남. Start 버튼 클릭
 
 혹은 Login 버튼이 나타날시, docker 사이트에 가입 후 진행. 아래그림 참조
@@ -463,73 +466,46 @@ var
 2-1. Kubernetes Play Ground
 https://labs.play-with-k8s.com/ 접속. 아래와 같은 화면이 나타남. Start 버튼 클릭
 
+![](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2Fc030a4e1-6579-4309-bbfb-9701461bcf50%2Fimage.png?table=block&id=126b69ae-f4f3-80cc-86b4-ee3163dfe825&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=1060&userId=&cache=v2)
+
+--
+
 4시간 동안 사용할 수 있는 세션 제공. ADD NEW INSTANCE 클릭. 아래 이미지 참고
 
 클릭시 아래와 같이 Kubernetes 환경 제공
 
-CentOS Linux release 7.9.2009 (Core) 를 사용하며, 아래 사항들을 사전에 제공
-항목
-설명
-kubeadm
-Kubernetes 클러스터 초기화 및 설정을 위한 CLI 도구
-kubectl
-Kubernetes 클러스터와 상호작용하고 관리 작업을 수행하기 위한 CLI 도구
-crictl
-컨테이너 런타임 인터페이스(CRI)와 상호작용하기 위한 도구
-ctr
-containerd의 네이티브 CLI로서 컨테이너 생성, 관리 등을 위한 도구
-containerd
-쿠버네티스와 호환되는 OCI(오픈 컨테이너 이니셔티브) 기반의 경량 컨테이너 런타임
-runc
-컨테이너의 생성 및 관리를 위한 저수준 CLI 도구, containerd 및 CRI-O와 함께 사용
+--
+
+# CentOS Linux release 7.9.2009 (Core) 를 사용하며, 아래 사항들을 사전에 제공
+항목   설명
+kubeadm Kubernetes 클러스터 초기화 및 설정을 위한 CLI 도구
+kubectl Kubernetes 클러스터와 상호작용하고 관리 작업을 수행하기 위한 CLI 도구
+crictl 컨테이너 런타임 인터페이스(CRI)와 상호작용하기 위한 도구
+ctr containerd의 네이티브 CLI로서 컨테이너 생성, 관리 등을 위한 도구
+containerd 쿠버네티스와 호환되는 OCI(오픈 컨테이너 이니셔티브) 기반의 경량 컨테이너 런타임
+runc 컨테이너의 생성 및 관리를 위한 저수준 CLI 도구, containerd 및 CRI-O와 함께 사용
+
+--
+
 2-2. kubeadm
 Kubernetes 클러스터 초기화 및 설정을 위한 CLI 도구. Kubernetes에서 운영관리
 kubeadm init 명령어 실행시 아래 사항들이 진행
-단계 (Phase)
-설명
-관련 코드
-Preflight Check
-시스템 호환성 점검 및 이미지 다운
-NewPreflightPhase()
-Certs
-TLS 인증서 생성으로 구성 요소 간 통신 보안
-NewCertsPhase()
-KubeConfig
-클러스터 접근을 위한 kubeconfig 파일 생성
-NewKubeConfigPhase()
-Etcd Configuration
-클러스터 상태 데이터 저장을 위한 etcd 구성
-NewEtcdPhase()
-Control Plane
-Control Plane 필수 구성 요소(Pod) static pod로 배포 관리
-NewControlPlanePhase()
-Kubelet Start
-노드에서 kubelet 시작 및 초기화
-NewKubeletStartPhase()
-Wait Control Plane
-모든 Control Plane 구성 요소 준비 상태 확인으로 안정성 확보
-NewWaitControlPlanePhase()
-Upload Config
-클러스터 설정 ConfigMap으로 업로드 및 공유
-NewUploadConfigPhase()
-Upload Certificates
-고가용성 설정을 위한 Control Plane 인증서 업로드
-NewUploadCertsPhase()
-Mark Control Plane
-현재 노드를 Control Plane 노드로 지정
-NewMarkControlPlanePhase()
-Bootstrap Token
-워커 노드 클러스터 가입을 위한 부트스트랩 토큰 생성
-NewBootstrapTokenPhase()
-Kubelet Finalize
-kubelet 설정 완료 및 Control Plane 통합
-NewKubeletFinalizePhase()
-Addon
-CoreDNS 및 kube-proxy 설치로 네트워킹 및 서비스 검색 기능 설정
-NewAddonPhase()
-Show Join Command
-워커 노드 추가를 위한 join 명령어 출력
-NewShowJoinCommandPhase()
+
+단계 (Phase) 설명 관련 코드
+Preflight Check 시스템 호환성 점검 및 이미지 다운  NewPreflightPhase()
+Certs TLS 인증서 생성으로 구성 요소 간 통신 보안 NewCertsPhase()
+KubeConfig 클러스터 접근을 위한 kubeconfig 파일 생성 NewKubeConfigPhase()
+Etcd Configuration 클러스터 상태 데이터 저장을 위한 etcd 구성 NewEtcdPhase()
+Control Plane Control Plane 필수 구성 요소(Pod) static pod로 배포 관리 NewControlPlanePhase()
+Kubelet Start 노드에서 kubelet 시작 및 초기화 NewKubeletStartPhase()
+Wait Control Plane 모든 Control Plane 구성 요소 준비 상태 확인으로 안정성 확보 NewWaitControlPlanePhase()
+Upload Config 클러스터 설정 ConfigMap으로 업로드 및 공유 NewUploadConfigPhase()
+Upload Certificates 고가용성 설정을 위한 Control Plane 인증서 업로드 NewUploadCertsPhase()
+Mark Control Plane 현재 노드를 Control Plane 노드로 지정 NewMarkControlPlanePhase()
+Bootstrap Token 워커 노드 클러스터 가입을 위한 부트스트랩 토큰 생성 NewBootstrapTokenPhase()
+Kubelet Finalize kubelet 설정 완료 및 Control Plane 통합 NewKubeletFinalizePhase()
+Addon CoreDNS 및 kube-proxy 설치로 네트워킹 및 서비스 검색 기능 설정 NewAddonPhase()
+Show Join Command 워커 노드 추가를 위한 join 명령어 출력 NewShowJoinCommandPhase()
 아래는 kubeadm CLI의 옵션들
 옵션
 설명
@@ -579,22 +555,36 @@ Control Plane 인증서 키를 출력하지 않도록 설정
 워커 노드가 클러스터에 가입할 때 사용할 부트스트랩 토큰
 --upload-certs
 Control Plane 인증서를 클러스터에 업로드하여 다중 Control Plane 노드 설정을 지원
-2-3. Master Node (aka. Control Plane)
+
+--
+
+# 2-3. Master Node (aka. Control Plane)
 아래 명령어를 실행시켜 master node 초기화
+
+```bash
 # Kubernetes 초기화. 마스터 노드가 사용할 IP 주소 & Pod 네트워크 IP 범위 설정
 kubeadm init \
     --apiserver-advertise-address $(hostname -i) \
     --pod-network-cidr 10.5.0.0/16 
 ​
-명령어 실행 후, 아래와 같이 [...] 헤더로 phase가 표기
+```
+--
 
+명령어 실행 후, 아래와 같이 [...] 헤더로 phase가 표기
+![](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2F13a97839-ab73-42e5-8daa-b91c8cd25e13%2Fimage.png?table=block&id=12db69ae-f4f3-805f-96bf-f61465df108c&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=1250&userId=&cache=v2)
+
+--
 Static pods는 kubelet이 직접 관리하는 pod로, kube-apiserver를 거치지 않음. 아래 명령어로 확인
+```bash
 $ ls -1 /etc/kubernetes/manifests/ 
 etcd.yaml
 kube-apiserver.yaml
 kube-controller-manager.yaml
 kube-scheduler.yaml
-​
+```
+
+--​
+
 현재는 master node의 필수 구성요소 네가지만 static pod로 존재
 YAML 파일
 설명
