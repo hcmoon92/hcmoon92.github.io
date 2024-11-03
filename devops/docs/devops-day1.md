@@ -1,18 +1,18 @@
 <!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 # Container
-## Docker Play Ground
+## Docker Playground 가이드
 
-https://labs.play-with-docker.com/ 접속. 아래와 같은 화면이 나타남. Start 버튼 클릭
+https://labs.play-with-docker.com/ 
+Docker Playground에 접속하여 Start 버튼을 클릭. 
+만약 로그인 화면이 나타나면 Docker 계정으로 로그인. (참고용 스크린샷 참고)
 
-혹은 Login 버튼이 나타날시, docker 사이트에 가입 후 진행. 아래그림 참조
+- 세션 정보
+Docker Playground는 4시간 동안 사용 가능한 세션을 제공. 
+ADD NEW INSTANCE 버튼을 클릭하여 새 컨테이너 환경을 시작 (참고 이미지 확인).
 
-
-4시간 동안 사용할 수 있는 세션 제공. ADD NEW INSTANCE 클릭. 아래 이미지 참고
-
-클릭 후, 아래와 같이 사용 가능한 container 제공
-
-아래 명령어를 복사, 붙여넣기로 실행. Hello World!를 화면에 보이는게 목표
+- 명령어 실행
+제공된 명령어를 복사하여 붙여넣기하고 실행합니다. "Hello World!"가 화면에 출력
 
 --
 
@@ -50,7 +50,7 @@ docker run -d \
 
 --​
 
-이후 아래와 같은 log 발생. 이는 container 실행에 필요한 container image를 다운받는 과정
+- container image downloading
 
 
 ```bash
@@ -67,11 +67,11 @@ Status: Downloaded newer image for python:3-alpine
 ```
 
 --
-container는 실행중이며, docker ps -a 명령어로 실행중인 container 확인 가능
-![image]([https://](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2F62bc087c-631e-483f-91de-60d906670ada%2Fimage.png?table=block&id=126b69ae-f4f3-80be-b3de-e2a0503b6e25&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=1250&userId=&cache=v2))
+- container는 실행중이며, docker ps -a 명령어로 실행중인 container 확인 가능
+![](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2F62bc087c-631e-483f-91de-60d906670ada%2Fimage.png?table=block&id=126b69ae-f4f3-80be-b3de-e2a0503b6e25&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=1250&userId=&cache=v2)
 
 --
-8080 포트로 접근 가능한 container 존재. 아래 이미지를 참고하여 접속
+- 8080 포트로 접근 가능한 container 존재. 아래 이미지를 참고하여 접속
 ![](https://seungbae.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F346a4049-d7fa-47a1-8def-f004734e3e53%2F6834de72-9080-4bfc-b556-ccbd5130fec4%2Fimage.png?table=block&id=126b69ae-f4f3-8058-af3e-fc4a31b3203c&spaceId=346a4049-d7fa-47a1-8def-f004734e3e53&width=860&userId=&cache=v2)
 
 
