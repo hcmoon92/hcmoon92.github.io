@@ -1,18 +1,21 @@
 <!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
 
 # Container
+--
+<!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
+
 ## Docker Playground 가이드
 
-https://labs.play-with-docker.com/ 
-Docker Playground에 접속하여 Start 버튼을 클릭. 
-만약 로그인 화면이 나타나면 Docker 계정으로 로그인. (참고용 스크린샷 참고)
+## https://labs.play-with-docker.com/ 
+- Docker Playground에 접속하여 Start 버튼을 클릭. 
+- 만약 로그인 화면이 나타나면 Docker 계정으로 로그인. (참고용 스크린샷 참고)
 
-- 세션 정보
-Docker Playground는 4시간 동안 사용 가능한 세션을 제공. 
-ADD NEW INSTANCE 버튼을 클릭하여 새 컨테이너 환경을 시작 (참고 이미지 확인).
+## 세션 정보
+- Docker Playground는 4시간 동안 사용 가능한 세션을 제공. 
+- ADD NEW INSTANCE 버튼을 클릭하여 새 컨테이너 환경을 시작 (참고 이미지 확인).
 
-- 명령어 실행
-제공된 명령어를 복사하여 붙여넣기하고 실행합니다. "Hello World!"가 화면에 출력
+## 명령어 실행
+-제공된 명령어를 복사하여 붙여넣기하고 실행합니다. "Hello World!"가 화면에 출력
 
 --
 <!-- .slide: data-background="linear-gradient(to bottom right, white, gray)" -->
