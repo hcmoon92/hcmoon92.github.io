@@ -5,8 +5,8 @@
 </head>
 <body>
     <!-- Include required scripts -->
-    <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/markmap-lib/dist/browser/view.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>
 
     <!-- Define the markdown content -->
     <textarea id="content" style="display: none;">
@@ -18,24 +18,31 @@
     </textarea>
 
     <!-- Define an SVG container -->
-    <svg id="mindmap" width="800" height="600"></svg>
+    <svg id="markmap" style="width: 800px; height: 800px"></svg>
 
     <!-- Your script -->
     <script>
         const content = document.getElementById('content').value;
 
-        // Create a Transformer instance
-        const transformer = new markmap.Transformer();
+        const { markmap } = window;
+        const { Markmap, loadCSS, loadJS } = markmap;
 
-        // Transform the markdown content into data
-        const { root } = transformer.transform(content);
+        // 1. load assets
+        if (styles) loadCSS(styles);
+        if (scripts) {
+            loadJS(scripts, {
+                // For plugins to access the `markmap` module
+                getMarkmap: () => markmap,
+            });
+        }
 
-        // Create the mindmap
-        const mindmap = markmap.Markmap.create('#mindmap');
+        // 2. create markmap
+        // `options` is optional, i.e. `undefined` can be passed here
+        Markmap.create('#markmap', options, root); // -> returns a Markmap instance
 
         // Set the data and render the mindmap
-        mindmap.setData(root);
-        mindmap.fit();
+        <!-- mindmap.setData(root);
+        mindmap.fit(); -->
     </script>
 </body>
 </html>
