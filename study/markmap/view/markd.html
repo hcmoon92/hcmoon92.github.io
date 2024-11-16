@@ -17,7 +17,7 @@
       let markdown = md.render(inputText);
 
       // Display the result
-      document.getElementById('markdownOutput').value = markdown; // Display in markdownOutput textarea
+      document.getElementById('markdownOutput').innerHTML = markdown; // Display in markdownOutput textarea
     }
 
     // Function to load the text file content into the textarea
@@ -48,7 +48,7 @@
   <textarea id="textArea" style="width: 100%; height: 300px;" oninput="convertToMarkdown()"></textarea>
 
   <h2>Markdown Output:</h2>
-  <textarea id="markdownOutput" style="width: 100%; height: 300px;" readonly></textarea>
+  <div id="markdownOutput" style="width: 100%; height: 300px;"></div>
 
 </body>
 </html>
