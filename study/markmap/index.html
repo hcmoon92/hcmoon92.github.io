@@ -23,7 +23,7 @@
     function renderMindmap() {
       const markdown = document.getElementById("markdown").value;
       const markmap = window.markmap.autoLoader;
-      markmap.transformAndRender("mindmap", markdown);
+      markmap.renderAll();
     }
   </script>
 </body>
