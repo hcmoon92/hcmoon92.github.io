@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markmap Viewer</title>
+  <script src="markmap.min.js"></script>
+</head>
+<body>
+  <h1>Markmap Viewer</h1>
+  <iframe id="markdownFrame" src="map1.md" style="display: none;"></iframe>
+  <svg id="mindmap" style="width: 100%; height: 90vh; border: 1px solid #ccc;"></svg>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const iframe = document.getElementById("markdownFrame");
+
+      iframe.onload = () => {
+        const markdownContent = iframe.contentDocument.body.textContent; // Read content from iframe
+        const { Markmap } = window.markmap;
+
+        const svg = document.getElementById("mindmap");
+        const mindmap = Markmap.create(svg);
+
+        // Transform and render the Markdown content
+        mindmap.setData(Markmap.transformMarkdown(markdownContent));
+        mindmap.fit(); // Adjust to fit the viewport
+      };
+    });
+  </script>
+</body>
+</html>
