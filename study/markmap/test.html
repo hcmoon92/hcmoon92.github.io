@@ -7,25 +7,32 @@
   <script src="markmap.min.js"></script>
 </head>
 <body>
-  <h1>Markmap Viewer</h1>
-  <iframe id="markdownFrame" src="map1.md" style="display: none;"></iframe>
-  <svg id="mindmap" style="width: 100%; height: 90vh; border: 1px solid #ccc;"></svg>
+  <svg id="mindmap" style="width: 100%; height: 100vh;"></svg>
+
+  <!-- Embed Markdown content in a script tag -->
+  <script id="markdown-content" type="text/markdown">
+# Example Mind Map
+
+## Section 1
+- Point 1.1
+- Point 1.2
+
+## Section 2
+- Point 2.1
+- Point 2.2
+  </script>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const iframe = document.getElementById("markdownFrame");
+    window.addEventListener("DOMContentLoaded", () => {
+      const { Markmap } = window.markmap;
 
-      iframe.onload = () => {
-        const markdownContent = iframe.contentDocument.body.textContent; // Read content from iframe
-        const { Markmap } = window.markmap;
+      // Get the Markdown content from the script tag
+      const markdownContent = document.getElementById("markdown-content").textContent;
 
-        const svg = document.getElementById("mindmap");
-        const mindmap = Markmap.create(svg);
-
-        // Transform and render the Markdown content
-        mindmap.setData(Markmap.transformMarkdown(markdownContent));
-        mindmap.fit(); // Adjust to fit the viewport
-      };
+      const svg = document.getElementById("mindmap");
+      const mindmap = Markmap.create(svg);
+      mindmap.setData(Markmap.transformMarkdown(markdownContent));
+      mindmap.fit(); // Adjust the mindmap to fit the viewport
     });
   </script>
 </body>
