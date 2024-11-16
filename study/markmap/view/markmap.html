@@ -58,12 +58,16 @@
     // Function to generate Markmap from textarea input
     function generateMarkmap() {
         // Get the content from the textarea
-        const textInput = document.getElementById('textArea').value;
+        const textArea = document.getElementById('textArea').value;
+       document.getElementById('textInput').value = textArea;
+
+       const textInput = document.getElementById('textInput').value;
 
         // Generate Markmap
         const markmapContainer = document.getElementById('markmap');
         //markmapContainer.innerHTML = ''; // Clear previous content
-        window.markmap.Markmap.create(markmapContainer, textInput);
+        window.markmap.autoLoader.renderAll();
+
     }
         
   </script>
