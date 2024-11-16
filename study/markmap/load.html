@@ -21,10 +21,16 @@
   
   <div class="markmap">
     <textarea id="markdownInput" style="width: 100%; height: 300px;"></textarea>
-  </div>
   
+ </div>
+ <table>
+    <tr> <td>
+    <section data-markdown="docs/map1.md" data-separator="\n---" data-separator-vertical="\n--"></section>
+</td> <td>
   <svg id="markmap" style="width: 800px; height: 800px;"></svg>
-
+</td>
+    </tr>
+</table>
   <script>
     window.markmap = {
       autoLoader: { manual: false },
@@ -37,12 +43,12 @@
         document.getElementById('markdownInput').value = data;
 
         // Render Markmap after the content is loaded
-        markmap.autoLoader.renderAll();
+        //markmap.autoLoader.renderAll();
       })
       .catch(error => console.error('Error loading the markdown file:', error));
 
     // Optional: You can render immediately, if needed
-    markmap.autoLoader.renderAll();
+    //markmap.autoLoader.renderAll();
   </script>
 
 </body>
