@@ -30,8 +30,7 @@
         .then(data => {
           // Insert the content into the textarea
           document.getElementById('textArea').value = data;
-
-          document.getElementById('textInput').value = data;
+          document.getElementById('textInput').value = document.getElementById('textArea').value;
 
           // Automatically convert the loaded text to markdown
           convertToMarkdown();
