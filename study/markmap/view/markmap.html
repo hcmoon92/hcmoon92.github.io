@@ -20,6 +20,13 @@
 
       // Display the result
       document.getElementById('markdownOutput').innerHTML = markdown; // Display in markdownOutput div
+
+
+      // Convert the markdown into a mind map if autoLoader is true
+      if (window.markmap.autoLoader.manual === false) {
+        renderMarkmap(markdown);
+      }
+
     }
 
     // Function to load the text file content into the textarea
@@ -38,13 +45,20 @@
 
     // Load the text content when the page loads
     document.addEventListener('DOMContentLoaded', () => {
+        window.markmap = {
+            autoLoader: { manual: false },
+        };
+
       loadTextContent('1411-1.md'); // Replace '1411-1.md' with your actual file path
 
     });
 
-    window.markmap = {
-        autoLoader: { manual: false },
-    };
+    // Function to render Markmap
+    function renderMarkmap(markdown) {
+        const markmapContainer = document.getElementById('markmap');
+        markmapContainer.innerHTML = ''; // Clear previous content
+        window.markmap.Markmap.create(markmapContainer, markdown);
+    }
 
   </script>
 
@@ -145,8 +159,7 @@
   </div>
 
     <!-- Markmap container -->
-    <div class="markmap"></div>
-    <svg id="markmap" style="width: 800px; height: 800px;"></svg>
+    <div class="markmap" id="markmap"></div>
 
 </body>
 </html>
