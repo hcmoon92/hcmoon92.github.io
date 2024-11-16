@@ -4,6 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Load Text into Textarea</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+  <script>
+    const md = new markdownit();
+
+    function convertToMarkdown() {
+      let inputText = document.getElementById('inputText').value;
+
+      // Convert text to markdown using Markdown-it
+      let markdown = md.render(inputText);
+
+      // Display the result
+      document.getElementById('markdownOutput').textContent = markdown;
+    }
+  </script>
+
 </head>
 <body>
 
@@ -28,6 +44,8 @@
       loadTextContent('1411-1.md'); // Replace 'sample.txt' with your actual file path
     });
   </script>
+
+  <div id="markdownOutput" style="width: 100%; height: 300px;"></div>
 
 </body>
 </html>
