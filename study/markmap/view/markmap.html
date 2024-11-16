@@ -38,7 +38,7 @@
           document.getElementById('textArea').value = data;
 
 
-          document.getElementById('markmap').value = data;
+          document.getElementById('textInput').value = data;
 
           // Automatically convert the loaded text to markdown
           convertToMarkdown();
@@ -162,8 +162,10 @@
   </div>
 
     <!-- Markmap container -->
-    <div class="markmap" id="markmap"></div>
-    <!-- <svg id="markmap" style="width: 800px; height: 800px;"></svg> -->
+    <div class="markmap">            
+        <textarea id="textInput"> </textarea>
+    </div>
+    <svg id="markmap" style="width: 800px; height: 800px;"></svg>
 
 </body>
 </html>
