@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Markdown to Mindmap</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        .node {
+            cursor: pointer;
+        }
+        
+        .node circle {
+            stroke-width: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .node text {
+            font-size: 14px;
+            fill: #374151;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .link {
+            fill: none;
+            stroke-width: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        #editor {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+            font-family: monospace;
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            resize: vertical;
+        }
+        
+        #mindmap {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-top: 20px;
+            min-height: 600px;
+            background-color: #ffffff;
+        }
+
+        .controls {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        button {
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #4338ca;
+        }
+
+        select {
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .depth-0 circle { fill: #4f46e5; }
+        .depth-1 circle { fill: #2563eb; }
+        .depth-2 circle { fill: #3b82f6; }
+        .depth-3 circle { fill: #60a5fa; }
+        .depth-4 circle { fill: #93c5fd; }
+        .depth-5 circle { fill: #bfdbfe; }
+
+        .node.collapsed circle {
+            fill: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+        <h1 style="color: #111827; margin-bottom: 20px;">Markdown to Mindmap</h1>
+        <textarea id="editor" placeholder="Enter your markdown here...
+# Mindmap
+## Development
+### Frontend
+#### React
+#### Vue
+### Backend
+#### Node.js
+#### Python
+## Design
+### UI
+### UX"></textarea>
+        <div class="controls">
+            <button onclick="updateMindmap()">Generate Mindmap</button>
+            <select id="themeSelect" onchange="updateTheme()">
+                <option value="default">Default Theme</option>
+                <option value="ocean">Ocean Theme</option>
+                <option value="forest">Forest Theme</option>
+                <option value="sunset">Sunset Theme</option>
+            </select>
+        </div>
+        <div id="mindmap"></div>
+    </div>
+
+    <script>
+        const themes = {
+            default: {
+                colors: ['#4f46e5', '#2563eb', '#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe'],
+                link: '#94a3b8'
+            },
+            ocean: {
+                colors: ['#0e7490', '#0891b2', '#06b6d4', '#22d3ee', '#67e8f9', '#a5f3fc'],
+                link: '#94a3b8'
+            },
+            forest: {
+                colors: ['#166534', '#16a34a', '#22c55e', '#4ade80', '#86efac', '#bbf7d0'],
+                link: '#94a3b8'
+            },
+            sunset: {
+                colors: ['#9d174d', '#be185d', '#ec4899', '#f472b6', '#f9a8d4', '#fbcfe8'],
+                link: '#94a3b8'
+            }
+        };
+
+        function parseMarkdown(text) {
+            const lines = text.split('\n').filter(line => line.trim());
+            const root = { name: "Root", children: [], _collapsed: false };
+            const stack = [root];
+            let prevLevel = 0;
+
+            lines.forEach(line => {
+                const match = line.match(/^(#{1,6})\s+(.+)/);
+                if (!match) return;
+
+                const level = match[1].length;
+                const name = match[2];
+                const node = { name, children: [], _collapsed: false };
+
+                while (stack.length > level) {
+                    stack.pop();
+                }
+
+                if (stack.length > 0) {
+                    stack[stack.length - 1].children.push(node);
+                }
+
+                stack.push(node);
+            });
+
+            return root;
+        }
+
+        function updateTheme() {
+            const theme = themes[document.getElementById('themeSelect').value];
+            const svg = d3.select("#mindmap svg");
+            
+            theme.colors.forEach((color, i) => {
+                svg.selectAll(`.depth-${i} circle`)
+                    .style("fill", color);
+            });
+
+            svg.selectAll(".link")
+                .style("stroke", theme.link);
+        }
+
+        let currentRoot;
+
+        function toggleNode(d) {
+            d.data._collapsed = !d.data._collapsed;
+            updateMindmap(false);
+        }
+
+        function updateMindmap(parseNew = true) {
+            if (parseNew) {
+                const markdown = document.getElementById('editor').value;
+                currentRoot = parseMarkdown(markdown);
+            }
+            
+            // Clear previous mindmap
+            d3.select("#mindmap").selectAll("*").remove();
+            
+            const width = 1000;
+            const height = 800;
+            const margin = { top: 20, right: 120, bottom: 20, left: 120 };
+            
+            const svg = d3.select("#mindmap")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .append("g")
+                .attr("transform", `translate(${margin.left},${margin.top})`);
+
+            const tree = d3.tree()
+                .size([height - margin.top - margin.bottom, width - margin.left - margin.right]);
+
+            // Process the data to handle collapsed nodes
+            function processData(node) {
+                return {
+                    name: node.name,
+                    children: node._collapsed ? null : node.children?.map(processData),
+                    _collapsed: node._collapsed
+                };
+            }
+
+            const processedData = processData(currentRoot);
+            const root = d3.hierarchy(processedData);
+            
+            tree(root);
+
+            // Create curved diagonal generator
+            const diagonal = d3.linkHorizontal()
+                .x(d => d.y)
+                .y(d => d.x);
+
+            // Add links with curve
+            svg.selectAll(".link")
+                .data(root.links())
+                .enter()
+                .append("path")
+                .attr("class", "link")
+                .attr("d", diagonal)
+                .style("stroke", themes[document.getElementById('themeSelect').value].link);
+
+            // Add nodes
+            const node = svg.selectAll(".node")
+                .data(root.descendants())
+                .enter()
+                .append("g")
+                .attr("class", d => `node depth-${d.depth}${d.data._collapsed ? " collapsed" : ""}`)
+                .attr("transform", d => `translate(${d.y},${d.x})`)
+                .on("click", (event, d) => toggleNode(d));
+
+            // Add circles to nodes
+            node.append("circle")
+                .attr("r", 6)
+                .attr("class", d => `depth-${d.depth}`);
+
+            // Add text labels
+            node.append("text")
+                .attr("dy", "0.31em")
+                .attr("x", d => d.children || d.data._collapsed ? -10 : 10)
+                .attr("text-anchor", d => d.children || d.data._collapsed ? "end" : "start")
+                .text(d => d.data.name)
+                .clone(true).lower()
+                .attr("stroke", "white")
+                .attr("stroke-width", 3);
+
+            updateTheme();
+        }
+
+        // Initialize with default content
+        document.addEventListener('DOMContentLoaded', () => {
+            updateMindmap();
+        });
+    </script>
+</body>
+</html>
