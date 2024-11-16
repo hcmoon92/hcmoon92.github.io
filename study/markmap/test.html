@@ -23,8 +23,18 @@
     <!-- Your script -->
     <script>
         const content = document.getElementById('content').value;
+
+        // Create a Transformer instance
+        const transformer = new markmap.Transformer();
+
+        // Transform the markdown content into data
+        const { root } = transformer.transform(content);
+
+        // Create the mindmap
         const mindmap = markmap.Markmap.create('#mindmap');
-        mindmap.setData(markmap.transformMarkdown(content));
+
+        // Set the data and render the mindmap
+        mindmap.setData(root);
         mindmap.fit();
     </script>
 </body>
