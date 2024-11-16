@@ -7,24 +7,37 @@
   <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.14.3"></script>
 </head>
 <body>
-  <textarea id="markdown" rows="10" style="width: 100%;">
-# Mindmap Title
-- Main Topic 1
-  - Subtopic 1.1
-  - Subtopic 1.2
-- Main Topic 2
-  - Subtopic 2.1
-  - Subtopic 2.2
-  </textarea>
-  <button onclick="renderMindmap()">Generate Mindmap</button>
+    <style>
+        .markmap {
+          position: relative;
+        }
+        .markmap > svg {
+          width: 100%;
+          height: 300px;
+        }
+      </style>
+      
+      <div class="markmap">
+        <script type="text/template">
+          - markmap
+            - autoloader
+            - transformer
+            - view
+        </script>
+      </div>
+
   <svg id="mindmap" style="width: 100%; height: 600px;"></svg>
 
   <script>
-    function renderMindmap() {
-      const markdown = document.getElementById("markdown").value;
-      const markmap = window.markmap.autoLoader;
-      markmap.renderAll();
-    }
+    window.markmap = {
+      autoLoader: { manual: true },
+    };
+  </script>
+  <script>
+    // Render in 5s
+    setTimeout(() => {
+      markmap.autoLoader.renderAll();
+    }, 5000);
   </script>
 </body>
 </html>
