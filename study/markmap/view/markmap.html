@@ -24,7 +24,7 @@
 
       // Convert the markdown into a mind map if autoLoader is true
       if (window.markmap.autoLoader.manual === false) {
-        renderMarkmap(markdown);
+        renderMarkmap(inputText);
       }
 
     }
@@ -54,10 +54,10 @@
     });
 
     // Function to render Markmap
-    function renderMarkmap(markdown) {
+    function renderMarkmap(inputText) {
         const markmapContainer = document.getElementById('markmap');
         markmapContainer.innerHTML = ''; // Clear previous content
-        window.markmap.Markmap.create(markmapContainer, markdown);
+        window.markmap.Markmap.create(markmapContainer, inputText);
     }
 
   </script>
