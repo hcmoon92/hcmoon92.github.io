@@ -9,25 +9,17 @@
   <script>
     const md = new markdownit();
 
+    // Function to convert text to markdown
     function convertToMarkdown() {
-      let inputText = document.getElementById('inputText').value;
+      let inputText = document.getElementById('textArea').value;
 
       // Convert text to markdown using Markdown-it
       let markdown = md.render(inputText);
 
       // Display the result
-      document.getElementById('markdownOutput').textContent = markdown;
+      document.getElementById('markdownOutput').value = markdown; // Display in markdownOutput textarea
     }
-  </script>
 
-</head>
-<body>
-
-  <h1>Loaded Text into Textarea</h1>
-
-  <textarea id="textArea" style="width: 100%; height: 300px;"></textarea>
-
-  <script>
     // Function to load the text file content into the textarea
     function loadTextContent(filePath) {
       fetch(filePath)
@@ -35,17 +27,28 @@
         .then(data => {
           // Insert the content into the textarea
           document.getElementById('textArea').value = data;
+
+          // Automatically convert the loaded text to markdown
+          convertToMarkdown();
         })
         .catch(error => console.error('Error loading text file:', error));
     }
 
     // Load the text content when the page loads
     document.addEventListener('DOMContentLoaded', () => {
-      loadTextContent('1411-1.md'); // Replace 'sample.txt' with your actual file path
+      loadTextContent('1411-1.md'); // Replace '1411-1.md' with your actual file path
     });
   </script>
 
-  <div id="markdownOutput" style="width: 100%; height: 300px;"></div>
+</head>
+<body>
+
+  <h1>Loaded Text into Textarea</h1>
+
+  <textarea id="textArea" style="width: 100%; height: 300px;" oninput="convertToMarkdown()"></textarea>
+
+  <h2>Markdown Output:</h2>
+  <textarea id="markdownOutput" style="width: 100%; height: 300px;" readonly></textarea>
 
 </body>
 </html>
