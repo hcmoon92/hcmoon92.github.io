@@ -23,9 +23,9 @@
 
 
       // Convert the markdown into a mind map if autoLoader is true
-      if (window.markmap.autoLoader.manual === false) {
-        renderMarkmap(inputText);
-      }
+      //if (window.markmap.autoLoader.manual === false) {
+      //  renderMarkmap(inputText);
+      //}
 
     }
 
@@ -36,6 +36,9 @@
         .then(data => {
           // Insert the content into the textarea
           document.getElementById('textArea').value = data;
+
+
+          document.getElementById('markmap').value = data;
 
           // Automatically convert the loaded text to markdown
           convertToMarkdown();
@@ -159,8 +162,8 @@
   </div>
 
     <!-- Markmap container -->
-    <!-- <div class="markmap" id="markmap"></div> -->
-    <svg id="markmap" style="width: 800px; height: 800px;"></svg>
+    <div class="markmap" id="markmap"></div>
+    <!-- <svg id="markmap" style="width: 800px; height: 800px;"></svg> -->
 
 </body>
 </html>
