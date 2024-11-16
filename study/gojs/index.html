@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoJS Mind Map from Markdown</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/2.4.12/go.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax/es5/tex-chtml.js"></script>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    #diagramDiv {
+      width: 100%;
+      height: 100%;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="diagramDiv"></div>
+  <script>
+    // Function to parse Markdown into a tree structure
+    function markdownToTree(markdown) {
+      const lines = markdown.split('\n');
+      const tree = [];
+      const stack = [{ children: tree, level: 0 }];
+
+      lines.forEach(line => {
+        const match = line.match(/^(#{1,6})\s*(.*)/); // Match headers (#, ##, etc.)
+        if (match) {
+          const level = match[1].length; // Header level
+          const text = match[2];
+
+          const node = { text, children: [] };
+
+          // Find the parent based on header level
+          while (stack[stack.length - 1].level >= level) {
+            stack.pop();
+          }
+
+          stack[stack.length - 1].children.push(node);
+          stack.push({ ...node, level });
+        }
+      });
+
+      return tree;
+    }
+
+    // Convert tree structure to nodeDataArray and linkDataArray
+    function treeToGoJS(tree, parentKey = null, keyStart = 1) {
+      const nodeDataArray = [];
+      const linkDataArray = [];
+      let key = keyStart;
+
+      function traverse(nodes, parentKey) {
+        nodes.forEach(node => {
+          const nodeKey = key++;
+          nodeDataArray.push({ key: nodeKey, text: node.text, content: marked(node.text) });
+          if (parentKey !== null) {
+            linkDataArray.push({ from: parentKey, to: nodeKey });
+          }
+          if (node.children) {
+            traverse(node.children, nodeKey);
+          }
+        });
+      }
+
+      traverse(tree, parentKey);
+
+      return { nodeDataArray, linkDataArray };
+    }
+
+    // Sample Markdown
+    const markdown = `
+# Root Node
+## Sub Node 1
+Math: \\(E = mc^2\\)
+
+Table:
+| Header 1 | Header 2 |
+|----------|----------|
+| Value 1  | Value 2  |
+
+## Sub Node 2
+Math: \\(a^2 + b^2 = c^2\\)
+### Sub Sub Node
+Details: This is a deeper node.
+`;
+
+    // Convert Markdown to Tree
+    const tree = markdownToTree(markdown);
+
+    // Convert Tree to GoJS Data
+    const { nodeDataArray, linkDataArray } = treeToGoJS(tree);
+
+    // Initialize GoJS Diagram
+    const $ = go.GraphObject.make;
+    const myDiagram = $(go.Diagram, "diagramDiv", {
+      initialContentAlignment: go.Spot.Center,
+      layout: $(go.TreeLayout, { angle: 90, layerSpacing: 35 }),
+    });
+
+    // Node template using HTMLInfo and MathJax
+    myDiagram.nodeTemplate = $(
+      go.Node,
+      "Auto",
+      $(go.Shape, "RoundedRectangle", { fill: "white", stroke: "gray" }),
+      $(
+        go.Panel,
+        "Vertical",
+        { margin: 5 },
+        $(go.TextBlock, { font: "bold 16px Arial", margin: 5 },
+          new go.Binding("text")),
+        $(go.HTMLInfo, {
+          content: (div, node) => {
+            div.innerHTML = node.data.content;
+            MathJax.typesetPromise(); // Process MathJax
+          },
+        }),
+      )
+    );
+
+    // Link template
+    myDiagram.linkTemplate = $(
+      go.Link,
+      $(go.Shape), // the link line
+      $(go.Shape, { toArrow: "OpenTriangle" }) // arrowhead
+    );
+
+    // Load the diagram with parsed Markdown
+    myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
+  </script>
+</body>
+</html>
