@@ -17,7 +17,7 @@
       let markdown = md.render(inputText);
 
       // Display the result
-      document.getElementById('markdownOutput').innerHTML = markdown; // Display in markdownOutput textarea
+      document.getElementById('markdownOutput').innerHTML = markdown; // Display in markdownOutput div
     }
 
     // Function to load the text file content into the textarea
@@ -39,6 +39,48 @@
       loadTextContent('1411-1.md'); // Replace '1411-1.md' with your actual file path
     });
   </script>
+
+  <style>
+    /* Dark theme styling similar to VSCode */
+    body {
+      background-color: #1e1e1e;
+      color: #dcdcdc;
+      font-family: 'Courier New', monospace;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      color: #c5c5c5;
+    }
+
+    /* Textarea styling */
+    textarea {
+      background-color: #2d2d2d;
+      color: #dcdcdc;
+      border: 1px solid #444444;
+      border-radius: 5px;
+      font-size: 16px;
+      padding: 10px;
+      resize: none;
+    }
+
+    /* Styling for the markdown output div */
+    #markdownOutput {
+      background-color: #2d2d2d;
+      color: #dcdcdc;
+      border: 1px solid #444444;
+      border-radius: 5px;
+      padding: 10px;
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      white-space: pre-wrap; /* Preserve line breaks */
+    }
+
+    /* Additional styling for input/output layout */
+    h2 {
+      margin-top: 20px;
+    }
+  </style>
 
 </head>
 <body>
