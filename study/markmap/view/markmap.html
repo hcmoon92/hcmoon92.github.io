@@ -21,12 +21,6 @@
       // Display the result
       document.getElementById('markdownOutput').innerHTML = markdown; // Display in markdownOutput div
 
-
-      // Convert the markdown into a mind map if autoLoader is true
-      if (window.markmap.autoLoader.manual === true) {
-        renderMarkmap(inputText);
-      }
-
     }
 
     // Function to load the text file content into the textarea
@@ -37,8 +31,7 @@
           // Insert the content into the textarea
           document.getElementById('textArea').value = data;
 
-
-          //document.getElementById('textInput').value = data;
+          document.getElementById('textInput').value = data;
 
           // Automatically convert the loaded text to markdown
           convertToMarkdown();
@@ -63,6 +56,17 @@
         window.markmap.Markmap.create(markmapContainer, inputText);
     }
 
+    // Function to generate Markmap from textarea input
+    function generateMarkmap() {
+        // Get the content from the textarea
+        const textInput = document.getElementById('textInput').value;
+
+        // Generate Markmap
+        const markmapContainer = document.getElementById('markmap');
+        markmapContainer.innerHTML = ''; // Clear previous content
+        window.markmap.Markmap.create(markmapContainer, markdown);
+    }
+        
   </script>
 
   <style>
@@ -159,10 +163,11 @@
 
   </div>
 
+  <button onclick="generateMarkmap()">Generate Markmap</button>
+
     <!-- Markmap container -->
     <div class="markmap">            
-        <textarea id="textInput"> 
-        </textarea>
+        <textarea id="textInput"> </textarea>
     </div>
     <svg id="markmap" style="width: 800px; height: 800px;"></svg>
 
