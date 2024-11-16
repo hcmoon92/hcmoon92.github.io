@@ -18,7 +18,7 @@
       </style>
       
       <div class="markmap">
-        <script type="text/template">
+        <textarea>
             ---
             title: markmap
             markmap:
@@ -64,15 +64,17 @@
             | Banana | 2 |
             
             ![](/favicon.png)
-        </script>
+        </textarea>
       </div>
 
   <svg id="mindmap" style="width: 100%; height: 100%;"></svg>
 
   <script>
     window.markmap = {
-      autoLoader: { manual: true },
+      autoLoader: { manual: false },
     };
+    markmap.autoLoader.renderAll();
+
   </script>
   <script>
     // Render in 5s
@@ -80,5 +82,7 @@
     //  markmap.autoLoader.renderAll();
     //}, 5000);
   </script>
+
+  
 </body>
 </html>
