@@ -113,7 +113,7 @@
         height: 800px;
         position: relative;
       }            
-      svg {
+      .markmap > svg {
         width: 100%;
         height: 100%;
       }
@@ -124,10 +124,12 @@
 
 
   <div class="container">
-    <!-- Left pane for textarea -->
     <div class="pane">
-      <h2>Loaded Text into Textarea</h2>
-      <textarea class="markmap" id="textArea" oninput="convertToMarkdown()"></textarea>
+    <!-- Left pane for textarea -->
+    <div class="markmap">
+      <textarea id="textArea" oninput="convertToMarkdown()"></textarea>
+    </div>
+    <svg id="markmap" style="width: 800px; height: 800px;"></svg>
     </div>
 
     <!-- Right pane for markdown output -->
@@ -135,8 +137,6 @@
       <h2>Markdown Output:</h2>
       <div id="markdownOutput"></div>
     </div>
-
-    <svg id="markmap" style="width: 800px; height: 800px;"></svg>
 
   </div>
 
