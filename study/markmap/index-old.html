@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown to Mindmap with D3.js</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .node circle {
+      fill: #69b3a2;
+      stroke: #333;
+      stroke-width: 1.5px;
+    }
+    .node text {
+      font: 12px sans-serif;
+      fill: #333;
+      text-anchor: start;
+    }
+    .link {
+      fill: none;
+      stroke: #555;
+      stroke-opacity: 0.6;
+      stroke-width: 1.5px;
+    }
+    svg {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1>Markdown to Mindmap</h1>
+  <textarea id="markdownInput" rows="10" cols="50">
+# JavaScript Frameworks
+## Frontend
+- React
+- Angular
+- Vue.js
+## Backend
+- Node.js
+- Express
+- NestJS
+## Fullstack
+- Meteor
+- Next.js
+- Nuxt.js
+  </textarea>
+  <button onclick="renderMindmap()">Generate Mindmap</button>
+  <div id="mindmap"></div>
+
+  <script>
+    // Convert Markdown to hierarchical JSON structure
+    function markdownToTree(markdown) {
+      const lines = markdown.split("\n").filter(line => line.trim());
+      const root = { name: "Root", children: [] };
+      const stack = [root];
+
+      lines.forEach(line => {
+        const match = line.match(/^(#+)\s+(.*)/);
+        if (match) {
+          const level = match[1].length;
+          const text = match[2];
+          const node = { name: text, children: [] };
+
+          while (stack.length > level) stack.pop(); // Pop until the right level
+          stack[stack.length - 1].children.push(node);
+          stack.push(node);
+        } else if (line.startsWith("-")) {
+          const text = line.substring(1).trim();
+          const node = { name: text, children: [] };
+          stack[stack.length - 1].children.push(node);
+        }
+      });
+
+      return root.children[0]; // Return the first child as the main tree
+    }
+
+    // Render the mindmap
+    function renderMindmap() {
+      const markdown = document.getElementById("markdownInput").value;
+      const treeData = markdownToTree(markdown);
+
+      document.getElementById("mindmap").innerHTML = ""; // Clear previous mindmap
+
+      const width = 800;
+      const height = 600;
+
+      const svg = d3.select("#mindmap")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(50, 50)");
+
+      const treeLayout = d3.tree().size([height - 100, width - 100]);
+      const root = d3.hierarchy(treeData);
+      treeLayout(root);
+
+      // Links
+      svg.selectAll(".link")
+        .data(root.links())
+        .enter()
+        .append("path")
+        .attr("class", "link")
+        .attr("d", d3.linkHorizontal()
+          .x(d => d.y)
+          .y(d => d.x))
+        .attr("stroke", "#555")
+        .attr("fill", "none");
+
+      // Nodes
+      const node = svg.selectAll(".node")
+        .data(root.descendants())
+        .enter()
+        .append("g")
+        .attr("class", "node")
+        .attr("transform", d => `translate(${d.y},${d.x})`);
+
+      node.append("circle")
+        .attr("r", 5)
+        .attr("fill", "#69b3a2");
+
+      node.append("text")
+        .attr("dy", 3)
+        .attr("x", d => (d.children ? -10 : 10))
+        .style("text-anchor", d => (d.children ? "end" : "start"))
+        .text(d => d.data.name);
+    }
+  </script>
+</body>
+</html>
