@@ -39,6 +39,11 @@
     // Load the text content when the page loads
     document.addEventListener('DOMContentLoaded', () => {
       loadTextContent('1411-1.md'); // Replace '1411-1.md' with your actual file path
+
+        window.markmap = {
+            autoLoader: { manual: false },
+        };
+
     });
   </script>
 
@@ -140,11 +145,6 @@
 
   </div>
 
-  <script>
-    window.markmap = {
-      autoLoader: { manual: false },
-    };
-    </script>
 
 </body>
 </html>
