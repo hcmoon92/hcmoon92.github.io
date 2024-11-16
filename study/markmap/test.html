@@ -1,41 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Markmap Viewer</title>
-  <script src="https://d3js.org/d3.v6.min.js"></script>
-
-  <script src="markmap.min.js"></script>
+    <title>Markmap Example</title>
 </head>
 <body>
-  <svg id="mindmap" style="width: 100%; height: 100vh;"></svg>
+    <!-- Include required scripts -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-lib/dist/browser/view.min.js"></script>
 
-  <!-- Embed Markdown content in a script tag -->
-  <script id="markdown-content" type="text/markdown">
-# Example Mind Map
+    <!-- Define the markdown content -->
+    <textarea id="content" style="display: none;">
+# Root
+- Child 1
+  - Subchild 1.1
+  - Subchild 1.2
+- Child 2
+    </textarea>
 
-## Section 1
-- Point 1.1
-- Point 1.2
+    <!-- Define an SVG container -->
+    <svg id="mindmap" width="800" height="600"></svg>
 
-## Section 2
-- Point 2.1
-- Point 2.2
-  </script>
-
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const { Markmap } = window.markmap;
-
-      // Get the Markdown content from the script tag
-      const markdownContent = document.getElementById("markdown-content").textContent;
-
-      const svg = document.getElementById("mindmap");
-      const mindmap = Markmap.create(svg);
-      mindmap.setData(Markmap.transformMarkdown(markdownContent));
-      mindmap.fit(); // Adjust the mindmap to fit the viewport
-    });
-  </script>
+    <!-- Your script -->
+    <script>
+        const content = document.getElementById('content').value;
+        const mindmap = markmap.Markmap.create('#mindmap');
+        mindmap.setData(markmap.transformMarkdown(content));
+        mindmap.fit();
+    </script>
 </body>
 </html>
