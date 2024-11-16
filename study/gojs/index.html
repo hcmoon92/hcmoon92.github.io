@@ -60,7 +60,7 @@
       function traverse(nodes, parentKey) {
         nodes.forEach(node => {
           const nodeKey = key++;
-          nodeDataArray.push({ key: nodeKey, text: node.text, content: marked(node.text) });
+          nodeDataArray.push({ key: nodeKey, text: node.text, content: marked.parse(node.text) }); // Use marked.parse
           if (parentKey !== null) {
             linkDataArray.push({ from: parentKey, to: nodeKey });
           }
