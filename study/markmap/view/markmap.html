@@ -130,18 +130,18 @@
 
 
   <div class="container">
-    <div class="pane">
     <!-- Left pane for textarea -->
-    <div class="markmap">
-      <textarea id="textArea" oninput="convertToMarkdown()"></textarea>
-    </div>
-    <svg id="markmap" style="width: 800px; height: 800px;"></svg>
+    <div class="pane">
+        <textarea id="textArea" oninput="convertToMarkdown()"></textarea>
+        <!-- Markmap container -->
+        <div class="markmap" id="markmap"></div>
+        <svg id="markmap" style="width: 800px; height: 800px;"></svg>
     </div>
 
     <!-- Right pane for markdown output -->
     <div class="pane">
-      <h2>Markdown Output:</h2>
-      <div id="markdownOutput"></div>
+        <h2>Markdown Output:</h2>
+        <div id="markdownOutput"></div>
     </div>
 
   </div>
