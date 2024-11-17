@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.2/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.2/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.2/dist/index.js"></script><script>(r => {
+                setTimeout(r);
+              })(() => {
+  const {
+    markmap,
+    mm
+  } = window;
+  const {
+    el
+  } = markmap.Toolbar.create(mm);
+  el.setAttribute('style', 'position:absolute;bottom:20px;right:20px');
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+            })(() => window.markmap,null,{"content":"통신신호 스펙트럼 밀도의 정의와 의미","children":[{"content":"1. 정의","children":[{"content":"종류","children":[{"content":"<strong>전력 스펙트럼 밀도 (PSD)</strong>: 신호의 전력이 주파수에 따라 분포된 상태를 표현.","children":[],"payload":{"lines":"8,9"}},{"content":"<strong>에너지 스펙트럼 밀도 (ESD)</strong>: 신호 에너지가 주파수에 따라 분포된 상태를 표현.","children":[],"payload":{"lines":"9,11"}}],"payload":{"lines":"7,8"}}],"payload":{"lines":"2,3"}},{"content":"2. 의미","children":[{"content":"\n<p data-lines=\"14,15\"><strong>주파수 분석</strong>:</p>","children":[{"content":"신호의 주요 성분이 포함된 주파수 범위를 확인.","children":[],"payload":{"lines":"15,16"}},{"content":"필터 설계, 대역폭 계산 등에서 활용.","children":[],"payload":{"lines":"16,18"}}],"payload":{"lines":"14,18"}},{"content":"\n<p data-lines=\"18,19\"><strong>신호 성질 이해</strong>:</p>","children":[{"content":"잡음의 분포를 분석하여 신호 대 잡음비(SNR) 계산.","children":[],"payload":{"lines":"19,20"}},{"content":"신호 품질 및 효율성을 평가.","children":[],"payload":{"lines":"20,22"}}],"payload":{"lines":"18,22"}},{"content":"\n<p data-lines=\"22,23\"><strong>통신 시스템 설계</strong>:</p>","children":[{"content":"효율적인 주파수 자원 활용.","children":[],"payload":{"lines":"23,24"}},{"content":"무선 통신, 레이더, 오디오 신호 처리 등 다양한 응용에 적용.","children":[],"payload":{"lines":"24,26"}}],"payload":{"lines":"22,26"}}],"payload":{"lines":"13,14"}},{"content":"3. 특징","children":[{"content":"<strong>선형 스펙트럼 밀도</strong>: 주파수 성분의 직관적인 강도 표현.","children":[],"payload":{"lines":"29,30"}},{"content":"<strong>로그 스펙트럼 밀도 (dB)</strong>: 큰 범위의 신호를 효과적으로 비교 및 분석.","children":[],"payload":{"lines":"30,32"}}],"payload":{"lines":"28,29"}},{"content":"4. 활용 사례","children":[{"content":"<strong>통신 대역폭 결정</strong>: 스펙트럼 밀도를 기준으로 최적 대역폭 설정.","children":[],"payload":{"lines":"35,36"}},{"content":"<strong>잡음 분석</strong>: 특정 대역의 잡음 성분을 계산 및 제거.","children":[],"payload":{"lines":"36,37"}},{"content":"<strong>신호 복원</strong>: 손실된 신호의 주파수 성분 복원.","children":[],"payload":{"lines":"37,38"}},{"content":"<strong>무선 네트워크 설계</strong>: 스펙트럼 효율 최적화를 위한 기초 자료 제공.","children":[],"payload":{"lines":"38,40"}}],"payload":{"lines":"34,35"}}],"payload":{"lines":"0,1"}},{})</script>
+</body>
+</html>
