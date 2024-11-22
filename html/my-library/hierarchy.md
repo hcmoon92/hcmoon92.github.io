@@ -1,9 +1,9 @@
 # Table of Contents
 - 5g
   - 3gpp
-    - [key 5g specifications](md_files/001-5g-3gpp-key_5g_specifications.md)
-  - ts22261
-    - [ts 22261 service requirements for the 5g system](./md_files/011-5g-ts22261-ts_22261_service_requirements_for_the_5g_system.md)
+    - [key 5g specifications](./md_files/001-5g-3gpp-key_5g_specifications.md)
+  - specs
+    - [ts 22261 service requirements for the 5g system](./md_files/011-5g-specs-ts_22261_service_requirements_for_the_5g_system.md)
   - overview
     - [introduction to 5g mobile telephony](./md_files/5g/000-5g-overview-introduction_to_5g_mobile_telephony.md)
   - standards
