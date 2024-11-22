@@ -204,7 +204,7 @@ def main():
         output_path = output_filename.replace(" ", "_")  # Optional: replace spaces with underscores
     else : 
         # Generate the output filename using spec_number and spec_name
-        output_filename = f"spec.md"
+        output_filename = f"{input_path}.md"
         output_path = output_filename.replace(" ", "_")  # Optional: replace spaces with underscores
     
 
