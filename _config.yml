@@ -1,6 +1,12 @@
 markdown: kramdown
 theme: jekyll-theme-slate
 
+defaults:
+  - scope:
+      path: "search.json"
+    values:
+      layout: json
+
 # Name of your site (displayed in the header)
 # name: Web Tutorials
 # avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
