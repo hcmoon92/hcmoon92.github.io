@@ -27,8 +27,12 @@
           </div>
 
           <nav>
-            <a href="{{ site.baseurl }}/">Blog</a>
             <a href="{{ site.baseurl }}/about">About</a>
+            <a href="{{ site.baseurl }}/">Blog</a>
+            <a href="{{ site.baseurl }}/categories">Categories</a>
+            <a href="{{ site.baseurl }}/tags">Tags</a>
+            <a href="{{ site.baseurl }}/search">Search</a>
+
           </nav>
         </header>
       </div>
@@ -37,7 +41,6 @@
     <div id="main" role="main" class="container">
       {{ content }}
     </div>
-    {% include sidebar.html %}
 
     <div class="wrapper-footer">
       <div class="container">
