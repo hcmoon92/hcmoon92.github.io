@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tags - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
+</head>
+<body>
+  <header>
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.description }}</p>
+  </header>
+
+  <main>
+    <h2>Tags</h2>
+    <ul>
+      {% assign all_tags = site.tags | sort %}
+      {% for tag in all_tags %}
+        <li>
+          <a href="{{ site.baseurl }}/tags/{{ tag[0] }}/">{{ tag[0] }}</a>
+          ({{ tag[1].size }})
+        </li>
+      {% endfor %}
+    </ul>
+    <a href="{{ site.baseurl }}/">Back to Home</a>
+  </main>
+
+  <footer>
+    <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
+  </footer>
+</body>
+</html>
