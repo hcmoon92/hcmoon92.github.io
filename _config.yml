@@ -2,11 +2,11 @@ markdown: kramdown
 theme: jekyll-theme-slate
 
 # Name of your site (displayed in the header)
-name: Web Tutorials
-#avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
+# name: Web Tutorials
+# avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
 
-title: "Tutorials"
-description: "Basic Tech Blog"
-author: "Henry Moon"
-baseurl: "" # 루트 URL
-url: "https://hcmoon92.github.io/tutorial-blog" # GitHub Pages URL
+# title: "Tutorials"
+# description: "Basic Tech Blog"
+# author: "Henry Moon"
+# baseurl: "" # 루트 URL
+# url: "https://hcmoon92.github.io/tutorial-blog" # GitHub Pages URL
