@@ -163,6 +163,13 @@ img {
   }
 }
 
+.masthead nav {
+  display: flex; /* 플렉스박스 사용 */
+  justify-content: center; /* 가로 방향 중앙 정렬 */
+  gap: 20px; /* 링크 사이 간격 */
+}
+
+
 .site-avatar {
   float: left;
   width: 70px;
