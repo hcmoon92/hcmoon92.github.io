@@ -3,7 +3,7 @@ theme: jekyll-theme-slate
 
 defaults:
   - scope:
-      path: "search/search.json"
+      path: "search.json"
     values:
       layout: json
 

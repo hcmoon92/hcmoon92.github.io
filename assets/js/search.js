@@ -5,7 +5,7 @@ var idx = lunr(function () {
     this.ref('id');
     
     // JSON 데이터 불러오기
-    fetch('{{ site.baseurl }}/search/search.json')
+    fetch('search.json')
       .then(response => response.json())
       .then(data => {
         data.forEach((doc, index) => {
