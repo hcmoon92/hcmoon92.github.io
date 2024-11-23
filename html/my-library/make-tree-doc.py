@@ -83,7 +83,7 @@ def rename_files():
                 print(f"Renamed: '{original_filename}' -> '{new_filename}'")
 
 # Function to parse filenames into a hierarchy
-def parse_filenames():
+def parse_filenames1():
     hierarchy = {}
     for root, _, files in os.walk(directory):
         for filename in files:
@@ -99,6 +99,35 @@ def parse_filenames():
                             current_level[level] = {}
                         current_level = current_level[level]
                     current_level["_file"] = os.path.join(root, filename)  # Store the file path
+    return hierarchy
+
+# Function to parse filenames into a hierarchy
+def parse_filenames():
+    hierarchy = {}
+    
+    # Walk through the directory and subdirectories
+    for root, _, files in os.walk(directory):
+        for filename in files:
+            decoded_filename = decode_filename(filename)
+            
+            if decoded_filename.endswith(".md"):
+                # Remove any non-essential parts from the filename (after the last '-')
+                # Match filenames like "001-3GPP-TS-3GPP_TS_22.011_V19.4.0-(2024-09)-Service_accessibility.md"
+                filename_core = re.sub(r"(\-.*?)(\.md$)", ".md", decoded_filename)  # Removing extra details after first '-'
+
+                match = re.match(r"(\d{3})-([\w\-]+)\.md", filename_core)
+                if match:
+                    _, name = match.groups()
+                    levels = name.split("-")
+                    
+                    # Build hierarchy
+                    current_level = hierarchy
+                    for level in levels:
+                        if level not in current_level:
+                            current_level[level] = {}
+                        current_level = current_level[level]
+                    current_level["_file"] = os.path.join(root, filename)  # Store the file path
+
     return hierarchy
 
 # Recursive function to generate Markdown links
@@ -123,10 +152,10 @@ def main():
     rename_files_from_titles()
     
     # Step 1: Organize files into directories by main topic
-    #organize_files()
+    organize_files()
 
     # Step 2: Rename files (replace spaces with underscores)
-    #rename_files()
+    rename_files()
 
     # Step 3: Parse filenames into a hierarchy
     hierarchy = parse_filenames()
