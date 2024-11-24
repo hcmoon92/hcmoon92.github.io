@@ -3,7 +3,7 @@ import re
 import yaml
 
 posts_folder = "../_posts"
-base_url = "/categories/"  # 태그 페이지 기본 URL
+base_url = "/categories/"  # 카테고리 페이지 기본 URL
 
 # 모든 포스트 파일 업데이트
 for filename in os.listdir(posts_folder):
@@ -17,17 +17,26 @@ for filename in os.listdir(posts_folder):
         if match:
             yaml_header = match.group(1)
             front_matter = yaml.safe_load(yaml_header)
-            tags = front_matter.get("categories", [])
+            categories = front_matter.get("categories", [])
 
-            # 태그 링크 생성
-            if tags:
-                # 태그 링크 생성
-                tag_links = " ".join([f"[#{tag}]({base_url}{tag.replace(' ', '-')}/)" for tag in tags])
+            if categories:
+                # 카테고리 링크 생성
+                category_links = " ".join([f"[#{category}]({base_url}{category.replace(' ', '-')}/)" for category in categories])
                 
-                # 태그 링크 추가
+                # 기존 Categories: 섹션 확인
+                existing_categories_match = re.search(r"Categories: (.*)", content)
+                if existing_categories_match:
+                    existing_categories = existing_categories_match.group(1).strip()
+                    
+                    # 기존 링크와 동일하면 스킵
+                    if existing_categories == category_links:
+                        print(f"Skipping file: {filename}, categories are already up-to-date.")
+                        continue
+                
+                # 카테고리 링크 추가
                 updated_content = re.sub(
                     r"(---.*?---)", 
-                    r"\1\nCategories: " + tag_links,
+                    r"\1\n\nCategories: " + category_links,
                     content, 
                     flags=re.DOTALL
                 )

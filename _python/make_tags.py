@@ -23,7 +23,17 @@ for filename in os.listdir(posts_folder):
             if tags:
                 # 태그 링크 생성
                 tag_links = " ".join([f"[#{tag}]({base_url}{tag.replace(' ', '-')}/)" for tag in tags])
-                
+
+                # 기존 Categories: 섹션 확인
+                existing_tags_match = re.search(r"Tags: (.*)", content)
+                if existing_tags_match:
+                    existing_tags = existing_tags_match.group(1).strip()
+                    
+                    # 기존 링크와 동일하면 스킵
+                    if existing_tags == tag_links:
+                        print(f"Skipping file: {filename}, tags are already up-to-date.")
+                        continue
+
                 # 태그 링크 추가
                 updated_content = re.sub(
                     r"(---.*?---)", 
