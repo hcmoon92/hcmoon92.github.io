@@ -1,7 +1,7 @@
 markdown: kramdown
 theme: jekyll-theme-slate
 
-permalink: /:categories/:year/:month/:day/:title/
+#permalink: /:categories/:year/:month/:day/:title/
 
 
 defaults:
