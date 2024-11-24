@@ -41,6 +41,12 @@
       {{ content }}
     </div>
 
+    <p>Tags: 
+      {% for tag in page.tags %}
+        <a href="{{ site.baseurl }}/tags/{{ tag }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    </p>
+    
     <div class="wrapper-footer">
       <div class="container">
         <footer class="footer">
