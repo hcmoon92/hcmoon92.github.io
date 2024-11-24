@@ -1,6 +1,9 @@
 markdown: kramdown
 theme: jekyll-theme-slate
 
+permalink: /:categories/:year/:month/:day/:title/
+
+
 defaults:
   - scope:
       path: "search.json"
