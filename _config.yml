@@ -2,7 +2,8 @@ markdown: kramdown
 theme: jekyll-theme-slate
 
 #permalink: /:categories/:year/:month/:day/:title/
-
+paginate: 3
+paginate_path: "/page:num/"
 
 defaults:
   - scope:
