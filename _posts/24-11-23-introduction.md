@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Flutter 튜토리얼: 소개"
+title: "Flutter Intro"
 date: 2024-11-23
 categories: [flutter, tutorial]
 tags: [flutter, dart, mobile development]
