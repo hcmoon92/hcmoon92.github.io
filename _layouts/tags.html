@@ -16,7 +16,10 @@
       {% assign all_tags = site.tags | sort %}
       {% for tag in all_tags %}
         <li>
-          <a href="{{ site.baseurl }}/tags/{{ tag[0] }}/">{{ tag[0] }}</a>
+          <!-- 공백을 하이픈으로 대체하여 URL 생성 -->
+          <a href="{{ site.baseurl }}/tags/{{ tag[0] | replace: ' ', '-' }}/">
+            {{ tag[0] }}
+          </a>
           ({{ tag[1].size }})
         </li>
       {% endfor %}
