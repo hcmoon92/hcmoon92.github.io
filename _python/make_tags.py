@@ -5,12 +5,13 @@ import yaml
 posts_folder = "../_posts"
 base_url = "/tags/"  # 태그 페이지 기본 URL
 
-# 모든 포스트 파일 업데이트
-for filename in os.listdir(posts_folder):
-    if filename.endswith(".md"):
-        file_path = os.path.join(posts_folder, filename)
-        with open(file_path, "r", encoding="utf-8") as file:
-            content = file.read()
+# _posts 폴더 및 서브디렉토리의 모든 파일 처리
+for root, _, files in os.walk(posts_folder):
+    for filename in files:
+        if filename.endswith(".md"):
+            file_path = os.path.join(root, filename)
+            with open(file_path, "r", encoding="utf-8") as file:
+                content = file.read()
 
         # YAML Front Matter 추출
         match = re.search(r"---(.*?)---", content, re.DOTALL)

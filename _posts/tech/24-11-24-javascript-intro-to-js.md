@@ -5,3 +5,7 @@ layout: post
 categories: [tech, javascript]
 tags: [javascript]
 ---
+
+Categories: [/tech](/categories/tech/) [/javascript](/categories/javascript/)
+
+Tags: [#javascript](/tags/javascript/)

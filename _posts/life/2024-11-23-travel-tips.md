@@ -6,4 +6,8 @@ categories: [life]
 tags: [travel]
 ---
 
+Categories: [/life](/categories/life/)
+
+Tags: [#travel](/tags/travel/)
+
 travel tips
