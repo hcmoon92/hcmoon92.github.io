@@ -9,13 +9,18 @@ layout: default
     작성일 : {{ page.date | date: "%Y, %m, %e" }}
   </div>
 
+  {% if content != "" %}
   <hr>
-  
+  {% endif %}
+
   <div class="entry">
     {{ content }}
   </div>
+
+  {% if content != "" %}
   <hr>
-  
+  {% endif %}
+
   <p>분류: 
     {% for category in page.categories %}
       <a href="{{ site.baseurl }}/categories/{{ category | replace: ' ', '-' }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
