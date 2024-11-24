@@ -1,3 +1,12 @@
+---
+layout: post
+title: "Web Ops"
+#date: 2024-11-23
+categories: [course]
+tags: [web]
+---
+
+
 <!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
 
 # 🔷 웹 사이트와 웹 애플리케이션의 운영

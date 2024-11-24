@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Web Dev"
+#date: 2024-11-23
+categories: [course]
+tags: [web]
+---
+
 <!-- Another section with background -->
 <!-- <section data-background="slides/tta-training/images/01-web_development.png"> -->
 

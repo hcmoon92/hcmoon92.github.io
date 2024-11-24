@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Web Test"
+#date: 2024-11-23
+categories: [course]
+tags: [web]
+---
+
 <!-- .slide: data-background="linear-gradient(to right, white, #0072ff)" -->
 
 # 🔷 웹 테스트 소개 및 기초
