@@ -5,14 +5,17 @@ layout: default
 <article class="post">
   <h1>{{ page.title }}</h1>
 
+  <div class="date">
+    작성일 : {{ page.date | date: "%Y, %m, %e" }}
+  </div>
+
+  <hr>
+  
   <div class="entry">
     {{ content }}
   </div>
-
-  <div class="date">
-    작성일 : {{ page.date | date: "%Y, %M %e" }}
-  </div>
-
+  <hr>
+  
   <p>분류: 
     {% for category in page.categories %}
       <a href="{{ site.baseurl }}/categories/{{ category | replace: ' ', '-' }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
