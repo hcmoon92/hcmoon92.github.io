@@ -21,7 +21,7 @@ for filename in os.listdir(posts_folder):
 
             if categories:
                 # 카테고리 링크 생성
-                category_links = " ".join([f"[#{category}]({base_url}{category.replace(' ', '-')}/)" for category in categories])
+                category_links = " ".join([f"[/{category}]({base_url}{category.replace(' ', '-')}/)" for category in categories])
                 
                 # 기존 Categories: 섹션 확인
                 existing_categories_match = re.search(r"Categories: (.*)", content)
