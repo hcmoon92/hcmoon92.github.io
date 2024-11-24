@@ -5,3 +5,7 @@ layout: post
 categories: [tech, python]
 tags: [python]
 ---
+
+Categories: [/tech](/categories/tech/) [/python](/categories/python/)
+
+Tags: [#python](/tags/python/)
