@@ -1,6 +1,6 @@
 ---
 layout: post
-#title: "Flutter 튜토리얼: 소개"
+title: "Travel Tips"
 #date: 2024-11-23
 categories: [life]
 tags: [travel]

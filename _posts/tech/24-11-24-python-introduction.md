@@ -1,6 +1,6 @@
 ---
 layout: post
-#title: "Flutter 튜토리얼: 소개"
+title: "Python Intro"
 #date: 2024-11-23
 categories: [tech, python]
 tags: [python]
