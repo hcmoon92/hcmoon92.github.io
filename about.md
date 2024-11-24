@@ -5,10 +5,11 @@ permalink: /about/
 ---
 
 Hello!! 
+
 Welcome to My Blog!!!
 
 ### Introduction
 
 Feel free to view any contents.
 
-{{ site.title }}
+### {{ site.title }}
