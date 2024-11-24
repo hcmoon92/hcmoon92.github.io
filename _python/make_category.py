@@ -27,7 +27,7 @@ for filename in os.listdir(posts_folder):
                 # 태그 링크 추가
                 updated_content = re.sub(
                     r"(---.*?---)", 
-                    r"\1\n\nCategories: " + tag_links,
+                    r"\1\nCategories: " + tag_links,
                     content, 
                     flags=re.DOTALL
                 )
