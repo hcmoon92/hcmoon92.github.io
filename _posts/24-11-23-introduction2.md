@@ -5,7 +5,8 @@ date: 2024-11-23
 categories: [flutter, tutorial]
 tags: [flutter, dart, mobile development]
 ---
-Categories: [#flutter](/categories/flutter/) [#tutorial](/categories/tutorial/)
+
+Categories: [/flutter](/categories/flutter/) [/tutorial](/categories/tutorial/)
 Tags: [#flutter](/tags/flutter/) [#dart](/tags/dart/) [#mobile development](/tags/mobile-development/)
 
 Flutter는 Google에서 개발한 UI 툴킷으로, 단일 코드베이스로 Android와 iOS 앱을 제작할 수 있습니다.
