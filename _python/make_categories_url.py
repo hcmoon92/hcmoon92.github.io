@@ -3,14 +3,14 @@ import yaml
 
 # _posts 폴더 경로
 posts_folder = "../_posts"
-# tags 폴더 경로
-tags_folder = "../tags"
+# categories 폴더 경로
+categories_folder = "../categories"
 
-# tags 폴더가 없으면 생성
-os.makedirs(tags_folder, exist_ok=True)
+# categories 폴더가 없으면 생성
+os.makedirs(categories_folder, exist_ok=True)
 
 # 모든 태그를 저장할 세트
-all_tags = set()
+all_categories = set()
 
 # _posts 폴더의 모든 파일 처리
 for filename in os.listdir(posts_folder):
@@ -24,24 +24,24 @@ for filename in os.listdir(posts_folder):
             end_index = content.find("---", 3)  # 두 번째 --- 찾기
             yaml_content = content[3:end_index]
             front_matter = yaml.safe_load(yaml_content)
-            tags = front_matter.get("tags", [])
-            all_tags.update(tags)
+            categories = front_matter.get("categories", [])
+            all_categories.update(categories)
 
 # 각 태그에 대해 페이지 생성
-for tag in all_tags:
-    tag_filename = f"{tag.replace(' ', '-')}.md"  # 공백을 하이픈으로 변환
-    tag_page_path = os.path.join(tags_folder, tag_filename)
-    with open(tag_page_path, "w", encoding="utf-8") as tag_file:
-        tag_file.write(f"""---
-layout: tag
-title: {tag.capitalize()}
-tag: {tag}
-permalink: /tags/{tag.replace(' ', '-')}/
+for category in all_categories:
+    category_filename = f"{category.replace(' ', '-')}.md"  # 공백을 하이픈으로 변환
+    category_page_path = os.path.join(categories_folder, category_filename)
+    with open(category_page_path, "w", encoding="utf-8") as category_file:
+        category_file.write(f"""---
+layout: category
+title: {category.capitalize()}
+category: {category}
+permalink: /categories/{category.replace(' ', '-')}/
 ---
-<h1>Posts tagged with "{tag.capitalize()}"</h1>
+<h1>Posts categoryged with "{category.capitalize()}"</h1>
 <ul>
   {{% for post in site.posts %}}
-    {{% if post.tags contains page.tag %}}
+    {{% if post.categories contains page.category %}}
       <li>
         <a href="{{{{ post.url | relative_url }}}}">{{{{ post.title }}}}</a>
         <span>{{{{ post.date | date: "%B %d, %Y" }}}}</span>
@@ -51,4 +51,4 @@ permalink: /tags/{tag.replace(' ', '-')}/
 </ul>
 """)
 
-print(f"Tag pages generated for {len(all_tags)} tags.")
+print(f"category pages generated for {len(all_categories)} categories.")

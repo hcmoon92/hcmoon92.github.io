@@ -1,11 +1,18 @@
 import os
-import re
 import yaml
 
+# _posts 폴더 경로
 posts_folder = "../_posts"
-base_url = "/tags/"  # 태그 페이지 기본 URL
+# tags 폴더 경로
+tags_folder = "../tags"
 
-# 모든 포스트 파일 업데이트
+# tags 폴더가 없으면 생성
+os.makedirs(tags_folder, exist_ok=True)
+
+# 모든 태그를 저장할 세트
+all_tags = set()
+
+# _posts 폴더의 모든 파일 처리
 for filename in os.listdir(posts_folder):
     if filename.endswith(".md"):
         file_path = os.path.join(posts_folder, filename)
@@ -13,27 +20,35 @@ for filename in os.listdir(posts_folder):
             content = file.read()
 
         # YAML Front Matter 추출
-        match = re.search(r"---(.*?)---", content, re.DOTALL)
-        if match:
-            yaml_header = match.group(1)
-            front_matter = yaml.safe_load(yaml_header)
+        if content.startswith("---"):
+            end_index = content.find("---", 3)  # 두 번째 --- 찾기
+            yaml_content = content[3:end_index]
+            front_matter = yaml.safe_load(yaml_content)
             tags = front_matter.get("tags", [])
+            all_tags.update(tags)
 
-            # 태그 링크 생성
-            if tags:
-                # 태그 링크 생성
-                tag_links = " ".join([f"[#{tag}]({base_url}{tag.replace(' ', '-')}/)" for tag in tags])
-                
-                # 태그 링크 추가
-                updated_content = re.sub(
-                    r"(---.*?---)", 
-                    r"\1\n\nTags: " + tag_links,
-                    content, 
-                    flags=re.DOTALL
-                )
+# 각 태그에 대해 페이지 생성
+for tag in all_tags:
+    tag_filename = f"{tag.replace(' ', '-')}.md"  # 공백을 하이픈으로 변환
+    tag_page_path = os.path.join(tags_folder, tag_filename)
+    with open(tag_page_path, "w", encoding="utf-8") as tag_file:
+        tag_file.write(f"""---
+layout: tag
+title: {tag.capitalize()}
+tag: {tag}
+permalink: /tags/{tag.replace(' ', '-')}/
+---
+<h1>Posts tagged with "{tag.capitalize()}"</h1>
+<ul>
+  {{% for post in site.posts %}}
+    {{% if post.tags contains page.tag %}}
+      <li>
+        <a href="{{{{ post.url | relative_url }}}}">{{{{ post.title }}}}</a>
+        <span>{{{{ post.date | date: "%B %d, %Y" }}}}</span>
+      </li>
+    {{% endif %}}
+  {{% endfor %}}
+</ul>
+""")
 
-                # 파일 업데이트
-                with open(file_path, "w", encoding="utf-8") as file:
-                    file.write(updated_content)
-
-print("Tags linked successfully!")
+print(f"Tag pages generated for {len(all_tags)} tags.")
