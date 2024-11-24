@@ -12,13 +12,14 @@ os.makedirs(tags_folder, exist_ok=True)
 # 모든 태그를 저장할 세트
 all_tags = set()
 
-# _posts 폴더의 모든 파일 처리
-for filename in os.listdir(posts_folder):
-    if filename.endswith(".md"):
-        file_path = os.path.join(posts_folder, filename)
-        with open(file_path, "r", encoding="utf-8") as file:
-            content = file.read()
-
+# _posts 폴더 및 서브디렉토리의 모든 파일 처리
+for root, _, files in os.walk(posts_folder):
+    for filename in files:
+        if filename.endswith(".md"):
+            file_path = os.path.join(root, filename)
+            with open(file_path, "r", encoding="utf-8") as file:
+                content = file.read()
+                
         # YAML Front Matter 추출
         if content.startswith("---"):
             end_index = content.find("---", 3)  # 두 번째 --- 찾기
