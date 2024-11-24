@@ -13,7 +13,13 @@ layout: default
     Written on {{ page.date | date: "%B %e, %Y" }}
   </div>
 
-  <p>Tags: 
+  <p>분류: 
+    {% for category in page.categories %}
+      <a href="{{ site.baseurl }}/categories/{{ category | replace: ' ', '-' }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+    {% endfor %}
+  </p>
+
+  <p>태그: 
     {% for tag in page.tags %}
       <a href="{{ site.baseurl }}/tags/{{ tag | replace: ' ', '-' }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
     {% endfor %}
