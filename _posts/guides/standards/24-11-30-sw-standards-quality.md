@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "V&V"
+title: "ISO/IEC 9126: 소프트웨어 제품 품질 평가 표준"
 #date: 2024-11-23
 categories: [sqa]
 tags: [iso-iec-9126]
@@ -156,5 +156,3 @@ ISO/IEC 9126에서 사용되는 주요 용어:
 - **품질 특성 (Quality Characteristic)**: 품질을 정의하는 주요 범주.
 - **하위 특성 (Sub-characteristic)**: 품질 특성의 세부 요소.
 - **메트릭 (Metric)**: 품질 특성을 측정하기 위한 기준.
-
----
