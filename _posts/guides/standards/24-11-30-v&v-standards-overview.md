@@ -6,7 +6,6 @@ categories: [v&v]
 tags: [standard]
 ---
 
----
 ### 소프트웨어 검증 및 확인 관련 표준 가이드
 
 ---
