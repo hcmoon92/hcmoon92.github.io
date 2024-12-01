@@ -28,16 +28,20 @@ for root, _, files in os.walk(posts_folder):
             tags = front_matter.get("tags", [])
             all_tags.update(tags)
 
-# 각 태그에 대해 페이지 생성
+# 태그별 페이지 생성
 for tag in all_tags:
-    tag_filename = f"{tag.replace(' ', '-')}.md"  # 공백을 하이픈으로 변환
+    # '/'와 공백을 '-'로 변환
+    sanitized_tag = tag.replace("/", "-").replace(" ", "-")
+    tag_filename = f"{sanitized_tag}.md"
     tag_page_path = os.path.join(tags_folder, tag_filename)
+
+    # 페이지 생성 및 내용 작성
     with open(tag_page_path, "w", encoding="utf-8") as tag_file:
         tag_file.write(f"""---
 layout: tag
 title: {tag.capitalize()}
 tag: {tag}
-permalink: /tags/{tag.replace(' ', '-')}/
+permalink: /tags/{sanitized_tag}/
 ---
 <h1>Posts tagged with "{tag.capitalize()}"</h1>
 <ul>

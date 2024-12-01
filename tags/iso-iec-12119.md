@@ -1,10 +1,10 @@
 ---
 layout: tag
-title: Iso-iec-12119
-tag: iso-iec-12119
-permalink: /tags/iso-iec-12119/
+title: Iso/iec 12119
+tag: ISO/IEC 12119
+permalink: /tags/ISO-IEC-12119/
 ---
-<h1>Posts tagged with "Iso-iec-12119"</h1>
+<h1>Posts tagged with "Iso/iec 12119"</h1>
 <ul>
   {% for post in site.posts %}
     {% if post.tags contains page.tag %}

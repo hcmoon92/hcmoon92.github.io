@@ -3,7 +3,7 @@ layout: post
 title: "ISO/IEC 9126: 소프트웨어 제품 품질 평가 표준"
 #date: 2024-11-23
 categories: [sqa]
-tags: [iso-iec-9126]
+tags: [ISO/IEC 9126]
 
 ---
 ### ISO/IEC 9126: 소프트웨어 제품 품질 평가 표준

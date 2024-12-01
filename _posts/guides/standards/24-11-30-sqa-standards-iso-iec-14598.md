@@ -3,7 +3,7 @@ layout: post
 title: "ISO/IEC 14598: 소프트웨어 제품 평가"
 #date: 2024-11-23
 categories: [sqa]
-tags: [iso-iec-14598]
+tags: [SO/IEC-14598]
 ---
 
 # ISO/IEC 14598: 소프트웨어 제품 평가
