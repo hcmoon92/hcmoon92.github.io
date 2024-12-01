@@ -16,7 +16,8 @@
       {% for post in site.posts %}
         {% if post.tags contains page.tag %}
           <li>
-            <a href="{{ post.url }}">{{ post.title }}</a>
+            <!-- Use site.baseurl to ensure the URL includes the correct base path -->
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             <span>{{ post.date | date: "%B %d, %Y" }}</span>
           </li>
         {% endif %}
