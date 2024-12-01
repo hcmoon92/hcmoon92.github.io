@@ -3,7 +3,7 @@ layout: post
 title: "ISO/IEC 12119"
 #date: 2024-11-23
 categories: [sqa]
-tags: [ISO,IEC 12119]
+tags: [ISO,IEC,12119]
 ---
 
 # ISO/IEC 12119
