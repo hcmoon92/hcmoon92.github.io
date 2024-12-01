@@ -1,7 +1,7 @@
 ---
 layout: tag
-title: Web
-tag: web
+title: "Web"
+tag: "web"
 permalink: /tags/web/
 ---
 <h1>Posts tagged with "Web"</h1>

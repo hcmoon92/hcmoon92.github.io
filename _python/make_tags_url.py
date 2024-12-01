@@ -9,6 +9,12 @@ tags_folder = "../tags"
 # tags 폴더가 없으면 생성
 os.makedirs(tags_folder, exist_ok=True)
 
+# tags 폴더 안의 모든 파일 삭제
+# for filename in os.listdir(tags_folder):
+#     file_path = os.path.join(tags_folder, filename)
+#     if os.path.isfile(file_path):
+#         os.remove(file_path)
+
 # 모든 태그를 저장할 세트
 all_tags = set()
 
@@ -40,8 +46,8 @@ for tag in all_tags:
     with open(tag_page_path, "w", encoding="utf-8") as tag_file:
         tag_file.write(f"""---
 layout: tag
-title: {tag.capitalize()}
-tag: {tag}
+title: "{tag.capitalize()}"
+tag: "{tag}"
 permalink: /tags/{sanitized_tag}/
 ---
 <h1>Posts tagged with "{tag.capitalize()}"</h1>

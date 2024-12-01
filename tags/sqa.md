@@ -1,7 +1,7 @@
 ---
 layout: tag
-title: Sqa
-tag: sqa
+title: "Sqa"
+tag: "sqa"
 permalink: /tags/sqa/
 ---
 <h1>Posts tagged with "Sqa"</h1>

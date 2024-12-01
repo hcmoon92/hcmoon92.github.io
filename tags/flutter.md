@@ -1,7 +1,7 @@
 ---
 layout: tag
-title: Flutter
-tag: flutter
+title: "Flutter"
+tag: "flutter"
 permalink: /tags/flutter/
 ---
 <h1>Posts tagged with "Flutter"</h1>
