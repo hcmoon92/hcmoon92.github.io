@@ -30,7 +30,8 @@ for root, _, files in os.walk(posts_folder):
 
 # 태그별 페이지 생성
 for tag in all_tags:
-    # '/'와 공백을 '-'로 변환
+    # 태그를 문자열로 변환 후 '/'와 공백을 '-'로 변환
+    tag = str(tag)  # 문자열로 변환
     sanitized_tag = tag.replace("/", "-").replace(" ", "-")
     tag_filename = f"{sanitized_tag}.md"
     tag_page_path = os.path.join(tags_folder, tag_filename)

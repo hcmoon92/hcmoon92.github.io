@@ -3,7 +3,7 @@ layout: post
 title: "소프트웨어 생명주기에서의 검증 및 확인 활동"
 #date: 2024-11-23
 categories: [v&v]
-tags: [sdlc]
+tags: [sdlc,v&v]
 
 ---
 ### 소프트웨어 생명주기에서의 검증 및 확인 활동
