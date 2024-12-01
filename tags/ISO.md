@@ -1,7 +1,7 @@
 ---
 layout: tag
-title: Iso
-tag: ISO
+title: "Iso"
+tag: "ISO"
 permalink: /tags/ISO/
 ---
 <h1>Posts tagged with "Iso"</h1>

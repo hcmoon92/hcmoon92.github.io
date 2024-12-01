@@ -1,7 +1,7 @@
 ---
 layout: tag
-title: Sdlc
-tag: sdlc
+title: "Sdlc"
+tag: "sdlc"
 permalink: /tags/sdlc/
 ---
 <h1>Posts tagged with "Sdlc"</h1>

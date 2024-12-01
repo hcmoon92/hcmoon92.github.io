@@ -1,7 +1,7 @@
 ---
 layout: tag
-title: Dart
-tag: dart
+title: "Dart"
+tag: "dart"
 permalink: /tags/dart/
 ---
 <h1>Posts tagged with "Dart"</h1>

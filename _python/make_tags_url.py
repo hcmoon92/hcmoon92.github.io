@@ -39,8 +39,8 @@ for tag in all_tags:
     with open(tag_page_path, "w", encoding="utf-8") as tag_file:
         tag_file.write(f"""---
 layout: tag
-title: {tag.capitalize()}
-tag: {tag}
+title: "{tag.capitalize()}"
+tag: "{tag}"
 permalink: /tags/{sanitized_tag}/
 ---
 <h1>Posts tagged with "{tag.capitalize()}"</h1>

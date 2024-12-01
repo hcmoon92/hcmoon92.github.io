@@ -1,7 +1,7 @@
 ---
 layout: tag
-title: Mobile development
-tag: mobile development
+title: "Mobile development"
+tag: "mobile development"
 permalink: /tags/mobile-development/
 ---
 <h1>Posts tagged with "Mobile development"</h1>
