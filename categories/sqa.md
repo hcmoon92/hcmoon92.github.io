@@ -1,7 +1,7 @@
 ---
 layout: category
-title: Sqa
-category: sqa
+title: "Sqa"
+category: "sqa"
 permalink: /categories/sqa/
 ---
 <h1>Posts categoryged with "Sqa"</h1>

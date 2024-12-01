@@ -1,7 +1,7 @@
 ---
 layout: category
-title: Python
-category: python
+title: "Python"
+category: "python"
 permalink: /categories/python/
 ---
 <h1>Posts categoryged with "Python"</h1>

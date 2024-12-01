@@ -1,7 +1,7 @@
 ---
 layout: category
-title: V&v
-category: v&v
+title: "V&v"
+category: "v&v"
 permalink: /categories/v&v/
 ---
 <h1>Posts categoryged with "V&v"</h1>

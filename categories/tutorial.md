@@ -1,7 +1,7 @@
 ---
 layout: category
-title: Tutorial
-category: tutorial
+title: "Tutorial"
+category: "tutorial"
 permalink: /categories/tutorial/
 ---
 <h1>Posts categoryged with "Tutorial"</h1>

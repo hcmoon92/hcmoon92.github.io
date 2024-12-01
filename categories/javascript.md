@@ -1,7 +1,7 @@
 ---
 layout: category
-title: Javascript
-category: javascript
+title: "Javascript"
+category: "javascript"
 permalink: /categories/javascript/
 ---
 <h1>Posts categoryged with "Javascript"</h1>

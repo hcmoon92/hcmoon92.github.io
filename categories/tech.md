@@ -1,7 +1,7 @@
 ---
 layout: category
-title: Tech
-category: tech
+title: "Tech"
+category: "tech"
 permalink: /categories/tech/
 ---
 <h1>Posts categoryged with "Tech"</h1>

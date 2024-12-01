@@ -1,7 +1,7 @@
 ---
 layout: category
-title: Life
-category: life
+title: "Life"
+category: "life"
 permalink: /categories/life/
 ---
 <h1>Posts categoryged with "Life"</h1>

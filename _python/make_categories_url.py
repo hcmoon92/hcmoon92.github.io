@@ -30,13 +30,14 @@ for root, _, files in os.walk(posts_folder):
 
 # 각 태그에 대해 페이지 생성
 for category in all_categories:
-    category_filename = f"{category.replace(' ', '-')}.md"  # 공백을 하이픈으로 변환
+    sanitized_category = category.replace("/", "-").replace(" ", "-")
+    category_filename = f"{sanitized_category}.md"  # 공백을 하이픈으로 변환
     category_page_path = os.path.join(categories_folder, category_filename)
     with open(category_page_path, "w", encoding="utf-8") as category_file:
         category_file.write(f"""---
 layout: category
-title: {category.capitalize()}
-category: {category}
+title: "{category.capitalize()}"
+category: "{category}"
 permalink: /categories/{category.replace(' ', '-')}/
 ---
 <h1>Posts categoryged with "{category.capitalize()}"</h1>

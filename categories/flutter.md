@@ -1,7 +1,7 @@
 ---
 layout: category
-title: Flutter
-category: flutter
+title: "Flutter"
+category: "flutter"
 permalink: /categories/flutter/
 ---
 <h1>Posts categoryged with "Flutter"</h1>

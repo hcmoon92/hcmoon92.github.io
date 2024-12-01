@@ -1,7 +1,7 @@
 ---
 layout: category
-title: Course
-category: course
+title: "Course"
+category: "course"
 permalink: /categories/course/
 ---
 <h1>Posts categoryged with "Course"</h1>
