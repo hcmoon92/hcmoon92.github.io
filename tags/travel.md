@@ -1,7 +1,7 @@
 ---
 layout: tag
-title: "Travel"
-tag: "travel"
+title: Travel
+tag: travel
 permalink: /tags/travel/
 ---
 <h1>Posts tagged with "Travel"</h1>

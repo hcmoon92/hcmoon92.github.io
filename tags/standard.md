@@ -1,7 +1,7 @@
 ---
 layout: tag
-title: "Standard"
-tag: "standard"
+title: Standard
+tag: standard
 permalink: /tags/standard/
 ---
 <h1>Posts tagged with "Standard"</h1>

@@ -1,7 +1,7 @@
 ---
 layout: tag
-title: "V&v"
-tag: "v&v"
+title: V&v
+tag: v&v
 permalink: /tags/v&v/
 ---
 <h1>Posts tagged with "V&v"</h1>

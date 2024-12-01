@@ -1,7 +1,7 @@
 ---
 layout: tag
-title: "Iec"
-tag: "IEC"
+title: Iec
+tag: IEC
 permalink: /tags/IEC/
 ---
 <h1>Posts tagged with "Iec"</h1>

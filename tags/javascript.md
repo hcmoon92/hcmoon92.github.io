@@ -1,7 +1,7 @@
 ---
 layout: tag
-title: "Javascript"
-tag: "javascript"
+title: Javascript
+tag: javascript
 permalink: /tags/javascript/
 ---
 <h1>Posts tagged with "Javascript"</h1>

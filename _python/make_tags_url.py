@@ -9,12 +9,6 @@ tags_folder = "../tags"
 # tags 폴더가 없으면 생성
 os.makedirs(tags_folder, exist_ok=True)
 
-# tags 폴더 안의 모든 파일 삭제
-# for filename in os.listdir(tags_folder):
-#     file_path = os.path.join(tags_folder, filename)
-#     if os.path.isfile(file_path):
-#         os.remove(file_path)
-
 # 모든 태그를 저장할 세트
 all_tags = set()
 
@@ -36,8 +30,7 @@ for root, _, files in os.walk(posts_folder):
 
 # 태그별 페이지 생성
 for tag in all_tags:
-    # 태그를 문자열로 변환 후 '/'와 공백을 '-'로 변환
-    tag = str(tag)  # 문자열로 변환
+    # '/'와 공백을 '-'로 변환
     sanitized_tag = tag.replace("/", "-").replace(" ", "-")
     tag_filename = f"{sanitized_tag}.md"
     tag_page_path = os.path.join(tags_folder, tag_filename)
@@ -46,8 +39,8 @@ for tag in all_tags:
     with open(tag_page_path, "w", encoding="utf-8") as tag_file:
         tag_file.write(f"""---
 layout: tag
-title: "{tag.capitalize()}"
-tag: "{tag}"
+title: {tag.capitalize()}
+tag: {tag}
 permalink: /tags/{sanitized_tag}/
 ---
 <h1>Posts tagged with "{tag.capitalize()}"</h1>

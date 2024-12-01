@@ -1,7 +1,7 @@
 ---
 layout: tag
-title: "Python"
-tag: "python"
+title: Python
+tag: python
 permalink: /tags/python/
 ---
 <h1>Posts tagged with "Python"</h1>
