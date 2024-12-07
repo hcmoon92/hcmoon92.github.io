@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7Timer! Weather Forecast</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .forecast-container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .loading {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>7Timer! Weather Forecast</h1>
+    <p>Enter the latitude and longitude to get a 7-day weather forecast:</p>
+
+    <div>
+        <label for="latitude">Latitude:</label>
+        <input type="number" id="latitude" placeholder="Enter latitude" value="37.566" required>
+    </div>
+    <div>
+        <label for="longitude">Longitude:</label>
+        <input type="number" id="longitude" placeholder="Enter longitude" value="127.000" required>
+    </div>
+    <div>
+        <button id="fetch-btn">Get Weather Forecast</button>
+    </div>
+
+    <div id="loading" class="loading" style="display: none;">Loading...</div>
+
+    <div id="forecast-container" class="forecast-container">
+        <!-- Weather forecast will be displayed here -->
+    </div>
+
+    <script>
+        document.getElementById('fetch-btn').addEventListener('click', function() {
+            const latitude = document.getElementById('latitude').value;
+            const longitude = document.getElementById('longitude').value;
+
+            if (isNaN(latitude) || isNaN(longitude)) {
+                alert('Please enter valid coordinates.');
+                return;
+            }
+
+            // Show loading text
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('forecast-container').innerHTML = '';
+
+            // 7Timer! API URL with query parameters for latitude and longitude
+            const url = `https://www.7timer.info/bin/api.pl?lon=${longitude}&lat=${latitude}&product=civil&output=json`;
+
+            // Fetch weather data from the API
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Hide loading text
+                    document.getElementById('loading').style.display = 'none';
+
+                    if (data && data.dataseries) {
+                        let htmlContent = '<h3>7-Day Weather Forecast:</h3>';
+
+                        data.dataseries.forEach(day => {
+                            htmlContent += `
+                                <p><strong>Date:</strong> ${new Date(day.timepoint * 1000).toLocaleDateString()}<br>
+                                <strong>Temperature:</strong> ${day.temp2m}°C<br>
+                                <strong>Weather:</strong> ${day.weather}<br>
+                                <strong>Wind Speed:</strong> ${day.wind10m_max} km/h</p>
+                            `;
+                        });
+
+                        document.getElementById('forecast-container').innerHTML = htmlContent;
+                    } else {
+                        document.getElementById('forecast-container').innerHTML = '<p>No data available for the given coordinates.</p>';
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('forecast-container').innerHTML = `<p>Error fetching data: ${error.message}</p>`;
+                });
+        });
+    </script>
+
+</body>
+</html>

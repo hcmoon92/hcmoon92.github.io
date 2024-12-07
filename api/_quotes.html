@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인용문 검색</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .result {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .result h3 {
+            margin: 0;
+        }
+        .result p {
+            margin: 5px 0;
+        }
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>인용문을 검색하세요</h1>
+    <input type="text" id="searchQuery" placeholder="주제 또는 작가 이름을 입력하세요">
+    <button class="button" id="searchButton">검색</button>
+
+    <div id="searchResults" class="results">
+        <!-- 검색 결과가 여기에 표시됩니다 -->
+    </div>
+
+    <script>
+        document.getElementById('searchButton').addEventListener('click', function() {
+            const query = document.getElementById('searchQuery').value;
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = ''; // 이전 결과를 지웁니다
+
+            if (!query) {
+                searchResults.innerHTML = '<p>주제를 입력해주세요.</p>';
+                return;
+            }
+
+            const apiUrl = `https://prathameshmore.online/QuoteGarden/api/v1/quotes/search/?query=${encodeURIComponent(query)}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.count === 0) {
+                        searchResults.innerHTML = '<p>결과를 찾을 수 없습니다.</p>';
+                        return;
+                    }
+
+                    data.quotes.forEach(quote => {
+                        const quoteDiv = document.createElement('div');
+                        quoteDiv.classList.add('result');
+
+                        const quoteText = document.createElement('h3');
+                        quoteText.textContent = `"${quote.quote}"`;
+                        quoteDiv.appendChild(quoteText);
+
+                        const quoteAuthor = document.createElement('p');
+                        quoteAuthor.textContent = `- ${quote.author}`;
+                        quoteDiv.appendChild(quoteAuthor);
+
+                        searchResults.appendChild(quoteDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error('인용문을 가져오는 중 오류가 발생했습니다:', error);
+                    searchResults.innerHTML = '<p>인용문을 가져오는 중 오류가 발생했습니다. 다시 시도해주세요.</p>';
+                });
+        });
+    </script>
+
+</body>
+</html>

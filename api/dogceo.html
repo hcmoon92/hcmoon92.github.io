@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Dog Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Dog Images</h1>
+    <img id="dog-image" src="https://via.placeholder.com/400x300?text=Click+Button+to+See+a+Dog!" alt="Random Dog">
+    <br>
+    <button id="fetch-dog">Get Random Dog</button>
+
+    <script>
+        const dogImage = document.getElementById('dog-image');
+        const fetchDogButton = document.getElementById('fetch-dog');
+
+        // Function to fetch a random dog image
+        function fetchRandomDog() {
+            fetch('https://dog.ceo/api/breeds/image/random')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    dogImage.src = data.message; // Update the image source with the fetched URL
+                    dogImage.alt = "A random dog";
+                })
+                .catch(error => {
+                    console.error('Error fetching dog image:', error);
+                    dogImage.src = 'https://via.placeholder.com/400x300?text=Failed+to+Load';
+                    dogImage.alt = "Error loading dog image";
+                });
+        }
+
+        // Event listener for the button click
+        fetchDogButton.addEventListener('click', fetchRandomDog);
+    </script>
+</body>
+</html>

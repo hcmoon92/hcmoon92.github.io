@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ReqRes API Example</title>
+</head>
+<body>
+    <h1>ReqRes API Example</h1>
+    <div id="users">
+        <h2>Users</h2>
+        <ul id="user-list"></ul>
+    </div>
+
+    <script>
+        // URL of the ReqRes API to fetch users
+        const apiUrl = 'https://reqres.in/api/users';
+
+        // Fetch users from the ReqRes API
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json(); // Parse JSON response
+            })
+            .then(data => {
+                const users = data.data; // Extract 'data' array from response
+                const userList = document.getElementById('user-list');
+
+                // Display each user in a list item
+                users.forEach(user => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<strong>${user.first_name} ${user.last_name}</strong> - <a href="mailto:${user.email}">${user.email}</a>`;
+                    userList.appendChild(listItem);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    </script>
+</body>
+</html>

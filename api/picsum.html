@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem Picsum Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lorem Picsum - Random Image</h1>
+    <button class="button" id="loadImage">Load Random Image</button>
+    <div id="imageContainer">
+        <!-- Random image will appear here -->
+    </div>
+
+    <script>
+        document.getElementById('loadImage').addEventListener('click', function() {
+            const imageContainer = document.getElementById('imageContainer');
+            imageContainer.innerHTML = ''; // Clear any previous images
+
+            //const imageUrl = 'https://picsum.photos/800/600'; // 800x600 random image
+            // Add a unique query parameter (timestamp) to ensure fresh image
+            const imageUrl = `https://picsum.photos/800/600?random=${new Date().getTime()}`;
+
+
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.alt = 'Random Image';
+            imageContainer.appendChild(img);
+        });
+    </script>
+
+</body>
+</html>

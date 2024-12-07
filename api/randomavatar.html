@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiceBear Avatar 예제</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #avatar {
+            margin-top: 20px;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DiceBear Avatars API 예제</h1>
+    <p>랜덤 아바타를 생성하고 화면에 표시합니다.</p>
+
+    <button class="button" id="generateButton">아바타 생성</button>
+
+    <div>
+        <img id="avatar" src="" alt="Generated Avatar">
+    </div>
+
+    <script>
+        document.getElementById('generateButton').addEventListener('click', function() {
+            const avatarUrl = 'https://api.dicebear.com/6.x/avataaars/svg?seed=' + Math.random().toString(36).substring(7);
+            const avatarImage = document.getElementById('avatar');
+            avatarImage.src = avatarUrl;
+        });
+    </script>
+
+</body>
+</html>

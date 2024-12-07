@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>openFDA API Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>openFDA Drug Data Example</h1>
+
+    <div>
+        <h3>Drug Label Information</h3>
+        <table id="drug-table">
+            <thead>
+                <tr>
+                    <th>Brand Name</th>
+                    <th>Generic Name</th>
+                    <th>Manufacturer</th>
+                    <th>Drug Class</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+    <button id="load-data">Load Drug Data</button>
+
+    <script>
+        const tableBody = document.getElementById('drug-table').getElementsByTagName('tbody')[0];
+        const loadDataButton = document.getElementById('load-data');
+
+        // Function to fetch drug data from openFDA API
+        function fetchDrugData() {
+            // openFDA API URL for drug label data
+            const apiUrl = 'https://api.fda.gov/drug/label.json?limit=5';
+
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Clear existing rows
+                    tableBody.innerHTML = '';
+
+                    // Insert rows with the fetched drug data
+                    data.results.forEach(drug => {
+                        const row = tableBody.insertRow();
+                        const brandName = drug.openfda.brand_name ? drug.openfda.brand_name[0] : 'N/A';
+                        const genericName = drug.openfda.generic_name ? drug.openfda.generic_name[0] : 'N/A';
+                        const manufacturer = drug.openfda.manufacturer_name ? drug.openfda.manufacturer_name[0] : 'N/A';
+                        const drugClass = drug.openfda.substance_name ? drug.openfda.substance_name[0] : 'N/A';
+
+                        row.innerHTML = `
+                            <td>${brandName}</td>
+                            <td>${genericName}</td>
+                            <td>${manufacturer}</td>
+                            <td>${drugClass}</td>
+                        `;
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching drug data:', error);
+                    tableBody.innerHTML = '<tr><td colspan="4">Failed to load drug data. Please try again later.</td></tr>';
+                });
+        }
+
+        // Load drug data when the page is loaded
+        window.onload = fetchDrugData;
+
+        // Load drug data on button click
+        loadDataButton.addEventListener('click', fetchDrugData);
+    </script>
+</body>
+</html>

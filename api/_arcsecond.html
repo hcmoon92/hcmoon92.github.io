@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcsecond.io API Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .result-container {
+            display: inline-block;
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .result-container p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #555;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arcsecond.io API Example</h1>
+
+    <div>
+        <button id="load-planet-position">Load Planet Position</button>
+    </div>
+
+    <div id="result-container" class="result-container">
+        <!-- Planet position data will be displayed here -->
+    </div>
+
+    <script>
+        const loadPositionButton = document.getElementById('load-planet-position');
+        const resultContainer = document.getElementById('result-container');
+
+        // Function to fetch current position of a planet (e.g., Mars)
+        function fetchPlanetPosition() {
+            // API URL for fetching current position of Mars
+            const apiUrl = 'https://api.arcsecond.io/positions/mars/';
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Extract position data from response
+                    const position = data.results[0];
+
+                    // Display planet's position data
+                    resultContainer.innerHTML = `
+                        <h2>Current Position of Mars</h2>
+                        <p>Right Ascension (RA): ${position.ra}</p>
+                        <p>Declination (Dec): ${position.dec}</p>
+                        <p>Distance from Earth: ${position.distance} AU</p>
+                        <p>Magnitude: ${position.magnitude}</p>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error fetching planet position data:', error);
+                    resultContainer.innerHTML = '<p>Failed to load planet position. Please try again later.</p>';
+                });
+        }
+
+        // Load planet position when the button is clicked
+        loadPositionButton.addEventListener('click', fetchPlanetPosition);
+    </script>
+</body>
+</html>

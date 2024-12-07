@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Puppy API Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .result {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .result h3 {
+            margin: 0;
+        }
+        .result p {
+            margin: 5px 0;
+        }
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Search for Recipes using Recipe Puppy API</h1>
+    <input type="text" id="ingredients" placeholder="Enter ingredients (comma separated)">
+    <button class="button" id="searchButton">Search Recipes</button>
+
+    <div id="searchResults" class="results">
+        <!-- Search results will appear here -->
+    </div>
+
+    <script>
+        document.getElementById('searchButton').addEventListener('click', function() {
+            const ingredients = document.getElementById('ingredients').value;
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = ''; // Clear previous results
+
+            if (!ingredients) {
+                searchResults.innerHTML = '<p>Please enter some ingredients.</p>';
+                return;
+            }
+
+            const apiUrl = `https://recipepuppy.com/api/?i=${encodeURIComponent(ingredients)}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.results.length === 0) {
+                        searchResults.innerHTML = '<p>No recipes found.</p>';
+                        return;
+                    }
+
+                    data.results.forEach(recipe => {
+                        const recipeDiv = document.createElement('div');
+                        recipeDiv.classList.add('result');
+
+                        const recipeName = document.createElement('h3');
+                        recipeName.textContent = recipe.title;
+                        recipeDiv.appendChild(recipeName);
+
+                        const recipeIngredients = document.createElement('p');
+                        recipeIngredients.textContent = `Ingredients: ${recipe.ingredients}`;
+                        recipeDiv.appendChild(recipeIngredients);
+
+                        const recipeLink = document.createElement('a');
+                        recipeLink.href = recipe.href;
+                        recipeLink.target = '_blank';
+                        recipeLink.textContent = 'View Recipe';
+                        recipeDiv.appendChild(recipeLink);
+
+                        searchResults.appendChild(recipeDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching recipe data:', error);
+                    searchResults.innerHTML = '<p>Error fetching recipe data. Please try again later.</p>';
+                });
+        });
+    </script>
+
+</body>
+</html>

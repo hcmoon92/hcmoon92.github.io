@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Library API Example</title>
+</head>
+<body>
+    <h1>Open Library Book Search</h1>
+    <form id="search-form">
+        <input type="text" id="search-input" placeholder="Enter book title or author" required>
+        <button type="submit">Search</button>
+    </form>
+    <div id="results">
+        <h2>Results</h2>
+        <ul id="books-list"></ul>
+    </div>
+
+    <script>
+        const form = document.getElementById('search-form');
+        const input = document.getElementById('search-input');
+        const resultsDiv = document.getElementById('results');
+        const booksList = document.getElementById('books-list');
+
+        // Event listener for the form submit
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+            const query = input.value.trim();
+
+            if (query) {
+                searchBooks(query);
+            } else {
+                alert("Please enter a search term.");
+            }
+        });
+
+        // Function to fetch books from Open Library API
+        function searchBooks(query) {
+            const apiUrl = `https://openlibrary.org/search.json?q=${encodeURIComponent(query)}`;
+
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    displayResults(data.docs);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    booksList.innerHTML = '<li>Error fetching data. Please try again later.</li>';
+                });
+        }
+
+        // Function to display book search results
+        function displayResults(books) {
+            booksList.innerHTML = ''; // Clear previous results
+
+            if (books.length === 0) {
+                booksList.innerHTML = '<li>No results found.</li>';
+                return;
+            }
+
+            books.forEach(book => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <strong>${book.title}</strong>
+                    ${book.author_name ? `by ${book.author_name.join(', ')}` : ''}
+                    ${book.first_publish_year ? ` (First published: ${book.first_publish_year})` : ''}
+                `;
+                booksList.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+</html>

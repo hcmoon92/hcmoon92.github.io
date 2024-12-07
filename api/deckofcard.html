@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deck of Cards API Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .card {
+            width: 100px;
+            height: 150px;
+            margin: 10px;
+            display: inline-block;
+        }
+        .card img {
+            width: 100%;
+            height: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Deck of Cards API Example</h1>
+
+    <div>
+        <button id="shuffle-deck">Shuffle Deck</button>
+        <button id="draw-cards">Draw Cards</button>
+    </div>
+
+    <div id="cards-container">
+        <!-- Cards will be displayed here -->
+    </div>
+
+    <script>
+        const shuffleDeckButton = document.getElementById('shuffle-deck');
+        const drawCardsButton = document.getElementById('draw-cards');
+        const cardsContainer = document.getElementById('cards-container');
+
+        let deckId = null;
+
+        // Function to create a new deck and shuffle it
+        function createDeck() {
+            fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
+                .then(response => response.json())
+                .then(data => {
+                    deckId = data.deck_id; // Store deck ID for future actions
+                    alert('Deck shuffled successfully!');
+                })
+                .catch(error => console.error('Error creating/shuffling deck:', error));
+        }
+
+        // Function to draw 5 cards from the shuffled deck
+        function drawCards() {
+            if (deckId === null) {
+                alert('Please shuffle the deck first.');
+                return;
+            }
+
+            fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=5`)
+                .then(response => response.json())
+                .then(data => {
+                    const cards = data.cards;
+                    cardsContainer.innerHTML = ''; // Clear previous cards
+                    cards.forEach(card => {
+                        const cardElement = document.createElement('div');
+                        cardElement.classList.add('card');
+                        cardElement.innerHTML = `<img src="${card.image}" alt="${card.value} of ${card.suit}">`;
+                        cardsContainer.appendChild(cardElement);
+                    });
+                })
+                .catch(error => console.error('Error drawing cards:', error));
+        }
+
+        // Set up event listeners for buttons
+        shuffleDeckButton.addEventListener('click', createDeck);
+        drawCardsButton.addEventListener('click', drawCards);
+    </script>
+</body>
+</html>

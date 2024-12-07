@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Match Highlights</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .match {
+            margin-top: 20px;
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Football Match Highlights</h1>
+    <button class="button" id="loadMatches">Load Latest Matches</button>
+
+    <div id="matchesContainer">
+        <!-- Match videos will appear here -->
+    </div>
+
+    <script>
+        document.getElementById('loadMatches').addEventListener('click', function() {
+            const matchesContainer = document.getElementById('matchesContainer');
+            matchesContainer.innerHTML = ''; // Clear any previous content
+
+            // Scorebat API URL to fetch the latest match highlights
+            const apiUrl = 'https://api.scorebat.com/';
+            
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    data.matches.forEach(match => {
+                        const matchDiv = document.createElement('div');
+                        matchDiv.classList.add('match');
+
+                        // Create match title
+                        const matchTitle = document.createElement('h3');
+                        matchTitle.textContent = match.competition + ' - ' + match.homeTeam + ' vs ' + match.awayTeam;
+                        matchDiv.appendChild(matchTitle);
+
+                        // Create video player for the highlight
+                        const video = document.createElement('video');
+                        video.controls = true;
+                        const videoSource = document.createElement('source');
+                        videoSource.src = match.video_url;  // URL of the video highlight
+                        videoSource.type = 'video/mp4';
+                        video.appendChild(videoSource);
+                        matchDiv.appendChild(video);
+
+                        // Add the match details to the container
+                        matchesContainer.appendChild(matchDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching match data:', error);
+                    matchesContainer.innerHTML = '<p>Error fetching match data. Please try again later.</p>';
+                });
+        });
+    </script>
+
+</body>
+</html>

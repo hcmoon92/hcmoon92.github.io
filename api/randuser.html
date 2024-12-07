@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random User Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .user-card {
+            display: inline-block;
+            width: 250px;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .user-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        .user-card h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .user-card p {
+            font-size: 1em;
+            color: #555;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random User Generator</h1>
+    <div id="user-card" class="user-card">
+        <img src="https://via.placeholder.com/100" alt="User Photo">
+        <h3>Click below to generate a random user</h3>
+        <p>Email: Not Available</p>
+    </div>
+    <br>
+    <button id="generate-user">Generate Random User</button>
+
+    <script>
+        const userCard = document.getElementById('user-card');
+        const generateUserButton = document.getElementById('generate-user');
+
+        // Function to fetch a random user from the Random User Generator API
+        function fetchRandomUser() {
+            fetch('https://randomuser.me/api/')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const user = data.results[0];
+                    // Update user information in the card
+                    userCard.innerHTML = `
+                        <img src="${user.picture.large}" alt="User Photo">
+                        <h3>${user.name.first} ${user.name.last}</h3>
+                        <p>Email: ${user.email}</p>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error fetching user:', error);
+                    userCard.innerHTML = '<p>Failed to load user data. Please try again later.</p>';
+                });
+        }
+
+        // Event listener for the button click
+        generateUserButton.addEventListener('click', fetchRandomUser);
+    </script>
+</body>
+</html>

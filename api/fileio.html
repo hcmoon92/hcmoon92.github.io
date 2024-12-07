@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload with File.io API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input[type="file"] {
+            margin: 20px 0;
+        }
+        .result {
+            margin-top: 20px;
+            display: none;
+        }
+        .progress-container {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .progress-bar {
+            height: 20px;
+            width: 0%;
+            background-color: #4caf50;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Upload File to File.io</h1>
+        <input type="file" id="fileInput" />
+        <button id="uploadBtn">Upload File</button>
+
+        <!-- Progress Bar -->
+        <div class="progress-container" id="progressContainer" style="display:none;">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="result" id="result">
+            <h3>File Uploaded Successfully!</h3>
+            <p>Download Link: <a id="downloadLink" href="#" target="_blank">Click Here</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('uploadBtn').addEventListener('click', function() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert('Please select a file to upload.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            // Show the progress bar
+            document.getElementById('progressContainer').style.display = 'block';
+
+            // Create a new XMLHttpRequest
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('POST', 'https://file.io', true);
+
+            // Track the progress of the upload
+            xhr.upload.addEventListener('progress', function(e) {
+                if (e.lengthComputable) {
+                    const percent = (e.loaded / e.total) * 100;
+                    document.getElementById('progressBar').style.width = percent + '%';
+                }
+            });
+
+            // When upload is complete
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    const data = JSON.parse(xhr.responseText);
+                    if (data.success) {
+                        const downloadLink = data.link;
+                        document.getElementById('downloadLink').href = downloadLink;
+                        document.getElementById('result').style.display = 'block';
+                    } else {
+                        alert('File upload failed. Please try again.');
+                    }
+                } else {
+                    alert('Error uploading file. Please try again.');
+                }
+                document.getElementById('progressContainer').style.display = 'none'; // Hide progress bar after upload
+            };
+
+            // Handle any errors during upload
+            xhr.onerror = function() {
+                alert('Error uploading file. Please try again.');
+                document.getElementById('progressContainer').style.display = 'none'; // Hide progress bar after error
+            };
+
+            // Send the request
+            xhr.send(formData);
+        });
+    </script>
+
+</body>
+</html>

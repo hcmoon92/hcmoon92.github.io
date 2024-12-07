@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .flight-info {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .flight-info h3 {
+            margin-top: 0;
+        }
+        .loading {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Flight Information</h1>
+    <p>Click below to fetch real-time flight data:</p>
+
+    <button id="fetch-btn">Fetch Flight Data</button>
+
+    <div id="loading" class="loading" style="display: none;">Loading...</div>
+
+    <div id="flights-container" class="flight-info">
+        <!-- Flight information will be displayed here -->
+    </div>
+
+    <script>
+        document.getElementById('fetch-btn').addEventListener('click', function() {
+            // Show loading text
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('flights-container').innerHTML = '';
+
+            // OpenSky API URL for recent flights
+            const url = 'https://opensky-network.org/api/states/all';
+
+            // Fetch data from the API
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Hide loading text
+                    document.getElementById('loading').style.display = 'none';
+
+                    // Check if data is available
+                    if (data && data.states && data.states.length > 0) {
+                        const flights = data.states.slice(0, 5); // Get top 5 flights for brevity
+                        let htmlContent = '<h3>Current Flights:</h3>';
+
+                        flights.forEach(flight => {
+                            htmlContent += `
+                                <p><strong>Flight:</strong> ${flight[1]}<br>
+                                <strong>Altitude:</strong> ${flight[13]} ft<br>
+                                <strong>Speed:</strong> ${flight[9]} km/h<br>
+                                <strong>Location:</strong> ${flight[6]}, ${flight[5]}</p>
+                            `;
+                        });
+
+                        document.getElementById('flights-container').innerHTML = htmlContent;
+                    } else {
+                        document.getElementById('flights-container').innerHTML = '<p>No flight data available.</p>';
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('flights-container').innerHTML = `<p>Error fetching data: ${error.message}</p>`;
+                });
+        });
+    </script>
+
+</body>
+</html>

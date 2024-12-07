@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bored API Random Activity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #activity {
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            background-color: #ff6347;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #e55347;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bored? Here's an Activity for You!</h1>
+    <div id="activity">Click the button to get a random activity idea!</div>
+    <button id="fetch-activity">Get Activity</button>
+
+    <script>
+        const activityDiv = document.getElementById('activity');
+        const fetchActivityButton = document.getElementById('fetch-activity');
+
+        // Function to fetch a random activity from the Bored API
+        function fetchRandomActivity() {
+            fetch('https://www.boredapi.com/api/activity/')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    activityDiv.textContent = data.activity; // Display the activity
+                })
+                .catch(error => {
+                    console.error('Error fetching activity:', error);
+                    activityDiv.textContent = 'Failed to fetch an activity. Please try again!';
+                });
+        }
+
+        // Event listener for the button click
+        fetchActivityButton.addEventListener('click', fetchRandomActivity);
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Brewery DB Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .result {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .result h3 {
+            margin: 0;
+        }
+        .result p {
+            margin: 5px 0;
+        }
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Search for Breweries</h1>
+    <input type="text" id="searchQuery" placeholder="Enter city or name">
+    <button class="button" id="searchButton">Search</button>
+
+    <div id="searchResults" class="results">
+        <!-- Search results will appear here -->
+    </div>
+
+    <script>
+        document.getElementById('searchButton').addEventListener('click', function() {
+            const query = document.getElementById('searchQuery').value;
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = ''; // Clear previous results
+
+            if (!query) {
+                searchResults.innerHTML = '<p>Please enter a search term.</p>';
+                return;
+            }
+
+            const apiUrl = `https://api.openbrewerydb.org/breweries/search?query=${encodeURIComponent(query)}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length === 0) {
+                        searchResults.innerHTML = '<p>No breweries found.</p>';
+                        return;
+                    }
+
+                    data.forEach(brewery => {
+                        const breweryDiv = document.createElement('div');
+                        breweryDiv.classList.add('result');
+
+                        const breweryName = document.createElement('h3');
+                        breweryName.textContent = brewery.name;
+                        breweryDiv.appendChild(breweryName);
+
+                        const breweryType = document.createElement('p');
+                        breweryType.textContent = `Type: ${brewery.brewery_type}`;
+                        breweryDiv.appendChild(breweryType);
+
+                        const breweryAddress = document.createElement('p');
+                        breweryAddress.textContent = `Address: ${brewery.city}, ${brewery.state}`;
+                        breweryDiv.appendChild(breweryAddress);
+
+                        const breweryLink = document.createElement('a');
+                        breweryLink.href = brewery.website_url || '#';
+                        breweryLink.textContent = 'Visit Website';
+                        breweryDiv.appendChild(breweryLink);
+
+                        searchResults.appendChild(breweryDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching brewery data:', error);
+                    searchResults.innerHTML = '<p>Error fetching brewery data. Please try again later.</p>';
+                });
+        });
+    </script>
+
+</body>
+</html>

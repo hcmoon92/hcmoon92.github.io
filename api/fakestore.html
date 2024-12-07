@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Store Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        .product {
+            display: inline-block;
+            width: 200px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-align: left;
+        }
+        .product img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+        }
+        .product h3 {
+            font-size: 1em;
+            margin: 10px;
+        }
+        .product p {
+            font-size: 0.9em;
+            margin: 10px;
+        }
+        .product .price {
+            font-weight: bold;
+            color: #4CAF50;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fake Store Products</h1>
+    <div id="products"></div>
+
+    <script>
+        const productsDiv = document.getElementById('products');
+
+        // Function to fetch products from Fake Store API
+        function fetchProducts() {
+            fetch('https://fakestoreapi.com/products')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(products => {
+                    displayProducts(products);
+                })
+                .catch(error => {
+                    console.error('Error fetching products:', error);
+                    productsDiv.innerHTML = '<p>Error loading products. Please try again later.</p>';
+                });
+        }
+
+        // Function to display products
+        function displayProducts(products) {
+            productsDiv.innerHTML = ''; // Clear any previous content
+            products.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product';
+                productDiv.innerHTML = `
+                    <img src="${product.image}" alt="${product.title}">
+                    <h3>${product.title}</h3>
+                    <p>${product.description.slice(0, 60)}...</p>
+                    <div class="price">$${product.price.toFixed(2)}</div>
+                `;
+                productsDiv.appendChild(productDiv);
+            });
+        }
+
+        // Fetch products on page load
+        fetchProducts();
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediaWiki Search Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .result {
+            margin-bottom: 10px;
+        }
+        .result a {
+            font-weight: bold;
+            color: #0077cc;
+            text-decoration: none;
+        }
+        .result a:hover {
+            text-decoration: underline;
+        }
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Search Wikipedia via MediaWiki API</h1>
+    <input type="text" id="searchQuery" placeholder="Search for a topic">
+    <button class="button" id="searchButton">Search</button>
+
+    <div id="searchResults" class="results">
+        <!-- Search results will appear here -->
+    </div>
+
+    <script>
+        document.getElementById('searchButton').addEventListener('click', function() {
+            const query = document.getElementById('searchQuery').value;
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = ''; // Clear previous results
+
+            if (!query) {
+                searchResults.innerHTML = '<p>Please enter a search term.</p>';
+                return;
+            }
+
+            const apiUrl = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const searchData = data.query.search;
+                    if (searchData.length === 0) {
+                        searchResults.innerHTML = '<p>No results found.</p>';
+                        return;
+                    }
+
+                    searchData.forEach(result => {
+                        const resultDiv = document.createElement('div');
+                        resultDiv.classList.add('result');
+
+                        const resultLink = document.createElement('a');
+                        resultLink.href = `https://en.wikipedia.org/?curid=${result.pageid}`;
+                        resultLink.target = '_blank';
+                        resultLink.textContent = result.title;
+
+                        const resultSnippet = document.createElement('p');
+                        resultSnippet.textContent = result.snippet + '...';
+
+                        resultDiv.appendChild(resultLink);
+                        resultDiv.appendChild(resultSnippet);
+                        searchResults.appendChild(resultDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
+                    searchResults.innerHTML = '<p>Error fetching search results. Please try again later.</p>';
+                });
+        });
+    </script>
+
+</body>
+</html>

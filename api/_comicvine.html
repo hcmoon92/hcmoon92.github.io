@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comics Vine API Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Comics Vine API Example: Comic Book Issues</h1>
+
+    <div>
+        <h3>Comic Book Issues:</h3>
+        <table id="comics-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Issue Number</th>
+                    <th>Cover Date</th>
+                    <th>Publisher</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+    <button id="load-comics">Load Comics Data</button>
+
+    <script>
+        const tableBody = document.getElementById('comics-table').getElementsByTagName('tbody')[0];
+        const loadComicsButton = document.getElementById('load-comics');
+
+        // Comics Vine API Key (Replace with your API Key)
+        const apiKey = 'YOUR_API_KEY_HERE';
+
+        // Function to fetch comic book data from Comics Vine API
+        function fetchComicsData() {
+            // API URL for fetching comic book issues
+            const apiUrl = `https://comicvine.gamespot.com/api/issues/?api_key=${apiKey}&format=json&limit=5`;
+
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Clear existing rows
+                    tableBody.innerHTML = '';
+
+                    // Insert rows with fetched comic data
+                    data.results.forEach(comic => {
+                        const row = tableBody.insertRow();
+                        const title = comic.name || 'N/A';
+                        const issueNumber = comic.issue_number || 'N/A';
+                        const coverDate = comic.cover_date || 'N/A';
+                        const publisher = comic.publisher ? comic.publisher.name : 'N/A';
+
+                        row.innerHTML = `
+                            <td>${title}</td>
+                            <td>${issueNumber}</td>
+                            <td>${coverDate}</td>
+                            <td>${publisher}</td>
+                        `;
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching comic data:', error);
+                    tableBody.innerHTML = '<tr><td colspan="4">Failed to load comic data. Please try again later.</td></tr>';
+                });
+        }
+
+        // Load comic data when the page is loaded
+        window.onload = fetchComicsData;
+
+        // Load comic data on button click
+        loadComicsButton.addEventListener('click', fetchComicsData);
+    </script>
+</body>
+</html>

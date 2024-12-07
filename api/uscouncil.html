@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronicling America Inline Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .search-container {
+            margin-bottom: 20px;
+        }
+        .search-results {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+        .result-item {
+            margin-bottom: 15px;
+        }
+        .result-item h3 {
+            font-size: 1.2em;
+            margin: 0;
+        }
+        .result-item p {
+            font-size: 1em;
+            margin: 5px 0;
+        }
+        .result-item a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .result-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Search Chronicling America Newspaper Archives</h1>
+
+    <div class="search-container">
+        <label for="search-term">Enter search term:</label>
+        <input type="text" id="search-term" placeholder="Search for articles...">
+        <button id="search-btn">Search</button>
+    </div>
+
+    <div id="loading" style="display: none;">Loading...</div>
+
+    <div id="search-results" class="search-results">
+        <!-- Search results will be displayed here -->
+    </div>
+
+    <script>
+        document.getElementById('search-btn').addEventListener('click', function() {
+            const searchTerm = document.getElementById('search-term').value.trim();
+
+            if (!searchTerm) {
+                alert('Please enter a search term.');
+                return;
+            }
+
+            // Show loading message
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('search-results').innerHTML = '';
+
+            const url = `https://chroniclingamerica.loc.gov/search/pages/results/?format=json&q=${encodeURIComponent(searchTerm)}&rows=5`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Hide loading message
+                    document.getElementById('loading').style.display = 'none';
+
+                    if (data && data.items && data.items.length > 0) {
+                        let htmlContent = '';
+
+                        data.items.forEach(item => {
+                            htmlContent += `
+                                <div class="result-item">
+                                    <h3><a href="https://chroniclingamerica.loc.gov/lccn/${item.lccn}/">${item.title}</a></h3>
+                                    <p><strong>Date:</strong> ${item.date}<br>
+                                    <strong>Location:</strong> ${item.place}<br>
+                                    <strong>Snippet:</strong> ${item.snippet}</p>
+                                </div>
+                            `;
+                        });
+
+                        document.getElementById('search-results').innerHTML = htmlContent;
+                    } else {
+                        document.getElementById('search-results').innerHTML = '<p>No results found.</p>';
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('search-results').innerHTML = `<p>Error fetching data: ${error.message}</p>`;
+                });
+        });
+    </script>
+
+</body>
+</html>
