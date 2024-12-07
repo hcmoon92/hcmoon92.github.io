@@ -8,6 +8,26 @@
 <body>
   <h1>Get Artwork</h1>
 
+  <!-- Table to Display Artwork Data -->
+  <table border="1" id="artwork-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Score</th>
+        <th>Thumbnail</th>
+        <th>API Model</th>
+        <th>Boosted</th>
+        <th>API Link</th>
+        <th>View Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Data rows will be inserted here -->
+    </tbody>
+  </table>
+
+
    <script>
     // Function to get the 'artwork_id' from the URL query parameter
     function getArtworkIdFromURL() {
@@ -32,6 +52,9 @@
       fetch(url)
         .then(response => response.json())
         .then(data => {
+
+            console.log(data);
+            
           // Check if the data exists
           if (data.data) {
             const artwork = data.data; // Single artwork from the response
