@@ -14,7 +14,6 @@
       <tr>
         <th>ID</th>
         <th>Title</th>
-        <th>Score</th>
         <th>Thumbnail</th>
         <th>API Model</th>
         <th>Boosted</th>
@@ -27,6 +26,7 @@
     </tbody>
   </table>
 
+  <div id='artwork-detail'></div>
 
    <script>
     // Function to get the 'artwork_id' from the URL query parameter
@@ -54,7 +54,7 @@
         .then(data => {
 
             console.log(data);
-            
+
           // Check if the data exists
           if (data.data) {
             const artwork = data.data; // Single artwork from the response
@@ -72,7 +72,6 @@
             row.innerHTML = `
               <td>${artwork.id}</td>
               <td>${artwork.title}</td>
-              <td>${artwork._score}</td>
               <td><img src="${artwork.thumbnail.lqip}" alt="${artwork.title} Thumbnail" width="100"></td>
               <td>${artwork.api_model}</td>
               <td>${artwork.is_boosted ? 'Yes' : 'No'}</td>
@@ -82,6 +81,12 @@
 
             // Append the new row to the table body
             tableBody.appendChild(row);
+
+            const artworkDetail = document.querySelector('#artwork-detail');
+
+            artworkDetail.appendChild(`${artwork.thumbnail.alt_text}`);
+
+
           } else {
             alert('No artwork found with this ID.');
           }
