@@ -87,7 +87,13 @@
             // Display additional details
             const artworkDetail = document.querySelector('#artwork-detail');
             artworkDetail.innerHTML = `
-              <p><strong>On Loan Display:</strong> ${artwork.on_loan_display || 'N/A'}</p>
+              <p><strong>Artist (Display):</strong> ${artwork.artist_display || 'N/A'}</p>
+              <p><strong>Artist:</strong> ${artwork.artist_title || 'N/A'}</p>
+              <p><strong>Short Description:</strong> ${artwork.short_description || 'N/A'}</p>
+              <p><strong>Description:</strong> ${artwork.description || 'N/A'}</p>
+              <p><strong>Summary:</strong> ${artwork.alt_text || 'N/A'}</p>
+              <p><strong>Classification:</strong> ${artwork.classification_title || 'N/A'}</p>
+              <p><strong>Place of Origin:</strong> ${artwork.place_of_origin || 'N/A'}</p>
               <p><strong>Gallery Title:</strong> ${artwork.gallery_title || 'N/A'}</p>
               <p><strong>Artwork Type:</strong> ${artwork.artwork_type_title || 'N/A'}</p>
               <p><strong>Department:</strong> ${artwork.department_title || 'N/A'}</p>
