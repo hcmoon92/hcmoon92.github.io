@@ -25,8 +25,7 @@
         <th>Thumbnail</th>
         <th>API Model</th>
         <th>Boosted</th>
-        <th>API Link</th>
-        <th>Timestamp</th>
+        <th>Detail</th>
       </tr>
     </thead>
     <tbody>
@@ -74,8 +73,7 @@
                 <td><img src="${artwork.thumbnail.lqip}" alt="${artwork.title} Thumbnail" width="100"></td>
                 <td>${artwork.api_model}</td>
                 <td>${artwork.is_boosted ? 'Yes' : 'No'}</td>
-                <td><a href="${artwork.api_link}" target="_blank">View API</a></td>
-                <td><a href="https://www.artic.edu/artworks/${artwork.id}" target="_blank">View</a></td>
+                <td><a href="chicago-detail?artwork_id=${artwork.id}" target="_blank">Detail</a></td>
               `;
                 // <td>${artwork.timestamp}</td>
 
