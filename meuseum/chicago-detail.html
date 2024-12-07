@@ -26,7 +26,9 @@
     </tbody>
   </table>
 
-  <div id='artwork-detail'></div>
+  <!-- Div to Display Additional Details -->
+  <h2>Additional Artwork Details</h2>
+  <div id="artwork-detail"></div>
 
    <script>
     // Function to get the 'artwork_id' from the URL query parameter
@@ -82,11 +84,14 @@
             // Append the new row to the table body
             tableBody.appendChild(row);
 
+            // Display additional details
             const artworkDetail = document.querySelector('#artwork-detail');
-
-            artworkDetail.appendChild(`${artwork.thumbnail.alt_text}`);
-
-
+            artworkDetail.innerHTML = `
+              <p><strong>On Loan Display:</strong> ${artwork.on_loan_display || 'N/A'}</p>
+              <p><strong>Gallery Title:</strong> ${artwork.gallery_title || 'N/A'}</p>
+              <p><strong>Artwork Type:</strong> ${artwork.artwork_type_title || 'N/A'}</p>
+              <p><strong>Department:</strong> ${artwork.department_title || 'N/A'}</p>
+            `;
           } else {
             alert('No artwork found with this ID.');
           }
