@@ -80,11 +80,23 @@
 
         // Simulate Click Functionality
         const simulateClickBtn = document.getElementById('simulateClick');
+
+
         simulateClickBtn.addEventListener('click', () => {
             const targetX = 400; // X coordinate relative to iframe content
             const targetY = 450; // Y coordinate relative to iframe content
 
-            const iframeRect = iframe.getBoundingClientRect();
+
+            const element = document.querySelector('#iframe'); // Adjust selector as needed
+            if (element) {
+                const rect = element.getBoundingClientRect();
+                // Use rect
+            } else {
+                console.error('Element not found. Cannot calculate bounding rectangle.');
+            }
+
+            
+            const iframeRect = rect;
             const clickX = iframeRect.left + targetX * scale; // Adjust for scale
             const clickY = iframeRect.top + targetY * scale;
 
