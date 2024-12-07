@@ -23,8 +23,8 @@
             cursor: grab;
         }
         iframe {
-            width: 1200px; /* Adjust to fit iframe content */
-            height: 800px; /* Adjust to fit iframe content */
+            width: 1200px;
+            height: 800px;
             border: none;
         }
     </style>
@@ -34,15 +34,16 @@
 
     <div id="container">
         <div id="iframe-wrapper">
-            <iframe src="https://www.artic.edu/artworks/28560/the-bedroom"></iframe>
+            <iframe id="iframe" src="https://www.artic.edu/artworks/28560/the-bedroom"></iframe>
         </div>
     </div>
     <script>
         const wrapper = document.getElementById('iframe-wrapper');
+        const iframe = document.getElementById('iframe');
         const container = document.getElementById('container');
         let scale = 1, startX, startY, isPanning = false;
 
-        // Mouse down to start panning
+        // Panning functionality
         wrapper.addEventListener('mousedown', (e) => {
             isPanning = true;
             startX = e.clientX - wrapper.offsetLeft;
@@ -50,32 +51,25 @@
             wrapper.style.cursor = 'grabbing';
         });
 
-        // Mouse up to stop panning
         document.addEventListener('mouseup', () => {
             isPanning = false;
             wrapper.style.cursor = 'grab';
         });
 
-        // Mouse move for panning
         document.addEventListener('mousemove', (e) => {
             if (!isPanning) return;
+
             const x = e.clientX - startX;
             const y = e.clientY - startY;
 
-            // Prevent dragging out of bounds
             const containerRect = container.getBoundingClientRect();
             const wrapperRect = wrapper.getBoundingClientRect();
 
-            if (wrapperRect.width > containerRect.width) {
-                wrapper.style.left = `${Math.min(0, Math.max(x, containerRect.width - wrapperRect.width))}px`;
-            }
-
-            if (wrapperRect.height > containerRect.height) {
-                wrapper.style.top = `${Math.min(0, Math.max(y, containerRect.height - wrapperRect.height))}px`;
-            }
+            wrapper.style.left = `${Math.min(0, Math.max(x, containerRect.width - wrapperRect.width))}px`;
+            wrapper.style.top = `${Math.min(0, Math.max(y, containerRect.height - wrapperRect.height))}px`;
         });
 
-        // Mouse wheel for zooming
+        // Zoom functionality
         document.addEventListener('wheel', (e) => {
             e.preventDefault();
             const zoomSpeed = 0.1;
@@ -84,54 +78,26 @@
             wrapper.style.transform = `scale(${scale})`;
         });
 
-        // Add touch support for mobile devices
-        let touchStartX, touchStartY;
-        wrapper.addEventListener('touchstart', (e) => {
-            isPanning = true;
-            touchStartX = e.touches[0].clientX - wrapper.offsetLeft;
-            touchStartY = e.touches[0].clientY - wrapper.offsetTop;
-        });
-
-        wrapper.addEventListener('touchmove', (e) => {
-            if (!isPanning) return;
-            const touchX = e.touches[0].clientX;
-            const touchY = e.touches[0].clientY;
-            const x = touchX - touchStartX;
-            const y = touchY - touchStartY;
-            wrapper.style.left = `${x}px`;
-            wrapper.style.top = `${y}px`;
-        });
-
-        document.addEventListener('touchend', () => {
-            isPanning = false;
-        });
-
-
-        const iframe = document.getElementById('iframe');
+        // Simulate Click Functionality
         const simulateClickBtn = document.getElementById('simulateClick');
-
         simulateClickBtn.addEventListener('click', () => {
-            // Position to click inside the iframe (relative to the iframe's top-left corner)
-            const targetX = 400; // Example X coordinate
-            const targetY = 450; // Example Y coordinate
+            const targetX = 400; // X coordinate relative to iframe content
+            const targetY = 450; // Y coordinate relative to iframe content
 
-            // Calculate the actual coordinates relative to the viewport
-            const rect = iframe.getBoundingClientRect();
-            const clickX = rect.left + targetX;
-            const clickY = rect.top + targetY;
+            const iframeRect = iframe.getBoundingClientRect();
+            const clickX = iframeRect.left + targetX * scale; // Adjust for scale
+            const clickY = iframeRect.top + targetY * scale;
 
-            // Create and dispatch a click event
             const clickEvent = new MouseEvent('click', {
                 bubbles: true,
                 cancelable: true,
-                view: window,
                 clientX: clickX,
                 clientY: clickY,
             });
 
-            document.body.dispatchEvent(clickEvent); // Dispatch on the body
+            // Dispatch click event on the iframe element
+            document.body.dispatchEvent(clickEvent);
         });
-
     </script>
 </body>
 </html>
