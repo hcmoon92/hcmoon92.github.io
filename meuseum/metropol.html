@@ -59,60 +59,92 @@
 
     <script>
         document.getElementById('search-btn').addEventListener('click', function() {
-            const query = document.getElementById('search-query').value;
+        const query = document.getElementById('search-query').value;
 
-            if (!query) {
-                alert('Please enter a search term.');
-                return;
-            }
+        if (!query) {
+            alert('Please enter a search term.');
+            return;
+        }
 
-            // Show loading message
-            document.getElementById('loading').style.display = 'block';
-            document.getElementById('object-results').innerHTML = '';
+        // Show loading message
+        document.getElementById('loading').style.display = 'block';
+        document.getElementById('object-results').innerHTML = '';
 
-            const url = `https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=${query}`;
+        const url = `https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=${query}`;
 
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    // Hide loading message
-                    document.getElementById('loading').style.display = 'none';
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                // Hide loading message
+                document.getElementById('loading').style.display = 'none';
 
-                    if (data && data.objectIDs && data.objectIDs.length > 0) {
-                        let htmlContent = '';
+                if (data && data.objectIDs && data.objectIDs.length > 0) {
+                    let htmlContent = '';
 
-                        // Fetch details for each object
-                        const objectIDs = data.objectIDs.slice(0, 10); // Limit to the first 10 results
-                        objectIDs.forEach(objectID => {
-                            fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`)
-                                .then(res => res.json())
-                                .then(object => {
-                                    htmlContent += `
-                                        <div class="object-item">
-                                            <img src="${object.primaryImageSmall || 'https://via.placeholder.com/200'}" alt="${object.title}">
-                                            <div>
-                                                <h3>${object.title}</h3>
-                                                <p><strong>Artist:</strong> ${object.artistDisplayName || 'Unknown'}</p>
-                                                <p><strong>Object Date:</strong> ${object.objectDate || 'Unknown'}</p>
-                                                <p><strong>Medium:</strong> ${object.medium || 'Not Available'}</p>
-                                                <p><strong>Department:</strong> ${object.department || 'Not Available'}</p>
-                                            </div>
+                    // Fetch details for each object (limit to the first 10)
+                    const objectIDs = data.objectIDs.slice(0, 30);
+
+                    // Create an array of promises for fetching object details
+                    const fetchPromises = objectIDs.map(objectID => {
+                        return fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`)
+                            .then(res => res.json());
+                    });
+
+                    // Wait for all fetch requests to complete
+                    Promise.all(fetchPromises)
+                        .then(objects => {
+                            // Populate htmlContent with object details
+                            objects.forEach(object => {
+
+                                // Check if the object is in the public domain
+                                if (!object.isPublicDomain) {
+                                    return; // Skip this object if not in the public domain
+                                }
+                                if (object.title == null) {
+                                    return; // Skip this object if not in the public domain
+                                }
+                                htmlContent += `
+                                    <div class="object-item">
+                                        <table><tr><td>
+                                        <img src="${object.primaryImageSmall || 'https://via.placeholder.com/200'}" alt="${object.title}">
+                                        </td><td>
+                                        <div>
+                                            <h3>${object.title}</h3>
+                                            <p><strong>Artist:</strong> ${object.artistDisplayName || 'Unknown'}</p>
+                                            <p><strong>Object Date:</strong> ${object.objectDate || 'Unknown'}</p>
+                                            <p><strong>Medium:</strong> ${object.medium || 'Not Available'}</p>
+                                            <p><strong>Department:</strong> ${object.department || 'Not Available'}</p>
+                                            <p><strong>Url:</strong> <a href=${object.objectURL || 'Not Available'} target=_blank> View </a></p>
                                         </div>
-                                    `;
-                                })
-                                .catch(error => console.error('Error fetching object data:', error));
-                        });
+                                        </td>
+                                        </tr>
+                                        </table>
+                                    </div>
+                                `;
+                            });
 
-                        document.getElementById('object-results').innerHTML = htmlContent;
-                    } else {
-                        document.getElementById('object-results').innerHTML = '<p>No objects found for your search term.</p>';
-                    }
-                })
-                .catch(error => {
-                    document.getElementById('loading').style.display = 'none';
-                    document.getElementById('object-results').innerHTML = `<p>Error fetching data: ${error.message}</p>`;
-                });
-        });
+                            // Log the final htmlContent after all fetches
+                            console.log(htmlContent);
+
+                            // Update the HTML after all fetches are complete
+                            document.getElementById('object-results').innerHTML = htmlContent;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching object data:', error);
+                            document.getElementById('object-results').innerHTML = '<p>Error fetching object data.</p>';
+                        });
+                } else {
+                    // Handle case where no objects were found
+                    document.getElementById('object-results').innerHTML = '<p>No objects found for your search term.</p>';
+                }
+            })
+            .catch(error => {
+                // Handle error for the initial search request
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('object-results').innerHTML = `<p>Error fetching data: ${error.message}</p>`;
+            });
+    });
+
     </script>
 
 </body>
