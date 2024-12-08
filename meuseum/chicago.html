@@ -14,7 +14,8 @@
   <button onclick="searchArtwork()">Search</button>
   
   <h2>Search Results</h2>
-  
+  <div id="lists"></div>
+
   <!-- Table to Display Artwork Data -->
   <table border="1" id="artwork-table">
     <thead>
@@ -33,6 +34,7 @@
     </tbody>
   </table>
 
+
   <script>
     // Function to fetch artwork data based on search query
     function searchArtwork() {
@@ -47,6 +49,8 @@
 
       // Build the API URL with the query parameter for searching
       const url = `https://api.artic.edu/api/v1/artworks/search?q=${query}`;
+
+      var list_id = '';
 
       // Fetch data from the API
       fetch(url)
@@ -77,9 +81,17 @@
               `;
                 // <td>${artwork.timestamp}</td>
 
+              list_id += `${artwork.id}_`;
+
               // Append the new row to the table body
               tableBody.appendChild(row);
+              
+              const lists = document.querySelector('#lists');
+              lists.innerHTML = `<a href=chicago-list.html?artwork_lists=${list_id} target=_blank>list</a>`;
+              
             });
+
+
           } else {
             alert('No artworks found for this query.');
           }
