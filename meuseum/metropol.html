@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,32 +10,41 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
+
         .search-container {
             margin-bottom: 20px;
         }
-        .search-container input, .search-container button {
+
+        .search-container input,
+        .search-container button {
             padding: 10px;
             margin: 5px;
             font-size: 16px;
         }
+
         .object-list {
             margin-top: 20px;
         }
+
         .object-item {
             margin-bottom: 20px;
             border-bottom: 1px solid #ddd;
             padding-bottom: 10px;
         }
+
         .object-item img {
             max-width: 200px;
             margin-right: 20px;
         }
+
         .object-item h3 {
             margin: 0;
         }
+
         .object-item p {
             margin: 5px 0;
         }
+
         .loading {
             text-align: center;
             font-size: 20px;
@@ -42,6 +52,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <h1>Search MET Collection</h1>
@@ -51,6 +62,11 @@
         <button id="search-btn">Search</button>
     </div>
 
+    <!-- Progress Bar -->
+    <div id="progress-container" style="display: none;">
+        <progress id="progress-bar" value="0" max="100"></progress>
+    </div>
+
     <div id="loading" class="loading" style="display: none;">Loading...</div>
 
     <div id="object-results" class="object-list">
@@ -58,94 +74,110 @@
     </div>
 
     <script>
-        document.getElementById('search-btn').addEventListener('click', function() {
-        const query = document.getElementById('search-query').value;
+        document.getElementById('search-btn').addEventListener('click', function () {
+            const query = document.getElementById('search-query').value;
 
-        if (!query) {
-            alert('Please enter a search term.');
-            return;
-        }
+            if (!query) {
+                alert('Please enter a search term.');
+                return;
+            }
 
-        // Show loading message
-        document.getElementById('loading').style.display = 'block';
-        document.getElementById('object-results').innerHTML = '';
+            // Show loading message and progress bar
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('progress-container').style.display = 'block';
+            document.getElementById('object-results').innerHTML = '';
 
-        const url = `https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=${query}`;
+            const url = `https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=${query}`;
 
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                // Hide loading message
-                document.getElementById('loading').style.display = 'none';
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Hide loading message
+                    document.getElementById('loading').style.display = 'none';
 
-                if (data && data.objectIDs && data.objectIDs.length > 0) {
-                    let htmlContent = '';
+                    if (data && data.objectIDs && data.objectIDs.length > 0) {
+                        let htmlContent = '';
 
-                    // Fetch details for each object (limit to the first 10)
-                    const objectIDs = data.objectIDs.slice(0, 30);
+                        // Fetch details for each object (limit to the first 10)
+                        const objectIDs = data.objectIDs.slice(0, 30);
 
-                    // Create an array of promises for fetching object details
-                    const fetchPromises = objectIDs.map(objectID => {
-                        return fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`)
-                            .then(res => res.json());
-                    });
-
-                    // Wait for all fetch requests to complete
-                    Promise.all(fetchPromises)
-                        .then(objects => {
-                            // Populate htmlContent with object details
-                            objects.forEach(object => {
-
-                                // Check if the object is in the public domain
-                                if (!object.isPublicDomain) {
-                                    return; // Skip this object if not in the public domain
-                                }
-                                if (object.title == null) {
-                                    return; // Skip this object if not in the public domain
-                                }
-                                htmlContent += `
-                                    <div class="object-item">
-                                        <table><tr><td>
-                                        <img src="${object.primaryImageSmall || 'https://via.placeholder.com/200'}" alt="${object.title}">
-                                        </td><td>
-                                        <div>
-                                            <h3>${object.title}</h3>
-                                            <p><strong>Artist:</strong> ${object.artistDisplayName || 'Unknown'}</p>
-                                            <p><strong>Object Date:</strong> ${object.objectDate || 'Unknown'}</p>
-                                            <p><strong>Medium:</strong> ${object.medium || 'Not Available'}</p>
-                                            <p><strong>Department:</strong> ${object.department || 'Not Available'}</p>
-                                            <p><strong>Url:</strong> <a href=${object.objectURL || 'Not Available'} target=_blank> View </a></p>
-                                        </div>
-                                        </td>
-                                        </tr>
-                                        </table>
-                                    </div>
-                                `;
-                            });
-
-                            // Log the final htmlContent after all fetches
-                            console.log(htmlContent);
-
-                            // Update the HTML after all fetches are complete
-                            document.getElementById('object-results').innerHTML = htmlContent;
-                        })
-                        .catch(error => {
-                            console.error('Error fetching object data:', error);
-                            document.getElementById('object-results').innerHTML = '<p>Error fetching object data.</p>';
+                        // Create an array of promises for fetching object details
+                        const fetchPromises = objectIDs.map(objectID => {
+                            return fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`)
+                                .then(res => res.json());
                         });
-                } else {
-                    // Handle case where no objects were found
-                    document.getElementById('object-results').innerHTML = '<p>No objects found for your search term.</p>';
-                }
-            })
-            .catch(error => {
-                // Handle error for the initial search request
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('object-results').innerHTML = `<p>Error fetching data: ${error.message}</p>`;
-            });
-    });
+                        // Function to update progress bar
+                        const updateProgress = (completed, total) => {
+                            const progress = (completed / total) * 100;
+                            document.getElementById('progress-bar').value = progress;
+                        };
+
+                        // Wait for all fetch requests to complete
+                        Promise.all(fetchPromises.map((promise, index) => {
+                            return promise.then(result => {
+                                // Update progress bar
+                                updateProgress(index + 1, fetchPromises.length);
+                                return result;
+                            });
+                        }))
+                            .then(objects => {
+                                // Populate htmlContent with object details
+                                objects.forEach(object => {
+                                    // Check if the object is in the public domain
+                                    if (!object.isPublicDomain) {
+                                        return; // Skip this object if not in the public domain
+                                    }
+                                    if (object.title == null) {
+                                        return; // Skip this object if no title
+                                    }
+                                    htmlContent += `
+                            <div class="object-item">
+                                <table><tr><td>
+                                <img src="${object.primaryImageSmall || 'https://via.placeholder.com/200'}" alt="${object.title}">
+                                </td><td>
+                                <div>
+                                    <h3>${object.title}</h3>
+                                    <p><strong>Artist:</strong> ${object.artistDisplayName || 'Unknown'}</p>
+                                    <p><strong>Object Date:</strong> ${object.objectDate || 'Unknown'}</p>
+                                    <p><strong>Medium:</strong> ${object.medium || 'Not Available'}</p>
+                                    <p><strong>Department:</strong> ${object.department || 'Not Available'}</p>
+                                    <p><strong>Url:</strong> <a href="${object.objectURL || '#'}" target="_blank">View</a></p>
+                                </div>
+                                </td>
+                                </tr>
+                                </table>
+                            </div>
+                        `;
+                                });
+
+                                // Log the final htmlContent after all fetches
+                                console.log(htmlContent);
+
+                                // Update the HTML after all fetches are complete
+                                document.getElementById('object-results').innerHTML = htmlContent;
+                                document.getElementById('progress-container').style.display = 'none'; // Hide progress bar after completion
+                            })
+                            .catch(error => {
+                                console.error('Error fetching object data:', error);
+                                document.getElementById('object-results').innerHTML = '<p>Error fetching object data.</p>';
+                                document.getElementById('progress-container').style.display = 'none'; // Hide progress bar on error
+                            });
+                    } else {
+                        // Handle case where no objects were found
+                        document.getElementById('object-results').innerHTML = '<p>No objects found for your search term.</p>';
+                        document.getElementById('progress-container').style.display = 'none'; // Hide progress bar
+                    }
+                })
+                .catch(error => {
+                    // Handle error for the initial search request
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('object-results').innerHTML = `<p>Error fetching data: ${error.message}</p>`;
+                    document.getElementById('progress-container').style.display = 'none'; // Hide progress bar on error
+                });
+        });
 
     </script>
 
 </body>
+
 </html>
