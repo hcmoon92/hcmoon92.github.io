@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iframe Element Control Techniques</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 2px solid #333;
+        }
+        #resultArea {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iframe Element Control Techniques</h1>
+    
+    <div class="section">
+        <h2>Iframe with Controllable Content</h2>
+        <iframe id="controlIframe" src="about:blank"></iframe>
+        <div id="resultArea">Results will appear here</div>
+    </div>
+
+    <script>
+        // Main document script for iframe control
+        const iframe = document.getElementById('controlIframe');
+        const resultArea = document.getElementById('resultArea');
+
+        // Function to safely log messages
+        function safeLog(message) {
+            resultArea.innerHTML += `<p>${message}</p>`;
+            console.log(message);
+        }
+
+        // Method 1: Direct Content Injection
+        function injectIframeContent() {
+            try {
+                // Open and write content to iframe
+                iframe.contentDocument.open();
+                iframe.contentDocument.write(`
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <style>
+                            body { 
+                                font-family: Arial, sans-serif; 
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                height: 100%;
+                            }
+                            .control-button {
+                                margin: 10px;
+                                padding: 10px;
+                                cursor: pointer;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <h2>Iframe Control Demo</h2>
+                        <button id="button1" class="control-button">Button 1</button>
+                        <button id="button2" class="control-button">Button 2</button>
+                        <div id="output"></div>
+
+                        <script>
+                            // Iframe internal script
+                            document.getElementById('button1').addEventListener('click', function() {
+                                document.getElementById('output').innerHTML = 'Button 1 Clicked!';
+                            });
+
+                            document.getElementById('button2').addEventListener('click', function() {
+                                document.getElementById('output').innerHTML = 'Button 2 Clicked!';
+                            });
+                        <\/script>
+                    </body>
+                    </html>
+                `);
+                iframe.contentDocument.close();
+
+                safeLog('Iframe content successfully injected');
+            } catch (error) {
+                safeLog(`Injection Error: ${error.message}`);
+            }
+        }
+
+        // Method 2: Cross-Frame Element Access
+        function accessIframeElements() {
+            try {
+                if (iframe.contentDocument) {
+                    const button1 = iframe.contentDocument.getElementById('button1');
+                    const button2 = iframe.contentDocument.getElementById('button2');
+                    const outputDiv = iframe.contentDocument.getElementById('output');
+
+                    if (button1 && button2 && outputDiv) {
+                        // Simulate click programmatically
+                        const clickEvent = new MouseEvent('click', {
+                            view: iframe.contentWindow,
+                            bubbles: true,
+                            cancelable: true
+                        });
+
+                        button1.dispatchEvent(clickEvent);
+                        safeLog('Simulated click on Button 1');
+                    } else {
+                        safeLog('Could not find all elements');
+                    }
+                }
+            } catch (error) {
+                safeLog(`Access Error: ${error.message}`);
+            }
+        }
+
+        // Method 3: Postmessage Communication
+        function setupCommunicationBridge() {
+            // Parent window message listener
+            window.addEventListener('message', function(event) {
+                if (event.source === iframe.contentWindow) {
+                    safeLog(`Received from iframe: ${event.data}`);
+                }
+            });
+
+            // Inject communication script into iframe
+            if (iframe.contentDocument) {
+                const script = iframe.contentDocument.createElement('script');
+                script.textContent = `
+                    // Iframe-side communication
+                    document.getElementById('button2').addEventListener('click', function() {
+                        window.parent.postMessage('Button 2 was clicked in iframe', '*');
+                    });
+                `;
+                iframe.contentDocument.body.appendChild(script);
+            }
+        }
+
+        // Initialize iframe and set up controls
+        function initializeIframe() {
+            // Ensure iframe is loaded before manipulation
+            iframe.addEventListener('load', function() {
+                injectIframeContent();
+                
+                // Delay to ensure content is fully loaded
+                setTimeout(() => {
+                    accessIframeElements();
+                    setupCommunicationBridge();
+                }, 100);
+            });
+        }
+
+        // Start the initialization
+        initializeIframe();
+    </script>
+</body>
+</html>
