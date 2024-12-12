@@ -50,6 +50,7 @@ An alternative app store that aims to make sideloading apps as seamless as possi
 sidestore.io
 아래와 같은 화면이 보이는데요. 우선 맥이라면 아래 버튼에서 Mac을, 윈도우 컴퓨터라면 Windows를 골라 주세요. 그 다음, 위에 뜨는 버튼을 모두 눌러 전부 다운받아주세요. 맥에서는 3개, 윈도우의 경우 아래에 iTunes, iCloud 다운로드 버튼까지 총 5개를 다운받으시면 됩니다.
 
+![alt text](image.png)
 
 2. 설치
 윈도우의 경우에는 기존에 설치되어 있는 아이튠즈, 아이클라우드가 있다면 삭제하고 다운받은 파일로 아이튠즈, 아이클라우드를 둘 다 설치해 주세요. (아이튠즈 삭제 전 백업을 해 두세요)
