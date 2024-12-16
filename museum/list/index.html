@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 10px;
+        }
+        .gallery img {
+            max-width: 200px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .nav {
+            text-align: center;
+            margin: 20px;
+        }
+        .nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Image Gallery</h1>
+    <div class="nav">
+        <a href="#gallery">Gallery</a>
+    </div>
+    <div id="gallery" class="gallery"></div>
+
+    <script>
+        // This function will fetch the list of images from the server and update the gallery
+        function loadImages() {
+            fetch('images')  // Make sure your server is configured to serve the image list from the images folder
+                .then(response => response.json())  // Assuming the server returns a JSON array of image file names
+                .then(images => {
+                    const gallery = document.getElementById('gallery');
+                    gallery.innerHTML = '';  // Clear the current gallery
+                    images.forEach(image => {
+                        const imgElement = document.createElement('img');
+                        imgElement.src = `images/${image}`;  // Image URL assuming the images are in the '/images' folder
+                        imgElement.alt = image;
+                        gallery.appendChild(imgElement);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading images:', error);
+                });
+        }
+
+        // Call the loadImages function to load images initially
+        loadImages();
+    </script>
+</body>
+</html>
