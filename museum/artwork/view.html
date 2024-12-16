@@ -60,7 +60,7 @@
 <body>
     <div class="image-container">
         <img id="zoomImage" class="zoomable-image" 
-             src="https://collectionapi.metmuseum.org/api/collection/v1/iiif/436533/796180/main-image" 
+             src="" 
              alt="Zoomable and Pannable Image">
         <div class="zoom-controls">
             <button onclick="zoomInit()">Initial Zoom</button>
@@ -70,6 +70,26 @@
         <div class="coordinates" id="coordDisplay">X: 0, Y: 0</div>
 
     </div>
+
+    <script>
+        // This function gets the 'id' parameter from the URL and updates the image source
+        function loadImage() {
+            const urlParams = new URLSearchParams(window.location.search);  // Get URL parameters
+            const imageId = urlParams.get('id');  // Get the 'id' parameter
+
+            if (imageId) {
+                // Set the image source based on the 'id' parameter
+                const imageElement = document.getElementById('zoomImage');
+                imageElement.src = `images/${imageId}`;  // Assuming the images are in the 'images' folder
+                imageElement.alt = imageId;
+            } else {
+                console.error('No image ID found in the URL.');
+            }
+        }
+
+        // Call the loadImage function to display the image
+        loadImage();
+    </script>    
 
     <script>
         const container = document.querySelector('.image-container');
