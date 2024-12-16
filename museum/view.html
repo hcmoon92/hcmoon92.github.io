@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Zoom and Pan Example</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .image-container {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            overflow: hidden;
+            border: 4px solid #333;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .zoomable-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.2s ease;
+            cursor: move;
+        }
+        .zoom-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .zoom-controls button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .coordinates {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+        }        
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img id="zoomImage" class="zoomable-image" 
+             src="https://collectionapi.metmuseum.org/api/collection/v1/iiif/436533/796180/main-image" 
+             alt="Zoomable and Pannable Image">
+        <div class="zoom-controls">
+            <button onclick="zoomInit()">Initial Zoom</button>
+            <button onclick="zoomIn()">Zoom In</button>
+            <button onclick="zoomOut()">Zoom Out</button>
+        </div>
+        <div class="coordinates" id="coordDisplay">X: 0, Y: 0</div>
+
+    </div>
+
+    <script>
+        const container = document.querySelector('.image-container');
+        const image = document.getElementById('zoomImage');
+        let scale = 1;
+        let isDragging = false;
+        let startX, startY, translateX = 0, translateY = 0;
+        let maxScale = 5;
+
+        function zoomInit() {
+            // Define initial zoom parameters
+            scale = 1;  // 150% zoom
+            translateX = 0;  // Slight horizontal shift
+            translateY = 0;  // Slight vertical shift
+
+            updateImageTransform();
+        }
+
+        function zoomIn() {
+            scale = Math.min(scale * 1.2, maxScale);
+            updateImageTransform();
+        }
+
+        function zoomOut() {
+            scale = Math.max(scale / 1.2, 1);
+            updateImageTransform();
+        }
+
+        function updateImageTransform() {
+            image.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+        }
+
+        
+        image.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX - translateX;
+            startY = e.clientY - translateY;
+            image.style.cursor = 'grabbing';
+        });
+
+        // Mouse up event - stop dragging
+        document.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                image.style.cursor = 'grab';
+            }
+        });
+
+
+        document.addEventListener('mousemove', (e) => {
+
+            coordDisplay.textContent = `X: ${e.clientX}, Y: ${e.clientY}`;
+
+            if (!isDragging) return;
+
+            translateX = e.clientX - startX;
+            translateY = e.clientY - startY;
+
+            // Limit panning based on zoom level
+            const maxTranslateX = (scale - 1) * (container.offsetWidth / 2);
+            const maxTranslateY = (scale - 1) * (container.offsetHeight / 2);
+
+            translateX = Math.min(Math.max(translateX, -maxTranslateX), maxTranslateX);
+            translateY = Math.min(Math.max(translateY, -maxTranslateY), maxTranslateY);
+
+            updateImageTransform();
+        });
+        
+
+
+        // Prevent default drag behavior
+        image.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        });
+
+    
+        // Mouse Wheel Zoom
+        container.addEventListener('wheel', (e) => {
+            // Prevent page scrolling
+            e.preventDefault();
+
+            // Determine zoom direction
+            const delta = e.deltaY > 0 ? -0.1 : 0.1;
+            
+            // Calculate new scale
+            const newScale = scale + delta;
+            
+            // Limit zoom between 1x and 3x
+            if (newScale >= 1 && newScale <= maxScale) {
+                // Calculate mouse position relative to container
+                const rect = container.getBoundingClientRect();
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+
+                // Calculate translation to zoom towards mouse cursor
+                const containerWidth = container.offsetWidth;
+                const containerHeight = container.offsetHeight;
+
+                // Adjust translation based on mouse position and scale change
+                translateX += (mouseX - containerWidth / 2) * (delta / scale);
+                translateY += (mouseY - containerHeight / 2) * (delta / scale);
+
+                // Update scale
+                scale = newScale;
+
+                // Limit panning
+                const maxTranslateX = (scale - 1) * (containerWidth / 2);
+                const maxTranslateY = (scale - 1) * (containerHeight / 2);
+
+                translateX = Math.min(Math.max(translateX, -maxTranslateX), maxTranslateX);
+                translateY = Math.min(Math.max(translateY, -maxTranslateY), maxTranslateY);
+
+                // Apply transformation
+                updateImageTransform();
+            }
+        }, { passive: false });
+
+
+    </script>
+</body>
+</html>
