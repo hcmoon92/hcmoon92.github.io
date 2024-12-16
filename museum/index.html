@@ -15,8 +15,8 @@
         }
         .image-container {
             position: relative;
-            width: 500px;
-            height: 300px;
+            width: 800px;
+            height: 600px;
             overflow: hidden;
             border: 4px solid #333;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -107,6 +107,50 @@
             isDragging = false;
             image.style.cursor = 'move';
         });
+
+
+        // Mouse Wheel Zoom
+        container.addEventListener('wheel', (e) => {
+            // Prevent page scrolling
+            e.preventDefault();
+
+            // Determine zoom direction
+            const delta = e.deltaY > 0 ? -0.1 : 0.1;
+            
+            // Calculate new scale
+            const newScale = scale + delta;
+            
+            // Limit zoom between 1x and 3x
+            if (newScale >= 1 && newScale <= 3) {
+                // Calculate mouse position relative to container
+                const rect = container.getBoundingClientRect();
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+
+                // Calculate translation to zoom towards mouse cursor
+                const containerWidth = container.offsetWidth;
+                const containerHeight = container.offsetHeight;
+
+                // Adjust translation based on mouse position and scale change
+                translateX += (mouseX - containerWidth / 2) * (delta / scale);
+                translateY += (mouseY - containerHeight / 2) * (delta / scale);
+
+                // Update scale
+                scale = newScale;
+
+                // Limit panning
+                const maxTranslateX = (scale - 1) * (containerWidth / 2);
+                const maxTranslateY = (scale - 1) * (containerHeight / 2);
+
+                translateX = Math.min(Math.max(translateX, -maxTranslateX), maxTranslateX);
+                translateY = Math.min(Math.max(translateY, -maxTranslateY), maxTranslateY);
+
+                // Apply transformation
+                updateImageTransform();
+            }
+        }, { passive: false });
+
+
     </script>
 </body>
 </html>
