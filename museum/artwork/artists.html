@@ -18,11 +18,13 @@
             padding: 10px;
         }
         .gallery img {
-            max-width: 200px;
+            max-width: 200px; /* Limit width */
+            height: auto; /* Maintain aspect ratio */
             border: 2px solid #ccc;
             border-radius: 5px;
             box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
             cursor: pointer;
+            object-fit: contain; /* Ensure the image is fully visible without distortion */
         }
         .back-link {
             display: block;
