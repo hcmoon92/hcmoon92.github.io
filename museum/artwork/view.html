@@ -16,33 +16,20 @@
         }
         .image-container {
             position: relative;
-            display: inline-block; /* Fit tightly around the image */
-            overflow: hidden; /* Ensures any overflow is hidden */
+            width: 1024px;
+            height: 768px;
+            overflow: hidden;
             border: 4px solid #333;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            background: #f4f4f4; /* Optional background color */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             margin-bottom: 20px;
         }
-
-        .image-container img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 100%; /* Scale down the width */
-            max-height: 100%; /* Scale down the height */
-            width: auto; /* Maintain aspect ratio */
-            height: auto; /* Maintain aspect ratio */
-            object-fit: contain; /* Prevent cropping or distortion */
-        }
-
         .zoomable-image {
-            position: relative; /* Removed absolute to allow natural resizing */
-            max-width: 100%; /* Ensure it scales within the container */
-            max-height: 100%; /* Ensure it scales within the container */
-            width: auto; /* Maintain aspect ratio */
-            height: auto; /* Maintain aspect ratio */
-            object-fit: contain; /* Ensure no distortion */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.2s ease;
             cursor: move;
         }
@@ -293,24 +280,6 @@
             }
         }, { passive: false });
 
-
-        function updateImageTransform() {
-            const imageContainer = document.querySelector('.image-container');
-            const zoomableImage = document.querySelector('.zoomable-image');
-
-            // Calculate offsets to center the image based on container size
-            const containerWidth = imageContainer.offsetWidth;
-            const containerHeight = imageContainer.offsetHeight;
-
-            const imageWidth = zoomableImage.offsetWidth * scale;
-            const imageHeight = zoomableImage.offsetHeight * scale;
-
-            translateX = (containerWidth - imageWidth) / 2 / scale;
-            translateY = (containerHeight - imageHeight) / 2 / scale;
-
-            // Apply transformations
-            zoomableImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-        }
 
     </script>
 </body>
