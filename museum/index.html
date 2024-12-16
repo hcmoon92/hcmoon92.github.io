@@ -125,7 +125,7 @@
                                 objects.forEach(object => {
                                     // Check if the object is in the public domain
                                     if (!object.isPublicDomain) {
-                                        //return; // Skip this object if not in the public domain
+                                        return; // Skip this object if not in the public domain
                                     }
                                     if (object.title == null) {
                                         return; // Skip this object if no title
