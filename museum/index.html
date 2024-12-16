@@ -77,6 +77,7 @@
         let scale = 1;
         let isDragging = false;
         let startX, startY, translateX = 0, translateY = 0;
+        let maxScale = 5;
 
         function zoomInit() {
             // Define initial zoom parameters
@@ -88,7 +89,7 @@
         }
 
         function zoomIn() {
-            scale = Math.min(scale * 1.2, 5);
+            scale = Math.min(scale * 1.2, maxScale);
             updateImageTransform();
         }
 
@@ -157,7 +158,7 @@
             const newScale = scale + delta;
             
             // Limit zoom between 1x and 3x
-            if (newScale >= 1 && newScale <= 3) {
+            if (newScale >= 1 && newScale <= maxScale) {
                 // Calculate mouse position relative to container
                 const rect = container.getBoundingClientRect();
                 const mouseX = e.clientX - rect.left;
