@@ -80,7 +80,7 @@
             image.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
         }
 
-        /* image.addEventListener('mousedown', (e) => {
+        image.addEventListener('mousedown', (e) => {
             isDragging = true;
             startX = e.clientX - translateX;
             startY = e.clientY - translateY;
@@ -90,7 +90,7 @@
             isDragging = false;
             image.style.cursor = 'move';
         });
-        */
+
 
         document.addEventListener('mousemove', (e) => {
             if (!isDragging) return;
