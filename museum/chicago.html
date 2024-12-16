@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search and Fetch Artwork</title>
+</head>
+<body>
+  <h1>Search Artwork</h1>
+  
+  <!-- Search Input -->
+  <label for="search-input">Enter search query (e.g., artist, style):</label>
+  <input type="text" id="search-input" placeholder="Enter search query">
+  <button onclick="searchArtwork()">Search</button>
+  
+  <h2>Search Results</h2>
+  <div id="lists"></div>
+
+  <!-- Table to Display Artwork Data -->
+  <table border="1" id="artwork-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Score</th>
+        <th>Thumbnail</th>
+        <th>API Model</th>
+        <th>Boosted</th>
+        <th>Detail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Data rows will be inserted here -->
+    </tbody>
+  </table>
+
+
+  <script>
+    // Function to fetch artwork data based on search query
+    function searchArtwork() {
+      // Get the search input value
+      const query = document.getElementById('search-input').value.trim();
+
+      // Validate input
+      if (!query) {
+        alert('Please enter a search query.');
+        return;
+      }
+
+      // Build the API URL with the query parameter for searching
+      const url = `https://api.artic.edu/api/v1/artworks/search?q=${query}`;
+
+      var list_id = '';
+
+      // Fetch data from the API
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          if (data.data && data.data.length > 0) {
+            const artworks = data.data; // Array of artworks from the search response
+
+            // Get the table body element
+            const tableBody = document.querySelector('#artwork-table tbody');
+
+            // Clear any existing rows
+            tableBody.innerHTML = '';
+
+            // Loop through the artworks and create a table row for each
+            artworks.forEach(artwork => {
+              const row = document.createElement('tr');
+
+              // Add data to the row
+              row.innerHTML = `
+                <td>${artwork.id}</td>
+                <td>${artwork.title}</td>
+                <td>${artwork._score}</td>
+                <td><img src="${artwork.thumbnail.lqip}" alt="${artwork.title} Thumbnail" width="100"></td>
+                <td>${artwork.api_model}</td>
+                <td>${artwork.is_boosted ? 'Yes' : 'No'}</td>
+                <td><a href="chicago-detail?artwork_id=${artwork.id}" target="_blank">Detail</a></td>
+              `;
+                // <td>${artwork.timestamp}</td>
+
+              list_id += `${artwork.id}_`;
+
+              // Append the new row to the table body
+              tableBody.appendChild(row);
+              
+              const lists = document.querySelector('#lists');
+              lists.innerHTML = `<a href=chicago-list.html?artwork_lists=${list_id} target=_blank>list</a>`;
+              
+            });
+
+
+          } else {
+            alert('No artworks found for this query.');
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+          alert('Error fetching data.');
+        });
+    }
+  </script>
+</body>
+</html>
