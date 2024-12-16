@@ -63,6 +63,7 @@
              src="images/metropol/DT1947.jpg" 
              alt="Zoomable and Pannable Image">
         <div class="zoom-controls">
+            <button onclick="zoomInit()">Initial Zoom</button>
             <button onclick="zoomIn()">Zoom In</button>
             <button onclick="zoomOut()">Zoom Out</button>
         </div>
@@ -76,6 +77,15 @@
         let scale = 1;
         let isDragging = false;
         let startX, startY, translateX = 0, translateY = 0;
+
+        function zoomInit() {
+            // Define initial zoom parameters
+            scale = 1;  // 150% zoom
+            translateX = 0;  // Slight horizontal shift
+            translateY = 0;  // Slight vertical shift
+
+            updateImageTransform();
+        }
 
         function zoomIn() {
             scale = Math.min(scale * 1.2, 3);
