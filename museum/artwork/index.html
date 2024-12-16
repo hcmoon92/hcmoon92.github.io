@@ -3,75 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Gallery</title>
+    <title>Artists</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            padding: 10px;
-        }
-        .gallery img {
-            max-width: 200px;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-        }
-        .nav {
+        .artists {
             text-align: center;
-            margin: 20px;
+            margin-top: 20px;
         }
-        .nav a {
-            margin: 0 10px;
-            text-decoration: none;
+        .artist-item {
+            margin: 10px;
+            font-size: 20px;
+            cursor: pointer;
             color: #007BFF;
-            font-weight: bold;
+        }
+        .artist-item:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1 style="text-align:center;">Gallery</h1>
-    <div class="nav">
-        <a href="#gallery">Gallery</a>
-    </div>
-    <div id="gallery" class="gallery"></div>
+    <h1 style="text-align:center;">Artists</h1>
+    <div id="artists" class="artists"></div>
 
     <script>
-        // This function will fetch the list of images from the server and update the gallery
-        function loadImages() {
-            fetch('images.json')  // Path to the JSON file containing image names
-                .then(response => response.json())
-                .then(images => {
-                    const gallery = document.getElementById('gallery');
-                    gallery.innerHTML = '';  // Clear the current gallery
-        
-                    images.forEach(image => {
-                        const imgElement = document.createElement('img');
-                        imgElement.src = `images/${image}`;  // Image URL assuming the images are in the 'images' folder
-                        imgElement.alt = image;
+        // Fetch artists from the JSON file and display them
+        fetch('artists.json')
+            .then(response => response.json())
+            .then(data => {
+                const artists = data.artists;
+                const artistsDiv = document.getElementById('artists');
 
-                        // Add a click event listener to redirect to the view page
-                        imgElement.addEventListener('click', () => {
-                            // Redirect to view.html with the image filename as a URL parameter
-                            window.location.href = `view.html?id=${image}`;
-                        });
-                                                
-                        gallery.appendChild(imgElement);
+                // Iterate over the artists and create clickable items
+                Object.keys(artists).forEach(key => {
+                    const artist = artists[key];
+                    const artistElement = document.createElement('div');
+                    artistElement.classList.add('artist-item');
+                    artistElement.textContent = artist.name;
+
+                    // Redirect to view.html with artist key as a parameter on click
+                    artistElement.addEventListener('click', () => {
+                        window.location.href = `view.html?artist=${key}`;
                     });
-                })
-                .catch(error => {
-                    console.error('Error loading images:', error);
-                });
-        }
 
-        // Call the loadImages function to load images initially
-        loadImages();
+                    artistsDiv.appendChild(artistElement);
+                });
+            })
+            .catch(error => console.error('Error loading artists:', error));
     </script>
 </body>
 </html>

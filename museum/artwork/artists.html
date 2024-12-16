@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist View</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 10px;
+        }
+        .gallery img {
+            max-width: 200px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin: 20px;
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;" id="artistName">Artist's Artworks</h1>
+    <a href="index.html" class="back-link">← Back to Artists</a>
+    <div id="gallery" class="gallery"></div>
+
+    <script>
+        // Fetch the 'artist' parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const artistKey = urlParams.get('artist');
+
+        // Fetch artists.json and load the selected artist's data
+        fetch('artists.json')
+            .then(response => response.json())
+            .then(data => {
+                const artist = data.artists[artistKey];
+
+                if (artist) {
+                    // Set the artist's name as the title
+                    document.getElementById('artistName').textContent = artist.name;
+
+                    // Display the artist's artworks
+                    const gallery = document.getElementById('gallery');
+                    artist.artworks.forEach(image => {
+                        const imgElement = document.createElement('img');
+                        imgElement.src = `images/${image}`;  // Assuming images are in the 'images' folder
+                        imgElement.alt = image;
+
+                        // Add click behavior to view full image
+                        imgElement.addEventListener('click', () => {
+                            window.open(imgElement.src, '_blank');
+                        });
+
+                        gallery.appendChild(imgElement);
+                    });
+                } else {
+                    console.error('Artist not found!');
+                }
+            })
+            .catch(error => console.error('Error loading artist:', error));
+    </script>
+</body>
+</html>
