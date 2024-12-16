@@ -150,6 +150,16 @@
 
         loadImageAndAudio();
 
+        // Audio play/pause function
+        function toggleAudio() {
+            const audioElement = document.getElementById('artworkAudio');
+            if (audioElement.paused) {
+                audioElement.play();
+            } else {
+                audioElement.pause();
+            }
+        }
+
     </script>    
 
     <script>
