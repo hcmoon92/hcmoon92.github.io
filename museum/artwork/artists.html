@@ -62,11 +62,11 @@
                         imgElement.src = `images/${image}`;  // Assuming images are in the 'images' folder
                         imgElement.alt = image;
 
-                        // Add click behavior to view full image
-                        imgElement.addEventListener('click', () => {
-                            window.open(imgElement.src, '_blank');
+                        // Redirect to view.html with artist key as a parameter on click
+                        artistElement.addEventListener('click', () => {
+                            window.location.href = `view.html?id=${image}`;
                         });
-
+                        
                         gallery.appendChild(imgElement);
                     });
                 } else {
