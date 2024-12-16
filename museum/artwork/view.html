@@ -120,9 +120,11 @@
                 const titleElement = document.getElementById('artworkTitle');
                 const notesElement = document.getElementById('artworkNotes');
 
+                const audioId = imageId.replace(/\.jpg$/, ''); // Removes the .jpg extension
+
                 // Set the image, audio, title, and notes
                 imageElement.src = `images/${imageId}`;
-                audioElement.src = `audio/${imageId}.mp3`; // Assuming audio files match image ID
+                audioElement.src = `artwork_mp3/${audioId}.mp3`; // Assuming audio files match image ID
                 titleElement.textContent = title;
                 notesElement.textContent = notes;
             } else {
