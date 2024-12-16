@@ -80,6 +80,7 @@
             image.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
         }
 
+        /*
         image.addEventListener('mousedown', (e) => {
             isDragging = true;
             startX = e.clientX - translateX;
@@ -107,9 +108,48 @@
 
             updateImageTransform();
         });
+        */
 
 
+        // Prevent default drag behavior
+        image.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        });
 
+        // Mouse down - start dragging
+        container.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            
+            // Store initial mouse position
+            startX = e.clientX - currentX;
+            startY = e.clientY - currentY;
+            
+            // Change cursor to indicate active dragging
+            container.style.cursor = 'grabbing';
+        });
+
+        // Mouse move - update image position
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+
+            // Calculate new position
+            currentX = e.clientX - startX;
+            currentY = e.clientY - startY;
+
+            // Apply translation to image
+            image.style.transform = `translate(${currentX}px, ${currentY}px)`;
+        });
+
+        // Mouse up or leave - stop dragging
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            container.style.cursor = 'move';
+        });
+
+        document.addEventListener('mouseleave', () => {
+            isDragging = false;
+            container.style.cursor = 'move';
+        });
 
         // Mouse Wheel Zoom
         container.addEventListener('wheel', (e) => {
