@@ -280,23 +280,23 @@
             }
         }, { passive: false });
 
-        function updateImageTransform() {
-            const imageContainer = document.querySelector('.image-container');
-            const zoomableImage = document.querySelector('.zoomable-image');
+        // function updateImageTransform() {
+        //     const imageContainer = document.querySelector('.image-container');
+        //     const zoomableImage = document.querySelector('.zoomable-image');
 
-            // Calculate offsets to center the image based on container size
-            const containerWidth = imageContainer.offsetWidth;
-            const containerHeight = imageContainer.offsetHeight;
+        //     // Calculate offsets to center the image based on container size
+        //     const containerWidth = imageContainer.offsetWidth;
+        //     const containerHeight = imageContainer.offsetHeight;
 
-            const imageWidth = zoomableImage.offsetWidth * scale;
-            const imageHeight = zoomableImage.offsetHeight * scale;
+        //     const imageWidth = zoomableImage.offsetWidth * scale;
+        //     const imageHeight = zoomableImage.offsetHeight * scale;
 
-            translateX = (containerWidth - imageWidth) / 2 / scale;
-            translateY = (containerHeight - imageHeight) / 2 / scale;
+        //     translateX = (containerWidth - imageWidth) / 2 / scale;
+        //     translateY = (containerHeight - imageHeight) / 2 / scale;
 
-            // Apply transformations
-            zoomableImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-        }
+        //     // Apply transformations
+        //     zoomableImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+        // }
     </script>
 </body>
 </html>
