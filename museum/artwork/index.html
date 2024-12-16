@@ -45,14 +45,15 @@
     <script>
         // This function will fetch the list of images from the server and update the gallery
         function loadImages() {
-            fetch('images')  // Make sure your server is configured to serve the image list from the images folder
-                .then(response => response.json())  // Assuming the server returns a JSON array of image file names
+            fetch('images.json')  // Path to the JSON file containing image names
+                .then(response => response.json())
                 .then(images => {
                     const gallery = document.getElementById('gallery');
                     gallery.innerHTML = '';  // Clear the current gallery
+        
                     images.forEach(image => {
                         const imgElement = document.createElement('img');
-                        imgElement.src = `images/${image}`;  // Image URL assuming the images are in the '/images' folder
+                        imgElement.src = `images/${image}`;  // Image URL assuming the images are in the 'images' folder
                         imgElement.alt = image;
                         gallery.appendChild(imgElement);
                     });
