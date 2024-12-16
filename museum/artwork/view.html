@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Artwork Viewer</title>
+    <title>Image Zoom and Pan Example</title>
     <style>
         body {
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             min-height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
@@ -21,7 +20,6 @@
             overflow: hidden;
             border: 4px solid #333;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
         }
         .zoomable-image {
             position: absolute;
@@ -57,27 +55,6 @@
             padding: 5px;
             border-radius: 3px;
         }        
-
-        .audio-player {
-            margin-top: 10px;
-        }
-        .artwork-details {
-            width: 1024px;
-            padding: 10px;
-            border: 2px solid #333;
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .artwork-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .artwork-notes {
-            font-size: 16px;
-            color: #555;
-        }        
     </style>
 </head>
 <body>
@@ -94,18 +71,6 @@
 
     </div>
 
-    <!-- Audio Player -->
-    <div class="audio-player">
-        <button onclick="toggleAudio()">Play/Pause Audio</button>
-        <audio id="artworkAudio" src=""></audio>
-    </div>
-
-    <!-- Artwork Details -->
-    <div class="artwork-details">
-        <div id="artworkTitle" class="artwork-title">Artwork Title</div>
-        <div id="artworkNotes" class="artwork-notes">Notes about the artwork will appear here.</div>
-    </div>
-    
     <script>
         // This function gets the 'id' parameter from the URL and updates the image source
         function loadImage() {
@@ -123,45 +88,7 @@
         }
 
         // Call the loadImage function to display the image
-        //loadImage();
-
-
-        function loadImageAndAudio() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const imageId = urlParams.get('id'); // Artwork ID from URL
-            const title = urlParams.get('title') || 'Untitled Artwork'; // Artwork title
-            const notes = urlParams.get('notes') || 'No additional notes available.'; // Artwork notes
-
-            if (imageId) {
-                const audioId = imageId.replace(/\.jpg$/, ''); // Removes the .jpg extension
-
-                const imageElement = document.getElementById('zoomImage');
-                const audioElement = document.getElementById('artworkAudio');
-                const titleElement = document.getElementById('artworkTitle');
-                const notesElement = document.getElementById('artworkNotes');
-
-                // Set the image, audio, title, and notes
-                imageElement.src = `images/${imageId}`;
-                audioElement.src = `artwork_mp3/${audioId}.mp3`; // Match audio file without the .jpg extension
-                titleElement.textContent = title;
-                notesElement.textContent = notes;
-            } else {
-                console.error('No image ID found in the URL.');
-            }
-        }
-
-        loadImageAndAudio();
-
-        // Audio play/pause function
-        function toggleAudio() {
-            const audioElement = document.getElementById('artworkAudio');
-            if (audioElement.paused) {
-                audioElement.play();
-            } else {
-                audioElement.pause();
-            }
-        }
-
+        loadImage();
     </script>    
 
     <script>
