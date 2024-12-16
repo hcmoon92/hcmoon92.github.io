@@ -37,17 +37,7 @@ header {
     line-height: 1.3;
     padding: .3em 0;
 }
-.ricg-seal {
-    background: url(../logos/ricg-seal.png) center center no-repeat;
-    background-size: cover;
-    height: 5.5em;
-    width: 5.5em;
-    display: block;
-    text-indent: -9999px;
-    position: absolute;
-    right: -5%;
-    top: -4.25em;
-}
+
 @media(min-width: 40em) {
     .ricg-seal {
         height: 10em;
