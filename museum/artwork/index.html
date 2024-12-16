@@ -36,7 +36,7 @@
     </style>
 </head>
 <body>
-    <h1 style="text-align:center;">Image Gallery</h1>
+    <h1 style="text-align:center;">Gallery</h1>
     <div class="nav">
         <a href="#gallery">Gallery</a>
     </div>
@@ -55,6 +55,13 @@
                         const imgElement = document.createElement('img');
                         imgElement.src = `images/${image}`;  // Image URL assuming the images are in the 'images' folder
                         imgElement.alt = image;
+
+                        // Add a click event listener to redirect to the view page
+                        imgElement.addEventListener('click', () => {
+                            // Redirect to view.html with the image filename as a URL parameter
+                            window.location.href = `view.html?id=${image}`;
+                        });
+                                                
                         gallery.appendChild(imgElement);
                     });
                 })
