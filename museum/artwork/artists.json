@@ -141,7 +141,7 @@
                 "207812.jpg"
             ]
         },  
-        "beauty_in_the_world": { 
+        "beauty_in_the_world1": { 
             "name": "Patrick Bringley, I. THE GRAND STAIRCASE", 
             "artworks": [    
                 "196439.jpg",
@@ -152,6 +152,19 @@
                 "437788.jpg",
                 "438754.jpg",
                 "543937.jpg"
+            ]
+        },
+        "beauty_in_the_world2": { 
+            "name": "Patrick Bringley, II: WINDOWS", 
+            "artworks": [    
+                "435658.jpg",
+                "436544.jpg",
+                "437825.jpg",
+                "437826.jpg",
+                "437870.jpg",
+                "437878.jpg",
+                "437879.jpg",
+                "438423.jpg"
             ]
         }
     }
