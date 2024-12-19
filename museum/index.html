@@ -152,12 +152,13 @@
                                 </table>
                             </div>
                         `;
+                                    list_id += `${object.objectID},`;
+
                                 });
 
                                 // Log the final htmlContent after all fetches
                                 console.log(htmlContent);
 
-                                list_id += `${object.objectID},`;
                                 document.getElementById('lists').innerHTML = list_id;
 
                                 // Update the HTML after all fetches are complete
