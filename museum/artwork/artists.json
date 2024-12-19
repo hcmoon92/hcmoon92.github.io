@@ -1,7 +1,7 @@
 {
     "artists": {
         "gogh": { 
-            "name": "Vincent van Gogh", 
+            "name": "Vincent van Gogh, Dutch", 
             "artworks": [
                 "336327.jpg",
                 "436524.jpg",
@@ -25,7 +25,7 @@
             ]
         },
         "cezanne": { 
-            "name": "Paul Cezanne", 
+            "name": "Paul Cezanne, French", 
             "artworks": [
                 "435866.jpg",
                 "435868.jpg",
@@ -47,7 +47,7 @@
             ]
         },
         "gauguin": { 
-            "name": "Paul Gauguin", 
+            "name": "Paul Gauguin, French", 
             "artworks": [
                 "438821.jpg",
                 "436449.jpg",
@@ -168,7 +168,7 @@
             ]
         },
         "diana": { 
-            "name": "Diana", 
+            "name": "Diana Collection", 
             "artworks": [            
                 "10171.jpg",
                 "11923.jpg",
@@ -190,7 +190,7 @@
             ]
         },
         "degar": { 
-            "name": "Edgar Degar", 
+            "name": "Edgar Degar, French", 
             "artworks": [            
                 "263608.jpg",
                 "284453.jpg",
