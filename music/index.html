@@ -44,6 +44,14 @@
       border: none;
       border-radius: 8px;
     }
+
+    .song-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #333;
+    }
+        
     @media (min-width: 768px) {
       .container {
         flex-direction: row;
@@ -76,6 +84,9 @@
     <div class="video-viewer">
       <iframe id="youtubeViewer" src="" allowfullscreen></iframe>
 
+      <!-- Song Title -->
+      <div id="songTitle" class="song-title">No song playing</div>
+      
       <!-- Playlist Control Bar -->
       <div class="control-bar">
         <button id="prevButton" onclick="prevVideo()">Prev</button>
@@ -130,6 +141,10 @@
           videoList.appendChild(listItem);
         });
       }
+
+      // Hide playlist section after selecting
+      document.getElementById('playlistSection').style.display = 'none';
+      
       loadVideo(currentVideoIndex);  // Load first video by default
     }
 
@@ -140,6 +155,11 @@
       const iframe = document.getElementById("youtubeViewer");
       iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
       updateControlBar();
+
+      // Update song title below control bar
+      const songTitle = document.getElementById("songTitle");
+      songTitle.textContent = currentPlaylist.videos[index].title;
+
     }
 
     // Update control bar based on playing status
