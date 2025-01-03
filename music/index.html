@@ -142,8 +142,12 @@
       if (event.data === YT.PlayerState.PLAYING) {
         // Unmute when the video starts playing
         player.unMute();
+      } else if (event.data === YT.PlayerState.ENDED) {
+        // Play the next video when the current one ends
+        nextVideo();
       }
     }
+
 
     // Unmute the video
     function unmuteVideo() {
