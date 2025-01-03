@@ -74,7 +74,7 @@
 
     <!-- Video Viewer -->
     <div class="video-viewer">
-      <iframe id="youtubeViewer" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <iframe id="youtubeViewer" src="" allowfullscreen></iframe>
 
       <!-- Playlist Control Bar -->
       <div class="control-bar">
@@ -138,7 +138,7 @@
       currentVideoIndex = index;
       const videoId = currentPlaylist.videos[index].id;
       const iframe = document.getElementById("youtubeViewer");
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
       updateControlBar();
     }
 
