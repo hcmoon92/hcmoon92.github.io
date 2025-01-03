@@ -398,6 +398,20 @@
                 "438129.jpg",
                 "459236.jpg"
             ]        
-        }        
+        },
+        "delacroix": { 
+            "name": "Eugène Delacroix, French", 
+            "artworks": [
+            "336046.jpg",
+            "436175.jpg",
+            "436176.jpg",
+            "436178.jpg",
+            "436179.jpg",
+            "436180.jpg",
+            "438110.jpg",
+            "438814.jpg",
+            "439631.jpg"
+            ]
+        }            
     }
 }
