@@ -46,7 +46,7 @@ def fetch_youtube_playlist():
 
             # Append video data to the JSON structure
             playlist_data["playlists"][0]["videos"].append({
-                "video_id": video_id,
+                "id": video_id,
                 "title": title
             })
 
