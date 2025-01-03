@@ -115,7 +115,7 @@
             if (imageId) {
                 // Set the image source based on the 'id' parameter
                 const imageElement = document.getElementById('zoomImage');
-                imageElement.src = `images/${imageId}`;  // Assuming the images are in the 'images' folder
+                imageElement.src = `https://raw.githubusercontent.com/hcmoon92/museum/main/images/${imageId}`;  // Assuming the images are in the 'images' folder
                 imageElement.alt = imageId;
             } else {
                 console.error('No image ID found in the URL.');
@@ -141,8 +141,8 @@
                 const notesElement = document.getElementById('artworkNotes');
 
                 // Set the image, audio, title, and notes
-                imageElement.src = `images/${imageId}`;
-                audioElement.src = `artwork_mp3/${audioId}.mp3`; // Match audio file without the .jpg extension
+                imageElement.src = `https://raw.githubusercontent.com/hcmoon92/museum/main/images/${imageId}`;
+                audioElement.src = `https://raw.githubusercontent.com/hcmoon92/museum/main/artwork_mp3/${audioId}.mp3`; // Match audio file without the .jpg extension
                 titleElement.textContent = title;
                 notesElement.textContent = notes;
             } else {
