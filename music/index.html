@@ -1,55 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Playlist Viewer</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Music Playlists</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .playlist-dropdown {
+      margin-bottom: 10px;
+    }
+    select {
+      width: 100%;
+      padding: 8px;
+      font-size: 1em;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+    .video-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .video-list li {
+      margin: 5px 0;
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
+    }
+    .video-viewer {
+      text-align: center;
+    }
+    iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border: none;
+      border-radius: 8px;
+    }
+    @media (min-width: 768px) {
       .container {
-        display: flex;
-        gap: 20px;
+        flex-direction: row;
       }
       .playlist-section {
         flex: 1;
         max-width: 300px;
       }
-      .playlist-dropdown {
-        margin-bottom: 10px;
-      }
-      .video-list {
-        list-style-type: none;
-        padding: 0;
-      }
-      .video-list li {
-        margin-bottom: 10px;
-        cursor: pointer;
-        color: blue;
-        text-decoration: underline;
-      }
       .video-viewer {
         flex: 2;
-        text-align: center;
       }
-      iframe {
-        width: 100%;
-        height: 315px;
-        border: none;
-      }
-      .control-bar {
-        margin-top: 10px;
-        text-align: center;
-      }
-      .control-bar button {
-        padding: 10px;
-        margin: 0 5px;
-        cursor: pointer;
-      }
-    </style>
-  </head>
+    }
+
+    .control-bar {
+      margin-top: 10px;
+      text-align: center;
+    }
+    .control-bar button {
+      padding: 10px;
+      margin: 0 5px;
+      cursor: pointer;
+    }    
+  </style>
+</head>
 <body>
   <h1>YouTube Playlists</h1>
   <div class="container">
