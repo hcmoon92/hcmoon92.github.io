@@ -70,7 +70,7 @@
   <h1>YouTube Playlists</h1>
   <div class="container">
     <!-- Dropdown and Video List -->
-    <div class="playlist-section">
+    <div class="playlist-section" id="playlistSection">
       <div class="playlist-dropdown">
         <label for="playlistSelector">Select a Playlist:</label>
         <select id="playlistSelector" onchange="loadVideoList()">
@@ -95,7 +95,7 @@
 
     </div>
   </div>
-  
+
   <script>
     let playlists = [];
     let currentPlaylist = null;
