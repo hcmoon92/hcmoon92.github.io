@@ -90,18 +90,16 @@
       <!-- Playlist Control Bar -->
       <div class="control-bar">
         <button id="prevButton" onclick="prevVideo()">Prev</button>
-        <button id="playPauseButton" onclick="togglePlayPause()">Play</button>
         <button id="nextButton" onclick="nextVideo()">Next</button>
       </div>
 
     </div>
   </div>
-
+  
   <script>
     let playlists = [];
     let currentPlaylist = null;
     let currentVideoIndex = 0;
-    let isPlaying = false;
 
     // Fetch playlists from JSON and populate dropdown
     async function fetchPlaylists() {
@@ -128,9 +126,8 @@
       const videoList = document.getElementById('videoList');
       currentPlaylist = playlists[playlistIndex];
       currentVideoIndex = 0;
-            
-      videoList.innerHTML = ''; // Clear existing list
 
+      videoList.innerHTML = ''; // Clear existing list
 
       if (playlistIndex !== '') {
         const playlist = playlists[playlistIndex];
@@ -138,14 +135,15 @@
           const listItem = document.createElement('li');
           listItem.textContent = video.title;
           listItem.onclick = () => loadVideo(index);  // Pass index to loadVideo
-          //videoList.appendChild(listItem);
+          videoList.appendChild(listItem);
         });
       }
 
       // Hide playlist section after selecting
       document.getElementById('playlistSection').style.display = 'none';
-      
-      loadVideo(currentVideoIndex);  // Load first video by default
+
+      // Load first video by default
+      loadVideo(currentVideoIndex);
     }
 
     // Load a video into the player
@@ -154,24 +152,10 @@
       const videoId = currentPlaylist.videos[index].id;
       const iframe = document.getElementById("youtubeViewer");
       iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
-      updateControlBar();
 
       // Update song title below control bar
       const songTitle = document.getElementById("songTitle");
       songTitle.textContent = currentPlaylist.videos[index].title;
-
-    }
-
-    // Update control bar based on playing status
-    function updateControlBar() {
-      const playPauseButton = document.getElementById("playPauseButton");
-      playPauseButton.textContent = isPlaying ? "Pause" : "Play";
-    }
-
-    // Play or pause the current video
-    function togglePlayPause() {
-      isPlaying = !isPlaying;
-      updateControlBar();
     }
 
     // Go to the previous video
