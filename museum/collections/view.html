@@ -137,10 +137,10 @@
         //loadImage();
 
 
-        function loadImageAndAudio() {
+        async function loadImageAndAudio() {
             const urlParams = new URLSearchParams(window.location.search);
             const imageId = urlParams.get('id'); // Artwork ID from URL
-            const title = urlParams.get('title') || 'Untitled Artwork'; // Artwork title
+            let title = urlParams.get('title') || 'Untitled Artwork'; // Artwork title
             const notes = urlParams.get('notes') || 'No additional notes available.'; // Artwork notes
 
             if (imageId) {
@@ -154,8 +154,28 @@
                 // Set the image, audio, title, and notes
                 imageElement.src = `https://raw.githubusercontent.com/hcmoon92/museum/main/collections/images/${imageId}`;
                 audioElement.src = `https://raw.githubusercontent.com/hcmoon92/museum/main/collections/artwork_mp3/${audioId}.mp3`; // Match audio file without the .jpg extension
-                titleElement.textContent = title;
-                notesElement.textContent = notes;
+
+                // Fetch the title from the search.json file
+                try {
+                    const response = await fetch('https://raw.githubusercontent.com/hcmoon92/museum/main/collections/artwork_done/search.json');
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch search.json');
+                    }
+
+                    const idToFilenameMapping = await response.json();
+                    const filename = idToFilenameMapping[audioId];
+                    const title = filename
+                        ? filename.replace(/^[\d]+-/, '').replace(/---/g, ' - ').replace(/\.txt$/, '')
+                        : 'Untitled Artwork'; // Fallback title
+
+                    // Set the title and notes
+                    titleElement.textContent = title;
+                    notesElement.textContent = notes;
+                } catch (error) {
+                    console.error('Error fetching or processing search.json:', error);
+                    titleElement.textContent = 'Error loading title';
+                    notesElement.textContent = notes;
+                }
             } else {
                 console.error('No image ID found in the URL.');
             }
