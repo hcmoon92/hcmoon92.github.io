@@ -1,0 +1,21 @@
+{
+    "playlists": [
+      {
+        "title": "Classic Hits",
+        "description": "Enjoy timeless classics from various artists.",
+        "videos": [
+          { "id": "dQw4w9WgXcQ", "title": "Rick Astley - Never Gonna Give You Up" },
+          { "id": "3JZ_D3ELwOQ", "title": "Mark Ronson - Uptown Funk ft. Bruno Mars" }
+        ]
+      },
+      {
+        "title": "Latin Vibes",
+        "description": "Popular Latin music tracks to keep you dancing.",
+        "videos": [
+          { "id": "kJQP7kiw5Fk", "title": "Luis Fonsi - Despacito ft. Daddy Yankee" },
+          { "id": "fRh_vgS2dFE", "title": "Justin Bieber - Sorry" }
+        ]
+      }
+    ]
+  }
+  
