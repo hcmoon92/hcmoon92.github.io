@@ -56,16 +56,6 @@
         flex: 2;
       }
     }
-
-    .control-bar {
-      margin-top: 10px;
-      text-align: center;
-    }
-    .control-bar button {
-      padding: 10px;
-      margin: 0 5px;
-      cursor: pointer;
-    }    
   </style>
 </head>
 <body>
@@ -101,33 +91,46 @@
     let currentPlaylist = null;
     let currentVideoIndex = 0;
     let isPlaying = false;
-    
-    // Populate playlist dropdown
-    const playlistSelector = document.getElementById("playlistSelector");
-    playlists.forEach((playlist, index) => {
-      const option = document.createElement("option");
-      option.value = index;
-      option.textContent = playlist.title;
-      playlistSelector.appendChild(option);
-    });
 
-    // Load the video list of selected playlist
+    // Fetch playlists from JSON and populate dropdown
+    async function fetchPlaylists() {
+      try {
+        const response = await fetch('playlists.json'); // Adjust path if needed
+        const data = await response.json();
+        playlists = data.playlists;
+
+        const playlistSelector = document.getElementById('playlistSelector');
+        playlists.forEach((playlist, index) => {
+          const option = document.createElement('option');
+          option.value = index;
+          option.textContent = playlist.title;
+          playlistSelector.appendChild(option);
+        });
+      } catch (error) {
+        console.error('Error fetching playlists:', error);
+      }
+    }
+
+    // Load video list for selected playlist
     function loadVideoList() {
-      const playlistIndex = playlistSelector.value;
+      const playlistIndex = document.getElementById('playlistSelector').value;
+      const videoList = document.getElementById('videoList');
       currentPlaylist = playlists[playlistIndex];
       currentVideoIndex = 0;
+            
+      videoList.innerHTML = ''; // Clear existing list
 
-      const videoList = document.getElementById("videoList");
-      videoList.innerHTML = ''; // Clear previous list
 
-      currentPlaylist.videos.forEach((video, index) => {
-        const listItem = document.createElement("li");
-        listItem.textContent = video.title;
-        listItem.onclick = () => loadVideo(index);
-        videoList.appendChild(listItem);
-      });
-
-      loadVideo(currentVideoIndex);
+      if (playlistIndex !== '') {
+        const playlist = playlists[playlistIndex];
+        playlist.videos.forEach((video, index) => {
+          const listItem = document.createElement('li');
+          listItem.textContent = video.title;
+          listItem.onclick = () => loadVideo(index);  // Pass index to loadVideo
+          videoList.appendChild(listItem);
+        });
+      }
+      loadVideo(currentVideoIndex);  // Load first video by default
     }
 
     // Load a video into the player
@@ -139,14 +142,10 @@
       updateControlBar();
     }
 
-    // Update control bar text based on video status
+    // Update control bar based on playing status
     function updateControlBar() {
       const playPauseButton = document.getElementById("playPauseButton");
-      if (isPlaying) {
-        playPauseButton.textContent = "Pause";
-      } else {
-        playPauseButton.textContent = "Play";
-      }
+      playPauseButton.textContent = isPlaying ? "Pause" : "Play";
     }
 
     // Play or pause the current video
@@ -168,6 +167,9 @@
         loadVideo(currentVideoIndex + 1);
       }
     }
+
+    // Initialize playlists on page load
+    window.onload = fetchPlaylists;
   </script>
 </body>
 </html>
