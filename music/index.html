@@ -140,7 +140,7 @@
       }
 
       // Hide playlist section after selecting
-      document.getElementById('playlistSection').style.display = 'none';
+      document.getElementById('videoList').style.display = 'none';
 
       // Load first video by default
       loadVideo(currentVideoIndex);
@@ -151,7 +151,7 @@
       currentVideoIndex = index;
       const videoId = currentPlaylist.videos[index].id;
       const iframe = document.getElementById("youtubeViewer");
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0`;
 
       // Update song title below control bar
       const songTitle = document.getElementById("songTitle");
