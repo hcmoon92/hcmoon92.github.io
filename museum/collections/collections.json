@@ -1,0 +1,19 @@
+{
+    "collections": {
+        "asia_art_0001": { 
+            "name": "Asian Art 0001", 
+            "artworks": [
+                "37514.jpg",
+                "37755.jpg",
+                "38086.jpg",
+                "38109.jpg",
+                "38363.jpg",
+                "39847.jpg",
+                "40609.jpg",
+                "42486.jpg",
+                "50799.jpg",
+                "897129.jpg"
+            ]
+        }   
+    }
+}

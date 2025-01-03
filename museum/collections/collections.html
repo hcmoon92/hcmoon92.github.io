@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection View</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 10px;
+        }
+        .gallery img {
+            max-width: 200px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin: 20px;
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;" id="collectionName">Collection's Artworks</h1>
+    <a href="index.html" class="back-link">← Back to Collections</a>
+    <div id="gallery" class="gallery"></div>
+
+    <script>
+        // Fetch the 'collection' parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const collectionKey = urlParams.get('collection');
+
+        // Fetch collections.json and load the selected collection's data
+        fetch('collections.json')
+            .then(response => response.json())
+            .then(data => {
+                const collection = data.collections[collectionKey];
+
+                if (collection) {
+                    // Set the collection's name as the title
+                    document.getElementById('collectionName').textContent = collection.name;
+
+                    // Display the collection's artworks
+                    const gallery = document.getElementById('gallery');
+                    collection.artworks.forEach(image => {
+                        const imgElement = document.createElement('img');
+                        imgElement.src = `https://raw.githubusercontent.com/hcmoon92/museum/main/collections/images/${image}`;  // Assuming images are in the 'images' folder
+                        imgElement.alt = image;
+
+                        // Redirect to view.html with collection key as a parameter on click
+                        imgElement.addEventListener('click', () => {
+                            window.location.href = `view.html?id=${image}`;
+                        });
+                        
+                        gallery.appendChild(imgElement);
+                    });
+                } else {
+                    console.error('collection not found!');
+                }
+            })
+            .catch(error => console.error('Error loading collection:', error));
+    </script>
+</body>
+</html>

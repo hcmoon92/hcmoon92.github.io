@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art & Collections</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .collections {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .collection-item {
+            margin: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #007BFF;
+        }
+        .collection-item:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Art & Collections</h1>
+    <div id="collections" class="collections"></div>
+
+    <script>
+        // Fetch collections from the JSON file and display them
+        fetch('collections.json')
+            .then(response => response.json())
+            .then(data => {
+                const collections = data.collections;
+                const collectionsDiv = document.getElementById('collections');
+
+                // Iterate over the collections and create clickable items
+                Object.keys(collections).forEach(key => {
+                    const collection = collections[key];
+                    const collectionElement = document.createElement('div');
+                    collectionElement.classList.add('collection-item');
+                    collectionElement.textContent = collection.name;
+
+                    // Redirect to view.html with collection key as a parameter on click
+                    collectionElement.addEventListener('click', () => {
+                        window.location.href = `collections.html?collection=${key}`;
+                    });
+
+                    collectionsDiv.appendChild(collectionElement);
+                });
+            })
+            .catch(error => console.error('Error loading collections:', error));
+    </script>
+</body>
+</html>
