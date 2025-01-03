@@ -14,7 +14,7 @@ def get_video_id(url):
 
 
 def fetch_youtube_playlist():
-    playlist_url = "https://www.youtube.com/playlist?list=PLxR2-5mrlubq5uRzgUCmb7vNci-B-HR4X"
+    playlist_url = "https://www.youtube.com/playlist?list=PLANgXIaQPqHKfpYDU-i1dIhw1hzzW0Kct"
 
     playlist_data = {
         "playlists": [
