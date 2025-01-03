@@ -65,6 +65,12 @@
       }
     }
   </style>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+  <script>
+
+  </script>
 </head>
 <body>
   <h1 style="text-align: center;">YouTube Playlists</h1>
@@ -78,6 +84,12 @@
         </select>
       </div>
       <ul id="videoList" class="video-list"></ul>
+    </div>
+
+    <div style="text-align: center;">
+      <div id="player" style="width: 640px; height: 360px;"></div>
+      <br>
+      <button onclick="unmuteVideo()">Unmute</button>
     </div>
 
     <!-- Video Viewer -->
@@ -97,10 +109,41 @@
   </div>
 
   <script>
+    let player;
+
     let playlists = [];
     let currentPlaylist = null;
     let currentVideoIndex = 0;
 
+      // Load the YouTube Player API
+      function onYouTubeIframeAPIReady(videoId) {
+      player = new YT.Player('player', {
+        videoId: videoId,
+        playerVars: {
+          autoplay: 1,
+          mute: 1, // Start muted
+        },
+        events: {
+          onReady: onPlayerReady,
+        },
+      });
+    }
+
+    // Called when the player is ready
+    function onPlayerReady(event) {
+      event.target.playVideo(); // Ensure the video plays
+      
+      unmuteVideo();
+    }
+
+    // Unmute the video
+    function unmuteVideo() {
+      console.log('unmuteVideo')
+      if (player) {
+        player.unMute(); // Unmute the video
+      }
+    }
+  
     // Fetch playlists from JSON and populate dropdown
     async function fetchPlaylists() {
       try {
@@ -156,6 +199,8 @@
       // Update song title below control bar
       const songTitle = document.getElementById("songTitle");
       songTitle.textContent = currentPlaylist.videos[index].title;
+
+      onYouTubeIframeAPIReady(videoId);
     }
 
     // Go to the previous video
