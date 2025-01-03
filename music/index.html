@@ -204,7 +204,7 @@
     }
 
     // Load a video into the player
-    function loadVideo(index) {
+    function loadVideo2(index) {
       currentVideoIndex = index;
       const videoId = currentPlaylist.videos[index].id;
 
@@ -215,6 +215,24 @@
       onYouTubeIframeAPIReady(videoId);
     }
 
+    // Load a video into the player
+  function loadVideo(index) {
+    if (!currentPlaylist || index < 0 || index >= currentPlaylist.videos.length) {
+      return; // Prevent invalid index access
+    }
+
+    currentVideoIndex = index;
+    const videoId = currentPlaylist.videos[index].id;
+
+    // Load the video into the existing player instance
+    if (player) {
+      player.loadVideoById(videoId);
+    }
+
+    // Update song title below control bar
+    const songTitle = document.getElementById("songTitle");
+    songTitle.textContent = currentPlaylist.videos[index].title;
+  }
         
     // Go to the previous video
     function prevVideo() {
