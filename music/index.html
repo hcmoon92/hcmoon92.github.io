@@ -115,25 +115,34 @@
     let currentPlaylist = null;
     let currentVideoIndex = 0;
 
-      // Load the YouTube Player API
-      function onYouTubeIframeAPIReady(videoId) {
+    function onYouTubeIframeAPIReady() {
       player = new YT.Player('player', {
-        videoId: videoId,
         playerVars: {
-          autoplay: 1,
+          autoplay: 0,
           mute: 1, // Start muted
         },
         events: {
           onReady: onPlayerReady,
+          onStateChange: onPlayerStateChange, // Add state change handler
         },
       });
     }
-
+    
     // Called when the player is ready
     function onPlayerReady(event) {
-      event.target.playVideo(); // Ensure the video plays
-
-      unmuteVideo();
+      console.log('Player is ready');
+      // Optionally load the first video of the selected playlist if needed
+      if (currentPlaylist && currentPlaylist.videos.length > 0) {
+        loadVideo(0); // Load the first video in the playlist
+      }
+    }
+    
+    // Called when the player's state changes
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.PLAYING) {
+        // Unmute when the video starts playing
+        player.unMute();
+      }
     }
 
     // Unmute the video
