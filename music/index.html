@@ -1,63 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YouTube Music Playlists</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    .container {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .playlist-dropdown {
-      margin-bottom: 10px;
-    }
-    select {
-      width: 100%;
-      padding: 8px;
-      font-size: 1em;
-      border-radius: 4px;
-      border: 1px solid #ddd;
-    }
-    .video-list {
-      list-style-type: none;
-      padding: 0;
-    }
-    .video-list li {
-      margin: 5px 0;
-      cursor: pointer;
-      color: blue;
-      text-decoration: underline;
-    }
-    .video-viewer {
-      text-align: center;
-    }
-    iframe {
-      width: 100%;
-      max-width: 640px;
-      height: 360px;
-      border: none;
-      border-radius: 8px;
-    }
-    @media (min-width: 768px) {
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Playlist Viewer</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
       .container {
-        flex-direction: row;
+        display: flex;
+        gap: 20px;
       }
       .playlist-section {
         flex: 1;
         max-width: 300px;
       }
+      .playlist-dropdown {
+        margin-bottom: 10px;
+      }
+      .video-list {
+        list-style-type: none;
+        padding: 0;
+      }
+      .video-list li {
+        margin-bottom: 10px;
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+      }
       .video-viewer {
         flex: 2;
+        text-align: center;
       }
-    }
-  </style>
-</head>
+      iframe {
+        width: 100%;
+        height: 315px;
+        border: none;
+      }
+      .control-bar {
+        margin-top: 10px;
+        text-align: center;
+      }
+      .control-bar button {
+        padding: 10px;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
 <body>
   <h1>YouTube Playlists</h1>
   <div class="container">
@@ -75,56 +67,89 @@
     <!-- Video Viewer -->
     <div class="video-viewer">
       <iframe id="youtubeViewer" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+
+      <!-- Playlist Control Bar -->
+      <div class="control-bar">
+        <button id="prevButton" onclick="prevVideo()">Prev</button>
+        <button id="playPauseButton" onclick="togglePlayPause()">Play</button>
+        <button id="nextButton" onclick="nextVideo()">Next</button>
+      </div>
+
     </div>
   </div>
 
   <script>
     let playlists = [];
+    let currentPlaylist = null;
+    let currentVideoIndex = 0;
+    let isPlaying = false;
+    
+    // Populate playlist dropdown
+    const playlistSelector = document.getElementById("playlistSelector");
+    playlists.forEach((playlist, index) => {
+      const option = document.createElement("option");
+      option.value = index;
+      option.textContent = playlist.title;
+      playlistSelector.appendChild(option);
+    });
 
-    // Fetch playlists from JSON and populate dropdown
-    async function fetchPlaylists() {
-      try {
-        const response = await fetch('playlists.json'); // Adjust path if needed
-        const data = await response.json();
-        playlists = data.playlists;
-
-        const playlistSelector = document.getElementById('playlistSelector');
-        playlists.forEach((playlist, index) => {
-          const option = document.createElement('option');
-          option.value = index;
-          option.textContent = playlist.title;
-          playlistSelector.appendChild(option);
-        });
-      } catch (error) {
-        console.error('Error fetching playlists:', error);
-      }
-    }
-
-    // Load video list for selected playlist
+    // Load the video list of selected playlist
     function loadVideoList() {
-      const playlistIndex = document.getElementById('playlistSelector').value;
-      const videoList = document.getElementById('videoList');
-      videoList.innerHTML = ''; // Clear existing list
+      const playlistIndex = playlistSelector.value;
+      currentPlaylist = playlists[playlistIndex];
+      currentVideoIndex = 0;
 
-      if (playlistIndex !== '') {
-        const playlist = playlists[playlistIndex];
-        playlist.videos.forEach(video => {
-          const listItem = document.createElement('li');
-          listItem.textContent = video.title;
-          listItem.onclick = () => playVideo(video.id);
-          videoList.appendChild(listItem);
-        });
+      const videoList = document.getElementById("videoList");
+      videoList.innerHTML = ''; // Clear previous list
+
+      currentPlaylist.videos.forEach((video, index) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = video.title;
+        listItem.onclick = () => loadVideo(index);
+        videoList.appendChild(listItem);
+      });
+
+      loadVideo(currentVideoIndex);
+    }
+
+    // Load a video into the player
+    function loadVideo(index) {
+      currentVideoIndex = index;
+      const videoId = currentPlaylist.videos[index].id;
+      const iframe = document.getElementById("youtubeViewer");
+      iframe.src = `https://www.youtube.com/embed/${videoId}`;
+      updateControlBar();
+    }
+
+    // Update control bar text based on video status
+    function updateControlBar() {
+      const playPauseButton = document.getElementById("playPauseButton");
+      if (isPlaying) {
+        playPauseButton.textContent = "Pause";
+      } else {
+        playPauseButton.textContent = "Play";
       }
     }
 
-    // Play video by updating iframe
-    function playVideo(videoId) {
-      const viewer = document.getElementById('youtubeViewer');
-      viewer.src = `https://www.youtube.com/embed/${videoId}`;
+    // Play or pause the current video
+    function togglePlayPause() {
+      isPlaying = !isPlaying;
+      updateControlBar();
     }
 
-    // Initialize playlists on page load
-    window.onload = fetchPlaylists;
+    // Go to the previous video
+    function prevVideo() {
+      if (currentVideoIndex > 0) {
+        loadVideo(currentVideoIndex - 1);
+      }
+    }
+
+    // Go to the next video
+    function nextVideo() {
+      if (currentVideoIndex < currentPlaylist.videos.length - 1) {
+        loadVideo(currentVideoIndex + 1);
+      }
+    }
   </script>
 </body>
 </html>
