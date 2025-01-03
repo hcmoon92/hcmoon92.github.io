@@ -14,13 +14,13 @@ def get_video_id(url):
 
 
 def fetch_youtube_playlist():
-    playlist_url = "https://www.youtube.com/playlist?list=PLANgXIaQPqHKfpYDU-i1dIhw1hzzW0Kct"
+    playlist_url = "https://www.youtube.com/playlist?list=PL4QNnZJr8sRNKjKzArmzTBAlNYBDN2h-J"
 
     playlist_data = {
         "playlists": [
             {
-                "title": "Classic Hits",
-                "description": "Enjoy timeless classics from various artists.",
+                "title": "KPOP 2025",
+                "description": "♫ Korean Pop Songs 2025",
                 "videos": []
             }
         ]
@@ -32,7 +32,7 @@ def fetch_youtube_playlist():
         page = browser.new_page()
 
         # Navigate to the playlist URL
-        page.goto(playlist_url)
+        page.goto(playlist_url, timeout=60000)
 
         # Wait for videos to load
         page.wait_for_selector('a.yt-simple-endpoint.style-scope.ytd-playlist-video-renderer')
