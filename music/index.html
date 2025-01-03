@@ -89,21 +89,23 @@
     <div style="text-align: center;">
       <div id="player" style="width: 640px; height: 360px;"></div>
       <br>
-      <button onclick="unmuteVideo()">Unmute</button>
+
+      <!-- Song Title -->
+      <div id="songTitle" class="song-title">No song playing</div>
+
+      <!-- Playlist Control Bar -->
+      <div class="control-bar">
+        <button id="prevButton" onclick="prevVideo()">Prev</button>
+        <button id="nextButton" onclick="nextVideo()">Next</button>
+      </div>
+
+      <!-- <button onclick="unmuteVideo()">Unmute</button> -->
     </div>
 
     <!-- Video Viewer -->
     <div class="video-viewer">
       <iframe id="youtubeViewer" src="about:blank" allowfullscreen></iframe>
 
-      <!-- Song Title -->
-      <div id="songTitle" class="song-title">No song playing</div>
-      
-      <!-- Playlist Control Bar -->
-      <div class="control-bar">
-        <button id="prevButton" onclick="prevVideo()">Prev</button>
-        <button id="nextButton" onclick="nextVideo()">Next</button>
-      </div>
 
     </div>
   </div>
@@ -132,7 +134,7 @@
     // Called when the player is ready
     function onPlayerReady(event) {
       event.target.playVideo(); // Ensure the video plays
-      
+
       unmuteVideo();
     }
 
