@@ -30,28 +30,30 @@
         }
 
         .artist-item {
-            background: #fff;
+            background: linear-gradient(135deg, #ff7eb3, #ff758c);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             text-align: center;
             padding: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
             cursor: pointer;
+            color: #fff; /* Ensure text is visible on gradient */
         }
 
         .artist-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #ff758c, #ff7eb3); /* Reverse gradient for hover */
         }
 
         .artist-item h2 {
             font-size: 24px;
-            color: #007BFF;
+            color: #fff; /* Match text color with gradient */
             margin: 0 0 10px;
         }
 
         .artist-item p {
-            color: #555;
+            color: #f3f3f3; /* Softer white for paragraph text */
             font-size: 16px;
         }
 
