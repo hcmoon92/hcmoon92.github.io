@@ -14,13 +14,13 @@ def get_video_id(url):
 
 
 def fetch_youtube_playlist():
-    playlist_url = "https://www.youtube.com/playlist?list=PL4QNnZJr8sRNKjKzArmzTBAlNYBDN2h-J"
+    playlist_url = "https://www.youtube.com/playlist?list=PLDIoUOhQQPlWt8OpaGG43OjNYuJ2q9jEN"
 
     playlist_data = {
         "playlists": [
             {
-                "title": "KPOP 2025",
-                "description": "♫ Korean Pop Songs 2025",
+                "title": "Vevo 2024",
+                "description": "Vevo Playlist 2024",
                 "videos": []
             }
         ]
