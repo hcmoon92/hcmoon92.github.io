@@ -124,14 +124,14 @@
             // Center the image if it's larger than the container
             translateX1 = Math.max((container1.clientWidth - image1.naturalWidth) / 2, 0);
             translateY1 = Math.max((container1.clientHeight - image1.naturalHeight) / 2, 0);
-            updateTransform();
+            updateTransform1();
         };
     
         // Handle mouse drag to move the image
         let isDragging1 = false;
         let startX1, startY1;
     
-        container.addEventListener('mousedown', (e) => {
+        container1.addEventListener('mousedown', (e) => {
             isDragging1 = true;
             startX1 = e.clientX;
             startY1 = e.clientY;
