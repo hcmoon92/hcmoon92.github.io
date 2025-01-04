@@ -117,13 +117,13 @@
         let translateY1 = 0;
     
         // Initial setup to use the image's natural dimensions
-        image1.onload = () => {
-            image1.style.width = `${image1.naturalWidth}px`;
-            image1.style.height = `${image1.naturalHeight}px`;
+        image.onload = () => {
+            image.style.width = `${image.naturalWidth}px`;
+            image.style.height = `${image.naturalHeight}px`;
     
             // Center the image if it's larger than the container
-            translateX1 = Math.max((container1.clientWidth - image1.naturalWidth) / 2, 0);
-            translateY1 = Math.max((container1.clientHeight - image1.naturalHeight) / 2, 0);
+            translateX1 = Math.max((container.clientWidth - image.naturalWidth) / 2, 0);
+            translateY1 = Math.max((container.clientHeight - image.naturalHeight) / 2, 0);
             updateTransform();
         };
     
@@ -135,11 +135,11 @@
             isDragging1 = true;
             startX1 = e.clientX;
             startY1 = e.clientY;
-            container1.style.cursor = 'grabbing';
+            container.style.cursor = 'grabbing';
         });
     
         document.addEventListener('mousemove', (e) => {
-            if (!isDragging1) return;
+            if (!isDragging) return;
     
             const dx = e.clientX - startX1;
             const dy = e.clientY - startY1;
@@ -148,25 +148,25 @@
             translateY1 += dy;
     
             // Prevent moving the image beyond its bounds
-            const maxX = Math.max(container1.clientWidth - image1.naturalWidth, 0);
-            const maxY = Math.max(container1.clientHeight - image1.naturalHeight, 0);
+            const maxX = Math.max(container.clientWidth - image.naturalWidth, 0);
+            const maxY = Math.max(container.clientHeight - image.naturalHeight, 0);
     
-            translateX1 = Math.min(0, Math.max(translateX1, maxX));
-            translateY1 = Math.min(0, Math.max(translateY1, maxY));
+            translateX1 = Math.min(0, Math.max(translateX, maxX));
+            translateY1 = Math.min(0, Math.max(translateY, maxY));
     
             updateTransform1();
     
-            startX1 = e.clientX;
-            startY1 = e.clientY;
+            startX = e.clientX;
+            startY = e.clientY;
         });
     
         document.addEventListener('mouseup', () => {
             isDragging1 = false;
-            container1.style.cursor = 'default';
+            container.style.cursor = 'default';
         });
     
         function updateTransform1() {
-            image1.style.transform = `translate(${translateX1}px, ${translateY1}px)`;
+            image.style.transform = `translate(${translateX1}px, ${translateY1}px)`;
         }
     </script>
 
