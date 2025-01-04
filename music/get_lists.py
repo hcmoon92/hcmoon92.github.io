@@ -14,13 +14,13 @@ def get_video_id(url):
 
 
 def fetch_youtube_playlist():
-    playlist_url = "https://www.youtube.com/playlist?list=PLDIoUOhQQPlWt8OpaGG43OjNYuJ2q9jEN"
+    playlist_url = "https://www.youtube.com/playlist?list=PLLdPJGHquctExUP7PeLEu5bKIjhWTRZ6m"
 
     playlist_data = {
         "playlists": [
             {
-                "title": "Vevo 2024",
-                "description": "Vevo Playlist 2024",
+                "title": "Top 20 Songs This Week 2025 ♫ Best International Songs 2025",
+                "description": "Top 20 Songs This Week 2025 ♫ Best International Songs 2025",
                 "videos": []
             }
         ]
