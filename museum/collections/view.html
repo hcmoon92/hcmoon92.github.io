@@ -92,7 +92,7 @@
     </style>
 </head>
 <body>
-    <!-- <div class="image-container">
+    <div class="image-container">
         <img id="zoomImage" class="zoomable-image" 
              src="" 
              alt="Zoomable and Pannable Image">
@@ -103,72 +103,7 @@
         </div>
         <div class="coordinates" id="coordDisplay">X: 0, Y: 0</div>
 
-    </div> -->
-
-    <div class="image-container1" style="position: relative; overflow: hidden; width: 500px; height: 300px;">
-        <img id="image1" src="" style="position: absolute; transform-origin: top left;">
     </div>
-    <script>
-        const container1 = document.querySelector('.image-container1');
-        const image1 = document.getElementById('image1');
-    
-        // Variables to track position
-        let translateX1 = 0;
-        let translateY1 = 0;
-    
-        // Initial setup to use the image's natural dimensions
-        image1.onload = () => {
-            image1.style.width = `${image1.naturalWidth}px`;
-            image1.style.height = `${image1.naturalHeight}px`;
-    
-            // Center the image if it's larger than the container
-            translateX1 = Math.max((container1.clientWidth - image1.naturalWidth) / 2, 0);
-            translateY1 = Math.max((container1.clientHeight - image1.naturalHeight) / 2, 0);
-            updateTransform1();
-        };
-    
-        // Handle mouse drag to move the image
-        let isDragging1 = false;
-        let startX1, startY1;
-    
-        container1.addEventListener('mousedown', (e) => {
-            isDragging1 = true;
-            startX1 = e.clientX;
-            startY1 = e.clientY;
-            container1.style.cursor = 'grabbing';
-        });
-    
-        document.addEventListener('mousemove', (e) => {
-            if (!isDragging1) return;
-    
-            const dx = e.clientX - startX1;
-            const dy = e.clientY - startY1;
-    
-            translateX1 += dx;
-            translateY1 += dy;
-    
-            // Prevent moving the image beyond its bounds
-            const maxX = Math.max(container1.clientWidth - image1.naturalWidth, 0);
-            const maxY = Math.max(container1.clientHeight - image1.naturalHeight, 0);
-    
-            translateX1 = Math.min(0, Math.max(translateX1, maxX));
-            translateY1 = Math.min(0, Math.max(translateY1, maxY));
-    
-            updateTransform1();
-    
-            startX1 = e.clientX;
-            startY1 = e.clientY;
-        });
-    
-        document.addEventListener('mouseup', () => {
-            isDragging1 = false;
-            container1.style.cursor = 'default';
-        });
-    
-        function updateTransform1() {
-            image1.style.transform = `translate(${translateX1}px, ${translateY1}px)`;
-        }
-    </script>
 
     <!-- Audio Player -->
     <div class="audio-player">
@@ -202,7 +137,7 @@
         //loadImage();
 
 
-        async function loadImageAndAudio1() {
+        async function loadImageAndAudio() {
             const urlParams = new URLSearchParams(window.location.search);
             const imageId = urlParams.get('id'); // Artwork ID from URL
             let title = urlParams.get('title') || 'Untitled Artwork'; // Artwork title
@@ -211,7 +146,7 @@
             if (imageId) {
                 const audioId = imageId.replace(/\.jpg$/, ''); // Removes the .jpg extension
 
-                const imageElement = document.getElementById('image1');
+                const imageElement = document.getElementById('zoomImage');
                 const audioElement = document.getElementById('artworkAudio');
                 const titleElement = document.getElementById('artworkTitle');
                 const notesElement = document.getElementById('artworkNotes');
@@ -246,52 +181,7 @@
             }
         }
 
-        // async function loadImageAndAudio() {
-        //     const urlParams = new URLSearchParams(window.location.search);
-        //     const imageId = urlParams.get('id'); // Artwork ID from URL
-        //     let title = urlParams.get('title') || 'Untitled Artwork'; // Artwork title
-        //     const notes = urlParams.get('notes') || 'No additional notes available.'; // Artwork notes
-
-        //     if (imageId) {
-        //         const audioId = imageId.replace(/\.jpg$/, ''); // Removes the .jpg extension
-
-        //         const imageElement = document.getElementById('zoomImage');
-        //         const audioElement = document.getElementById('artworkAudio');
-        //         const titleElement = document.getElementById('artworkTitle');
-        //         const notesElement = document.getElementById('artworkNotes');
-
-        //         // Set the image, audio, title, and notes
-        //         imageElement.src = `https://raw.githubusercontent.com/hcmoon92/museum/main/collections/images/${imageId}`;
-        //         audioElement.src = `https://raw.githubusercontent.com/hcmoon92/museum/main/collections/artwork_mp3/${audioId}.mp3`; // Match audio file without the .jpg extension
-
-        //         // Fetch the title from the search.json file
-        //         try {
-        //             const response = await fetch('https://raw.githubusercontent.com/hcmoon92/museum/main/collections/artwork_done/search.json');
-        //             if (!response.ok) {
-        //                 throw new Error('Failed to fetch search.json');
-        //             }
-
-        //             const idToFilenameMapping = await response.json();
-        //             const filename = idToFilenameMapping[audioId];
-        //             const title = filename
-        //                 ? filename.replace(/^[\d]+-/, '').replace(/---/g, ' - ').replace(/\.txt$/, '')
-        //                 : 'Untitled Artwork'; // Fallback title
-
-        //             // Set the title and notes
-        //             titleElement.textContent = title;
-        //             notesElement.textContent = notes;
-        //         } catch (error) {
-        //             console.error('Error fetching or processing search.json:', error);
-        //             titleElement.textContent = 'Error loading title';
-        //             notesElement.textContent = notes;
-        //         }
-        //     } else {
-        //         console.error('No image ID found in the URL.');
-        //     }
-        // }
-
-        //loadImageAndAudio();
-        loadImageAndAudio1();
+        loadImageAndAudio();
 
         // Audio play/pause function
         function toggleAudio() {
@@ -306,120 +196,120 @@
     </script>    
 
     <script>
-        // const container = document.querySelector('.image-container');
-        // const image = document.getElementById('zoomImage');
-        // let scale = 1;
-        // let isDragging = false;
-        // let startX, startY, translateX = 0, translateY = 0;
-        // let maxScale = 5;
+        const container = document.querySelector('.image-container');
+        const image = document.getElementById('zoomImage');
+        let scale = 1;
+        let isDragging = false;
+        let startX, startY, translateX = 0, translateY = 0;
+        let maxScale = 5;
 
-        // function zoomInit() {
-        //     // Define initial zoom parameters
-        //     scale = 1;  // 150% zoom
-        //     translateX = 0;  // Slight horizontal shift
-        //     translateY = 0;  // Slight vertical shift
+        function zoomInit() {
+            // Define initial zoom parameters
+            scale = 1;  // 150% zoom
+            translateX = 0;  // Slight horizontal shift
+            translateY = 0;  // Slight vertical shift
 
-        //     updateImageTransform();
-        // }
+            updateImageTransform();
+        }
 
-        // function zoomIn() {
-        //     scale = Math.min(scale * 1.2, maxScale);
-        //     updateImageTransform();
-        // }
+        function zoomIn() {
+            scale = Math.min(scale * 1.2, maxScale);
+            updateImageTransform();
+        }
 
-        // function zoomOut() {
-        //     scale = Math.max(scale / 1.2, 1);
-        //     updateImageTransform();
-        // }
+        function zoomOut() {
+            scale = Math.max(scale / 1.2, 1);
+            updateImageTransform();
+        }
 
-        // function updateImageTransform() {
-        //     image.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
-        // }
+        function updateImageTransform() {
+            image.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+        }
 
         
-        // image.addEventListener('mousedown', (e) => {
-        //     isDragging = true;
-        //     startX = e.clientX - translateX;
-        //     startY = e.clientY - translateY;
-        //     image.style.cursor = 'grabbing';
-        // });
+        image.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX - translateX;
+            startY = e.clientY - translateY;
+            image.style.cursor = 'grabbing';
+        });
 
-        // // Mouse up event - stop dragging
-        // document.addEventListener('mouseup', () => {
-        //     if (isDragging) {
-        //         isDragging = false;
-        //         image.style.cursor = 'grab';
-        //     }
-        // });
+        // Mouse up event - stop dragging
+        document.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                image.style.cursor = 'grab';
+            }
+        });
 
 
-        // document.addEventListener('mousemove', (e) => {
+        document.addEventListener('mousemove', (e) => {
 
-        //     coordDisplay.textContent = `X: ${e.clientX}, Y: ${e.clientY}`;
+            coordDisplay.textContent = `X: ${e.clientX}, Y: ${e.clientY}`;
 
-        //     if (!isDragging) return;
+            if (!isDragging) return;
 
-        //     translateX = e.clientX - startX;
-        //     translateY = e.clientY - startY;
+            translateX = e.clientX - startX;
+            translateY = e.clientY - startY;
 
-        //     // Limit panning based on zoom level
-        //     const maxTranslateX = (scale - 1) * (container.offsetWidth / 2);
-        //     const maxTranslateY = (scale - 1) * (container.offsetHeight / 2);
+            // Limit panning based on zoom level
+            const maxTranslateX = (scale - 1) * (container.offsetWidth / 2);
+            const maxTranslateY = (scale - 1) * (container.offsetHeight / 2);
 
-        //     translateX = Math.min(Math.max(translateX, -maxTranslateX), maxTranslateX);
-        //     translateY = Math.min(Math.max(translateY, -maxTranslateY), maxTranslateY);
+            translateX = Math.min(Math.max(translateX, -maxTranslateX), maxTranslateX);
+            translateY = Math.min(Math.max(translateY, -maxTranslateY), maxTranslateY);
 
-        //     updateImageTransform();
-        // });
+            updateImageTransform();
+        });
         
 
 
-        // // Prevent default drag behavior
-        // image.addEventListener('dragstart', (e) => {
-        //     e.preventDefault();
-        // });
+        // Prevent default drag behavior
+        image.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        });
 
     
-        // // Mouse Wheel Zoom
-        // container.addEventListener('wheel', (e) => {
-        //     // Prevent page scrolling
-        //     e.preventDefault();
+        // Mouse Wheel Zoom
+        container.addEventListener('wheel', (e) => {
+            // Prevent page scrolling
+            e.preventDefault();
 
-        //     // Determine zoom direction
-        //     const delta = e.deltaY > 0 ? -0.1 : 0.1;
+            // Determine zoom direction
+            const delta = e.deltaY > 0 ? -0.1 : 0.1;
             
-        //     // Calculate new scale
-        //     const newScale = scale + delta;
+            // Calculate new scale
+            const newScale = scale + delta;
             
-        //     // Limit zoom between 1x and 3x
-        //     if (newScale >= 1 && newScale <= maxScale) {
-        //         // Calculate mouse position relative to container
-        //         const rect = container.getBoundingClientRect();
-        //         const mouseX = e.clientX - rect.left;
-        //         const mouseY = e.clientY - rect.top;
+            // Limit zoom between 1x and 3x
+            if (newScale >= 1 && newScale <= maxScale) {
+                // Calculate mouse position relative to container
+                const rect = container.getBoundingClientRect();
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
 
-        //         // Calculate translation to zoom towards mouse cursor
-        //         const containerWidth = container.offsetWidth;
-        //         const containerHeight = container.offsetHeight;
+                // Calculate translation to zoom towards mouse cursor
+                const containerWidth = container.offsetWidth;
+                const containerHeight = container.offsetHeight;
 
-        //         // Adjust translation based on mouse position and scale change
-        //         translateX += (mouseX - containerWidth / 2) * (delta / scale);
-        //         translateY += (mouseY - containerHeight / 2) * (delta / scale);
+                // Adjust translation based on mouse position and scale change
+                translateX += (mouseX - containerWidth / 2) * (delta / scale);
+                translateY += (mouseY - containerHeight / 2) * (delta / scale);
 
-        //         // Update scale
-        //         scale = newScale;
+                // Update scale
+                scale = newScale;
 
-        //         // Limit panning
-        //         const maxTranslateX = (scale - 1) * (containerWidth / 2);
-        //         const maxTranslateY = (scale - 1) * (containerHeight / 2);
+                // Limit panning
+                const maxTranslateX = (scale - 1) * (containerWidth / 2);
+                const maxTranslateY = (scale - 1) * (containerHeight / 2);
 
-        //         translateX = Math.min(Math.max(translateX, -maxTranslateX), maxTranslateX);
-        //         translateY = Math.min(Math.max(translateY, -maxTranslateY), maxTranslateY);
+                translateX = Math.min(Math.max(translateX, -maxTranslateX), maxTranslateX);
+                translateY = Math.min(Math.max(translateY, -maxTranslateY), maxTranslateY);
 
-        //         // Apply transformation
-        //         updateImageTransform();
-        //     }
-        // }, { passive: false });
+                // Apply transformation
+                updateImageTransform();
+            }
+        }, { passive: false });
 
         // function updateImageTransform() {
         //     const imageContainer = document.querySelector('.image-container');
