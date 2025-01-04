@@ -81,11 +81,11 @@
         .audio-player {
             position: absolute;
             bottom: 10px;
-            right: 10px;
-            z-index: 20; /* Ensure the audio player is above the image */
-            background: rgba(247, 247, 247, 0.61);
-            padding: 10px;
-            border-radius: 5px;
+            left: 10px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
         }
 
         .audio-player button {
@@ -139,20 +139,19 @@
             <button onclick="zoomIn()">Zoom In</button>
             <button onclick="zoomOut()">Zoom Out</button>
 
-            <button onclick="toggleAudio()">Audio</button>
 
         </div>
         <!-- <div class="coordinates" id="coordDisplay">X: 0, Y: 0</div> -->
 
+        <!-- Audio Player -->
+
+        <div class="audio-player">
+            <button onclick="toggleAudio()">Play</button>
+            <audio id="artworkAudio" src=""></audio>
+        </div>
     </div>
 
-    <!-- Audio Player -->
-    <!-- <div class="audio-player">
-        <button onclick="toggleAudio()">Play/Pause Audio</button>
-        <audio id="artworkAudio" src=""></audio>
-        <img class="audio-player-image" src="audio.png" alt="audio">
 
-    </div> -->
 
     <!-- Artwork Details -->
     <div class="artwork-details">
