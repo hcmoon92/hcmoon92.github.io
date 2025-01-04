@@ -75,16 +75,35 @@
         }        
 
         .audio-player {
-            margin-top: 10px;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
         }
+
+        .audio-player button {
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .audio-player-image {
+            /* width: 20px; /* Adjust image size */
+            height: auto;
+        }
+
         .artwork-details {
-            width: 1024px;
+            width: 50%;
             padding: 10px;
             border: 2px solid #333;
             background-color: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
+
         .artwork-title {
             font-size: 24px;
             font-weight: bold;
@@ -93,7 +112,7 @@
         .artwork-notes {
             font-size: 16px;
             color: #555;
-        }    
+        }  
         
         .adsense-container {
             text-align: center;
@@ -120,13 +139,15 @@
         </div>
         <!-- <div class="coordinates" id="coordDisplay">X: 0, Y: 0</div> -->
 
+        <!-- Audio Player -->
+        <div class="audio-player">
+            <button onclick="toggleAudio()">Play</button>
+            <audio id="artworkAudio" src=""></audio>
+        </div>
+
     </div>
 
-    <!-- Audio Player -->
-    <div class="audio-player">
-        <button onclick="toggleAudio()">Play/Pause Audio</button>
-        <audio id="artworkAudio" src=""></audio>
-    </div>
+
 
     <!-- Artwork Details -->
     <div class="artwork-details">
