@@ -23,7 +23,7 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             margin-bottom: 20px;
         }
-        .zoomable-image {
+        /* .zoomable-image {
             position: absolute;
             top: 0;
             left: 0;
@@ -32,7 +32,15 @@
             object-fit: cover;
             transition: transform 0.2s ease;
             cursor: move;
-        }
+        } */
+
+        .zoomable-image {
+            max-width: 100%; /* Scale down if container is narrower */
+            max-height: 100%; /* Scale down if container is shorter */
+            object-fit: contain; /* Keep original aspect ratio */
+        }        
+
+
         .zoom-controls {
             position: absolute;
             bottom: 10px;
@@ -221,64 +229,95 @@
             scale = Math.max(scale / 1.2, 1);
             updateImageTransform();
         }
+
         function updateImageTransform() {
-    const containerWidth = container.offsetWidth;
-    const containerHeight = container.offsetHeight;
-    const imageWidth = image.naturalWidth * scale;
-    const imageHeight = image.naturalHeight * scale;
+            image.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+        }
 
-    // Limit panning to keep the image within the container
-    const maxTranslateX = Math.max(0, (imageWidth - containerWidth) / 2);
-    const maxTranslateY = Math.max(0, (imageHeight - containerHeight) / 2);
+        
+        image.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX - translateX;
+            startY = e.clientY - translateY;
+            image.style.cursor = 'grabbing';
+        });
 
-    translateX = Math.min(Math.max(translateX, -maxTranslateX), maxTranslateX);
-    translateY = Math.min(Math.max(translateY, -maxTranslateY), maxTranslateY);
+        // Mouse up event - stop dragging
+        document.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                image.style.cursor = 'grab';
+            }
+        });
 
-    // Apply the updated transform
-    image.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
-}
 
-image.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    startX = e.clientX - translateX;
-    startY = e.clientY - translateY;
-    image.style.cursor = 'grabbing';
-});
+        document.addEventListener('mousemove', (e) => {
 
-document.addEventListener('mouseup', () => {
-    if (isDragging) {
-        isDragging = false;
-        image.style.cursor = 'grab';
-    }
-});
+            coordDisplay.textContent = `X: ${e.clientX}, Y: ${e.clientY}`;
 
-document.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
+            if (!isDragging) return;
 
-    translateX = e.clientX - startX;
-    translateY = e.clientY - startY;
+            translateX = e.clientX - startX;
+            translateY = e.clientY - startY;
 
-    updateImageTransform();
-});
+            // Limit panning based on zoom level
+            const maxTranslateX = (scale - 1) * (container.offsetWidth / 2);
+            const maxTranslateY = (scale - 1) * (container.offsetHeight / 2);
 
-container.addEventListener('wheel', (e) => {
-    e.preventDefault();
+            translateX = Math.min(Math.max(translateX, -maxTranslateX), maxTranslateX);
+            translateY = Math.min(Math.max(translateY, -maxTranslateY), maxTranslateY);
 
-    const delta = e.deltaY > 0 ? -0.1 : 0.1;
-    const newScale = scale + delta;
+            updateImageTransform();
+        });
+        
 
-    if (newScale >= 1 && newScale <= maxScale) {
-        const rect = container.getBoundingClientRect();
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
 
-        translateX += (mouseX - container.offsetWidth / 2) * (delta / scale);
-        translateY += (mouseY - container.offsetHeight / 2) * (delta / scale);
+        // Prevent default drag behavior
+        image.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        });
 
-        scale = newScale;
-        updateImageTransform();
-    }
-}, { passive: false });
+    
+        // Mouse Wheel Zoom
+        container.addEventListener('wheel', (e) => {
+            // Prevent page scrolling
+            e.preventDefault();
+
+            // Determine zoom direction
+            const delta = e.deltaY > 0 ? -0.1 : 0.1;
+            
+            // Calculate new scale
+            const newScale = scale + delta;
+            
+            // Limit zoom between 1x and 3x
+            if (newScale >= 1 && newScale <= maxScale) {
+                // Calculate mouse position relative to container
+                const rect = container.getBoundingClientRect();
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+
+                // Calculate translation to zoom towards mouse cursor
+                const containerWidth = container.offsetWidth;
+                const containerHeight = container.offsetHeight;
+
+                // Adjust translation based on mouse position and scale change
+                translateX += (mouseX - containerWidth / 2) * (delta / scale);
+                translateY += (mouseY - containerHeight / 2) * (delta / scale);
+
+                // Update scale
+                scale = newScale;
+
+                // Limit panning
+                const maxTranslateX = (scale - 1) * (containerWidth / 2);
+                const maxTranslateY = (scale - 1) * (containerHeight / 2);
+
+                translateX = Math.min(Math.max(translateX, -maxTranslateX), maxTranslateX);
+                translateY = Math.min(Math.max(translateY, -maxTranslateY), maxTranslateY);
+
+                // Apply transformation
+                updateImageTransform();
+            }
+        }, { passive: false });
 
         // function updateImageTransform() {
         //     const imageContainer = document.querySelector('.image-container');
