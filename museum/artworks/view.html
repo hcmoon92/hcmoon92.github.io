@@ -14,7 +14,7 @@
             background-color: #f0f0f0;
             font-family: Arial, sans-serif;
         }
-        .image-container {
+        /* .image-container {
             position: relative;
             width: 1024px;
             height: 768px;
@@ -22,8 +22,17 @@
             border: 4px solid #333;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             margin-bottom: 20px;
+        }         */
+        .image-container {
+            position: relative;
+            max-width: 50%; /* Scale down if container is narrower */
+            max-height: 50%; /* Scale down if container is narrower */
+            overflow: hidden;
+            border: 4px solid #333;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
-        .zoomable-image {
+        /* .zoomable-image {
             position: absolute;
             top: 0;
             left: 0;
@@ -32,7 +41,14 @@
             object-fit: cover;
             transition: transform 0.2s ease;
             cursor: move;
-        }
+        } */
+
+        .zoomable-image {
+            max-width: 100%; /* Scale down if container is narrower */
+            max-height: 100%; /* Scale down if container is shorter */
+            object-fit: contain; /* Keep original aspect ratio */
+        }        
+
         .zoom-controls {
             position: absolute;
             bottom: 10px;
