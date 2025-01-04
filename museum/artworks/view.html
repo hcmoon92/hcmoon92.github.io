@@ -118,7 +118,7 @@
             <button onclick="zoomIn()">Zoom In</button>
             <button onclick="zoomOut()">Zoom Out</button>
         </div>
-        <div class="coordinates" id="coordDisplay">X: 0, Y: 0</div>
+        <!-- <div class="coordinates" id="coordDisplay">X: 0, Y: 0</div> -->
 
     </div>
 
@@ -242,7 +242,7 @@
 
         document.addEventListener('mousemove', (e) => {
 
-            coordDisplay.textContent = `X: ${e.clientX}, Y: ${e.clientY}`;
+            // coordDisplay.textContent = `X: ${e.clientX}, Y: ${e.clientY}`;
 
             if (!isDragging) return;
 
