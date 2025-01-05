@@ -1,7 +1,7 @@
 {
     "collections": {
         "asia_art_0001": {
-            "name": "Asian Art 0001",
+            "name": "Asian Art 0001 10EA",
             "artworks": [
                 "37514.jpg",
                 "37755.jpg",
@@ -16,7 +16,7 @@
             ]
         },
         "asia_art_0002": {
-            "name": "Asian Art 0002",
+            "name": "Asian Art 0002 13EA",
             "artworks": [
                 "38322.jpg",
                 "39859.jpg",
@@ -34,7 +34,7 @@
             ]
         },
         "asia_art_0003": {
-            "name": "Asian Art 0003",
+            "name": "Asian Art 0003 17EA",
             "artworks": [
                 "37492.jpg",
                 "38138.jpg",
@@ -56,7 +56,7 @@
             ]
         },
         "asian_art_0004": {
-            "name": "Asian Art 0004",
+            "name": "Asian Art 0004 22EA",
             "artworks": [
                 "38237.jpg",
                 "38238.jpg",
@@ -83,7 +83,7 @@
             ]
         },
         "asian_art_0005": {
-            "name": "Asian Art 0005",
+            "name": "Asian Art 0005 17EA",
             "artworks": [
                 "39208.jpg",
                 "39328.jpg",
@@ -845,6 +845,60 @@
                 "78186.jpg",
                 "894321.jpg",
                 "902211.jpg"
+            ]
+        },
+        "asian_art_0022": {
+            "name": "Asian Art 0022 49EA",
+            "artworks": [
+                "37439.jpg",
+                "37877.jpg",
+                "38102.jpg",
+                "38239.jpg",
+                "38488.jpg",
+                "38489.jpg",
+                "38511.jpg",
+                "38960.jpg",
+                "39107.jpg",
+                "39161.jpg",
+                "39197.jpg",
+                "40097.jpg",
+                "40679.jpg",
+                "41915.jpg",
+                "42067.jpg",
+                "42166.jpg",
+                "42258.jpg",
+                "42317.jpg",
+                "42494.jpg",
+                "42542.jpg",
+                "44218.jpg",
+                "44252.jpg",
+                "44257.jpg",
+                "44351.jpg",
+                "44616.jpg",
+                "44796.jpg",
+                "44892.jpg",
+                "48649.jpg",
+                "49371.jpg",
+                "49587.jpg",
+                "50209.jpg",
+                "50390.jpg",
+                "50966.jpg",
+                "51153.jpg",
+                "52438.jpg",
+                "52577.jpg",
+                "53086.jpg",
+                "53558.jpg",
+                "53560.jpg",
+                "56231.jpg",
+                "60920.jpg",
+                "61225.jpg",
+                "61658.jpg",
+                "62075.jpg",
+                "62170.jpg",
+                "72328.jpg",
+                "78196.jpg",
+                "78434.jpg",
+                "78732.jpg"
             ]
         }
     }
