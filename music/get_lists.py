@@ -14,13 +14,13 @@ def get_video_id(url):
 
 
 def fetch_youtube_playlist():
-    playlist_url = "https://www.youtube.com/playlist?list=PLLdPJGHquctExUP7PeLEu5bKIjhWTRZ6m"
+    playlist_url = "https://www.youtube.com/playlist?list=PLtR6vGKL1K7xAhGMcDj5zfw9WT1nxqhTT"
 
     playlist_data = {
         "playlists": [
             {
-                "title": "Top 20 Songs This Week 2025 ♫ Best International Songs 2025",
-                "description": "Top 20 Songs This Week 2025 ♫ Best International Songs 2025",
+                "title": "Relaxing Acoustic Music 2025 to 2026",
+                "description": "Relaxing Acoustic Music 2025 to 2026 - Best Chill Acoustic Songs 2025 Playlist",
                 "videos": []
             }
         ]
