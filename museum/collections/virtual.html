@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection View</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            transition: background 1s ease-in-out;
+        }
+
+        .entrance {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            transition: transform 1s ease, opacity 1s ease;
+        }
+
+        .door {
+            width: 200px;
+            height: 400px;
+            background: #444;
+            border: 8px solid #a67c52;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .door:hover {
+            transform: scale(1.1);
+        }
+
+        .gallery {
+            display: none;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .gallery.active {
+            display: flex;
+        }
+
+        .gallery img {
+            max-width: 200px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin: 20px;
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Entrance Door -->
+    <div class="entrance" id="entrance">
+        <div class="door" id="door">
+            Enter Gallery
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <h1 id="collectionName">Collection's Artworks</h1>
+    <a href="index.html" class="back-link">ก็ Back to Collections</a>
+    <div id="gallery" class="gallery"></div>
+
+    <script>
+        const entrance = document.getElementById('entrance');
+        const door = document.getElementById('door');
+        const gallery = document.getElementById('gallery');
+
+        // Door click event
+        door.addEventListener('click', () => {
+            entrance.style.transform = 'translateY(-100%)';
+            entrance.style.opacity = '0';
+            setTimeout(() => {
+                entrance.style.display = 'none';
+                document.body.style.background = '#f9f9f9';
+                gallery.classList.add('active');
+            }, 1000);
+        });
+
+        // Fetch the 'collection' parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const collectionKey = urlParams.get('collection');
+
+        // Fetch collections.json and load the selected collection's data
+        fetch('collections.json')
+            .then(response => response.json())
+            .then(data => {
+                const collection = data.collections[collectionKey];
+
+                if (collection) {
+                    // Set the collection's name as the title
+                    document.getElementById('collectionName').textContent = collection.name;
+
+                    // Display the collection's artworks
+                    collection.artworks.forEach(image => {
+                        const imgElement = document.createElement('img');
+                        imgElement.src = `https://raw.githubusercontent.com/hcmoon92/museum/main/collections/images/${image}`;
+                        imgElement.alt = image;
+
+                        // Redirect to view.html with collection key as a parameter on click
+                        imgElement.addEventListener('click', () => {
+                            window.location.href = `view.html?id=${image}`;
+                        });
+
+                        gallery.appendChild(imgElement);
+                    });
+                } else {
+                    console.error('collection not found!');
+                }
+            })
+            .catch(error => console.error('Error loading collection:', error));
+    </script>
+</body>
+</html>
