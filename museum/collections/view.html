@@ -239,25 +239,30 @@
                     notesElement.textContent = notes;
 
 
+					if (filename) {
+						// Fetch the text file associated with the filename
+						try {
+							const textResponse = await fetch('https://raw.githubusercontent.com/hcmoon92/museum/main/collections/artwork_done/' + filename);
+							if (!textResponse.ok) {
+								throw new Error('Failed to fetch ' + filename);
+							}
+							const text = await textResponse.text(); // Use text() for plain text files
+							descElement.textContent = text;
+						} catch (textError) {
+							console.error('Error fetching or processing the description file:', textError);
+							descElement.textContent = 'Error loading text';
+						}
+					} else {
+						console.warn('Filename is undefined, skipping second fetch.');
+						descElement.textContent = 'No description available';
+					}
+
+
                 } catch (error) {
                     console.error('Error fetching or processing search.json:', error);
                     titleElement.textContent = 'Error loading title';
                     notesElement.textContent = notes;
-                }
-
-				// Fetch the title from the search.json file
-                try {
-                    const response = await fetch('https://raw.githubusercontent.com/hcmoon92/museum/main/collections/artwork_done/'+filename);
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch search.json');
-                    }
-                    const text = await response.json();
-
-					descElement.textContent = text;
-
-                } catch (error) {
-                    console.error('Error fetching or processing search.json:', error);
-                    descElement.textContent = 'Error loading text';
+				    descElement.textContent = 'Error loading text';
                 }
 
 
