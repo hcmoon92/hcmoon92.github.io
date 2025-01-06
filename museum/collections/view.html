@@ -219,6 +219,8 @@
                 imageElement.src = `https://raw.githubusercontent.com/hcmoon92/museum/main/collections/images/${imageId}`;
                 audioElement.src = `https://raw.githubusercontent.com/hcmoon92/museum/main/collections/artwork_mp3/${audioId}.mp3`; // Match audio file without the .jpg extension
 
+				var filename;
+
                 // Fetch the title from the search.json file
                 try {
                     const response = await fetch('https://raw.githubusercontent.com/hcmoon92/museum/main/collections/artwork_done/search.json');
@@ -227,7 +229,7 @@
                     }
 
                     const idToFilenameMapping = await response.json();
-                    const filename = idToFilenameMapping[audioId];
+                    filename = idToFilenameMapping[audioId];
                     const title = filename
                         ? filename.replace(/^[\d]+-/, '').replace(/---/g, ' - ').replace(/\.txt$/, '')
                         : 'Untitled Artwork'; // Fallback title
