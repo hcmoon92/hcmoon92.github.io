@@ -66,6 +66,12 @@
                     // Set the collection's name as the title
                     document.getElementById('collectionName').textContent = collection.name;
 
+
+                    // If the title parameter exists, update the page's title
+                    if (collection.name) {
+                        document.title = collection.name;
+                    }
+
                     // Display the collection's artworks
                     const gallery = document.getElementById('gallery');
                     collection.artworks.forEach(image => {
