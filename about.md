@@ -6,7 +6,7 @@ permalink: /about/
 
 Hello!! 
 
-Welcome to My Blog!!!
+Welcome to  Blog!!!
 
 ### Introduction
 
