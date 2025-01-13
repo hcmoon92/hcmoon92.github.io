@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Walmart, 자체 생성형 AI 플랫폼 "GenAI" 공개: 요약 및 전망"
+title: "Walmart, 자체 생성형 AI 플랫폼 GenAI 공개: 요약 및 전망"
 #date: 2024-2-27
 categories: [news]
 tags: []
