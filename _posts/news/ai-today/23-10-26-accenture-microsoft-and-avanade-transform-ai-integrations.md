@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "액센츄어, 마이크로소프트, 아바나데의 AI 통합 혁신: 요약"
-date: 2023-10-26
+#date: 2023-10-26
 categories: [news]
 tags: []
 ---
