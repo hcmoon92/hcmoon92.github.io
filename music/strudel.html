@@ -1,36 +1,35 @@
-<div id="strudel-container"></div>
-<script type="module" src="https://cdn.jsdelivr.net/npm/@strudel/web@latest/dist/strudel.js"></script>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16"></p>
+<h1>Strudel + WebAudio 예제</h1>
+<p><button id="start">재생 시작</button><button id="stop">재생 정지</button></p>
 <script type="module">
-  const layers = {};
+    import { repl, note } from "https://unpkg.com/@strudel/core@latest/dist/index.js";
+    import {
+      initAudioOnFirstClick,
+      getAudioContext,
+      webaudioOutput
+    } from "https://unpkg.com/@strudel/webaudio@1.2.5/dist/index.js";
 
-  const patterns = [
-    {name: "킥/스네어", pattern: "bd sd bd sd", bank: "RolandTR909"},
-    {name: "하이햇", pattern: "hh*8", bank: "RolandTR909"},
-    {name: "베이스", pattern: "c2 ~ c2 ~ e2 ~ g1 ~", sound: "sawtooth"}
-  ];
-
-  const container = document.getElementById("strudel-container");
-
-  patterns.forEach((p, idx) => {
-    const btn = document.createElement("button");
-    btn.textContent = p.name;
-    btn.style.margin = "5px";
-
-    btn.addEventListener("click", () => {
-      if (!layers[idx]) {
-        let layer;
-        if (p.pattern.match(/[a-g][0-9]/)) {
-          layer = note(p.pattern).sound(p.sound || "sawtooth");
-        } else {
-          layer = s(p.pattern).bank(p.bank || "RolandTR909");
-        }
-        layers[idx] = layer;
-      } else {
-        delete layers[idx];
-      }
-      stack(...Object.values(layers));
+    // Web Audio 컨텍스트 & Strudel 동작 초기화
+    initAudioOnFirstClick();
+    const ctx = getAudioContext();
+    const { scheduler, setPattern } = repl({
+      defaultOutput: webaudioOutput(ctx),
+      getTime: () => ctx.currentTime
     });
 
-    container.appendChild(btn);
-  });
-</script>
+    // 예시 패턴 생성: c3 와 Eb3, G3 화음 + sawtooth 신스
+    const pattern = note("c3", ["eb3", "g3"]).s("sawtooth");
+
+    // 패턴 세팅
+    setPattern(pattern);
+
+    // 버튼 이벤트 연결
+    document.getElementById("start").addEventListener("click", () => {
+      scheduler.start();
+    });
+
+    document.getElementById("stop").addEventListener("click", () => {
+      scheduler.stop();
+    });
+  </script>
