@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Strudel 인터랙티브 플레이어</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .active { background-color: #4CAF50; color: white; }
+  </style>
+</head>
+<body>
+  <h2>악기 On/Off 컨트롤</h2>
+  <div id="buttons"></div>
+
+  <!-- Strudel 모듈 불러오기 -->
+  <script type="module">
+    import { s, note, stack } from "https://cdn.jsdelivr.net/npm/@strudel/web@latest/dist/strudel.js";
+
+    // 레이어 저장용
+    const layers = {};
+
+    // 악기 패턴 정의
+    const patterns = [
+      { name: "킥/스네어", pattern: "bd sd bd sd", bank: "RolandTR909" },
+      { name: "하이햇", pattern: "hh*8", bank: "RolandTR909" },
+      { name: "베이스", pattern: "c2 ~ c2 ~ e2 ~ g1 ~", sound: "sawtooth" }
+    ];
+
+    // 버튼 생성
+    const container = document.getElementById("buttons");
+    patterns.forEach((p, idx) => {
+      const btn = document.createElement("button");
+      btn.textContent = p.name;
+      btn.dataset.active = "false";
+
+      btn.addEventListener("click", () => {
+        if (btn.dataset.active === "false") {
+          // 악기 켜기
+          let layer;
+          if (p.pattern.match(/[a-g][0-9]/)) {
+            // 멜로디/베이스
+            layer = note(p.pattern)
+                      .sound(p.sound || "sawtooth")
+                      .lpf(550)
+                      .lpq(3)
+                      .delay(0.4)
+                      .delaytime("0.25 0.5");
+          } else {
+            // 드럼 패턴
+            layer = s(p.pattern)
+                      .bank(p.bank || "RolandTR909")
+                      .gain(1);
+          }
+          layers[idx] = layer;
+          stack(...Object.values(layers));
+          btn.dataset.active = "true";
+          btn.classList.add("active");
+        } else {
+          // 악기 끄기
+          delete layers[idx];
+          stack(...Object.values(layers));
+          btn.dataset.active = "false";
+          btn.classList.remove("active");
+        }
+      });
+
+      container.appendChild(btn);
+    });
+  </script>
+</body>
+</html>
